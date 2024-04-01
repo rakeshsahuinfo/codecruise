@@ -1,0 +1,15 @@
+[04-Jun-2022 02:52:12 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[04-Jun-2022 03:50:31 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[04-Jun-2022 10:19:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[04-Jun-2022 14:46:25 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[05-Jun-2022 08:52:08 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[07-Jun-2022 05:39:03 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[07-Jun-2022 15:28:54 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[09-Jun-2022 05:37:02 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[10-Jun-2022 09:47:40 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[14-Jun-2022 08:53:21 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[15-Jun-2022 16:37:44 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[15-Jun-2022 16:43:34 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[16-Jun-2022 12:53:28 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[22-Jul-2022 02:17:05 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29
+[22-Jul-2022 02:21:11 UTC] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/durgeshpandey215/public_html/code/event_register.php on line 29

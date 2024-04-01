@@ -121,7 +121,7 @@
                       </div>
                       <div class="col-12 col-md-9 col-lg-10">
                         <span class="head ml-2">Learn with Expert</span>
-                        <p class="ml-2">Get the personal attention with over expert Trainers & Faculty</p>
+                        <p class="ml-2">Get the personal attention with our expert Trainers & Faculty</p>
   
                       </div>
 

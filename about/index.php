@@ -13,10 +13,8 @@
 </head>
 
 <body>
-
   <!-- ======= Top Bar ======= -->
   <?php include("../component/topbar.php");?>
-
   <!-- ======= Header ======= -->
   <?php  include("../component/header.php"); ?>
   <!-- End Header -->

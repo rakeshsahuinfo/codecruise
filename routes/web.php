@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -21,4 +22,4 @@ Route::post('/admin-sign-in',[AdminController::class,'signIn'])->name('admin-sig
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out',[AdminController::class,'signOut'])->name('admin-sign-out');
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin-dashboard');
-});
+})->middleware(PreventBackHistory::class);

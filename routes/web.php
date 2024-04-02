@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LandingPageController;
 use Illuminate\Support\Facades\Route;
@@ -15,4 +15,10 @@ Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/course/{id}',[CourseController::class,'index'])->name('course');
 
 
-Route::get('/admin',[AdminController::class,'login'])->name('admin-login');
+Route::get('/admin-login',[AdminController::class,'adminLogin'])->name('login');
+Route::post('/admin-sign-in',[AdminController::class,'signIn'])->name('admin-sign-in');
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+    Route::get('/admin-sign-out',[AdminController::class,'signOut'])->name('admin-sign-out');
+    Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin-dashboard');
+});

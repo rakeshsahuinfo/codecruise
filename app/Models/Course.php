@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Course extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['name', 'description', 'course_banner', 'is_active'];
+
+    public function modules()
+    {
+        return $this->belongsToMany(Module::class, 'course_module_topics');
+    }
+
+    public function techStacks()
+    {
+        return $this->belongsToMany(TechStack::class, 'course_tech_stack');
+    }
+
+    protected $table="courses";
+}

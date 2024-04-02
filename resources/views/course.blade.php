@@ -1,6 +1,18 @@
 @extends('layouts.master')
 @section('title','CodeCruise | Course')
 @section('headasset')
+<style>
+    .card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .card img {
+        width: 100%;
+        height: auto;
+    }
+</style>
 @stop
 @section('content')
 <!-- ======= Top Bar ======= -->
@@ -85,112 +97,89 @@
     </div>
 </div>
 <div class="container">
-    <div class="row" id="col">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow " data-aos="zoom-in-up">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
                 <img src="{{asset('assets/img/IMGS/R.png')}}" alt="" class="p-3">
-                <div class="card-tittle  px-4">HTML5</div>
-                <div class="card-body">
-
-                </div>
+                <div class="card-tittle px-4 text-center">HTML5</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
                 <img src="{{asset('assets/img/IMGS/R.jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">CSS AND SASS</div>
-                <div class="card-body">
-
-                </div>
+                <div class="card-tittle px-4 text-center">CSS AND SASS</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow " data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/topic/OIP.jfif')}}" alt="" class="p-3 ">
-                <div class="card-tittle  px-4">JAVASCRIPT</div>
-                <div class="card-body">
-
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.png')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">HTML5</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/OIP (1).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">TYPESCRIPT</div>
-                <div class="card-body">
-
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.jfif')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">CSS AND SASS</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/maxresdefault.jpg')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">ECMA SCRIPT</div>
-                <div class="card-body">
-
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.png')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">HTML5</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow " data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/OIP (2).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle  px-4">BOOTSTRAP</div>
-                <div class="card-body">
-
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.jfif')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">CSS AND SASS</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/download.jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">JQUERY AND AJAX</div>
-                <div class="card-body">
-
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.png')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">HTML5</div>
+                <div class="card-body"></div>
             </div>
         </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/download (24).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">BASIC AND ADVANCED PYTHON PROGRAMMING</div>
-                <div class="card-body">
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.jfif')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">CSS AND SASS</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/download (25).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">PYTHON FRAMWORK DJAGOFLASK/FLASK</div>
-                <div class="card-body">
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.png')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">HTML5</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/OIP (15).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">MY-SQL</div>
-                <div class="card-body">
-                    <hr>
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.jfif')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">CSS AND SASS</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow" data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/IMGS/download (3).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">SCM WITH GITHUB</div>
-                <div class="card-body">
-                    <hr>
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.png')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">HTML5</div>
+                <div class="card-body"></div>
             </div>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2">
-            <div class="card shadow " data-aos="zoom-in-up">
-                <img src="{{asset('assets/img/topic/download (1).jfif')}}" alt="" class="p-3">
-                <div class="card-tittle px-4">CICD WITH JENKINS / AZURE DEVOPS</div>
-                <div class="card-body">
-
-                </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
+                <img src="{{asset('assets/img/IMGS/R.jfif')}}" alt="" class="p-3">
+                <div class="card-tittle px-4 text-center">CSS AND SASS</div>
+                <div class="card-body"></div>
             </div>
         </div>
     </div>

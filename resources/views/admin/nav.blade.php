@@ -9,7 +9,7 @@
             <div class="sb-sidenav-menu-heading">Masters</div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsemaster" aria-expanded="false" aria-controls="collapsemaster">
                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                Master Modules
+                Master
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
             </a>
             <div class="collapse" id="collapsemaster" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">

@@ -1,14 +1,14 @@
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="5000">
-            <img src="{{asset('assets/img/slide/slide-1.jpg')}}" class="d-block img-fluid brightness" id="img1" alt="...">
+            <img src="{{asset('assets/img/slide/slide-1.png')}}" class="d-block img-fluid brightness" id="img1" alt="...">
             <div class="carousel-caption  d-md-block">
                 <h3>SAIL SMOOTH IN TECH OCEAN</h3>
                 <p class="d-none d-md-block">WE ARE CODE CRUISE</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <img src="{{asset('assets/img/slide/online-course-gab92320ce_1920.jpg')}}" class="d-block img-fluid brightness"
+            <img src="{{asset('assets/img/slide/slide-2.png')}}" class="d-block img-fluid brightness"
                 id="img2" alt="...">
             <div class="carousel-caption d-md-block">
                 <h3>COMPLETE TRAINING SOLUTION AT <BR>ONE PLACE</h3>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{asset('assets/img/online-g83a52dded_1280.jpg')}}" class="d-block img-fluid brightness" id="img3"
+            <img src="{{asset('assets/img/slide/slide-1.png')}}" class="d-block img-fluid brightness" id="img3"
                 alt="...">
             <div class="carousel-caption d-md-block">
                 <h3>CORPORATE AND ON CAMPUS TRAINING</h3>

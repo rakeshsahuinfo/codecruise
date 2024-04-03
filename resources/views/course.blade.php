@@ -97,6 +97,99 @@
     </div>
 </div>
 <div class="container">
+    <a class="btn btn-success mx-2">SYLLABUS AND SCHEDULE</a>
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 mt-4 mx-2">
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Schedule for the <strong>BootCamp </strong>is 3 months divided in 16 weeks (5 days a week and 6 hours daily divided in pre and post lunch sessions each of 2 hours)</span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt;"><strong><span style="line-height: 107%;">Week 1 to week 3:</span></strong></span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Design Web pages using HTML5, CSS and JS</span></p>
+            <ul style="margin-bottom: 0cm; margin-top: 0px;">
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Introduction to HTML </span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Basic HTML tags</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Formatting Tags</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Modern HTML5 tags</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Class and ID attributes </span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">CSS (Inline, embedded and External)</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Working with images and media files</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Media queries</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">HTML and CSS framework Bootstrap</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Creating responsive static website <strong>(First Project)</strong></span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Week 2</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Introduction to JavaScript</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Built-in functions in JS</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">DOM manipulation and JS objects</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Modern JavaScript using ECMAScript </span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">JQuery and AJAX</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Fetch API</span></li>
+            <li style="margin: 0cm 0cm 8pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Working with JSON and Arrays</span></li>
+            </ul>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt;"><strong><span style="line-height: 107%;">Week 4 and week 5:</span></strong></span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Introduction to My-SQL DBMS</span></p>
+            <ul style="margin-bottom: 0cm; margin-top: 0px;">
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Data Definition Language query</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Creating database and table </span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Modifying tables and other database objects</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Data manipulation language queries</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Insert, delete and update queries</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Working with index and triggers</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Referential integrity and normalization</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Data query language</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Select queries</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Join, Sub-Queries</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Functions and procedures in T-SQL</span></li>
+            <li style="margin: 0cm 0cm 8pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Creating real time project database architecture<strong>(Second Project)</strong></span></li>
+            </ul>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt;"><strong><span style="line-height: 107%;">Week 6 to week 7:</span></strong></span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Web development concept using core PHP.</span></p>
+            <ul style="margin-bottom: 0cm; margin-top: 0px;">
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">PHP script</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Working with different data types</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Built-in functions</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Control statements</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Programs to build logic</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Introduction to OOP</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Working with PHP and MY-SQL database</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">CRUD application using OOP<strong>(Third Project)</strong></span></li>
+            <li style="margin: 0cm 0cm 8pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Exception handling</span></li>
+            </ul>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt;"><strong><span style="line-height: 107%;">Week 8 to Week 13:</span></strong></span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Complete project development using PHP(Laravel)</span></p>
+            <ul style="margin-bottom: 0cm; margin-top: 0px;">
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Creating projects, Dependency management using composer</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">PHP artisan command for Laravel web artisan</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Laravel Project Structure</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Routes and redirects</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Template Engine using Laravel Blade</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Template Inheritance</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Models and Controllers</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Working with My-SQL database and database migrations</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">CRUD Application</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Laravel Eloquent ORM</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 0.0001pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">Laravel Authentication setup</span></li>
+            <li style="text-align: justify; line-height: normal; background: white; margin: 0cm 0cm 8pt 0px; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; font-family: Arial, sans-serif; color: #333333;">REST API and JWT http authentication</span></li>
+            </ul>
+            <p style="margin: 0cm 0cm 8pt 18pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Create 2 different projects</span></p>
+            <ol style="margin-bottom: 0cm; margin-top: 0px;">
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">A complete Dynamic web application with MY-SQL as back-end <strong>(Forth Project)</strong></span></li>
+            <li style="margin: 0cm 0cm 8pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">A Back-end application to provide API&rsquo;s to work with single page application <strong>(Fifth Project)</strong></span></li>
+            </ol>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt;"><strong><span style="line-height: 107%;">Week 14 to week 16:</span></strong></span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt;"><strong><span style="line-height: 107%;">Internship</span></strong></span></p>
+            <p style="margin: 0cm 0cm 8pt; line-height: 107%; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Project dissertation and project presentation</span></p>
+            <ol style="margin-bottom: 0cm; margin-top: 0px;">
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Prepare documentation</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Project Architecture</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Database Architecture</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Modules </span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Test Plans</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Coding</span></li>
+            <li style="margin: 0cm 0cm 0.0001pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Testing and debugging</span></li>
+            <li style="margin: 0cm 0cm 8pt 0px; line-height: 107%; font-size: 14pt; font-family: Calibri, sans-serif;"><span style="font-size: 14pt; line-height: 107%;">Hosting on server</span></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
             <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">

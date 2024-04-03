@@ -57,7 +57,7 @@ CREATE TABLE `courses` (
   `description` text DEFAULT NULL,
   `course_banner` varchar(255) NOT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -77,7 +77,7 @@ CREATE TABLE `course_module_topics` (
   `no_of_hours` decimal(10,2) DEFAULT NULL,
   `description` text DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -92,7 +92,7 @@ CREATE TABLE `course_tech_stack` (
   `course_id` bigint(20) DEFAULT NULL,
   `tech_stack_id` bigint(20) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -178,7 +178,7 @@ CREATE TABLE `modules` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -227,7 +227,7 @@ CREATE TABLE `tech_stacks` (
   `name` varchar(255) DEFAULT NULL,
   `tech_stack_logo` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -241,7 +241,7 @@ CREATE TABLE `topics` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

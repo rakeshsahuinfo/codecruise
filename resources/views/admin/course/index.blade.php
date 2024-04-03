@@ -39,9 +39,14 @@
                                     <th>Action</th>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>CourseDuration</th>
+                                    <th>Schedule</th>
+                                    <th>DeliveryMode</th>
+                                    <th>Fees</th>
+                                    <th>Discount</th>
                                     <th>Banner</th>
                                     <th>Status</th>
-                                    <th>Created date</th>
+                                    <th>CreatedDate</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -49,9 +54,14 @@
                                     <th>Action</th>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>CourseDuration</th>
+                                    <th>Schedule</th>
+                                    <th>DeliveryMode</th>
+                                    <th>Fees</th>
+                                    <th>Discount</th>
                                     <th>Banner</th>
                                     <th>Status</th>
-                                    <th>Created date</th>
+                                    <th>CreatedDate</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -71,6 +81,11 @@
                                     </td>
                                     <td>{{$c->name}}</td>
                                     <td>{!! $c->description !!}</td>
+                                    <th>{{$c->course_duration}}</th>
+                                    <th>{{$c->class_schedule}}</th>
+                                    <th>{{$c->delivery_mode}}</th>
+                                    <th>{{$c->course_fee}}</th>
+                                    <th>{{$c->current_discount}}</th>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('storage/course_banner/' . $c->course_banner) }}" alt="Main Banner">
                                     </td>

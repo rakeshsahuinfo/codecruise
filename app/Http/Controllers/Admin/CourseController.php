@@ -11,21 +11,24 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
-    public function index(){
-        try{
-            $course=Course::orderBy('name','asc')->get();
-            return view('admin.course.index',['course'=>$course]);
-        }catch(Exception $ex){
-            return back()->with(['msg'=>'Something went wrong','status'=>'danger']);
+    public function index()
+    {
+        try {
+            $course = Course::orderBy('name', 'asc')->get();
+            return view('admin.course.index', ['course' => $course]);
+        } catch (Exception $ex) {
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }
 
-    public function new(){
+    public function new()
+    {
         return view('admin.course.new');
     }
 
-    public function create(Request $request){
-        try{
+    public function create(Request $request)
+    {
+        try {
             // return $request;
             $request->validate([
                 'course_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
@@ -33,32 +36,39 @@ class CourseController extends Controller
             $image = $request->file('course_banner');
             $imageName = time() . '.' . $image->extension();
             $image->storeAs('public/course_banner', $imageName);
-    
+
             Course::create([
                 'name' => $request->name,
                 'description' => $request->description,
+                'course_duration' => $request->course_duration,
+                'class_schedule' => $request->class_schedule,
+                'delivery_mode' => $request->delivery_mode,
+                'course_fee' => $request->course_fee,
+                'current_discount' => $request->current_discount,
                 'course_banner' => $imageName,
                 'is_active' => $request->is_active
             ]);
 
             return redirect('/admin/course')->with(["msg" => "Course Created", "status" => "success"]);
-        }catch(Exception $ex){
+        } catch (Exception $ex) {
             Log::info($ex);
-            return back()->with(['msg'=>'Something went wrong','status'=>'danger']);
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }
 
-    public function edit($id){
-        try{
-            $course=Course::find($id);
-            return view('admin.course.edit',['course'=>$course]);
-        }catch(Exception $ex){
-            return back()->with(['msg'=>'Something went wrong','status'=>'danger']);
+    public function edit($id)
+    {
+        try {
+            $course = Course::find($id);
+            return view('admin.course.edit', ['course' => $course]);
+        } catch (Exception $ex) {
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }
 
-    public function update(Request $request){
-        try{
+    public function update(Request $request)
+    {
+        try {
             // return $request;
             $course = Course::findOrFail($request->course_id);
             if ($request->hasFile('course_banner')) {
@@ -66,26 +76,31 @@ class CourseController extends Controller
                 if ($course->course_banner) {
                     Storage::delete('public/course_banner/' . $course->course_banner);
                 }
-    
+
                 // Upload and store the new image
                 $image = $request->file('course_banner');
                 $imageName = time() . '.' . $image->extension();
                 $image->storeAs('public/course_banner', $imageName);
-    
+
                 // Set the new image name
                 $course->course_banner = $imageName;
             }
-    
+
             // Update or create course data
             $course->name = $request->name;
             $course->description = $request->description;
+            $course->course_duration = $request->course_duration;
+            $course->class_schedule = $request->class_schedule;
+            $course->delivery_mode = $request->delivery_mode;
+            $course->course_fee = $request->course_fee;
+            $course->current_discount = $request->current_discount;
             $course->is_active = $request->is_active;
             $course->update();
 
             return redirect('/admin/course')->with(["msg" => "Course Updated", "status" => "success"]);
-        }catch(Exception $ex){
+        } catch (Exception $ex) {
             Log::info($ex);
-            return back()->with(['msg'=>'Something went wrong','status'=>'danger']);
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }
 }

@@ -50,6 +50,26 @@
                                             <label for="description">Course Description</label>
                                             <textarea class="form-control" name="description" id="description" cols="30" rows="5"></textarea>
                                         </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="course_duration">Course Duration</label>
+                                            <input type="text" class="form-control" name="course_duration" id="course_duration" placeholder="In month or Hours">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="class_schedule">Class Schedule</label>
+                                            <input type="text" class="form-control" name="class_schedule" id="class_schedule" placeholder="2-3 Hours">
+                                        </div>
+                                        <div class="form-group w-100 my-4">
+                                            <label for="delivery_mode">Delivery Mode</label>
+                                            <input type="text" class="form-control" name="delivery_mode" id="delivery_mode" placeholder="Online, Offline or Hybrid">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="course_fee">Course Fees</label>
+                                            <input type="text" class="form-control" name="course_fee" id="course_fee" placeholder="Rs.5000">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="current_discount">Current Discount</label>
+                                            <input type="text" class="form-control" name="current_discount" id="current_discount" placeholder="10% or Flat Rs.2000">
+                                        </div>
                                         
                                         <div class="form-group w-100  my-4">
                                             <label for="course_banner">Course Banner</label>

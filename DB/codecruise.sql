@@ -2,6 +2,11 @@ create table courses(
 id bigint primary key auto_increment,
 name varchar(255),
 description text,
+course_duration varchar(255),
+class_schedule varchar(255),
+delivery_mode varchar(255),
+course_fee decimal(11,2),
+current_discount decimal(15,2),
 course_banner varchar(255);
 is_active boolean,
 created_at timestamp default current_timestamp,

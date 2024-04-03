@@ -65,7 +65,7 @@
                                         </div>
                                       
                                         <div class="form-group text-center mt-2" style="width: 100%;">
-                                            <button type="submit" class="btn btn-submit btn-dark w-100">CRAETE COURSE <i class="fas fa-arrow-right"></i></button>
+                                            <button type="submit" class="btn btn-submit btn-dark w-100">CRAETE COURSE MODULE <i class="fas fa-arrow-right"></i></button>
                                         </div>
                                     </div>
                                 </div>

@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <div class="col-md-8 offset-md-1">
                             <form id="create-property-amenity" method="POST"
-                                action="{{route('create-course')}}" enctype="multipart/form-data">
+                                action="{{route('update-course-module')}}" enctype="multipart/form-data">
                                 <input type="hidden" name="course_id" value="{{$course_module->course_id}}">
                                 <input type="hidden" name="course_module_id" value="{{$course_module->id}}">
                                 <div class="bp-list-wrapper">
@@ -54,7 +54,7 @@
                                        
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Syllabus Description</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="40">{{ $course_module->description }}"</textarea>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="40">{{ $course_module->description }}</textarea>
                                         </div>
                                     
                                         <div class="form-group w-100 my-4">
@@ -66,7 +66,7 @@
                                         </div>
                                       
                                         <div class="form-group text-center mt-2" style="width: 100%;">
-                                            <button type="submit" class="btn btn-submit btn-dark w-100">CRAETE COURSE <i class="fas fa-arrow-right"></i></button>
+                                            <button type="submit" class="btn btn-submit btn-dark w-100">UPDATE COURSE MODULE <i class="fas fa-arrow-right"></i></button>
                                         </div>
                                     </div>
                                 </div>

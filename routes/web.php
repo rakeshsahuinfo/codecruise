@@ -31,4 +31,5 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/show-course/{id}',[AdminCourseController::class,'show'])->name('show-course');
     Route::get('/add-course-module/{course_id}',[AdminCourseController::class,'addCourseModule'])->name('add-course-module');
     Route::post('/create-course-module',[AdminCourseController::class,'createCourseModule'])->name('create-course-module');
+    Route::post('/update-course-module',[AdminCourseController::class,'updateCourseModule'])->name('update-course-module');
 });

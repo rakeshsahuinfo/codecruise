@@ -16,7 +16,7 @@ class_schedule varchar(255),
 delivery_mode varchar(255),
 course_fee decimal(11,2),
 current_discount decimal(15,2),
-course_banner varchar(255);
+course_banner varchar(255),
 is_active boolean,
 created_at timestamp default current_timestamp,
 updated_at timestamp default current_timestamp,

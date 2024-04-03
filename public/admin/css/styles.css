@@ -11241,3 +11241,12 @@ body {
   font-size: 0.75rem;
   border-radius: 0.375rem !important;
 }
+
+.action-container{
+  width:100%;
+  text-align: right;
+}
+
+.action-btn{
+  width: 300x;margin-left:5px
+}

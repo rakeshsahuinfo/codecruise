@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class TechStack extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'tech_stack_logo', 'is_active'];
+    protected $fillable = ['name', 'tech_stack_logo', 'is_active','created_at','updated_at'];
 
     public function courses()
     {

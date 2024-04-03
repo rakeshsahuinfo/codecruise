@@ -691,7 +691,7 @@ transition: 0.5s all ease;
 
 .brightness {
   -webkit-filter: brightness(0.58);
-  filter: brightness(0.58);
+  filter: brightness(0.95);
 }
 
 .carousel-caption p {

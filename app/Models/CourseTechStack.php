@@ -11,7 +11,9 @@ class CourseTechStack extends Model
     protected $fillable = [
         'course_id',
         'tech_stack_id',
-        'is_active'
+        'is_active',
+        'created_at',
+        'updated_at'
     ];
 
     public function course()

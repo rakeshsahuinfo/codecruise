@@ -16,7 +16,9 @@ class CourseModuleTopic extends Model
         'no_of_lectures',
         'no_of_hours',
         'description',
-        'is_active'
+        'is_active',
+        'created_at',
+        'updated_at'
     ];
 
     public function course()

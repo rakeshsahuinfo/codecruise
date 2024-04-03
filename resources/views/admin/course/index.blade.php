@@ -70,7 +70,7 @@
                                         </div>
                                     </td>
                                     <td>{{$c->name}}</td>
-                                    <td>{{$c->description}}</td>
+                                    <td>{!! $c->description !!}</td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('storage/course_banner/' . $c->course_banner) }}" alt="Main Banner">
                                     </td>

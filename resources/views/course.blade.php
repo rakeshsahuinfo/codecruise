@@ -80,17 +80,21 @@
     <div class="card shadow Schedule">
         <div class="card-body">
             <div class="row ">
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-3 col-md-3">
                     <p class="p" style="cursor: pointer;">Program Duration</p>
                     <h4>6-8 Months</h4>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-3 col-md-3">
                     <p class="p" style="cursor: pointer;">Class Schedule</p>
                     <h4>2 to 3 hours</h4>
                 </div>
-                <div class="col-12 col-sm-6 col-md-4">
+                <div class="col-12 col-sm-3 col-md-3">
                     <p class="p" style="cursor: pointer;">Delivery Mode</p>
                     <h4>online and offline</h4>
+                </div>
+                <div class="col-12 col-sm-3 col-md-3">
+                    <p class="p" style="cursor: pointer;">Program Fees</p>
+                    <h4>Rs. 40000.00</h4>
                 </div>
             </div>
         </div>

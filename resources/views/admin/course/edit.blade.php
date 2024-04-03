@@ -12,7 +12,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h3 class="mt-4 text-uppercase">Courses</h3>
+                <h3 class="mt-4 text-uppercase">Edit Course</h3>
                
                 <div class="action-container">
                     <a href="{{route('admin-course')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-eye mx-1'></i> All Courses</a>
@@ -46,6 +46,17 @@
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Course Name</label>
                                             <input type="text" class="form-control" name="name" id="name" value="{{$course->name}}">
+                                        </div>
+                                        <div class="form-group w-100 my-4">
+                                            <label for="course_type_id">Course Type</label>
+                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="course_type_id" id="course_type_id" required>
+                                                
+                                                @if($course_type)
+                                                @foreach($course_type as $ct)
+                                                <option value="{{$ct->id}}" {{$course->course_type_id==$ct->course_type_id?"selected":""}}>{{$ct->name}}</option>
+                                                @endforeach
+                                                @endif
+                                            </select>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Course Description</label>

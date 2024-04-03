@@ -38,6 +38,7 @@
                                 <tr>
                                     <th>Action</th>
                                     <th>Name</th>
+                                    <th>CourseType</th>
                                     <th>Description</th>
                                     <th>CourseDuration</th>
                                     <th>Schedule</th>
@@ -53,6 +54,7 @@
                                 <tr>
                                     <th>Action</th>
                                     <th>Name</th>
+                                    <th>CourseType</th>
                                     <th>Description</th>
                                     <th>CourseDuration</th>
                                     <th>Schedule</th>
@@ -70,16 +72,21 @@
                                 <tr>
                                     <td>
                                         <div class='d-flex'>
-                                            <a href="{{route('show-course',$c->id)}}" class='text-info'> <i class='fas fa-eye'></i></a>                                
-                                            <a href="{{route('edit-course',$c->id)}}" class='mx-3 text-primary'> <i class='fas fa-edit'></i></a>
-                                            <a href='#'
-                                                class='text-danger'
-                                                data-class-level='$val' onclick='deleteModelData($val)'  data-toggle='modal'  data-target='#manage_model_data'>
-                                                <i class='fas fa-trash'></i>
-                                            </a>
+                                            <a href="{{route('show-course',$c->id)}}" title="View Course" class='text-dark'> <i class='fas fa-eye'></i></a>                                
+                                            <a href="{{route('edit-course',$c->id)}}" title="Edit Course" class='mx-3 text-primary'> <i class='fas fa-edit'></i></a>
+                                            <a href="{{route('edit-course',$c->id)}}" title="Delete Course" class='text-danger'> <i class='fas fa-trash'></i></a>
+                                        </div>
+                                        <div class='d-flex mt-2'>
+                                            <a href="{{route('add-course-module',$c->id)}}" title="Add Syllabus" class='text-dark'> <i class='fas fa-plus-circle'></i></a>                                
+                                            <a href="{{route('edit-course',$c->id)}}" title="Edit Syllabus" class='mx-3 text-primary'> <i class='fas fa-edit'></i></a>
+                                        </div>
+                                        <div class='d-flex mt-2'>
+                                            <a href="{{route('show-course',$c->id)}}" title="Add Schedule" class='text-dark'> <i class='fas fa-hourglass'></i></a>                                
+                                            <a href="{{route('edit-course',$c->id)}}" title="Edit Schedule" class='mx-3 text-primary'> <i class='fas fa-edit'></i></a>
                                         </div>
                                     </td>
                                     <td>{{$c->name}}</td>
+                                    <td>{{$c->course_type_name}}</td>
                                     <td>{!! $c->description !!}</td>
                                     <th>{{$c->course_duration}}</th>
                                     <th>{{$c->class_schedule}}</th>

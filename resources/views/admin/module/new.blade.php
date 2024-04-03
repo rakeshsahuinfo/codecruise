@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title','CODECRUISE | NEW COURSE')
+@section('title','CODECRUISE | ADD COURSE MODULE')
 @section('headasset')
 @stop
 @section('content')
@@ -12,7 +12,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h3 class="mt-4 text-uppercase">New Course</h3>
+                <h3 class="mt-4 text-uppercase">Add Course Module</h3>
                
                 <div class="action-container">
                     <a href="{{route('admin-course')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-eye mx-1'></i> All Courses</a>
@@ -20,7 +20,7 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('admin-course')}}">Courses</a></li>
-                    <li class="breadcrumb-item active">New Course</li>
+                    <li class="breadcrumb-item active">Add Module</li>
                 </ol>
                 <div class="card mb-4 {{session('msg')?'':'d-none'}}">
                     <div class="alert {{session('status')?'alert-'.session('status'):''}} alert-dismissible">
@@ -32,61 +32,30 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        NEW COURSE
+                        NEW MODULE WISE SYLLABUS
                     </div>
                     <div class="card-body">
                         <div class="col-md-8 offset-md-1">
                             <form id="create-property-amenity" method="POST"
                                 action="{{route('create-course')}}" enctype="multipart/form-data">
+                                <input type="hidden" name="course_id" value="{{$course->id}}">
                                 <div class="bp-list-wrapper">
                                     @csrf
                                     <div class="form-row form-row-2 px-3 py-2">
-                                      
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Course Name</label>
+                                            <input type="text" class="form-control" readonly value="{{$course->name}}">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="name">Module Title(Optional)</label>
                                             <input type="text" class="form-control" name="name" id="name">
                                         </div>
-                                        <div class="form-group w-100 my-4">
-                                            <label for="course_type_id">Course Type</label>
-                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="course_type_id" id="course_type_id" required>
-                                                <option value="" selected>Select course type</option>
-                                                @if($course_type)
-                                                @foreach($course_type as $ct)
-                                                <option value="{{$ct->id}}">{{$ct->name}}</option>
-                                                @endforeach
-                                                @endif
-                                            </select>
-                                        </div>
+                                       
                                         <div class="form-group w-100  my-4">
-                                            <label for="description">Course Description</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="5"></textarea>
+                                            <label for="description">Syllabus Description</label>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="40"></textarea>
                                         </div>
-                                        <div class="form-group w-100  my-4">
-                                            <label for="course_duration">Course Duration</label>
-                                            <input type="text" class="form-control" name="course_duration" id="course_duration" placeholder="In month or Hours">
-                                        </div>
-                                        <div class="form-group w-100  my-4">
-                                            <label for="class_schedule">Class Schedule</label>
-                                            <input type="text" class="form-control" name="class_schedule" id="class_schedule" placeholder="2-3 Hours">
-                                        </div>
-                                        <div class="form-group w-100 my-4">
-                                            <label for="delivery_mode">Delivery Mode</label>
-                                            <input type="text" class="form-control" name="delivery_mode" id="delivery_mode" placeholder="Online, Offline or Hybrid">
-                                        </div>
-                                        <div class="form-group w-100  my-4">
-                                            <label for="course_fee">Course Fees</label>
-                                            <input type="text" class="form-control" name="course_fee" id="course_fee" placeholder="Rs.5000">
-                                        </div>
-                                        <div class="form-group w-100  my-4">
-                                            <label for="current_discount">Current Discount</label>
-                                            <input type="text" class="form-control" name="current_discount" id="current_discount" placeholder="10% or Flat Rs.2000">
-                                        </div>
-                                        
-                                        <div class="form-group w-100  my-4">
-                                            <label for="course_banner">Course Banner</label>
-                                            <input type="file" accept="image/*" class="form-control" name="course_banner" id="course_banner">
-                                        </div>
-                                        
+                                    
                                         <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>
                                             <select class="selectpicker form-control" data-live-search="true" data-size="8" name="is_active" id="is_active" required>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CourseType;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +15,10 @@ class CourseController extends Controller
     public function index()
     {
         try {
-            $course = Course::orderBy('name', 'asc')->get();
+            $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')
+                ->select('courses.*', 'course_type.name as course_type_name')
+                ->orderBy('courses.name', 'asc')
+                ->get();
             return view('admin.course.index', ['course' => $course]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
@@ -23,7 +27,8 @@ class CourseController extends Controller
 
     public function new()
     {
-        return view('admin.course.new');
+        $course_type = CourseType::all();
+        return view('admin.course.new', ['course_type' => $course_type]);
     }
 
     public function create(Request $request)
@@ -39,6 +44,7 @@ class CourseController extends Controller
 
             Course::create([
                 'name' => $request->name,
+                'course_type_id' => $request->course_type_id,
                 'description' => $request->description,
                 'course_duration' => $request->course_duration,
                 'class_schedule' => $request->class_schedule,
@@ -59,8 +65,9 @@ class CourseController extends Controller
     public function edit($id)
     {
         try {
+            $course_type = CourseType::all();
             $course = Course::find($id);
-            return view('admin.course.edit', ['course' => $course]);
+            return view('admin.course.edit', ['course' => $course, 'course_type' => $course_type]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
@@ -88,6 +95,7 @@ class CourseController extends Controller
 
             // Update or create course data
             $course->name = $request->name;
+            $course->course_type_id = $request->course_type_id;
             $course->description = $request->description;
             $course->course_duration = $request->course_duration;
             $course->class_schedule = $request->class_schedule;
@@ -100,6 +108,30 @@ class CourseController extends Controller
             return redirect('/admin/course')->with(["msg" => "Course Updated", "status" => "success"]);
         } catch (Exception $ex) {
             Log::info($ex);
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+        }
+    }
+
+    public function addCourseModule($course_id){
+        try {
+            $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')
+                ->select('courses.*', 'course_type.name as course_type_name')
+                ->where('courses.id', $course_id)
+                ->first();
+            return view('admin.module.new', ['course' => $course]);
+        } catch (Exception $ex) {
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+        }
+    }
+
+    public function createaddCourseModule(Request $request){
+        try {
+            $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')
+                ->select('courses.*', 'course_type.name as course_type_name')
+                ->where('courses.id', $request->course_id)
+                ->first();
+            return $request;
+        } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }

@@ -15,8 +15,6 @@
             <div class="collapse" id="collapsemaster" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="{{route('admin-course')}}">Courses</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Modules</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Topics</a>
                     <a class="nav-link" href="layout-sidenav-light.html">Tech Stacks</a>
                 </nav>
             </div>

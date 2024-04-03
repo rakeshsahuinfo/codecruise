@@ -77,13 +77,10 @@
                                             <a href="{{route('edit-course',$c->id)}}" title="Delete Course" class='text-danger'> <i class='fas fa-trash'></i></a>
                                         </div>
                                         <div class='d-flex mt-2'>
-                                            <a href="{{route('add-course-module',$c->id)}}" title="Add Syllabus" class='text-dark'> <i class='fas fa-plus-circle'></i></a>                                
-                                            <a href="{{route('edit-course',$c->id)}}" title="Edit Syllabus" class='mx-3 text-primary'> <i class='fas fa-edit'></i></a>
+                                            <a href="{{route('add-course-module',$c->id)}}" target="_new" title="Module Wise Syllabus" class='text-dark'> <i class='fas fa-file-pdf'></i></a>                                
+                                            <a href="{{route('show-course',$c->id)}}" target="_new" title="Course Schedule" class='mx-3 text-dark'> <i class='fas fa-hourglass'></i></a>
                                         </div>
-                                        <div class='d-flex mt-2'>
-                                            <a href="{{route('show-course',$c->id)}}" title="Add Schedule" class='text-dark'> <i class='fas fa-hourglass'></i></a>                                
-                                            <a href="{{route('edit-course',$c->id)}}" title="Edit Schedule" class='mx-3 text-primary'> <i class='fas fa-edit'></i></a>
-                                        </div>
+                                       
                                     </td>
                                     <td>{{$c->name}}</td>
                                     <td>{{$c->course_type_name}}</td>

@@ -12,7 +12,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h3 class="mt-4 text-uppercase">Add Module Wise Syllabus</h3>
+                <h3 class="mt-4 text-uppercase">Edit Module Wise Syllabus</h3>
                
                 <div class="action-container">
                     <a href="{{route('admin-course')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-eye mx-1'></i> All Courses</a>
@@ -20,7 +20,7 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('admin-course')}}">Courses</a></li>
-                    <li class="breadcrumb-item active">Add Module</li>
+                    <li class="breadcrumb-item active">Edit Module</li>
                 </ol>
                 <div class="card mb-4 {{session('msg')?'':'d-none'}}">
                     <div class="alert {{session('status')?'alert-'.session('status'):''}} alert-dismissible">
@@ -37,23 +37,24 @@
                     <div class="card-body">
                         <div class="col-md-8 offset-md-1">
                             <form id="create-property-amenity" method="POST"
-                                action="{{route('create-course-module')}}" enctype="multipart/form-data">
-                                <input type="hidden" name="course_id" value="{{$course->id}}">
+                                action="{{route('create-course')}}" enctype="multipart/form-data">
+                                <input type="hidden" name="course_id" value="{{$course_module->course_id}}">
+                                <input type="hidden" name="course_module_id" value="{{$course_module->id}}">
                                 <div class="bp-list-wrapper">
                                     @csrf
                                     <div class="form-row form-row-2 px-3 py-2">
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Course Name</label>
-                                            <input type="text" class="form-control" readonly value="{{$course->name}}">
+                                            <input type="text" class="form-control" readonly value="{{$course_module->course_name}}">
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Module Title(Optional)</label>
-                                            <input type="text" class="form-control" name="name" id="name">
+                                            <input type="text" class="form-control" name="name" id="name" value="{{$course_module->name}}">
                                         </div>
                                        
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Syllabus Description</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="40"></textarea>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="40">{{ $course_module->description }}"</textarea>
                                         </div>
                                     
                                         <div class="form-group w-100 my-4">

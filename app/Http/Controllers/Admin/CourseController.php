@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CourseModule;
 use App\Models\CourseType;
 use Exception;
 use Illuminate\Http\Request;
@@ -114,23 +115,34 @@ class CourseController extends Controller
 
     public function addCourseModule($course_id){
         try {
-            $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')
+            $course_module=CourseModule::join('courses', 'course_modules.course_id', '=', 'courses.id')
+            ->select('course_modules.*', 'courses.name as course_name')
+            ->where('courses.id', $course_id)
+            ->first();
+            if($course_module){
+                return view('admin.module.edit', ['course_module' => $course_module]);
+            }else{
+                $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')
                 ->select('courses.*', 'course_type.name as course_type_name')
                 ->where('courses.id', $course_id)
                 ->first();
-            return view('admin.module.new', ['course' => $course]);
+                return view('admin.module.new', ['course' => $course]);
+            }
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }
 
-    public function createaddCourseModule(Request $request){
+    public function createCourseModule(Request $request){
         try {
-            $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')
-                ->select('courses.*', 'course_type.name as course_type_name')
-                ->where('courses.id', $request->course_id)
-                ->first();
-            return $request;
+            
+            $course_module=CourseModule::join('courses', 'course_modules.course_id', '=', 'courses.id')
+            ->select('course_modules.*', 'courses.name as course_name')
+            ->where('courses.id', $request->course_id)
+            ->first();
+            $cm=new CourseModule($request->all());
+            $cm->save();
+            return redirect('/admin/course')->with(["msg" => "Course Module Added", "status" => "success"]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }

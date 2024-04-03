@@ -17,8 +17,9 @@
                     <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active">Registrations</li>
                 </ol>
-                <div class="card mb-4 {{session('msg')?session('msg'):'d-none'}}">
-                    <div class="alert {{session('status')?'alert-'.session('status'):''}}" role="alert">
+                <div class="card mb-4 {{session('msg')?'':'d-none'}}">
+                    <div class="alert {{session('status')?'alert-'.session('status'):''}} alert-dismissible">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                         {{session('msg')?session('msg'):''}}
                     </div>
                 </div>

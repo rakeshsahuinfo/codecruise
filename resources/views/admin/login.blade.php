@@ -21,9 +21,10 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header text-center"><a href="{{route('landing-page')}}"><img src="{{asset('assets/img/logo/SALOGO2.png')}}" alt="" class="img-fluid"></a></div>
                                     <div class="card-body">
-                                        <div class="alert {{session('status')?'alert-'.session('status'):''}}" role="alert">
+                                        <div class="alert {{session('status')?'alert-'.session('status'):''}} alert-dismissible {{session('msg')?'':'d-none'}}">
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                                             {{session('msg')?session('msg'):''}}
-                                          </div>
+                                        </div>
                                         <form method="post" action="{{route('admin-sign-in')}}">
                                             @csrf
                                             <div class="form-floating mb-3">

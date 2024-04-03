@@ -19,7 +19,7 @@ Route::get('/course/{id}',[CourseController::class,'index'])->name('course');
 Route::get('/admin-login',[AdminController::class,'adminLogin'])->name('login');
 Route::post('/admin-sign-in',[AdminController::class,'signIn'])->name('admin-sign-in');
 
-Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out',[AdminController::class,'signOut'])->name('admin-sign-out');
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin-dashboard');
-})->middleware(PreventBackHistory::class);
+});

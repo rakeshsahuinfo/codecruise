@@ -1,7 +1,7 @@
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="5000">
-            <img src="{{asset('assets/img/slide/slide-1.png')}}" class="d-block img-fluid brightness" id="img1" alt="...">
+            <img src="{{asset('assets/img/slide/slide-3.jpg')}}" class="d-block img-fluid brightness" id="img1" alt="...">
             <div class="carousel-caption  d-md-block">
                 <h3>SAIL SMOOTH IN TECH OCEAN</h3>
                 <p class="d-none d-md-block">WE ARE CODE CRUISE</p>

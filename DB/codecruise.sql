@@ -61,7 +61,3 @@ updated_at timestamp default current_timestamp,
 foreign key(course_id) references courses(id),
 foreign key(tech_stack_id) references tech_stacks(id)
 );
-
-
-
-

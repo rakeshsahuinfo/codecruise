@@ -13,9 +13,9 @@
     </head>
     <body class="bg-dark">
         <div id="layoutAuthentication">
-            <div id="layoutAuthentication_content">
+            <div id="layoutAuthentication_content" class="mt-5">
                 <main>
-                    <div class="container">
+                    <div class="container mt-5">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">

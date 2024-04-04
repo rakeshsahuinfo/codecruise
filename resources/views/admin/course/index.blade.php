@@ -79,6 +79,7 @@
                                         <div class='d-flex mt-2'>
                                             <a href="{{route('add-course-module',$c->id)}}" target="_new" title="Module Wise Syllabus" class='text-dark'> <i class='fas fa-file-pdf'></i></a>                                
                                             <a href="{{route('show-course',$c->id)}}" target="_new" title="Course Schedule" class='mx-3 text-dark'> <i class='fas fa-hourglass'></i></a>
+                                            <a href="{{route('add-course-tech-stack',$c->id)}}" target="_new" title="Course Tech Stack" class='text-dark'> <i class='fas fa-plug'></i></a>
                                         </div>
                                        
                                     </td>

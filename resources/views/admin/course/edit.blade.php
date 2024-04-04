@@ -33,7 +33,7 @@
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
-                        NEW COURSE
+                        EDIT COURSE
                     </div>
                     <div class="card-body">
                         <div class="col-md-8 offset-md-1">

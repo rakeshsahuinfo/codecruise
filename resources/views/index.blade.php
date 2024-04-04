@@ -223,5 +223,4 @@
 @stop
 @section('jsscript')
 @include('layouts.jsscript')
-
 @stop

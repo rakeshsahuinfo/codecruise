@@ -21,18 +21,18 @@
                 placeholder="&nbsp;&nbsp;Company/College">
         </div>
         <div class="col-12 mt-3">
-            <label for="exampleCourse">Your Interest (use <strong>ctrl + select</strong> for multiple)</label>
-            <select class="form-control" name="course_ids[]" id="exampleCourse" multiple>
+            <label for="myexampleCourse">Your Interest (use <strong>ctrl + select</strong> for multiple)</label>
+            <select class="form-control" name="course_ids[]" id="myexampleCourse" multiple>
                 @php
                     $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
                 @endphp
                 @foreach($courseTypes as $courseType)
                     <optgroup label="{{ $courseType->name }}">
                         @php
-                            $courses = App\Models\Course::where('course_type_id', $courseType->id)->get();
+                            $allcourses = App\Models\Course::where('course_type_id', $courseType->id)->get();
                         @endphp
-                        @foreach($courses as $course)
-                            <option value="{{ $course->id }}">{{ $course->name }}</option>
+                        @foreach($allcourses as $ac)
+                            <option value="{{ $ac->id }}">{{ $ac->name }}</option>
                         @endforeach
                     </optgroup>
                 @endforeach
@@ -53,26 +53,3 @@
         </div>
     </div>
 </form>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-     $(document).ready(function() {
-        // $('#exampleCourse').mousedown(function(e) {
-        //     if (e.target.tagName === 'OPTION') {
-        //         e.preventDefault();
-        //         $(this).focus();
-        //         var $option = $(e.target);
-        //         $option.prop('selected', !$option.prop('selected'));
-        //         return false;
-        //     }
-        // });
-
-        $('#exampleCourse').change(function() {
-            if ($(this).val().indexOf('other') !== -1) {
-                $('#otherOption').show();
-            } else {
-                $('#otherOption').hide();
-            }
-        });
-    });
-</script>

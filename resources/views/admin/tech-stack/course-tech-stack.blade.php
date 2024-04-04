@@ -12,7 +12,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h3 class="mt-4 text-uppercase">Tech Stack</h3>
+                <h3 class="mt-4 text-uppercase">Course Tech Stack</h3>
                 <div class="action-container">
                     <a href="{{route('new-tech-stack')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-plus mx-1'></i> New Tech Stack</a>
                 </div>
@@ -28,9 +28,9 @@
                 </div>
               
                 <div class="card mb-4">
-                    <div class="card-header">
+                    <div class="card-header text-uppercase">
                         <i class="fas fa-table me-1"></i>
-                        ALL TECH STACKS
+                        UPDATE COURSE TECH STACKS FOR <strong>{{$course->name}}</strong>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -40,7 +40,6 @@
                                     <th>Name</th>
                                     <th>Logo</th>
                                     <th>Status</th>
-                                    <th>CreatedDate</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -49,27 +48,23 @@
                                     <th>Name</th>
                                     <th>Logo</th>
                                     <th>Status</th>
-                                    <th>CreatedDate</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 @if($techstack)
                                 @foreach($techstack as $ts)
+                                @php 
+                                $cts=App\Models\CourseTechStack::where('course_id',$course->id)->where('tech_stack_id',$ts->id)->first();
+                                @endphp
                                 <tr>
                                     <td>
-                                        <div class='d-flex'>
-                                            <a href="{{route('show-tech-stack',$ts->id)}}" title="View Tech Stack" class='text-dark'><i class='fas fa-eye'></i></a>                                
-                                            <a href="{{route('edit-tech-stack',$ts->id)}}" title="Delete Tech Stack" class='mx-4 text-danger'><i class='fas fa-trash'></i></a>
-                                            <a href="{{route('edit-tech-stack',$ts->id)}}" title="Edit Tech Stack" class='text-primary'><i class='fas fa-edit'></i></a>
-                                        </div>
+                                        <input class="mx-4 my-4 manage_tech-stack" data-course-id="{{$course->id}}" data-tech-stack-id="{{$ts->id}}" type="checkbox" {{$cts?"checked":""}}>
                                     </td>
                                     <td>{{$ts->name}}</td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" alt="Main Logo">
                                     </td>
                                     <td>{{$ts->is_active==1?"Active":"Inactive"}}</td>
-                                    <td>{{\Carbon\Carbon::parse($ts->created_at)->format('d-M-y')}}</td>
-                                  
                                 </tr>
                                 @endforeach
                                 @endif
@@ -84,4 +79,44 @@
 </div>
 @stop
 @section('jsscript')
+<script>
+    $(document).ready(function () {
+        var csrfToken = '{{ csrf_token() }}';
+        $('.manage_tech-stack').on('change', function () {
+            var opt = "";
+            var course_id=$(this).data('course-id');
+            var tech_stack_id = $(this).data('tech-stack-id');
+           
+            if ($(this).is(':checked')) {
+                opt = "add";
+
+            } else {
+                opt = "remove";
+            }
+            $.ajax({
+                url: "{{route('admin-course-assign-tech-stack')}}",
+                type: 'POST',
+                data: { "_token": csrfToken,"course_id":course_id, "tech_stack_id": tech_stack_id,'opt': opt  },
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+                success: function (response) {
+                    if(response.msg==="success"){
+                        alert("Tech Stack Updated")
+                        location.reload();
+                    }
+                    if(response.msg==="fail"){
+                        alert("Not Updated");
+                        location.reload();
+                    }
+                },
+                error: function (error) {
+                    // Handle the error response
+                    console.error('Error:', error);
+                }
+            });
+        });
+    });
+
+</script>
 @stop

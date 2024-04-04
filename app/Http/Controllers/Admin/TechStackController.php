@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\CourseTechStack;
 use App\Models\TechStack;
 use Exception;
 use Illuminate\Http\Request;
@@ -90,6 +92,40 @@ class TechStackController extends Controller
         } catch (Exception $ex) {
             Log::info($ex);
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+        }
+    }
+
+    public function addCourseTechStack($course_id){
+        try {
+            $techstack = TechStack::orderBy('name','asc')->get();
+            $course=Course::find($course_id);
+            return view('admin.tech-stack.course-tech-stack', ['techstack' => $techstack,'course'=>$course]);
+        } catch (Exception $ex) {
+            return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+        }
+    }
+
+    public function courseAssignTechStack(Request $request){
+        // Log::info($request);
+        try{
+
+            $opt=$request->opt;
+            if($opt=="add"){
+                $cts=new CourseTechStack();
+                $cts->course_id=$request->course_id;
+                $cts->tech_stack_id=$request->tech_stack_id;
+                $cts->is_active=1;
+                $cts->save();
+                return ['msg'=>'success'];
+            }
+            if($opt=="remove"){
+                $cts= CourseTechStack::where('course_id',$request->course_id)->where('tech_stack_id',$request->tech_stack_id)->first();
+                $cts->delete();
+                return ['msg'=>'success'];
+            }
+        }catch(Exception $ex){
+            // Log::info($ex);
+            return ['msg'=>'fail'];
         }
     }
 }

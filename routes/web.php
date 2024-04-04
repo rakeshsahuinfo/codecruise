@@ -30,14 +30,14 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::post('/create-course',[AdminCourseController::class,'create'])->name('create-course');
     Route::get('/edit-course/{id}',[AdminCourseController::class,'edit'])->name('edit-course');
     Route::post('/update-course',[AdminCourseController::class,'update'])->name('update-course');
-    Route::get('/show-course/{id}',[AdminCourseController::class,'show'])->name('show-course');
+    Route::get('/show-course/{id}',[AdminCourseController::class,'index'])->name('show-course');
 
     Route::get('/tech-stack',[AdminTechStackController::class,'index'])->name('admin-tech-stack');
     Route::get('/new-tech-stack',[AdminTechStackController::class,'new'])->name('new-tech-stack');
     Route::post('/create-tech-stack',[AdminTechStackController::class,'create'])->name('create-tech-stack');
     Route::get('/edit-tech-stack/{id}',[AdminTechStackController::class,'edit'])->name('edit-tech-stack');
     Route::post('/update-tech-stack',[AdminTechStackController::class,'update'])->name('update-tech-stack');
-    Route::get('/show-tech-stack/{id}',[AdminCourseController::class,'show'])->name('show-tech-stack');
+    Route::get('/show-tech-stack/{id}',[AdminCourseController::class,'index'])->name('show-tech-stack');
 
     Route::get('/add-course-module/{course_id}',[AdminCourseController::class,'addCourseModule'])->name('add-course-module');
     Route::post('/create-course-module',[AdminCourseController::class,'createCourseModule'])->name('create-course-module');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CourseController as AdminCourseController;
 use App\Http\Controllers\Admin\TechStackController as AdminTechStackController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\QueryController;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[LandingPageController::class,'index'])->name('landing-page');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/course/{id}',[CourseController::class,'index'])->name('course');
+Route::post('/save-query',[QueryController::class,'saveQuery'])->name('save-query');
 
 
 Route::get('/admin-login',[AdminController::class,'adminLogin'])->name('login');

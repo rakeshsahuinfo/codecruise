@@ -26,6 +26,15 @@
 </head>
 
 <body>
+	@if(session('msg'))
+	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 5%;z-index:9999">
+		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert" style="height: 100%;padding:5%">
+			{{ session('msg') }}
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+	</div>
+	@endif
+
 	@yield('content')
 
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

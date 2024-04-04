@@ -97,3 +97,16 @@ foreign key(course_id) references courses(id),
 foreign key(module_id) references modules(id),
 foreign key(topic_id) references topics(id)
 );
+
+create table user_query(
+id bigint primary key auto_increment,
+name varchar(255),
+email varchar(255),
+contact varchar(255),
+company_college_name varchar(255),
+course_ids text,
+other_course varchar(255),
+message text,
+created_at timestamp default current_timestamp,
+updated_at timestamp default current_timestamp
+);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 09:03 AM
+-- Generation Time: Apr 04, 2024 at 04:19 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -183,9 +183,9 @@ CREATE TABLE `course_type` (
 --
 
 INSERT INTO `course_type` (`id`, `name`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Long Term', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
-(2, 'Short Term', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
-(3, 'Certification', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05');
+(1, 'Specializations', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
+(2, 'Short Courses', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
+(3, 'Certifications', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05');
 
 -- --------------------------------------------------------
 
@@ -305,7 +305,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('1w4s5QVEAKhzmhGXOeoU42TbTp2wWgpJAvtsAto4', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiajg3OFl6OUhVZklHOGtuRW42OVl0MWl1SVpCSlQ4MWlybm15Y0tMUSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9hZGQtY291cnNlLXRlY2gtc3RhY2svMiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1712214173);
+('nHRnOm0cjTL57w9seqEk9fAHgyLvG7MDlcxpa2pF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicG1DbzBOanNCN25hU1BsOFMzc081Znc2bWhwc0htSENsYUtwY3RaayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712240328);
 
 -- --------------------------------------------------------
 
@@ -369,6 +369,33 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Sanjay Jaiswar', 'admin@codecruise.com', '0000-00-00 00:00:00', '$2y$12$eZgQ8SiOKZgDIB8xk0va9OQezQAj7bqEurCB/bqcP5jhJ/pWAT6Ku', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_query`
+--
+
+CREATE TABLE `user_query` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `company_college_name` varchar(255) DEFAULT NULL,
+  `course_ids` text DEFAULT NULL,
+  `other_course` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_query`
+--
+
+INSERT INTO `user_query` (`id`, `name`, `email`, `contact`, `company_college_name`, `course_ids`, `other_course`, `message`, `created_at`, `updated_at`) VALUES
+(4, 'Sam bahadur', 'sam@gmail.com', '2345678909', 'sam', '[\"1\",\"2\",\"other\"]', 'MERN', 'okkk', '2024-04-04 08:36:33', '2024-04-04 08:36:33'),
+(5, 'sanjay', 'sanjay@gmail.com', '2345678909', 'Sanjay', '[\"1\",\"2\",\"other\"]', 'MEAN', 'MEAN', '2024-04-04 08:37:30', '2024-04-04 08:37:30');
 
 --
 -- Indexes for dumped tables
@@ -496,6 +523,12 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `user_query`
+--
+ALTER TABLE `user_query`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -576,6 +609,12 @@ ALTER TABLE `topics`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `user_query`
+--
+ALTER TABLE `user_query`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

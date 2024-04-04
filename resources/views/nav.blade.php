@@ -5,7 +5,6 @@
         $ctype=App\Models\CourseType::where('is_active',1)->get();
         @endphp
         @if($ctype)
-        
             @foreach($ctype as $ct)
             <li class="dropdown"><a class="nav-link" href="#">{{$ct->name}}</a>
                 <ul>
@@ -18,9 +17,7 @@
                     @endforeach
                 </ul>
                 @endif
-            
             @endforeach
-        
         @endif
         <!-- <li class="dropdown"><a class="nav-link" href="#">Programs</a>
             <ul>

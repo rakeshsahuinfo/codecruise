@@ -1,10 +1,30 @@
 <nav id="navbar" class="navbar">
     <ul>
         <li><a class="nav-link scrollto " href="{{route('landing-page')}}">Home</a></li>
-        <li class="dropdown" onmouseover="program()" onclick="pro()"><a class="nav-link" href="#">Programs</a>
-            <ul class="dropdown-remove d-none">
-                <li><a class="nav-link scrollto" href="programming-fundamental/">Programming
-                        Fundamentals</a></li>
+        @php
+        $ctype=App\Models\CourseType::where('is_active',1)->get();
+        @endphp
+        @if($ctype)
+        
+            @foreach($ctype as $ct)
+            <li class="dropdown"><a class="nav-link" href="#">{{$ct->name}}</a>
+                <ul>
+                @php
+                $course=App\Models\Course::where('course_type_id',$ct->id)->get();
+                @endphp
+                @if($ctype)
+                    @foreach($course as $c)
+                    <li><a class="nav-link scrollto" href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></li>
+                    @endforeach
+                </ul>
+                @endif
+            
+            @endforeach
+        
+        @endif
+        <!-- <li class="dropdown"><a class="nav-link" href="#">Programs</a>
+            <ul>
+                <li><a class="nav-link scrollto" href="programming-fundamental/">Programming Fundamentals</a></li>
                 <li><a class="nav-link scrollto" href="fullstack-python/">Full Stack Python</a></li>
                 <li><a class="nav-link scrollto" href="software-testing/">Software Testing</a></li>
                 <li><a class="nav-link scrollto" href="dbms/">DBMS and DBA</a></li>
@@ -25,7 +45,7 @@
                 <li><a class="nav-link scrollto" href="cyber-security/">Cyber Security</a></li>
             </ul>
 
-        </li>
+        </li> -->
         <li><a class="nav-link scrollto" href="{{route('about')}}">About</a></li>
         <li><a class="nav-link scrollto" href="#team">Team</a></li>
         <li><a class="nav-link scrollto" href="#contact">Contact us</a></li>

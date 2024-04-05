@@ -112,11 +112,9 @@
     </section>
 </main>
 <!-- End #main -->
-
 <!-- ======= Footer ======= -->
 @include('footer')
 <!-- End Footer -->
-
 @stop
 @section('jsscript')
 @include('layouts.jsscript')

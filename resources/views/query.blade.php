@@ -24,7 +24,7 @@
                         </div>
                         <div class="col-12 col-md-6 mt-3">
                             <label for="contact">Contact no</label></br>
-                            <input type="text" class="form-control" name="contact" id="contact"
+                            <input type="text" class="form-control" name="contact" id="usercontact"
                                 placeholder="&nbsp;&nbsp;Contact">
                         </div>
                         <div class="col-12 col-md-6 mt-3">

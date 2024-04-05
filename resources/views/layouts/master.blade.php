@@ -19,8 +19,6 @@
 	<!-- Template Main CSS File -->
 	<link rel="shortcut icon" href="{{asset('assets/img/logo/favicon.png')}}" type="image/x-icon">
 	<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-	<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-	<link href="{{asset('assets/css/style.css')}}" disabled rel="stylesheet">
 
 	@yield('headasset')
 </head>

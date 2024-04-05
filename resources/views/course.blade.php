@@ -1,18 +1,7 @@
 @extends('layouts.master')
 @section('title','CodeCruise | Course')
 @section('headasset')
-<style>
-    .card {
-        border: none;
-        border-radius: 10px;
-        overflow: hidden;
-    }
 
-    .card img {
-        width: 100%;
-        height: auto;
-    }
-</style>
 @stop
 @section('content')
 <!-- ======= Top Bar ======= -->

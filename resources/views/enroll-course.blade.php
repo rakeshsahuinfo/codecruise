@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title','CodeCruise | Course')
+@section('title','CodeCruise | Enroll')
 @section('headasset')
 @stop
 @section('content')

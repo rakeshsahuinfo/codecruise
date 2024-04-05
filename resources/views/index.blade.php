@@ -93,6 +93,7 @@
                 </div>
             </div>
         </div>
+        @include('catalog')
         @include('team')
         <div class="container mt-5">
             <div class="row">

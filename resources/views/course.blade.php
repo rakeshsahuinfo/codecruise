@@ -98,8 +98,8 @@
             </div>
         </div>
         <div class="container">
-            <div class="container mt-5 syllabus">
-                <h2 class="text-center" id="team">Tech Stack To Be Covered</h2>
+            <div class="container mt-5">
+                <h2 class="text-center" id="syllabus">Tech Stack To Be Covered</h2>
                 <p class="text-center"></p>
                 <div class="row justify-content-center">
                     @if($coursetechstack)
@@ -116,6 +116,7 @@
                 </div>
             </div>
         </div>
+        @include('catalog')
         @include('team')
         <div class="container mt-5">
             <div class="row">

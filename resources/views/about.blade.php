@@ -31,7 +31,7 @@
                 </div>
                 <div class=" col-12 col-lg-7" data-aos="fade-up">
                     <div class="row">
-                        
+
                         <div class="col-12">
                             <div class="col-12 col-md-9 col-lg-10">
                                 <div class="card-body">
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        </div>
+        @include('catalog')
         @include('team')
         <div class="container mt-5">
             <div class="row">

@@ -1,5 +1,5 @@
 <div class="container mt-5 team">
-    <h2 class="text-center" id="team">Our Trainers & Faculty</h2>
+    <h2 class="text-center mt-5" id="team">Our Trainers & Faculty</h2>
     <p class="text-center">Our team consist of trainers and faculties who are themselves experienced working
         professionals with reputed companies
         <br>

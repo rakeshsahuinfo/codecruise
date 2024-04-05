@@ -122,6 +122,7 @@
                 </div>
             </div>
         </div>
+        @include('catalog')
         @include('team')
     </section>
 </main>

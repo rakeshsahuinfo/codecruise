@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2024 at 11:52 AM
+-- Generation Time: Apr 05, 2024 at 03:45 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -185,8 +185,8 @@ CREATE TABLE `course_type` (
 
 INSERT INTO `course_type` (`id`, `name`, `is_active`, `created_at`, `updated_at`) VALUES
 (1, 'Specializations', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
-(2, 'Short Courses', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
-(3, 'Certifications', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05');
+(2, 'Certifications', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05'),
+(3, 'Short Courses', 1, '2024-04-03 14:25:05', '2024-04-03 14:25:05');
 
 -- --------------------------------------------------------
 
@@ -306,7 +306,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('6YMnfs9Vg6pYTEo627cZV11TNv6YbJ7ZqrVfzZM1', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNU9Vb1Ywc3ZnM29SWG51ejU4NG9tMVlmdjkzYU5yOEZtVGNtWE4ybiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI5OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvY291cnNlL2V5SnBkaUk2SW5CdVpIY3pRblY1U0ZKMmFVRXJaM2hDZFVwQlIzYzlQU0lzSW5aaGJIVmxJam9pTWxacWNTOVdVRTE0U2t4TlNHOU9TVkJyZFVsVmR6MDlJaXdpYldGaklqb2lOamswTURJMk1tWXdZVFk1WXpVNFkyUm1ZbVZqWVdVeVkyTTBOalkzT0RKbE5qa3dPRFV3WVdOak5USTBZekpsTjJVNU9UZ3dOVFEwTWpnd05qQXhNU0lzSW5SaFp5STZJaUo5Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNzoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2FkbWluL2Rhc2hib2FyZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1712310725);
+('HG3Vh0g6YrGtsutn8NcwYdGFGygZb60qaDMuVtFm', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiNU9Vb1Ywc3ZnM29SWG51ejU4NG9tMVlmdjkzYU5yOEZtVGNtWE4ybiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6Mzc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9kYXNoYm9hcmQiO319', 1712324703);
 
 -- --------------------------------------------------------
 

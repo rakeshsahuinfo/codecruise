@@ -32,7 +32,7 @@
                     </div>
                     <div data-aos="zoom-out-down" class="w-100 d-flex">
                         <a href="{{route('enroll-course',encrypt($courseinfo->id))}}"
-                            class="btn btn-success mx-4 text-uppercase">
+                            class="btn btn-success mx-4 text-uppercase" target="_new">
                             <h3><span class="badge badge-light">Enroll<br>Now</span></h3>
                         </a>
                         <button type="button" class="btn btn-primary float-end mx-4 text-uppercase">

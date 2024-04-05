@@ -6,7 +6,7 @@
         Our team is fully committed to train you so that you are ready to work on live projects anytime and
         anywhere.
     </p>
-    <div class="row ">
+    <div class="row text-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <div class="card shadow-sm teams" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/OIP.jfif')}}" alt="" height="200" width="200" class="team mt-3">

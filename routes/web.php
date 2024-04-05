@@ -18,7 +18,7 @@ Route::get('/',[LandingPageController::class,'index'])->name('landing-page');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/course/{id}',[CourseController::class,'index'])->name('course');
 Route::post('/save-query',[QueryController::class,'saveQuery'])->name('save-query');
-
+Route::get('/enroll-course/{course_id}',[QueryController::class,'enrollCourse'])->name('enroll-course');
 
 Route::get('/admin-login',[AdminController::class,'adminLogin'])->name('login');
 Route::post('/admin-sign-in',[AdminController::class,'signIn'])->name('admin-sign-in');

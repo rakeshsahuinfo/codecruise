@@ -81,7 +81,13 @@
                                             <label for="current_discount">Current Discount</label>
                                             <input type="text" class="form-control" name="current_discount" id="current_discount" placeholder="10% or Flat Rs.2000">
                                         </div>
-                                        
+                                        <div class="form-group w-100 my-4">
+                                            <label for="apply_discount">Apply Discount</label>
+                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="apply_discount" id="apply_discount" required>
+                                                <option value="1">Yes</option>
+                                                <option value="0" selected>No</option>
+                                            </select>
+                                        </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="course_banner">Course Banner</label>
                                             <input type="file" accept="image/*" class="form-control" name="course_banner" id="course_banner">

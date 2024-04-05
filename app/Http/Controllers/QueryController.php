@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\UserQuery;
 use Exception;
 use Illuminate\Http\Request;
@@ -10,7 +11,6 @@ class QueryController extends Controller
 {
     public function saveQuery(Request $request)
     {
-        return $request;
         try {
             $uq = new UserQuery();
             $uq->name = $request->input('name');
@@ -25,6 +25,15 @@ class QueryController extends Controller
             $uq->save();
 
             return back()->with(['msg' => 'Query submitted successfully', 'status' => 'success']);
+        } catch (Exception $ex) {
+            return back()->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
+        }
+    }
+
+    public function enrollCourse($course_id){
+        try {
+            $courseinfo=Course::find(decrypt($course_id));
+            return view('enroll-course',['courseinfo'=>$courseinfo]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
         }

@@ -1,56 +1,71 @@
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><img src="{{asset('assets/img/logo/SALOGO2.png')}}" class="img-fluid"></h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><img src="{{asset('assets/img/logo/SALOGO2.png')}}"
+                        class="img-fluid"></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="post" action="send_query.php">
-                    <div class="mb-3">
-                        <label for="exampleInputName" class="form-label">Name</label>
-                        <input type="name" class="form-control" id="exampleInputName" aria-describedby="emailHelp" placeholder="Enter your name">
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label for="exampleInputContact" class="form-label">Contact</label>
-                        <input type="text" class="form-control" id="exampleInputContact" placeholder="Phone number...">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail" class="form-label">Email</label>
-                        <input type="name" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter your name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleCourse" class="form-label">Your Interest</label>
-                        <select class="form-select" aria-label="Default select example" id="exampleCourse">
-                            <option selected>....</option>
-                            <option value="CLOUD DEVELOPMENT">CLOUD DEVELOPMENT</option>
-                            <option value="CYBER SECURITY">CYBER SECURITY</option>
-                            <option value="DATA SCIENCE & DATA ANALYTICS">DATA SCIENCE & DATA ANALYTICS</option>
-                            <option value="DBMS">DBMS</option>
-                            <option value="DEVOPS ENGINEERING">DEVOPS ENGINEERING</option>
-                            <option value="MEAN STACK DEVELOPMENT">MEAN STACK DEVELOPMENT</option>
-                            <option value="MERN STACK DEVELOPMENT">MERN STACK DEVELOPMENT</option>
-                            <option value="FULL STACK PHP DEVELOPMENT">FULL STACK PHP DEVELOPMENT</option>
-                            <option value="FULL STACK JAVA DEVELOPMENT">FULL STACK JAVA DEVELOPMENT</option>
-                            <option value="LINUX AND ADMINISTRATION">LINUX AND ADMINISTRATION</option>
-                            <option value="MACHINE LEARNING">MACHINE LEARNING</option>
-                            <option value="MOBILE APP DEVELOPMENT">MOBILE APP DEVELOPMENT</option>
-                            <option value="FULL STACK .NET DEVELOPMENT">FULL STACK .NET DEVELOPMENT</option>
-                            <option value="SOFTWARE TESTING">SOFTWARE TESTING</option>
-                            <option value="PROGRAMMING FUNDAMENTALS">PROGRAMMING FUNDAMENTALS</option>
-                            <option value="OTHERS">OTHERS</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleQuery" class="form-label">Your Query</label>
-                        <textarea class="form-control" id="exampleQuery" aria-describedby="emailHelp" placeholder="Enter your Query"></textarea>
+                <form method="post" action="{{route('save-query')}}">
+                    @csrf
+                    <div class="row">
+                        <h4>Send us a message</h4>
+                        <div class="col-12 col-md-6 mt-3">
+                            <label for="name">Name</label></br>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="&nbsp;&nbsp;Name"
+                                required>
+                        </div>
+                        <div class="col-12 col-md-6 mt-3">
+                            <label for="email">Email</label></br>
+                            <input type="email" name="email" class="form-control" id="email"
+                                placeholder="&nbsp;&nbsp;Email" required>
+                        </div>
+                        <div class="col-12 col-md-6 mt-3">
+                            <label for="contact">Contact no</label></br>
+                            <input type="text" class="form-control" name="contact" id="contact"
+                                placeholder="&nbsp;&nbsp;Contact">
+                        </div>
+                        <div class="col-12 col-md-6 mt-3">
+                            <label for="company_college_name">Company/College</label></br>
+                            <input type="text" name="company_college_name" class="form-control"
+                                id="company_college_name" placeholder="&nbsp;&nbsp;Company/College">
+                        </div>
+                        <div class="col-12 mt-3">
+                            <label for="myexampleCourse">Your Interest {{--(use <strong>ctrl + select</strong> for
+                                multiple)--}}</label>
+                            <select class="form-control" name="course_ids[]" id="myexampleCourse" multiple required>
+                                @php
+                                $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
+                                @endphp
+                                @foreach($courseTypes as $courseType)
+                                <optgroup label="{{ $courseType->name }}">
+                                    @php
+                                    $allcourses = App\Models\Course::where('course_type_id', $courseType->id)->get();
+                                    @endphp
+                                    @foreach($allcourses as $ac)
+                                    <option value="{{ $ac->id }}">{{ $ac->name }}</option>
+                                    @endforeach
+                                </optgroup>
+                                @endforeach
+                                <option value="other">Other</option>
+                            </select>
+                            <div id="otherOption" style="display: none;">
+                                <label for="otherCourse">Enter your option:</label>
+                                <input type="text" class="form-control" id="otherCourse" name="other_course">
+                            </div>
+                        </div>
+                        <div class="col-12  mt-3">
+                            <label for="message">Your Query</label></br>
+                            <textarea rows="5" cols="70" id="message" name="message"
+                                placeholder="Type your message"></textarea>
+                        </div>
+                        <div class="col-12  mt-3">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
         </div>
     </div>
-</div>

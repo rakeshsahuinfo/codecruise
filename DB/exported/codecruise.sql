@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2024 at 04:19 PM
+-- Generation Time: Apr 05, 2024 at 11:52 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -59,8 +59,9 @@ CREATE TABLE `courses` (
   `course_duration` varchar(255) DEFAULT NULL,
   `class_schedule` varchar(255) DEFAULT NULL,
   `delivery_mode` varchar(255) DEFAULT NULL,
-  `course_fee` decimal(11,2) DEFAULT NULL,
-  `current_discount` decimal(15,2) DEFAULT NULL,
+  `course_fee` varchar(255) DEFAULT NULL,
+  `current_discount` varchar(255) DEFAULT NULL,
+  `apply_discount` tinyint(1) NOT NULL,
   `course_banner` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -71,9 +72,9 @@ CREATE TABLE `courses` (
 -- Dumping data for table `courses`
 --
 
-INSERT INTO `courses` (`id`, `name`, `course_type_id`, `description`, `course_duration`, `class_schedule`, `delivery_mode`, `course_fee`, `current_discount`, `course_banner`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Full Stack PHP', 1, '<p>A <strong>PHP</strong> developer is responsible for writing server-side web application logic. PHP developers usually develop back-end components, connect the application with the other (often third-party) web services, and support the front-end developers by integrating their work with the application.</p>\r\n<ul>\r\n<li>HTML5</li>\r\n<li>CSS3 and SASS</li>\r\n<li>Javascript</li>\r\n<li>Typescript</li>\r\n<li>Ecma Script</li>\r\n<li>Bootstrap</li>\r\n<li>JQuery and AJAX</li>\r\n<li>MY-SQL</li>\r\n<li>Core PHP, OOP in PHP</li>\r\n<li>PHP framework Laravel</li>\r\n<li>SCM with GitHub</li>\r\n<li>CICD with Jenkins / Azure DevOps</li>\r\n</ul>', '3 Months', '2 Hours Lecture', 'Offline and Online', '40000.00', '1000.00', '1712155117.jpg', 1, '2024-04-03 09:08:37', '2024-04-03 09:08:37'),
-(2, 'Full Stack JAVA', 1, '<p>It is a part of Java programming language. It is an advanced technology or advance version of Java specially designed to develop web-based, network-centric or enterprise applications. It includes ../the concepts like Servlet, JSP, JDBC, RMI, Socket programming, etc. It is a specialization in specific domain</p>\r\n<ul>\r\n<li>OOPs programming concepts</li>\r\n<li>Java Programming Basics</li>\r\n<li>File Handling and Streaming</li>\r\n<li>JDBC with MySQL</li>\r\n<li>Spring MVC and Hibernate</li>\r\n<li>Spring Boot with JPA</li>\r\n<li>REST API design with Swagger</li>\r\n<li>SCM with GitHub</li>\r\n<li>CICD with Jenkins</li>\r\n</ul>', '3 Months', '2 Hours Lecture', 'Offline and Online', '50000.00', '1000.00', '1712157800.jpg', 1, '2024-04-03 09:53:21', '2024-04-03 09:53:21');
+INSERT INTO `courses` (`id`, `name`, `course_type_id`, `description`, `course_duration`, `class_schedule`, `delivery_mode`, `course_fee`, `current_discount`, `apply_discount`, `course_banner`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 'Full Stack PHP', 1, '<p>A <strong>PHP</strong> developer is responsible for writing server-side web application logic. PHP developers usually develop back-end components, connect the application with the other (often third-party) web services, and support the front-end developers by integrating their work with the application.</p>\r\n<ul>\r\n<li>HTML5</li>\r\n<li>CSS3 and SASS</li>\r\n<li>Javascript</li>\r\n<li>Typescript</li>\r\n<li>Ecma Script</li>\r\n<li>Bootstrap</li>\r\n<li>JQuery and AJAX</li>\r\n<li>MY-SQL</li>\r\n<li>Core PHP, OOP in PHP</li>\r\n<li>PHP framework Laravel</li>\r\n<li>SCM with GitHub</li>\r\n<li>CICD with Jenkins / Azure DevOps</li>\r\n</ul>', '3 Months', '2 Hours Lecture', 'Offline and Online', 'Rs. 40000.00', 'Flat Rs. 1000.00', 0, '1712155117.jpg', 1, '2024-04-03 09:08:37', '2024-04-03 09:08:37'),
+(2, 'Full Stack JAVA', 1, '<p>It is a part of Java programming language. It is an advanced technology or advance version of Java specially designed to develop web-based, network-centric or enterprise applications. It includes ../the concepts like Servlet, JSP, JDBC, RMI, Socket programming, etc. It is a specialization in specific domain</p>\r\n<ul>\r\n<li>OOPs programming concepts</li>\r\n<li>Java Programming Basics</li>\r\n<li>File Handling and Streaming</li>\r\n<li>JDBC with MySQL</li>\r\n<li>Spring MVC and Hibernate</li>\r\n<li>Spring Boot with JPA</li>\r\n<li>REST API design with Swagger</li>\r\n<li>SCM with GitHub</li>\r\n<li>CICD with Jenkins</li>\r\n</ul>', '3 Months', '2 Hours Lecture', 'Offline and Online', 'Rs. 50000.00', 'Flat Rs. 1000.00', 1, '1712157800.jpg', 1, '2024-04-03 09:53:21', '2024-04-05 02:48:46');
 
 -- --------------------------------------------------------
 
@@ -305,7 +306,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('nHRnOm0cjTL57w9seqEk9fAHgyLvG7MDlcxpa2pF', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoicG1DbzBOanNCN25hU1BsOFMzc081Znc2bWhwc0htSENsYUtwY3RaayI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1712240328);
+('6YMnfs9Vg6pYTEo627cZV11TNv6YbJ7ZqrVfzZM1', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiNU9Vb1Ywc3ZnM29SWG51ejU4NG9tMVlmdjkzYU5yOEZtVGNtWE4ybiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjI5OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvY291cnNlL2V5SnBkaUk2SW5CdVpIY3pRblY1U0ZKMmFVRXJaM2hDZFVwQlIzYzlQU0lzSW5aaGJIVmxJam9pTWxacWNTOVdVRTE0U2t4TlNHOU9TVkJyZFVsVmR6MDlJaXdpYldGaklqb2lOamswTURJMk1tWXdZVFk1WXpVNFkyUm1ZbVZqWVdVeVkyTTBOalkzT0RKbE5qa3dPRFV3WVdOak5USTBZekpsTjJVNU9UZ3dOVFEwTWpnd05qQXhNU0lzSW5SaFp5STZJaUo5Ijt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozNzoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2FkbWluL2Rhc2hib2FyZCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1712310725);
 
 -- --------------------------------------------------------
 
@@ -394,8 +395,8 @@ CREATE TABLE `user_query` (
 --
 
 INSERT INTO `user_query` (`id`, `name`, `email`, `contact`, `company_college_name`, `course_ids`, `other_course`, `message`, `created_at`, `updated_at`) VALUES
-(4, 'Sam bahadur', 'sam@gmail.com', '2345678909', 'sam', '[\"1\",\"2\",\"other\"]', 'MERN', 'okkk', '2024-04-04 08:36:33', '2024-04-04 08:36:33'),
-(5, 'sanjay', 'sanjay@gmail.com', '2345678909', 'Sanjay', '[\"1\",\"2\",\"other\"]', 'MEAN', 'MEAN', '2024-04-04 08:37:30', '2024-04-04 08:37:30');
+(4, 'Sam bahadur', 'sam@gmail.com', '2345678909', 'ABC College', '[\"1\",\"2\",\"other\"]', 'MERN', 'okkk', '2024-04-04 08:36:33', '2024-04-04 08:36:33'),
+(5, 'sanjay', 'sanjay@gmail.com', '2345678909', 'ABC LTD', '[\"1\",\"2\",\"other\"]', 'MEAN', 'MEAN', '2024-04-04 08:37:30', '2024-04-04 08:37:30');
 
 --
 -- Indexes for dumped tables

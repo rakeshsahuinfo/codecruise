@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserQuery;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -34,6 +37,11 @@ class AdminController extends Controller
     }
 
     public function dashboard(){
-        return view('admin.dashboard');
+        try{
+            $uq=UserQuery::orderBy('created_at','desc')->get();
+            return view('admin.dashboard',['user_query'=>$uq]);
+        }catch(Exception $ex){
+            Log::info("Something went wrong");
+        }
     }
 }

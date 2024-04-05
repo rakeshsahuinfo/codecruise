@@ -90,7 +90,10 @@
                                     <th>{{$c->class_schedule}}</th>
                                     <th>{{$c->delivery_mode}}</th>
                                     <th>{{$c->course_fee}}</th>
-                                    <th>{{$c->current_discount}}</th>
+                                    <th>
+                                        {{$c->current_discount}}<br>
+                                        <b>Applied:</b>{{$c->apply_discount==1?"Yes":"No"}}
+                                    </th>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('storage/course_banner/' . $c->course_banner) }}" alt="Main Banner">
                                     </td>

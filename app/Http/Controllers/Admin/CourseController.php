@@ -52,6 +52,7 @@ class CourseController extends Controller
                 'delivery_mode' => $request->delivery_mode,
                 'course_fee' => $request->course_fee,
                 'current_discount' => $request->current_discount,
+                'apply_discount' => $request->apply_discount,
                 'course_banner' => $imageName,
                 'is_active' => $request->is_active
             ]);
@@ -103,6 +104,7 @@ class CourseController extends Controller
             $course->delivery_mode = $request->delivery_mode;
             $course->course_fee = $request->course_fee;
             $course->current_discount = $request->current_discount;
+            $course->apply_discount = $request->apply_discount;
             $course->is_active = $request->is_active;
             $course->update();
 

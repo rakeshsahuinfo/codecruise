@@ -10,6 +10,7 @@ class QueryController extends Controller
 {
     public function saveQuery(Request $request)
     {
+        return $request;
         try {
             $uq = new UserQuery();
             $uq->name = $request->input('name');

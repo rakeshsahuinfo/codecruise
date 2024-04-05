@@ -1,26 +1,26 @@
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="5000">
-            <img src="{{asset('assets/img/slide/slide-0.jpeg')}}" class="d-block img-fluid brightness" id="img1" alt="...">
+            <img src="{{asset('assets/img/slide/slide-1.jpg')}}" class="d-block img-fluid brightness" id="img1" alt="...">
             <div class="carousel-caption  d-md-block">
-                <h3 class="d-none">SAIL SMOOTH IN TECH OCEAN</h3>
-                <p class="d-none d-md-block pt-5">CODE CRUISE SAIL SMOOTH IN TECH OCEAN</p>
+                <h3 class="">WE ARE CODE CRUISERS</h3>
+                <p class="d-md-block">SAIL SMOOTH IN TECH OCEAN</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="5000">
-            <img src="{{asset('assets/img/slide/slide-1.jpeg')}}" class="d-block img-fluid brightness"
+            <img src="{{asset('assets/img/slide/slide-2.jpg')}}" class="d-block img-fluid brightness"
                 id="img2" alt="...">
             <div class="carousel-caption d-md-block">
-                <h3 class="d-none">COMPLETE TRAINING SOLUTION AT <BR>ONE PLACE</h3>
-                <p class="d-none d-md-block">COMPLETE TRAINING SOLUTION LEARN WITH THE PROFESSIONALS</p>
+                <h3 class="">COMPLETE TRAINING SOLUTION <BR>AT ONE PLACE</h3>
+                <p class="d-md-block">COMPLETE TRAINING SOLUTION LEARN WITH THE PROFESSIONALS</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="{{asset('assets/img/slide/slide-2.jpeg')}}" class="d-block img-fluid brightness" id="img3"
+            <img src="{{asset('assets/img/slide/slide-3.jpg')}}" class="d-block img-fluid brightness" id="img3"
                 alt="...">
             <div class="carousel-caption d-md-block">
-                <h3 class="d-none">CORPORATE AND ON CAMPUS TRAINING</h3>
-                <p class="d-none d-md-block pt-5">CORPORATE & ON CAMPUS TRAINING YOU HIRE AND WE TRAIN</p>
+                <h3 class="">CORPORATE AND ON CAMPUS <BR>TRAINING</h3>
+                <p class="d-md-block">CORPORATE & ON CAMPUS TRAINING YOU HIRE AND WE TRAIN</p>
             </div>
         </div>
     </div>

@@ -4,11 +4,11 @@
         <h4>Send us a message</h4>
         <div class="col-12 col-md-6 mt-3">
             <label for="name">Name</label></br>
-            <input type="text" name="name" class="form-control" id="name" placeholder="&nbsp;&nbsp;Name">
+            <input type="text" name="name" class="form-control" id="name" placeholder="&nbsp;&nbsp;Name" required>
         </div>
         <div class="col-12 col-md-6 mt-3">
             <label for="email">Email</label></br>
-            <input type="email" name="email" class="form-control" id="email" placeholder="&nbsp;&nbsp;Email">
+            <input type="email" name="email" class="form-control" id="email" placeholder="&nbsp;&nbsp;Email" required>
         </div>
         <div class="col-12 col-md-6 mt-3">
             <label for="contact">Contact no</label></br>
@@ -21,8 +21,8 @@
                 placeholder="&nbsp;&nbsp;Company/College">
         </div>
         <div class="col-12 mt-3">
-            <label for="myexampleCourse">Your Interest (use <strong>ctrl + select</strong> for multiple)</label>
-            <select class="form-control" name="course_ids[]" id="myexampleCourse" multiple>
+            <label for="myexampleCourse">Your Interest {{--(use <strong>ctrl + select</strong> for multiple)--}}</label>
+            <select class="form-control" name="course_ids[]" id="myexampleCourse" multiple required>
                 @php
                     $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
                 @endphp

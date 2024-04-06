@@ -23,35 +23,26 @@
 <!-- End Header -->
 <main id="main">
     <section class="inner-page" style="height: 10%;">
-        <div class="container my-3">
+        <div class="container my-4">
             <div class="row">
-                <div class="col-12 col-md-6 col-lg-7">
+                <div class="col-12 col-md-12 col-lg-7">
                     <div class="card shadow ">
                         <div class="card-body">
                             <form method="post" action="{{route('save-query')}}">
                                 @csrf
                                 <div class="row">
-                                    <h4 class="text-uppercase my-2">Enroll For the course</h4>
-                                    <div class="col-12 col-md-6 mt-3">
-                                        <label for="name">Name</label></br>
-                                        <input type="text" name="name" class="form-control" id="name"
-                                            placeholder="&nbsp;&nbsp;Name" required>
+                                    <h4 class="text-uppercase my-4">Enroll To course</h4>
+                                    @php
+                                    $mycourse=App\Models\Course::find($courseinfo->id);
+                                    @endphp
+                                    @if($mycourse)
+                                    <div class="col-12 col-md-12 mt-2">
+                                        <label for="mycourse">Course</label></br>
+                                        <input type="text" name="mycourse" class="form-control" id="mycourse"
+                                            value="{{$mycourse->name}}" readonly>
+                                        <input type="hidden" name="course_ids[]" value="{{$mycourse->id}}">
                                     </div>
-                                    <div class="col-12 col-md-6 mt-3">
-                                        <label for="email">Email</label></br>
-                                        <input type="email" name="email" class="form-control" id="email"
-                                            placeholder="&nbsp;&nbsp;Email" required>
-                                    </div>
-                                    <div class="col-12 col-md-6 mt-3">
-                                        <label for="contact">Contact no</label></br>
-                                        <input type="text" class="form-control" name="contact" id="contact"
-                                            placeholder="&nbsp;&nbsp;Contact">
-                                    </div>
-                                    <div class="col-12 col-md-6 mt-3">
-                                        <label for="company_college_name">Company/College</label></br>
-                                        <input type="text" name="company_college_name" class="form-control"
-                                            id="company_college_name" placeholder="&nbsp;&nbsp;Company/College">
-                                    </div>
+                                    @else
                                     <div class="col-12 mt-3">
                                         <label for="myexampleCourse">Your Interest {{--(use <strong>ctrl +
                                                 select</strong> for multiple)--}}</label>
@@ -67,9 +58,7 @@
                                                 $courseType->id)->get();
                                                 @endphp
                                                 @foreach($allcourses as $ac)
-                                                <option value="{{ $ac->id }}" {{$ac->
-                                                    id==$courseinfo->id?"selected":""}}>{{
-                                                    $ac->name }}</option>
+                                                <option value="{{ $ac->id }}">{{$ac->name }}</option>
                                                 @endforeach
                                             </optgroup>
                                             @endforeach
@@ -81,42 +70,61 @@
                                                 name="other_course">
                                         </div>
                                     </div>
-                                    <div class="col-12  mt-3">
-                                        <label for="message">Your Query</label></br>
-                                        <textarea rows="5" cols="70" id="message" name="message"
-                                            placeholder="Type your message"></textarea>
+                                    @endif
+
+                                   
+                                    <div class="col-12 col-md-12 mt-3">
+                                        <label for="name">Name</label></br>
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            placeholder="&nbsp;&nbsp;Name" required>
                                     </div>
-                                    <div class="col-12  mt-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="col-12 col-md-12 mt-3">
+                                        <label for="email">Email</label></br>
+                                        <input type="email" name="email" class="form-control" id="email"
+                                            placeholder="&nbsp;&nbsp;Email" required>
+                                    </div>
+                                    <div class="col-12 col-md-12 mt-3">
+                                        <label for="mycontact">Contact no</label></br>
+                                        <input type="text" class="form-control" name="contact" id="mycontact"
+                                            placeholder="&nbsp;&nbsp;Contact">
+                                    </div>
+                                    <div class="col-12 col-md-12 mt-3">
+                                        <label for="company_college_name">Company/College</label></br>
+                                        <input type="text" name="company_college_name" class="form-control"
+                                            id="company_college_name" placeholder="&nbsp;&nbsp;Company/College">
+                                    </div>
+
+                                    <input type="hidden" name="message" value="Enroll me">
+
+                                    <div class="col-12 mt-3 text-center">
+                                        <button type="submit" class="btn btn-primary">ENROLL</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-5">
-                    <div class="card dis">
-                        <div class="card car" data-aos="zoom-in">
+                <div class="col-12 col-md-12 col-lg-5">
+                    <div>
+                        <div class="card" data-aos="zoom-in">
                             <img src="{{ asset('storage/course_banner/' . $courseinfo->course_banner) }}" alt=""
                                 class="p-3">
                         </div>
-                        <div data-aos="zoom-out-down" class="w-100 d-flex">
-                            <button type="button" class="btn btn-primary float-end mx-4 text-uppercase">
-                                <h3><span class="badge badge-light">Course Fee<br>{{$courseinfo->course_fee}}</span>
-                                </h3>
-                            </button>
-                            @if($courseinfo->apply_discount==1)
-                            <button type="button" class="btn btn-warning float-end mx-4 text-uppercase">
-                                <h3><span class="badge badge-light">Discount<br>{{$courseinfo->current_discount}}</span>
-                                </h3>
-                            </button>
-                            @endif
-                        </div>
-                        <h4 class="p-4 text-uppercase">
-                            {{$courseinfo->name}}
-                        </h4>
-                        <div class="card-body">
-                            {!! $courseinfo->description !!}
+                        <div class="container">
+                            <div class="custom-container" data-aos="zoom-out-down">
+                                <div class="custom-div bg-primary text-white text-center">Course
+                                    Fee<br>{{$courseinfo->course_fee}}</div>
+                                @if($courseinfo->apply_discount==1)
+                                <div class="custom-div  bg-warning text-white text-center">
+                                    Discount<br>{{$courseinfo->current_discount}}</div>
+                                @endif
+                                <div class="card-body my-1">
+                                    <h4 class="p-1 text-uppercase">
+                                        {{$courseinfo->name}}
+                                    </h4>
+                                    {!! $courseinfo->description !!}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -124,6 +132,21 @@
         </div>
         @include('catalog')
         @include('team')
+        <div class="container my-5">
+            <div class="row">
+                <h2 class="text-center" id="contact">Contact us</h2>
+                <div class="col-12 col-lg-4">
+                    @include('address')
+                </div>
+                <div class="col-12 col-lg-8 p-4 forms">
+                    <div class="card shadow ">
+                        <div class="card-body">
+                            @include('contact-form')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 <!-- End #main -->

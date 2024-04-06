@@ -1,5 +1,5 @@
-<div class="container mt-5 team">
-    <h2 class="text-center mt-5" id="team">Our Trainers & Faculty</h2>
+<div class="container my-5 team">
+    <h2 class="text-center mt-5" id="team">Our Trainers</h2>
     <p class="text-center">Our team consist of trainers and faculties who are themselves experienced working
         professionals with reputed companies
         <br>
@@ -8,7 +8,7 @@
     </p>
     <div class="row text-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/OIP.jfif')}}" alt="" height="200" width="200" class="team mt-3">
 
                 <div class="card-body">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/th (1).jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Senior Cloud Architect</h4>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/th.jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Data Analyst</h4>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/OIP (2).jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Cyber & Network Security Analyst</h4>
@@ -50,7 +50,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/th (1).jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Mobile App Developer</h4>
@@ -60,7 +60,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/th.jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Senior Software Test engineer</h4>
@@ -70,7 +70,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/th (1).jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Senior DevOps Engineer</h4>
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card shadow-sm teams" data-aos="fade-up">
+            <div class="card shadow-sm teams w-100" data-aos="fade-up">
                 <img src="{{asset('assets/img/team/th.jfif')}}" alt="" height="200" width="200" class="team mt-3">
                 <div class="card-body">
                     <h4 class="text-center">Senior SEO & Digital Marketing Expert</h4>

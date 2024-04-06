@@ -95,9 +95,9 @@
         </div>
         @include('catalog')
         @include('team')
-        <div class="container mt-5">
+        <div class="container my-5">
             <div class="row">
-                <h2 class="text-center m-5" id="contact">Contact us</h2>
+                <h2 class="text-center" id="contact">Contact us</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

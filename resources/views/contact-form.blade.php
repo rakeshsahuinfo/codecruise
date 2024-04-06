@@ -1,4 +1,4 @@
-<form  method="post" action="{{route('save-query')}}">
+<form  method="post" action="{{route('save-query')}}" class="mt-5">
     @csrf
     <div class="row">
         <h4>Send us a message</h4>
@@ -48,8 +48,8 @@
             <textarea rows="5" cols="70" id="message" name="message"
                 placeholder="Type your message"></textarea>
         </div>
-        <div class="col-12  mt-3">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="col-12 mt-3 text-center">
+            <button type="submit" class="btn btn-primary">SUBMIT</button>
         </div>
     </div>
 </form>

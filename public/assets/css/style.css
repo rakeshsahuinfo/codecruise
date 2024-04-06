@@ -993,3 +993,22 @@ hr {
 /*# sourceMappingURL=style.css.map *//*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.custom-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Adjust spacing between divs */
+}
+
+.custom-div {
+  flex: 1 1 auto; /* Allow flex items to grow and shrink equally */
+  min-width: calc(33.33% - 20px); /* Adjust width to have equal width for 3 divs per row */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+.custom-div a{
+  text-decoration: none;
+}

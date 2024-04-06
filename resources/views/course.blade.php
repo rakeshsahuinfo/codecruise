@@ -30,7 +30,22 @@
                         <img src="{{ asset('storage/course_banner/' . $courseinfo->course_banner) }}" alt=""
                             class="p-3">
                     </div>
-                    <div data-aos="zoom-out-down" class="w-100 d-flex">
+                    <div class="container">
+
+                        <div class="custom-container" data-aos="zoom-out-down">
+                            <div class="custom-div bg-success text-center">
+                                <a href="{{route('enroll-course',encrypt($courseinfo->id))}}" class="text-white"
+                                    target="_new">Click to<br>Enroll</a>
+                            </div>
+                            <div class="custom-div bg-primary text-white text-center">Course
+                                Fee<br>{{$courseinfo->course_fee}}</div>
+                            @if($courseinfo->apply_discount==1)
+                            <div class="custom-div  bg-warning text-white text-center">
+                                Discount<br>{{$courseinfo->current_discount}}</div>
+                            @endif
+                        </div>
+                    </div>
+                    <!-- <div data-aos="zoom-out-down" class="w-100 d-flex">
                         <a href="{{route('enroll-course',encrypt($courseinfo->id))}}"
                             class="btn btn-success mx-4 text-uppercase" target="_new">
                             <h3><span class="badge badge-light">Enroll<br>Now</span></h3>
@@ -44,7 +59,7 @@
                             </h3>
                         </button>
                         @endif
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-12 col-md-6 col-lg-5">
                     <div class="card dis">
@@ -53,9 +68,10 @@
                         </h4>
                         <div class="card-body">
                             {!! $courseinfo->description !!}
-                            {{-- 
-                            <a href="#" class="btn btn-md btn-outline-info COLOR" id="buy1" onclick="disablebtn()" data-bs-toggle="modal" data-bs-target="#staticBackdrop">QUERY</a>
-                            @include('query') 
+                            {{--
+                            <a href="#" class="btn btn-md btn-outline-info COLOR" id="buy1" onclick="disablebtn()"
+                                data-bs-toggle="modal" data-bs-target="#staticBackdrop">QUERY</a>
+                            @include('query')
                             --}}
                         </div>
                     </div>
@@ -118,9 +134,9 @@
         </div>
         @include('catalog')
         @include('team')
-        <div class="container mt-5">
+        <div class="container my-5">
             <div class="row">
-                <h2 class="text-center m-5" id="contact">Contact us</h2>
+                <h2 class="text-center" id="contact">Contact us</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

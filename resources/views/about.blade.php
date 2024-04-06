@@ -26,35 +26,39 @@
         @include('main-slide')
         <div class="container mt-5">
             <div class="row learns">
-                <div class="col-12 col-lg-5" data-aos="fade-up">
-                    <img src="assets/img/slide/online-girl.jpg" alt="" id="imge">
-                </div>
-                <div class=" col-12 col-lg-7" data-aos="fade-up">
+                <div class="col-12 col-lg-4" data-aos="fade-up">
                     <div class="row">
-
                         <div class="col-12">
                             <div class="col-12 col-md-9 col-lg-10">
                                 <div class="card-body">
                                     <p class="p">ABOUT CODECRUISE</p>
-                                    <p class="fs-5">We create simplified and interactive learning
-                                        experiences.
-
-                                        Learning web development,Cloud computing ,operating system and
-                                        Software testing should be easy to understand and available for
-                                        everyone, everywhere!
-
-                                        CodeCruise is a industry level training platform for web developers
-                                        and others, covering all the aspects of each topic so that the
-                                        Learners be industry ready.</p>
+                                    <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
+                                        empowering individuals with the skills and knowledge needed to thrive in the
+                                        digital era</p>
+                                    <p class="p">OUR VISION</p>
+                                    <p class="fs-5">Revolutionize tech education by providing accessible, innovative
+                                        learning experiences</p>
+                                    <p class="p">OUR MISSION</p>
+                                    <p class="fs-5">Empower individuals worldwide to thrive in the digital age through
+                                        comprehensive courses and dynamic learning environments</p>
                                 </div>
-
                             </div>
                         </div>
                     </div>
-
+                </div>
+                <div class="col-12 col-lg-7 p-0" data-aos="fade-up">
+                    <div class="row m-0">
+                        <div class="col-12 col-md-5 p-1"><img src="{{asset('assets/img/office/office1.jpg')}}" class="img-fluid w-100" style="height: 300px"></div>
+                        <div class="col-12 col-md-3 p-1"><img src="{{asset('assets/img/office/office2.jpg')}}" class="img-fluid w-100" style="height: 300px"></div>
+                        <div class="col-12 col-md-4 p-1"><img src="{{asset('assets/img/office/office3.jpg')}}" class="img-fluid w-100" style="height: 300px"></div>
+                        <div class="col-12 col-md-3 p-1"><img src="{{asset('assets/img/office/office4.jpg')}}" class="img-fluid w-100" style="height: 300px"></div>
+                        <div class="col-12 col-md-5 p-1"><img src="{{asset('assets/img/office/office5.jpg')}}" class="img-fluid w-100" style="height: 300px"></div>
+                        <div class="col-12 col-md-4 p-1"><img src="{{asset('assets/img/office/office6.jpg')}}" class="img-fluid w-100" style="height: 300px"></div>
+                    </div>
                 </div>
             </div>
         </div>
+
         @include('catalog')
         @include('team')
         <div class="container mt-5">

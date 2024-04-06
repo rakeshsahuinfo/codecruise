@@ -25,7 +25,7 @@
     <section class="inner-page" style="height: 10%;">
         @include('main-slide')
         <div class="container mt-5">
-            <div class="row about">
+            <div class="row" id="about">
                 <div class="col-12 col-lg-4" data-aos="fade-up">
                     <div class="row">
                         <div class="col-12">

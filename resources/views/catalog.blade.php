@@ -14,7 +14,7 @@
                         class="team mt-3">
                 </a>
                 <div class="card-body">
-                    <a class="nav-link" href="{{route('course',encrypt($c->id))}}">
+                    <a href="{{route('course',encrypt($c->id))}}">
                         <h4 style="font-size: 20px;font-weight: bolder;" class="text-center text-dark">{{$c->name}}</h4>
                     </a>
                 </div>

@@ -31,7 +31,6 @@
                             class="p-3">
                     </div>
                     <div class="container">
-
                         <div class="custom-container" data-aos="zoom-out-down">
                             <div class="custom-div bg-success text-center">
                                 <a href="{{route('enroll-course',encrypt($courseinfo->id))}}" class="text-white"
@@ -79,25 +78,25 @@
             </div>
         </div>
         <div class="container my-3" data-aos="zoom-out-down">
-            <div class="card shadow Schedule">
+            <div class="card shadow" id="schedule">
                 <div class="card-body">
-                    <div class="row ">
+                    <div class="row text-center">
                         <div class="col-12 col-sm-3 col-md-3">
                             <p class="p" style="cursor: pointer;">Program Duration</p>
                             <h4>{{$courseinfo->course_duration}}</h4>
                         </div>
-                        <div class="col-12 col-sm-3 col-md-3">
+                        <div class="col-12 col-sm-3 col-md-4">
                             <p class="p" style="cursor: pointer;">Class Schedule</p>
                             <h4>{{$courseinfo->class_schedule}}</h4>
                         </div>
-                        <div class="col-12 col-sm-3 col-md-3">
+                        <div class="col-12 col-sm-3 col-md-4">
                             <p class="p" style="cursor: pointer;">Delivery Mode</p>
                             <h4>{{$courseinfo->delivery_mode}}</h4>
                         </div>
-                        <div class="col-12 col-sm-3 col-md-3">
+                        <!-- <div class="col-12 col-sm-3 col-md-4">
                             <p class="p" style="cursor: pointer;">Program Fees</p>
                             <h4>{{$courseinfo->course_fee}}</h4>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -106,11 +105,17 @@
             <div class="container mt-5 syllabus">
                 <h2 class="text-center" id="syllabus">Syllabus and Schedule</h2>
                 <p class="text-center">{{$coursemodule->name}}</p>
-                <div class="row">
+                <p>
+                    <a href="{{route('download-course-info',encrypt($courseinfo->id))}}" class="float-end"
+                        target="_new"><img src="{{asset('assets/img/download.png')}}"
+                            title="Download {{$courseinfo->name}} Info"></a>
+                </p>
+                <div class="row mt-2">
                     <div class="col-12 col-md-12 col-lg-12 mt-4 mx-2">
                         {!!$coursemodule->description!!}
                     </div>
                 </div>
+
             </div>
         </div>
         <div class="container">

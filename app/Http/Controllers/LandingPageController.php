@@ -9,4 +9,7 @@ class LandingPageController extends Controller
     public function index(){
         return view('index');
     }
+    public function privacyPolicy(){
+        return view('privacy-policy');
+    }
 }

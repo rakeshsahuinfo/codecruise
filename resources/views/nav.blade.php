@@ -6,7 +6,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
         <li><a class="nav-link scrollto " href="{{route('landing-page')}}">Home</a></li>
         @if($ctype)
         @foreach($ctype as $ct)
-        <li class="dropdown"><a class="nav-link" href="#">{{$ct->name}}</a>
+        <li class="dropdown"><a class="nav-link" href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a>
             <ul>
                 @php
                 $course=App\Models\Course::where('course_type_id',$ct->id)->get();

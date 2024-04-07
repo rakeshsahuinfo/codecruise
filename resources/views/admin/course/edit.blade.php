@@ -119,7 +119,7 @@
 </div>
 @stop
 @section('jsscript')
-<script src="https://cdn.tiny.cloud/1/911cbq2nvk2mpjfa4zvl2lrwp3qrlpebnarv36kpbyh15rz6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/qct6i34mva10zv33t1mg214nd0ys74jfca2vuxzp6zajhtvl/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>

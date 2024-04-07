@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\CourseModule;
 use App\Models\CourseTechStack;
+use App\Models\CourseType;
 use Exception;
 use PDF;
 use Illuminate\Http\Request;
@@ -23,6 +24,13 @@ class CourseController extends Controller
         } catch (Exception $e) {
             return back();
         }
+    }
+
+    public function courseByType($id){
+        $course_type_id=decrypt($id);
+        $course_type=CourseType::find($course_type_id);
+        $course = Course::join('course_type','courses.course_type_id','=','course_type.id')->select('courses.*','course_type.name as course_type_name')->where('course_type_id',$course_type_id)->orderBy('name','asc')->get();
+        return view('course-by-type',['course'=>$course,'course_type'=>$course_type]);
     }
 
     public function downloadCourseinfo($id)

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-lg-3 col-md-6 footer-info">
+                <div class="col-lg-4 col-md-6 footer-info">
                     <h3>CodeCruise</h3>
                     <p>
                         A74, TechnoPark, <br>Andheri, Mumbai, Maharashtra India.<br>
@@ -19,37 +19,35 @@
                     </div>
                 </div>
 
-                <div class="col-lg-2 col-md-6 footer-links">
+                <div class="col-lg-4 col-md-6 footer-links">
                     <h4>Useful Links</h4>
                     <ul class="ul">
-                        <li><i class="bx bx-chevron-right"></i> <a href="index.php">Home</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="about/">About us</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('landing-page')}}">Home</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('about')}}">About us</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{route('privacy-policy')}}" target="_new">Privacy Policy</a></li>
                     </ul>
                 </div>
-
-                <div class="col-lg-3 col-md-6 footer-links">
-                    <h4>Our Services</h4>
+                @php
+                $ctype=App\Models\CourseType::where('is_active',1)->get();
+                @endphp
+                <div class="col-lg-4 col-md-6 footer-links">
+                    <h4>Top Courses</h4>
                     <ul class="ul">
-                        <li><a href="#">Online Training</a></li>
-                        <li> <a href="#">Corporate Training</a></li>
-                        <li> <a href="#">Campus Recruitment</a></li>
-                        <li> <a href="#">E-Learning Infrastructure</a></li>
-                        <li> <a href="#">IT Service & Consultancy</a></li>
+                        @if($ctype)
+                        @foreach($ctype as $ct)
+                        <li><a href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></li>
+                        @endforeach
+                        @endif
                     </ul>
                 </div>
-
+                <!-- 
                 <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Our Newsletter</h4>
                     <p>Please subcribe to get our weekly news letter</p>
                     <form action="subscribe.php" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
-
-                </div>
-
+                </div> -->
             </div>
         </div>
     </div>
@@ -61,4 +59,4 @@
             Designed by <a href="https://codecruise.in/">CodeCruise</a>
         </div>
     </div>
-</footer> 
+</footer>

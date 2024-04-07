@@ -97,7 +97,7 @@
                                     <input type="hidden" name="message" value="Enroll me">
 
                                     <div class="col-12 mt-3 text-center">
-                                        <button type="submit" class="btn btn-primary">ENROLL</button>
+                                        <button type="submit" class="btn" style="background-color: #008080;color:white;width: 200px;">ENROLL</button>
                                     </div>
                                 </div>
                             </form>

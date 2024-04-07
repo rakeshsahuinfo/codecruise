@@ -49,7 +49,7 @@
                 placeholder="Type your message"></textarea>
         </div>
         <div class="col-12 mt-3 text-center">
-            <button type="submit" class="btn btn-primary">SUBMIT</button>
+            <button type="submit" class="btn" style="background-color: #008080;color:white;width: 200px;">SUBMIT</button>
         </div>
     </div>
 </form>

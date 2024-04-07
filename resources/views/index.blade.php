@@ -27,12 +27,12 @@
         <div class="container mt-5">
             <div class="row learns">
                 <div class="col-12 col-lg-5" data-aos="fade-up">
-                    <img src="{{asset('assets/img/slide/online-girl.jpg')}}" alt="" id="imge">
+                    <img src="{{asset('assets/img/slide/online-girl.jpg')}}" alt="" id="image" style="width: 100%;height: auto;">
                 </div>
                 <div class=" col-12 col-lg-7" data-aos="fade-up">
                     <div class="row">
                         <p class="p">LEARN ANYTHING</p>
-                        <h2>Benefits About Online and Offline Learning Expertise</h2>
+                        <h2 class="fs-3">Key Benefits</h2>
                         <div class="col-12">
                             <div class="card learn">
                                 <div class="card-body">

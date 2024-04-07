@@ -3,7 +3,7 @@
         <div class="carousel-item active" data-bs-interval="5000">
             <img src="{{asset('assets/img/slide/slide-1.jpg')}}" class="d-block img-fluid brightness" id="img1" alt="...">
             <div class="carousel-caption  d-md-block">
-                <h3 class="">WE ARE CODE CRUISERS</h3>
+                <h3 class="">UNLOCK YOUR POTENTIAL<BR>ELEVATE YOUR SKILLS NOW!</h3>
                 <p class="d-md-block">SAIL SMOOTH IN TECH OCEAN</p>
             </div>
         </div>
@@ -12,15 +12,15 @@
                 id="img2" alt="...">
             <div class="carousel-caption d-md-block">
                 <h3 class="">COMPLETE TRAINING SOLUTION <BR>AT ONE PLACE</h3>
-                <p class="d-md-block">COMPLETE TRAINING SOLUTION LEARN WITH THE PROFESSIONALS</p>
+                <p class="d-md-block">LEARN WITH THE PROFESSIONALS</p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="{{asset('assets/img/slide/slide-3.jpg')}}" class="d-block img-fluid brightness" id="img3"
                 alt="...">
             <div class="carousel-caption d-md-block">
-                <h3 class="">CORPORATE AND ON CAMPUS <BR>TRAINING</h3>
-                <p class="d-md-block">CORPORATE & ON CAMPUS TRAINING YOU HIRE AND WE TRAIN</p>
+                <h3 class="">CORPORATE AND ON-CAMPUS <BR>TRAINING</h3>
+                <p class="d-md-block">YOU HIRE AND WE TRAIN</p>
             </div>
         </div>
     </div>

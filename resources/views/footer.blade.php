@@ -11,11 +11,10 @@
                         <strong>Email:</strong> ask@codecruise.in<br>
                     </p>
                     <div class="social-links mt-3">
-                        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <a href="https://facebook.com/codecruise/" class="facebook" target="_new"><i class="bi bi-facebook"></i></a>
+                        <a href="https://instagram.com/codecruise/" class="instagram" target="_new"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/codecruise" class="linkedin" target="_new"><i class="bi bi-linkedin"></i></i></a>
+                        <a href="https://twitter.com/codecruiseindia/" class="twitter" target="_new"><i class="bi bi-twitter"></i></a>
                     </div>
                 </div>
 

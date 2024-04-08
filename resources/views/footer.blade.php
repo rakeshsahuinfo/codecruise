@@ -11,7 +11,7 @@
                         <strong>Email:</strong> ask@codecruise.in<br>
                     </p>
                     <div class="social-links mt-3">
-                        <a href="https://facebook.com/codecruise/" class="facebook" target="_new"><i class="bi bi-facebook"></i></a>
+                        <a href="https://facebook.com/codecruiseindia/" class="facebook" target="_new"><i class="bi bi-facebook"></i></a>
                         <a href="https://instagram.com/codecruise/" class="instagram" target="_new"><i class="bi bi-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/codecruise" class="linkedin" target="_new"><i class="bi bi-linkedin"></i></i></a>
                         <a href="https://twitter.com/codecruiseindia/" class="twitter" target="_new"><i class="bi bi-twitter"></i></a>

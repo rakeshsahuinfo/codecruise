@@ -1,6 +1,6 @@
 <div class="container my-5">
-    <h2 class="text-center mt-5" id="catalog">Explore more Courses</h2>
-    <p class="text-center">List of courses available</p>
+    <h2 class="text-center mt-5 p" id="catalog">Explore more Courses</h2>
+    <p class="text-center sp">List of courses available</p>
     <div class="row ">
         @php
         $course=App\Models\Course::where('is_active',1)->orderBy('course_type_id')->get();

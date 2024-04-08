@@ -18,8 +18,8 @@
                 </div>
                 <div class=" col-12 col-lg-7" data-aos="fade-up">
                     <div class="row">
-                        <p class="p">LEARN ANYTHING</p>
-                        <h2 class="fs-3">Key Benefits</h2>
+                        <p class="fs-3 p">LEARN ANYTHING</p>
+                        <h2 class="fs-4 sp">Key Benefits</h2>
                         <div class="col-12">
                             <div class="card learn">
                                 <div class="card-body">
@@ -69,7 +69,6 @@
                                             <span class="head ml-2">Learn with Expert</span>
                                             <p class="ml-2">Get the personal attention with over expert Trainers &
                                                 Faculty</p>
-
                                         </div>
 
                                     </div>
@@ -84,7 +83,7 @@
         @include('team')
         <div class="container my-5">
             <div class="row">
-                <h2 class="text-center" id="contact">Contact us</h2>
+                <h2 class="text-center p" id="contact">CONTACT US</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

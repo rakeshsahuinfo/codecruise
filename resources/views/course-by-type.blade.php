@@ -11,8 +11,8 @@
 <main id="main">
     <section class="inner-page" style="height: 10%;">
         <div class="container my-5">
-            <h2 class="text-center mt-5" id="catalog">{{$course_type->name}}</h2>
-            <p class="text-center">List of courses available</p>
+            <h2 class="text-center mt-5 p" id="catalog">{{$course_type->name}}</h2>
+            <p class="text-center sp">List of courses available</p>
             <div class="row ">
                
                 @if($course)
@@ -38,7 +38,7 @@
         @include('team')
         <div class="container my-5">
             <div class="row">
-                <h2 class="text-center" id="contact">Contact us</h2>
+                <h2 class="text-center p" id="contact">CONTACT US</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

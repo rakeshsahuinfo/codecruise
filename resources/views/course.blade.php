@@ -21,7 +21,7 @@
                         <div class="custom-container" data-aos="zoom-out-down">
                             <div class="custom-div bg-success text-center">
                                 <a href="{{route('enroll-course',encrypt($courseinfo->id))}}" class="text-white"
-                                    target="_new">Click to<br>Enroll</a>
+                                    target="_new">Enroll<br>Here</a>
                             </div>
                             <div class="custom-div bg-primary text-white text-center">Course
                                 Fee<br>{{$courseinfo->course_fee}}</div>
@@ -31,25 +31,10 @@
                             @endif
                         </div>
                     </div>
-                    <!-- <div data-aos="zoom-out-down" class="w-100 d-flex">
-                        <a href="{{route('enroll-course',encrypt($courseinfo->id))}}"
-                            class="btn btn-success mx-4 text-uppercase" target="_new">
-                            <h3><span class="badge badge-light">Enroll<br>Now</span></h3>
-                        </a>
-                        <button type="button" class="btn btn-primary float-end mx-4 text-uppercase">
-                            <h3><span class="badge badge-light">Course Fee<br>{{$courseinfo->course_fee}}</span></h3>
-                        </button>
-                        @if($courseinfo->apply_discount==1)
-                        <button type="button" class="btn btn-warning float-end mx-4 text-uppercase">
-                            <h3><span class="badge badge-light">Discount<br>{{$courseinfo->current_discount}}</span>
-                            </h3>
-                        </button>
-                        @endif
-                    </div> -->
                 </div>
                 <div class="col-12 col-md-6 col-lg-5">
                     <div class="card dis">
-                        <h4 class="p-4 text-uppercase">
+                        <h4 class="p p-4 text-uppercase">
                             {{$courseinfo->name}}
                         </h4>
                         <div class="card-body">
@@ -70,15 +55,15 @@
                     <div class="row text-center">
                         <div class="col-12 col-sm-3 col-md-3">
                             <p class="p" style="cursor: pointer;">Program Duration</p>
-                            <h4>{{$courseinfo->course_duration}}</h4>
+                            <h4 class="sp">{{$courseinfo->course_duration}}</h4>
                         </div>
                         <div class="col-12 col-sm-3 col-md-4">
                             <p class="p" style="cursor: pointer;">Class Schedule</p>
-                            <h4>{{$courseinfo->class_schedule}}</h4>
+                            <h4 class="sp">{{$courseinfo->class_schedule}}</h4>
                         </div>
                         <div class="col-12 col-sm-3 col-md-4">
                             <p class="p" style="cursor: pointer;">Delivery Mode</p>
-                            <h4>{{$courseinfo->delivery_mode}}</h4>
+                            <h4 class="sp">{{$courseinfo->delivery_mode}}</h4>
                         </div>
                         <!-- <div class="col-12 col-sm-3 col-md-4">
                             <p class="p" style="cursor: pointer;">Program Fees</p>
@@ -90,8 +75,8 @@
         </div>
         <div class="container">
             <div class="container mt-5 syllabus">
-                <h2 class="text-center" id="syllabus">Syllabus and Schedule</h2>
-                <p class="text-center">{{$coursemodule->name}}</p>
+                <h2 class="text-center p" id="syllabus">Syllabus and Schedule</h2>
+                <p class="text-center sp">{{$coursemodule->name}}</p>
                 <p>
                     <a href="{{route('download-course-info',encrypt($courseinfo->id))}}" class="float-end"
                         target="_new"><img src="{{asset('assets/img/download.png')}}"
@@ -107,7 +92,7 @@
         </div>
         <div class="container">
             <div class="container mt-5">
-                <h2 class="text-center" id="syllabus">Tech Stack To Be Covered</h2>
+                <h2 class="text-center p" id="syllabus">Tech Stack To Be Covered</h2>
                 <p class="text-center"></p>
                 <div class="row justify-content-center">
                     @if($coursetechstack)
@@ -128,7 +113,7 @@
         @include('team')
         <div class="container my-5">
             <div class="row">
-                <h2 class="text-center" id="contact">Contact us</h2>
+                <h2 class="text-center p" id="contact">Contact us</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

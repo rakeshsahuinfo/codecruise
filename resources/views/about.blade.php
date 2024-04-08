@@ -18,7 +18,7 @@
                         <div class="col-12">
                             <div class="col-12 col-md-9 col-lg-10">
                                 <div class="card-body">
-                                    <p class="p fs-3">ABOUT CODECRUISE</p>
+                                    <p class="p fs-2">ABOUT CODECRUISE</p>
                                     <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
                                         empowering individuals with the skills and knowledge needed to thrive in the
                                         digital era</p>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 
-                <p class="p fs-3 text-uppercase mt-4">Our Core Values</p>
+                <p class="p fs-2 text-uppercase mt-4">Our Core Values</p>
                 <div class="row">
                     <div class="col-4">
                         <p class="p fs-4 text-uppercase"> Excellence</p>
@@ -84,7 +84,7 @@
         @include('team')
         <div class="container my-5">
             <div class="row">
-                <h2 class="text-center" id="contact">Contact us</h2>
+                <h2 class="text-center p" id="contact">Contact us</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

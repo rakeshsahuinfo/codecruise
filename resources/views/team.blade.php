@@ -1,10 +1,6 @@
 <div class="container my-5 team">
-    <h2 class="text-center mt-5" id="team">Our Trainers</h2>
-    <p class="text-center">Our team consist of trainers and faculties who are themselves experienced working
-        professionals with reputed companies
-        <br>
-        Our team is fully committed to train you so that you are ready to work on live projects anytime and
-        anywhere.
+    <h2 class="text-center mt-5 p" id="team">Our Trainers</h2>
+    <p class="text-center sp">Our training team consists of experienced professionals, fully committed to train you so that you are ready to work.
     </p>
     <div class="row text-center">
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">

@@ -18,7 +18,7 @@
                             <form method="post" action="{{route('save-query')}}">
                                 @csrf
                                 <div class="row">
-                                    <h4 class="text-uppercase my-4">Enroll To course</h4>
+                                    <h4 class="text-uppercase my-4 p">Enroll To course</h4>
                                     @php
                                     $mycourse=App\Models\Course::find($courseinfo->id);
                                     @endphp
@@ -121,7 +121,7 @@
         @include('team')
         <div class="container my-5">
             <div class="row">
-                <h2 class="text-center" id="contact">Contact us</h2>
+                <h2 class="text-center p" id="contact">Contact us</h2>
                 <div class="col-12 col-lg-4">
                     @include('address')
                 </div>

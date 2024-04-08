@@ -84,6 +84,8 @@
             display: inline-block;
             margin-top: 15px;
             margin-right: 20px;
+            border-right:solid 1px rgb(223, 221, 221);
+            border-bottom:solid 2px rgb(223, 221, 221);
         }
 
         .tech-stack .tech-item img {

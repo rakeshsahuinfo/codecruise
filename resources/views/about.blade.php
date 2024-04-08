@@ -18,7 +18,7 @@
                         <div class="col-12">
                             <div class="col-12 col-md-9 col-lg-10">
                                 <div class="card-body">
-                                    <p class="p fs-2">ABOUT CODECRUISE</p>
+                                    <p class="p fs-2">ABOUT<br>CODE-CRUISE</p>
                                     <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
                                         empowering individuals with the skills and knowledge needed to thrive in the
                                         digital era</p>

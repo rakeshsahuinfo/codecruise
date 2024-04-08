@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseTechStack;
 use App\Models\UserQuery;
 use Exception;
 use Illuminate\Http\Request;
@@ -33,7 +34,8 @@ class QueryController extends Controller
     public function enrollCourse($course_id){
         try {
             $courseinfo=Course::find(decrypt($course_id));
-            return view('enroll-course',['courseinfo'=>$courseinfo]);
+            $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', decrypt($course_id))->select('tech_stacks.*')->get();
+            return view('enroll-course',['courseinfo'=>$courseinfo,'coursetechstack'=>$coursetechstack]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
         }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2024 at 01:50 PM
+-- Generation Time: Apr 08, 2024 at 09:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -73,7 +73,7 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`id`, `name`, `course_type_id`, `description`, `course_duration`, `class_schedule`, `delivery_mode`, `course_fee`, `current_discount`, `apply_discount`, `course_banner`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Full Stack PHP', 1, '<p>A <strong>PHP</strong> developer is responsible for writing server-side web application logic. PHP developers usually develop back-end components, connect the application with the other (often third-party) web services, and support the front-end developers by integrating their work with the application.</p>\r\n<ul>\r\n<li>HTML5</li>\r\n<li>CSS3 and SASS</li>\r\n<li>Javascript</li>\r\n<li>Typescript</li>\r\n<li>Ecma Script</li>\r\n<li>Bootstrap</li>\r\n<li>JQuery and AJAX</li>\r\n<li>MY-SQL</li>\r\n<li>Core PHP, OOP in PHP</li>\r\n<li>PHP framework Laravel</li>\r\n<li>SCM with GitHub</li>\r\n<li>CICD with Jenkins / Azure DevOps</li>\r\n</ul>', '3 Months', '2 Hours Lecture', 'Offline and Online', 'Rs. 40000.00', 'Flat Rs. 1000.00', 1, '1712155117.jpg', 1, '2024-04-03 09:08:37', '2024-04-05 08:50:10'),
+(1, 'Full Stack PHP', 1, '<p>A <strong>PHP</strong> developer is responsible for writing server-side web application logic. PHP developers usually develop back-end components, connect the application with the other (often third-party) web services, and support the front-end developers by integrating their work with the application.</p>', '3 Months', '2 Hours Lecture', 'Offline and Online', 'Rs. 40000.00', 'Flat Rs. 1000.00', 1, '1712155117.jpg', 1, '2024-04-03 09:08:37', '2024-04-07 23:29:52'),
 (2, 'Full Stack JAVA', 1, '<p>It is a part of Java programming language. It is an advanced technology or advance version of Java specially designed to develop web-based, network-centric or enterprise applications. It includes ../the concepts like Servlet, JSP, JDBC, RMI, Socket programming, etc. It is a specialization in specific domain</p>\r\n<ul>\r\n<li>OOPs programming concepts</li>\r\n<li>Java Programming Basics</li>\r\n<li>File Handling and Streaming</li>\r\n<li>JDBC with MySQL</li>\r\n<li>Spring MVC and Hibernate</li>\r\n<li>Spring Boot with JPA</li>\r\n<li>REST API design with Swagger</li>\r\n<li>SCM with GitHub</li>\r\n<li>CICD with Jenkins</li>\r\n</ul>', '3 Months', '2 Hours Lecture', 'Offline and Online', 'Rs. 50000.00', 'Flat Rs. 1000.00', 0, '1712157800.jpg', 1, '2024-04-03 09:53:21', '2024-04-06 23:33:03');
 
 -- --------------------------------------------------------
@@ -163,7 +163,15 @@ INSERT INTO `course_tech_stack` (`id`, `course_id`, `tech_stack_id`, `is_active`
 (8, 1, 2, 1, '2024-04-04 01:31:58', '2024-04-04 01:31:58'),
 (9, 1, 3, 1, '2024-04-04 01:32:02', '2024-04-04 01:32:02'),
 (10, 2, 4, 1, '2024-04-04 01:32:14', '2024-04-04 01:32:14'),
-(11, 2, 3, 1, '2024-04-04 01:32:18', '2024-04-04 01:32:18');
+(11, 2, 3, 1, '2024-04-04 01:32:18', '2024-04-04 01:32:18'),
+(12, 1, 5, 1, '2024-04-08 01:16:25', '2024-04-08 01:16:25'),
+(13, 1, 6, 1, '2024-04-08 01:17:40', '2024-04-08 01:17:40'),
+(14, 1, 7, 1, '2024-04-08 01:18:47', '2024-04-08 01:18:47'),
+(15, 2, 10, 1, '2024-04-08 01:28:42', '2024-04-08 01:28:42'),
+(16, 2, 7, 1, '2024-04-08 01:28:47', '2024-04-08 01:28:47'),
+(17, 2, 6, 1, '2024-04-08 01:28:51', '2024-04-08 01:28:51'),
+(18, 2, 8, 1, '2024-04-08 01:28:56', '2024-04-08 01:28:56'),
+(19, 2, 9, 1, '2024-04-08 01:29:02', '2024-04-08 01:29:02');
 
 -- --------------------------------------------------------
 
@@ -306,7 +314,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('IVY9N4bU4koPtI3nZ4onxamk5U3zscDoTyjproSq', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoid3UyYlVSWjJwMzBIOVkzUGhweTg0WW1vZzVDRlNxbUJMNmZJdklpSiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDc6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9hZGQtY291cnNlLW1vZHVsZS8yIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozODoiaHR0cDovL2xvY2FsaG9zdDo4MDAwL2FkbWluL25ldy1jb3Vyc2UiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1712490606);
+('AXo4RBGoaEHd8mJmG0LMT3HvzAPI14ipOKUwOw7f', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQUpsaGlQSlV3VmdFZVk3UVptZTFxc0cxZ0lqTFI5VE1lWFNsMlowbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1712559641);
 
 -- --------------------------------------------------------
 
@@ -328,10 +336,16 @@ CREATE TABLE `tech_stacks` (
 --
 
 INSERT INTO `tech_stacks` (`id`, `name`, `tech_stack_logo`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'HTML', '1712206978.png', 1, '2024-04-03 23:32:58', '2024-04-03 23:32:58'),
-(2, 'CSS', '1712207171.jpg', 1, '2024-04-03 23:36:11', '2024-04-03 23:36:11'),
-(3, 'MY-SQL', '1712207847.jpg', 1, '2024-04-03 23:37:09', '2024-04-03 23:47:57'),
-(4, 'JAVASCRIPT', '1712207261.jpg', 1, '2024-04-03 23:37:41', '2024-04-03 23:37:41');
+(1, 'HTML', '1712558246.png', 1, '2024-04-03 23:32:58', '2024-04-08 01:07:26'),
+(2, 'CSS', '1712558221.png', 1, '2024-04-03 23:36:11', '2024-04-08 01:07:01'),
+(3, 'MY-SQL', '1712558298.png', 1, '2024-04-03 23:37:09', '2024-04-08 01:08:18'),
+(4, 'JAVASCRIPT', '1712558257.png', 1, '2024-04-03 23:37:41', '2024-04-08 01:07:37'),
+(5, 'Laravel', '1712558313.png', 1, '2024-04-08 01:08:33', '2024-04-08 01:08:33'),
+(6, 'Git', '1712558348.jpg', 1, '2024-04-08 01:09:08', '2024-04-08 01:09:08'),
+(7, 'Bootstrap', '1712558915.jpg', 1, '2024-04-08 01:18:35', '2024-04-08 01:18:35'),
+(8, 'Java', '1712559464.png', 1, '2024-04-08 01:27:44', '2024-04-08 01:27:44'),
+(9, 'Spring Boot', '1712559481.png', 1, '2024-04-08 01:28:01', '2024-04-08 01:28:01'),
+(10, 'Angular', '1712559508.png', 1, '2024-04-08 01:28:28', '2024-04-08 01:28:28');
 
 -- --------------------------------------------------------
 
@@ -562,7 +576,7 @@ ALTER TABLE `course_schedule`
 -- AUTO_INCREMENT for table `course_tech_stack`
 --
 ALTER TABLE `course_tech_stack`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `course_type`
@@ -598,7 +612,7 @@ ALTER TABLE `modules`
 -- AUTO_INCREMENT for table `tech_stacks`
 --
 ALTER TABLE `tech_stacks`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `topics`

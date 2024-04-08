@@ -99,7 +99,7 @@
                     @foreach($coursetechstack as $ts)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
                         <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
-                            <img src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" alt="" class="p-3">
+                            <img src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
                             <div class="card-tittle px-4 text-center">{{$ts->name}}</div>
                             <div class="card-body"></div>
                         </div>

@@ -65,7 +65,7 @@
                                     </td>
                                     <td>{{$ts->name}}</td>
                                     <td>
-                                        <img class="img-fluid" width="200" height="100" src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" alt="Main Logo">
+                                        <img class="img-fluid" width="100" height="100" src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" alt="Main Logo">
                                     </td>
                                     <td>{{$ts->is_active==1?"Active":"Inactive"}}</td>
                                     <td>{{\Carbon\Carbon::parse($ts->created_at)->format('d-M-y')}}</td>

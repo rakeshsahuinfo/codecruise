@@ -26,7 +26,8 @@
 <body>
 	@if(session('msg'))
 	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 5%;z-index:9999">
-		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert" style="height: 100%;padding:5%">
+		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert"
+			style="height: 100%;padding:5%">
 			{{ session('msg') }}
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
@@ -45,6 +46,8 @@
 		AOS.init();
 	</script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="{{asset('assets/js/jquery.validate.min.js')}}"></script>
+	<script src="{{asset('assets/js/validate.js')}}"></script>
 	<script src="{{asset('assets/js/myscript.js')}}"></script>
 	@yield('jsscript')
 </body>

@@ -15,7 +15,7 @@
                 <div class="col-12 col-md-12 col-lg-7">
                     <div class="card shadow ">
                         <div class="card-body">
-                            <form method="post" action="{{route('save-query')}}">
+                            <form id="enroll-form" method="post" action="{{route('save-query')}}">
                                 @csrf
                                 <div class="row">
                                     <h4 class="text-uppercase my-4 p">Enroll To course</h4>
@@ -33,8 +33,7 @@
                                     <div class="col-12 mt-3">
                                         <label for="myexampleCourse">Your Interest {{--(use <strong>ctrl +
                                                 select</strong> for multiple)--}}</label>
-                                        <select class="form-control" name="course_ids[]" id="myexampleCourse" multiple
-                                            required>
+                                        <select class="form-control" name="course_ids[]" id="myexampleCourse" multiple>
                                             @php
                                             $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
                                             @endphp
@@ -63,12 +62,12 @@
                                     <div class="col-12 col-md-12 mt-3">
                                         <label for="name">Name</label></br>
                                         <input type="text" name="name" class="form-control" id="name"
-                                            placeholder="&nbsp;&nbsp;Name" required>
+                                            placeholder="&nbsp;&nbsp;Name">
                                     </div>
                                     <div class="col-12 col-md-12 mt-3">
                                         <label for="email">Email</label></br>
                                         <input type="email" name="email" class="form-control" id="email"
-                                            placeholder="&nbsp;&nbsp;Email" required>
+                                            placeholder="&nbsp;&nbsp;Email">
                                     </div>
                                     <div class="col-12 col-md-12 mt-3">
                                         <label for="mycontact">Contact no</label></br>

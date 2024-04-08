@@ -1023,3 +1023,7 @@ hr {
 .custom-div a{
   text-decoration: none;
 }
+
+.error {
+  color: #F00;
+}

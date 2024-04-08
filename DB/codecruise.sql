@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2024 at 09:01 AM
+-- Generation Time: Apr 08, 2024 at 01:37 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -314,7 +314,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('AXo4RBGoaEHd8mJmG0LMT3HvzAPI14ipOKUwOw7f', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQUpsaGlQSlV3VmdFZVk3UVptZTFxc0cxZ0lqTFI5VE1lWFNsMlowbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMCI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1712559641);
+('AXo4RBGoaEHd8mJmG0LMT3HvzAPI14ipOKUwOw7f', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiQUpsaGlQSlV3VmdFZVk3UVptZTFxc0cxZ0lqTFI5VE1lWFNsMlowbiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjQzOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvZG93bmxvYWQtY291cnNlLWluZm8vZXlKcGRpSTZJbk0zY25KUVlsbFJUMlk0VmpWdFIwYzBUSFJMVEZFOVBTSXNJblpoYkhWbElqb2lkalpJVlhnMGRGTjZZbFJoUjJKdFF6UnZRV2xxVVQwOUlpd2liV0ZqSWpvaVlUTTFZak5qT1dSa1lqYzJOak00WkdOak56Qm1OR1l3WW1KaE1UZGxORFF3WTJRMk1tRXlaRE0wWlRZME0yUTBZVGxpTmpjMk9EZGtObVkzWkRJNU9TSXNJblJoWnlJNklpSjkiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1712576101);
 
 -- --------------------------------------------------------
 
@@ -403,15 +403,6 @@ CREATE TABLE `user_query` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `user_query`
---
-
-INSERT INTO `user_query` (`id`, `name`, `email`, `contact`, `company_college_name`, `course_ids`, `other_course`, `message`, `created_at`, `updated_at`) VALUES
-(4, 'Sam bahadur', 'sam@gmail.com', '2345678909', 'ABC College', '[\"1\",\"2\",\"other\"]', 'MERN', 'okkk', '2024-04-04 08:36:33', '2024-04-04 08:36:33'),
-(5, 'sanjay', 'sanjay@gmail.com', '2345678909', 'ABC LTD', '[\"1\",\"2\",\"other\"]', 'MEAN', 'MEAN', '2024-04-04 08:37:30', '2024-04-04 08:37:30'),
-(6, 'Sanjay', 'sanjay@yahoo.in', '5478451245', 'Sanjay Ltd', '[\"2\"]', NULL, 'Enroll me', '2024-04-06 23:34:08', '2024-04-06 23:34:08');
 
 --
 -- Indexes for dumped tables
@@ -630,7 +621,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_query`
 --
 ALTER TABLE `user_query`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

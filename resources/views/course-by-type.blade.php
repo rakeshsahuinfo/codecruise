@@ -20,7 +20,7 @@
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <div class="card shadow-sm" data-aos="fade-up">
                         <a class="nav-link" href="{{route('course',encrypt($c->id))}}">
-                            <img src="{{ asset('storage/course_banner/' . $c->course_banner) }}" alt="" height="200" width="200"
+                            <img src="{{ asset('course_banner/' . $c->course_banner) }}" alt="" height="200" width="200"
                                 class="team mt-3">
                         </a>
                         <div class="card-body">

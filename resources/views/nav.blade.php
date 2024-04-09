@@ -9,7 +9,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
         <li class="dropdown"><a class="nav-link" href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a>
             <ul>
                 @php
-                $course=App\Models\Course::where('course_type_id',$ct->id)->get();
+                $course=App\Models\Course::where('course_type_id',$ct->id)->orderBy('name','asc')->get();
                 @endphp
                 @if($course)
                 @foreach($course as $c)

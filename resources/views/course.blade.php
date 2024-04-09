@@ -14,7 +14,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-7">
                     <div class="card car" data-aos="zoom-in">
-                        <img src="{{ asset('storage/course_banner/' . $courseinfo->course_banner) }}" alt=""
+                        <img src="{{ asset('course_banner/' . $courseinfo->course_banner) }}" alt=""
                             class="p-3">
                     </div>
                     <div class="container">
@@ -73,8 +73,8 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="container mt-5 syllabus">
+        <div class="container card shadow py-4">
+            <div class="container mt-4 syllabus">
                 <h2 class="text-center p" id="syllabus">Syllabus and Schedule</h2>
                 <p class="text-center sp">{{$coursemodule->name}}</p>
                 <p>
@@ -83,7 +83,7 @@
                             title="Download {{$courseinfo->name}} Info"></a>
                 </p>
                 <div class="row mt-2">
-                    <div class="col-12 col-md-12 col-lg-12 mt-4 mx-2">
+                    <div class="col-12 col-md-12 col-lg-12 mt-4 mx-2"  style="width: 90%;">
                         {!!$coursemodule->description!!}
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                     @foreach($coursetechstack as $ts)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
                         <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
-                            <img src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
+                            <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}" style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
                             <div class="card-tittle px-4 text-center">{{$ts->name}}</div>
                             <div class="card-body"></div>
                         </div>

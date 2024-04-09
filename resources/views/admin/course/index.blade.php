@@ -95,7 +95,7 @@
                                         <b>Applied:</b>{{$c->apply_discount==1?"Yes":"No"}}
                                     </th>
                                     <td>
-                                        <img class="img-fluid" width="200" height="100" src="{{ asset('storage/course_banner/' . $c->course_banner) }}" alt="Main Banner">
+                                        <img class="img-fluid" width="200" height="100" src="{{ asset('course_banner/' . $c->course_banner) }}" alt="Main Banner">
                                     </td>
                                     <td>{{$c->is_active==1?"Active":"Inactive"}}</td>
                                     <td>{{\Carbon\Carbon::parse($c->created_at)->format('d-M-y')}}</td>

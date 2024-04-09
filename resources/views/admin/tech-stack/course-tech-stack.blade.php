@@ -62,7 +62,7 @@
                                     </td>
                                     <td>{{$ts->name}}</td>
                                     <td>
-                                        <img class="img-fluid" width="120" height="120" src="{{ asset('storage/tech_stack/' . $ts->tech_stack_logo) }}" alt="Main Logo">
+                                        <img class="img-fluid" width="120" height="120" src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}" alt="Tech Stack Logo">
                                     </td>
                                     <td>{{$ts->is_active==1?"Active":"Inactive"}}</td>
                                 </tr>

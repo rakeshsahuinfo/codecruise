@@ -48,7 +48,7 @@
         }
 
         .course-details {
-            width: 90%;
+            width: 95%;
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
@@ -63,6 +63,7 @@
         }
 
         .course-details p {
+            width: 80%;
             color: #333;
             font-size: 16px;
             margin-bottom: 10px;
@@ -70,7 +71,7 @@
 
         .tech-stack {
             text-align: center;
-            margin-top: 30;
+            margin-top: 20px;
         }
 
         .tech-stack h2 {
@@ -82,8 +83,7 @@
 
         .tech-stack .tech-item {
             display: inline-block;
-            margin-top: 15px;
-            margin-right: 20px;
+            margin: 40px 5px 5px 5px;
             border-right:solid 1px rgb(223, 221, 221);
             border-bottom:solid 2px rgb(223, 221, 221);
         }
@@ -91,7 +91,6 @@
         .tech-stack .tech-item img {
             width: 100px;
             height: 100px;
-            margin-bottom: 10px;
         }
 
         .tech-stack .tech-name {
@@ -124,7 +123,7 @@
             <div>
                 @foreach($coursetechstack as $ts)
                 <div class="tech-item">
-                    <img src="{{ public_path('storage/tech_stack/' . $ts->tech_stack_logo) }}" alt="Tech Stack Logo">
+                    <img src="{{ public_path('tech_stack/' . $ts->tech_stack_logo) }}" alt="Tech Stack Logo">
                     <br>
                     <span class="tech-name">{{$ts->name}}</span>
                 </div>

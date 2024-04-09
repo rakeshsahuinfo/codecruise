@@ -56,7 +56,7 @@ class TechStackController extends Controller
     {
         try {
             $techstack = TechStack::find($id);
-           
+
             return view('admin.tech-stack.edit', ['techstack' => $techstack]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
@@ -71,7 +71,10 @@ class TechStackController extends Controller
             if ($request->hasFile('tech_stack_logo')) {
                 // Delete previous banner if it exists
                 if ($techstack->tech_stack_logo) {
-                    Storage::delete('public/tech_stack/' . $techstack->tech_stack_logo);
+                    $imagePath = 'public/tech_stack/' . $techstack->tech_stack_logo;
+                    if (Storage::exists($imagePath)) {
+                        Storage::delete($imagePath);
+                    }
                 }
 
                 // Upload and store the new image
@@ -95,37 +98,39 @@ class TechStackController extends Controller
         }
     }
 
-    public function addCourseTechStack($course_id){
+    public function addCourseTechStack($course_id)
+    {
         try {
-            $techstack = TechStack::orderBy('name','asc')->get();
-            $course=Course::find($course_id);
-            return view('admin.tech-stack.course-tech-stack', ['techstack' => $techstack,'course'=>$course]);
+            $techstack = TechStack::orderBy('name', 'asc')->get();
+            $course = Course::find($course_id);
+            return view('admin.tech-stack.course-tech-stack', ['techstack' => $techstack, 'course' => $course]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }
     }
 
-    public function courseAssignTechStack(Request $request){
+    public function courseAssignTechStack(Request $request)
+    {
         // Log::info($request);
-        try{
+        try {
 
-            $opt=$request->opt;
-            if($opt=="add"){
-                $cts=new CourseTechStack();
-                $cts->course_id=$request->course_id;
-                $cts->tech_stack_id=$request->tech_stack_id;
-                $cts->is_active=1;
+            $opt = $request->opt;
+            if ($opt == "add") {
+                $cts = new CourseTechStack();
+                $cts->course_id = $request->course_id;
+                $cts->tech_stack_id = $request->tech_stack_id;
+                $cts->is_active = 1;
                 $cts->save();
-                return ['msg'=>'success'];
+                return ['msg' => 'success'];
             }
-            if($opt=="remove"){
-                $cts= CourseTechStack::where('course_id',$request->course_id)->where('tech_stack_id',$request->tech_stack_id)->first();
+            if ($opt == "remove") {
+                $cts = CourseTechStack::where('course_id', $request->course_id)->where('tech_stack_id', $request->tech_stack_id)->first();
                 $cts->delete();
-                return ['msg'=>'success'];
+                return ['msg' => 'success'];
             }
-        }catch(Exception $ex){
+        } catch (Exception $ex) {
             // Log::info($ex);
-            return ['msg'=>'fail'];
+            return ['msg' => 'fail'];
         }
     }
 }

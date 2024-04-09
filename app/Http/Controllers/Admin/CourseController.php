@@ -83,7 +83,10 @@ class CourseController extends Controller
             if ($request->hasFile('course_banner')) {
                 // Delete previous banner if it exists
                 if ($course->course_banner) {
-                    Storage::delete('public/course_banner/' . $course->course_banner);
+                    $imagePath = 'public/course_banner/' . $course->course_banner;
+                    if (Storage::exists($imagePath)) {
+                        Storage::delete($imagePath);
+                    }
                 }
 
                 // Upload and store the new image

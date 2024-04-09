@@ -8,6 +8,7 @@ use App\Models\CourseTechStack;
 use App\Models\TechStack;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,7 +38,8 @@ class TechStackController extends Controller
             ]);
             $image = $request->file('tech_stack_logo');
             $imageName = time() . '.' . $image->extension();
-            $image->storeAs('public/tech_stack', $imageName);
+            // $image->storeAs('public/tech_stack', $imageName);
+            $image->move(public_path('tech_stack'), $imageName);
 
             TechStack::create([
                 'name' => $request->name,
@@ -70,17 +72,23 @@ class TechStackController extends Controller
             $techstack = TechStack::findOrFail($request->tech_stack_id);
             if ($request->hasFile('tech_stack_logo')) {
                 // Delete previous banner if it exists
+                // if ($techstack->tech_stack_logo) {
+                //     $imagePath = 'public/tech_stack/' . $techstack->tech_stack_logo;
+                //     if (Storage::exists($imagePath)) {
+                //         Storage::delete($imagePath);
+                //     }
+                // }
                 if ($techstack->tech_stack_logo) {
-                    $imagePath = 'public/tech_stack/' . $techstack->tech_stack_logo;
-                    if (Storage::exists($imagePath)) {
-                        Storage::delete($imagePath);
+                    $imagePath = public_path('tech_stack/' . $techstack->tech_stack_logo);
+                    if (File::exists($imagePath)) {
+                        File::delete($imagePath);
                     }
                 }
-
                 // Upload and store the new image
                 $image = $request->file('tech_stack_logo');
                 $imageName = time() . '.' . $image->extension();
-                $image->storeAs('public/tech_stack', $imageName);
+                // $image->storeAs('public/tech_stack', $imageName);
+                $image->move(public_path('tech_stack'), $imageName);
 
                 // Set the new image name
                 $techstack->tech_stack_logo = $imageName;

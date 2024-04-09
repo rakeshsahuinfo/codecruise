@@ -73,8 +73,8 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="container mt-5 syllabus">
+        <div class="container card shadow py-4">
+            <div class="container mt-4 syllabus">
                 <h2 class="text-center p" id="syllabus">Syllabus and Schedule</h2>
                 <p class="text-center sp">{{$coursemodule->name}}</p>
                 <p>
@@ -83,7 +83,7 @@
                             title="Download {{$courseinfo->name}} Info"></a>
                 </p>
                 <div class="row mt-2">
-                    <div class="col-12 col-md-12 col-lg-12 mt-4 mx-2">
+                    <div class="col-12 col-md-12 col-lg-12 mt-4 mx-2"  style="width: 90%;">
                         {!!$coursemodule->description!!}
                     </div>
                 </div>

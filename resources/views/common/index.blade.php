@@ -53,7 +53,7 @@
                     <div class="title-area mb-25 mb-lg-0 text-xl-start text-center">
                         <span class="sub-title"><i class="fal fa-book me-2"></i> Courses Categories</span>
                         <h2 class="sec-title">Explore Top Categories</h2>
-                        <a href="course.html" class="th-btn">View All Category<i
+                        <a href="{{route('course-catalog')}}" class="th-btn">View All Category<i
                                 class="fa-regular fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
@@ -61,122 +61,30 @@
                     <div class="row slider-shadow th-carousel category-slider" data-slide-show="4"
                         data-ml-slide-show="3" data-md-slide-show="3" data-sm-slide-show="2" data-arrows="true"
                         data-xl-arrows="true">
+                        @php
+                        $ctype=App\Models\CourseType::where('is_active',1)->get();
+                        @endphp
+                        @if($ctype)
+                        @foreach($ctype as $ct)
                         <div class="col-md-6 col-xl-4">
                             <div class="category-card">
                                 <div class="category-card_icon">
                                     <img src="{{asset('common/assets/img/icon/cat-1_1.svg')}}" alt="image">
                                 </div>
                                 <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">Web Development</a></h3>
+                                    <h3 class="category-card_title"><a href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></h3>
                                     <p class="category-card_text">56+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
+                                    <a href="{{route('course-by-type',encrypt( $ct->id))}}" class="th-btn">Learn More <i
                                             class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_2.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">Digital Marketing</a></h3>
-                                    <p class="category-card_text">50+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_3.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">UI/UX Design</a></h3>
-                                    <p class="category-card_text">36+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_4.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">Graphic Design</a></h3>
-                                    <p class="category-card_text">24+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_1.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">Web Development</a></h3>
-                                    <p class="category-card_text">56+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_2.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">Digital Marketing</a></h3>
-                                    <p class="category-card_text">50+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_3.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">UI/UX Design</a></h3>
-                                    <p class="category-card_text">36+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-xl-4">
-                            <div class="category-card">
-                                <div class="category-card_icon">
-                                    <img src="{{asset('common/assets/img/icon/cat-1_4.svg')}}" alt="image">
-                                </div>
-                                <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="course.html">Graphic Design</a></h3>
-                                    <p class="category-card_text">24+ Courses </p>
-                                    <a href="course-details.html" class="th-btn">Learn More <i
-                                            class="fa-solid fa-arrow-right ms-1"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
+                        @endif
+                        
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -206,8 +114,8 @@
             </div>
             <div class="col-xl-6">
                 <div class="title-area mb-30">
-                    <span class="sub-title"><i class="fal fa-book me-2"></i> About Our University</span>
-                    <h2 class="sec-title">Welcome to Edura University.</h2>
+                    <span class="sub-title"><i class="fal fa-book me-2"></i> About Company</span>
+                    <h2 class="sec-title">Welcome to Code-Cruise.</h2>
                 </div>
                 <p class="mt-n2 mb-25">Collaboratively simplify user friendly networks after principle centered
                     coordinate effective methods of empowerment distributed niche markets pursue market positioning

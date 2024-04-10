@@ -14,7 +14,7 @@
                     </div>
                     <div class="media-body">
                         <p class="footer-contact_text">Call us any time:</p>
-                        <a href="tel+11234567890" class="footer-contact_link">+256 214 203 215</a>
+                        <a href="tel+917304562050" class="footer-contact_link">+91 730 456 2050</a>
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -24,7 +24,7 @@
                     </div>
                     <div class="media-body">
                         <p class="footer-contact_text">Email us 24/7 hours:</p>
-                        <a href="mailto:info@edura.com" class="footer-contact_link">info@edura.com</a>
+                        <a href="mailto:ask@codecruise.in" class="footer-contact_link">ask@codecruise.in</a>
                     </div>
                 </div>
                 <div class="divider"></div>
@@ -33,15 +33,15 @@
                         <i class="fal fa-location-dot"></i>
                     </div>
                     <div class="media-body">
-                        <p class="footer-contact_text">Our university location:</p>
-                        <a href="https://www.google.com/maps" class="footer-contact_link">147/I, Green Road,
-                            Dhaka</a>
+                        <p class="footer-contact_text">Our Office:</p>
+                        <a href="https://www.google.com/maps" class="footer-contact_link">A-74, TechnoPark, C Cross
+                            Road, Andheri(E), Mumbai,MH, India.</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer-wrap" data-bg-src="assets/img/bg/jiji.png">
+    <div class="footer-wrap" data-bg-src="{{asset('common/assets/img/bg/jiji.png')}}">
         <div class="widget-area">
             <div class="container">
                 <div class="row justify-content-between">
@@ -49,32 +49,37 @@
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo">
-                                    <a href="index.html"><img src="{{asset('common/assets/img/logo-white.svg')}}" alt="Edura"></a>
+                                    <a href="{{route('landing-page')}}"><img src="{{asset('common/assets/img/logo-white.png')}}"
+                                            alt="Codecruise"></a>
                                 </div>
-                                <p class="about-text">Continually optimize backward manufactured products whereas
-                                    communities negotiate life compelling alignments</p>
+                                <p class="about-text">Sail Smooth in Tech Ocean</p>
                                 <div class="th-social">
                                     <h6 class="title text-white">FOLLOW US ON:</h6>
-                                    <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
-                                    <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
-                                    <a href="https://www.skype.com/"><i class="fab fa-skype"></i></a>
+                                    <a href="https://www.facebook.com/codecruiseindia"><i
+                                            class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.twitter.com/codecruiseindia"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/company/codecruise"><i
+                                            class="fab fa-linkedin-in"></i></a>
+                                    <!-- <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a> -->
+                                    <a href="https://www.instagram.com/codecruise"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    @php
+                    $ctype=App\Models\CourseType::where('is_active',1)->get();
+                    @endphp
                     <div class="col-md-6 col-xl-auto">
                         <div class="widget widget_nav_menu footer-widget">
-                            <h3 class="widget_title">Quick Links</h3>
+                            <h3 class="widget_title">Top Courses</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="course.html">Life Coach</a></li>
-                                    <li><a href="course.html">Business Coach</a></li>
-                                    <li><a href="course.html">Health Coach</a></li>
-                                    <li><a href="course.html">Development</a></li>
-                                    <li><a href="course.html">Web Design</a></li>
-                                    <li><a href="course.html">SEO Optimize</a></li>
+                                    @if($ctype)
+                                    @foreach($ctype as $ct)
+                                    <li><a href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></li>
+                                    @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -84,27 +89,33 @@
                             <h3 class="widget_title">Resources</h3>
                             <div class="menu-all-pages-container">
                                 <ul class="menu">
-                                    <li><a href="contact.html">Community</a></li>
-                                    <li><a href="contact.html">Support</a></li>
-                                    <li><a href="contact.html">Video Guides</a></li>
-                                    <li><a href="contact.html">Documentation</a></li>
-                                    <li><a href="contact.html">Security</a></li>
-                                    <li><a href="contact.html">Template</a></li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="{{route('landing-page')}}">Home</a>
+                                    </li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="{{route('about')}}">About us</a>
+                                    </li>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="{{route('privacy-policy')}}"
+                                            target="_new">Privacy Policy</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-xxl-3 col-xl-3">
-                        <div class="widget newsletter-widget footer-widget">
-                            <h3 class="widget_title">Get in touch!</h3>
-                            <p class="footer-text">Subscribe our newsletter to get our latest
+                        <div class="widget widget_nav_menu footer-widget">
+                            <h3 class="widget_title">Our Branches</h3>
+                            <ul class="menu">
+
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Andheri</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">BKC</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="#">Vikhroli</a></li>
+
+                            </ul>
+                            <!-- <p class="footer-text">Subscribe our newsletter to get our latest
                                 Update & news</p>
                             <form class="newsletter-form form-group">
                                 <input class="form-control" type="email" placeholder="Email Email" required="">
                                 <i class="far fa-envelope"></i>
-                                <button type="submit" class="th-btn style3">Subscribe Now <i
-                                        class="far fa-arrow-right ms-1"></i></button>
-                            </form>
+                                <button type="submit" class="th-btn style3">Subscribe Now <i class="far fa-arrow-right ms-1"></i></button>
+                            </form> -->
                         </div>
                     </div>
                 </div>
@@ -114,14 +125,14 @@
             <div class="copyright-wrap">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright © 2023 <a href="index.html">Edura</a> All Rights
-                            Reserved.</p>
+                        <p class="copyright-text">Copyright © 2024 <a href="{{route('landing-page')}}">Codecruise</a>
+                            All Rights Reserved.</p>
                     </div>
                     <div class="col-md-6 text-end d-none d-md-block">
                         <div class="footer-links">
                             <ul>
-                                <li><a href="about.html">Privacy Policy</a></li>
-                                <li><a href="about.html">Terms & Condition</a></li>
+                                <li><a href="{{route('privacy-policy')}}">Privacy Policy</a></li>
+                                <!-- <li><a href="#">Terms & Condition</a></li> -->
                             </ul>
                         </div>
                     </div>

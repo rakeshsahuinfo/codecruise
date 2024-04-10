@@ -61,6 +61,7 @@
     ==============================-->
 <div class="space" id="contact-sec">
     <div class="container">
+        {{--
         <div class="map-sec">
             <div class="map">
                 <iframe
@@ -68,6 +69,7 @@
                     allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
+        --}}
         <div class="row">
             <div class="col-xl-5 mb-30 mb-xl-0">
                 <div class="me-xxl-5 mt-60">

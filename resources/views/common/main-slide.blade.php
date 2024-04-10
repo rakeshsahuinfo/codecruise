@@ -14,7 +14,7 @@
                         <p class="hero-text" data-ani="slideinleft" data-ani-delay="0.6s">Equip yourself with the skills
                             and knowledge needed to thrive in an ever-evolving digital landscape.</p>
                         <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                            <a href="#contact" class="th-btn style3">Get Started<i
+                            <a href="{{route('contact')}}" class="th-btn style3">Get Started<i
                                     class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                         <p class="hero-text" data-ani="slideinleft" data-ani-delay="0.6s">Stay ahead of the curve with
                             cutting-edge training methodologies and industry-relevant curriculum. </p>
                         <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                            <a href="#contact" class="th-btn style3">Get Started<i
+                            <a href="{{route('contact')}}" class="th-btn style3">Get Started<i
                                     class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                         <p class="hero-text" data-ani="slideinleft" data-ani-delay="0.6s">Empower your workforce with
                             tailored training solutions designed to boost productivity and efficiency.</p>
                         <div class="btn-group" data-ani="slideinleft" data-ani-delay="0.8s">
-                            <a href="#contact" class="th-btn style3">Get Started<i
+                            <a href="{{route('contact')}}" class="th-btn style3">Get Started<i
                                     class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>

@@ -72,7 +72,8 @@
                                     <img src="{{asset('common/assets/img/icon/cat-1_1.svg')}}" alt="image">
                                 </div>
                                 <div class="category-card_content">
-                                    <h3 class="category-card_title"><a href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></h3>
+                                    <h3 class="category-card_title"><a
+                                            href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></h3>
                                     <p class="category-card_text">56+ Courses </p>
                                     <a href="{{route('course-by-type',encrypt( $ct->id))}}" class="th-btn">Learn More <i
                                             class="fa-solid fa-arrow-right ms-1"></i></a>
@@ -81,70 +82,14 @@
                         </div>
                         @endforeach
                         @endif
-                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--==============================
-	About Area  
-	==============================-->
-<div class="space overflow-hidden" id="about-sec">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6">
-                <div class="img-box1 mb-40 mb-xl-0">
-                    <div class="img1">
-                        <img class="tilt-active" src="{{asset('common/assets/img/normal/about_1_1.png')}}" alt="About">
-                    </div>
-                    <div class="about-grid" data-bg-src="{{asset('common/assets/img/normal/about_1_3.png')}}">
-                        <h3 class="about-grid_year"><span class="counter-number">10</span>k<span
-                                class="text-theme">+</span></h3>
-                        <p class="about-grid_text">Students Active Our Courses</p>
-                    </div>
-                    <div class="img2">
-                        <img class="tilt-active" src="{{asset('common/assets/img/normal/about_1_2.png')}}" alt="About">
-                    </div>
-                    <div class="shape-mockup about-shape1 jump" data-left="-67px" data-bottom="0">
-                        <img src="{{asset('common/assets/img/normal/about_1_shape1.png')}}" alt="img">
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6">
-                <div class="title-area mb-30">
-                    <span class="sub-title"><i class="fal fa-book me-2"></i> About Company</span>
-                    <h2 class="sec-title">Welcome to Code-Cruise.</h2>
-                </div>
-                <p class="mt-n2 mb-25">Collaboratively simplify user friendly networks after principle centered
-                    coordinate effective methods of empowerment distributed niche markets pursue market positioning
-                    web-readiness after resource sucking applications. </p>
-                <p class="mb-30">Online education, also known as e-learning, is a method of learning that takes
-                    place over the internet. It offers individuals the opportunity to acquire knowledge, skills.</p>
-                <div class="row align-items-center">
-                    <div class="col-md-auto">
-                        <div class="about-grid_img mb-30 mb-md-0">
-                            <img src="{{asset('common/assets/img/normal/about_1_4.png')}}" alt="img">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="checklist">
-                            <ul>
-                                <li>Get access to 4,000+ of our top courses</li>
-                                <li>Popular topics to learn now</li>
-                                <li>Find the right instructor for you</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="btn-group mt-40">
-                    <a href="about.html" class="th-btn">About More<i class="fa-regular fa-arrow-right ms-2"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <!--==============================
 	Servce Area  
 	==============================-->
@@ -159,17 +104,24 @@
                     </div>
                 </div>
                 <div class="col-md-auto">
-                    <a href="course.html" class="th-btn">View All Courses<i
+                    <a href="{{route('course-catalog')}}" class="th-btn">View All Courses<i
                             class="fa-solid fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
         </div>
+        @php
+        $course=App\Models\Course::where('course_type_id',1)->orWhere('course_type_id',2)->orderBy('name','asc')->get();
+        @endphp
+        @if($course)
+
         <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="4" data-ml-slide-show="3"
             data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+            @foreach($course as $c)
             <div class="col-md-6 col-lg-4">
                 <div class="course-box">
                     <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_1.png')}}" alt="img">
+                        <img style="width: 100%;height: 220px;" src="{{asset('course_banner/'.$c->course_banner)}}"
+                            alt="img">
                         <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                     </div>
                     <div class="course-content">
@@ -178,8 +130,7 @@
                                 <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                             </div>(4.7)
                         </div>
-                        <h3 class="course-title"><a href="course-details.html">Education Software and PHP
-                                and JS System Script</a></h3>
+                        <h3 class="course-title"><a href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
                         <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 8</span>
                             <span><i class="fal fa-user"></i>Students 60+</span>
@@ -195,215 +146,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_2.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX Design
-                                Essential Training</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                            <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_3.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 & Kotlin
-                                Development Course</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_4.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data Science and
-                                Business Analysis</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                            <span><i class="fal fa-user"></i>Students 20+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_1.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Education Software and PHP
-                                and JS System Script</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                            <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_2.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX Design
-                                Essential Training</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                            <span><i class="fal fa-user"></i>Students 50+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_3.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 & Kotlin
-                                Development Course</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                            <span><i class="fal fa-user"></i>Students 30+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
-                    <div class="course-img">
-                        <img src="{{asset('common/assets/img/course/course_1_4.png')}}" alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data Science and
-                                Business Analysis</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                            <span><i class="fal fa-user"></i>Students 20+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
-                        <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Kevin Perry</a>
-                            </div>
-                            <div class="offer-tag">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+            @endif
         </div>
     </div>
 </section>
 <!--==============================
 	Cta Area  
 	==============================-->
+{{--
 <div class="cta-area-1" data-bg-src="{{asset('common/assets/img/bg/cta-bg1.png')}}">
     <div class="container">
         <div class="row align-items-center justify-content-between">
@@ -427,6 +178,7 @@
                 class="fa-sharp fa-solid fa-play"></i></a>
     </div>
 </div>
+
 <!--==============================
 	Why choose us Area  
 	==============================-->
@@ -525,9 +277,11 @@
         </div>
     </div>
 </div>
+
 <!--==============================
 	Counter Area  
 =	=============================-->
+
 <div class="container">
     <div class="counter-area-1 bg-theme" data-bg-src="{{asset('common/assets/img/bg/counter-bg_1.png')}}">
         <div class="row justify-content-between">
@@ -562,9 +316,11 @@
         </div>
     </div>
 </div>
+--}}
 <!--==============================
 	Cta Area  
 	==============================-->
+    {{--
 <section class="cta-area-2 position-relative space-bottom">
     <div class="cta-bg-img" data-bg-src="{{asset('common/assets/img/bg/cta-bg2.png')}}">
     </div>
@@ -600,10 +356,12 @@
         </div>
     </div>
 </section>
+--}}
 <!--==============================
 	Team Area  
 	==============================-->
 <div class="team-area overflow-hidden space" id="team-sec">
+    {{--
     <div class="shape-mockup team-bg-shape1 jump-reverse d-xxl-block d-none" data-left="-2%" data-top="0">
         <img src="{{asset('common/assets/img/team/team-shape_1_1.png')}}" alt="img">
     </div>
@@ -623,7 +381,7 @@
     <div class="shape-mockup team-bg-shape5 jump d-lg-block d-none" data-right="-7%" data-top="10%">
         <img src="{{asset('common/assets/img/team/team-shape_1_5.png')}}" alt="img">
     </div>
-
+    --}}
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6 mb-40 mb-xl-0">
@@ -760,6 +518,7 @@
         </div>
     </div>
 </div>
+{{--
 <!--==============================
 	Event Area  
 	==============================-->
@@ -776,7 +535,8 @@
             data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true">
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-1.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -807,7 +567,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-2.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -838,7 +599,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-3.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -869,7 +631,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-4.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -900,7 +663,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-5.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -931,7 +695,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-6.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -962,7 +727,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-7.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -993,7 +759,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-8.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -1024,7 +791,8 @@
             </div>
             <div class="col-lg-6 col-xl-4">
                 <div class="event-card">
-                    <div class="event-card_img" data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
                         <img src="{{asset('common/assets/img/event/event_img-9.png')}}" alt="event">
                     </div>
                     <div class="event-card_content">
@@ -1142,10 +910,11 @@
         </div>
     </div>
 </section>
-<!--==============================
+=============================
 	Testimonial Area  
 	==============================-->
-<section class="testi-area-1 overflow-hidden space-bottom" data-bg-src="{{asset('common/assets/img/bg/testi_bg_1.png')}}">
+<section class="testi-area-1 overflow-hidden space-bottom"
+    data-bg-src="{{asset('common/assets/img/bg/testi_bg_1.png')}}">
     <div class="shape-mockup testi-bg-shape1 jump" data-right="0" data-top="50%">
         <img src="{{asset('common/assets/img/testimonial/testi-bg-shape_1_1.png')}}" alt="img">
     </div>
@@ -1326,7 +1095,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1345,7 +1115,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1364,7 +1135,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1383,7 +1155,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1402,7 +1175,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1421,7 +1195,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
@@ -1440,6 +1215,8 @@
         </div>
     </div>
 </section>
+--}}
+
 <!--==============================
 	Footer Area
 	==============================-->

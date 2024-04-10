@@ -33,6 +33,13 @@ class CourseController extends Controller
         return view('common.course-by-type',['course'=>$course,'course_type'=>$course_type]);
     }
 
+    
+    public function courseCatalog(){
+   
+        $course = Course::join('course_type','courses.course_type_id','=','course_type.id')->select('courses.*','course_type.name as course_type_name')->orderBy('name','asc')->get();
+        return view('common.course-catalog',['course'=>$course]);
+    }
+
     public function downloadCourseinfo($id)
     {
         $course_id = decrypt($id);

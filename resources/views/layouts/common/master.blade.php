@@ -49,6 +49,15 @@
 	
 </head>
 <body>
+	@if(session('msg'))
+	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 8%;z-index:9999;">
+		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert"
+			style="height: 100%;padding:2%;font-size: 30px;background-color: azure;">
+			{{ session('msg') }}
+			<button style="color: black;font-weight: bold;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+		</div>
+	</div>
+	@endif
 
 	@yield('content')
 	

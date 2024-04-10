@@ -1,6 +1,11 @@
 @extends('layouts.common.master')
 @section('title','Contact-Us')
 @section('headasset')
+<style>
+    .error{
+        padding-left: 5px;padding-top:4px;color:teal;
+    }
+</style>
 @stop
 @section('content')
 <!--[if lte IE 9]>
@@ -36,7 +41,7 @@
 <!--==============================
 	Hero Area
 	==============================-->
-
+{{--
 <div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title"
     data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
@@ -57,6 +62,7 @@
         </div>
     </div>
 </div>
+--}}
 <!--==============================
     Contact Area  
     ==============================-->
@@ -117,8 +123,7 @@
                     <h2 class="border-title">Get in Touch</h2>
                     <p class="mt-n1 mb-30 sec-text">Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod tempor
                         eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <form id="contact-form" method="post" action="{{route('save-query')}}"
-                        class="contact-form ajax-contact">
+                    <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -187,7 +192,7 @@
                                 </div>
                             </div>
                             <div class="form-btn col-12 mt-10">
-                                <button class="th-btn">Send Message<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Send Message<i class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

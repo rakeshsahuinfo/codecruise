@@ -37,7 +37,8 @@
 	Hero Area
 	==============================-->
 
-<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title" data-opacity="8">
+<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title"
+    data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
@@ -84,8 +85,8 @@
                         </div>
                         <div class="media-body">
                             <p class="contact-feature_label">Our Address</p>
-                            <a href="https://www.google.com/maps" class="contact-feature_link">2690 Hiltona Street
-                                Victoria Road, <br> New York, Canada</a>
+                            <a href="#" class="contact-feature_link">A-74, TechnoPark, C-Cross Road, <br> Andheri(E),
+                                Mumbai, India</a>
                         </div>
                     </div>
                     <div class="contact-feature">
@@ -94,10 +95,8 @@
                         </div>
                         <div class="media-body">
                             <p class="contact-feature_label">Phone Number</p>
-                            <a href="tel:+011456586986" class="contact-feature_link">Mobile:<span>(+65) - 48596 -
-                                    5789</span></a>
-                            <a href="tel:+011456586986" class="contact-feature_link">Phone: <span>(+00) - 12543 -
-                                    4165</span></a>
+                            <a href="tel:+917304562050" class="contact-feature_link">Mobile:<span>(+91)
+                                    730-456-2050</span></a>
                         </div>
                     </div>
                     <div class="contact-feature">
@@ -118,7 +117,9 @@
                     <h2 class="border-title">Get in Touch</h2>
                     <p class="mt-n1 mb-30 sec-text">Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod tempor
                         eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    <form action="mail.php" method="POST" class="contact-form ajax-contact">
+                    <form id="contact-form" method="post" action="{{route('save-query')}}"
+                        class="contact-form ajax-contact">
+                        @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -136,23 +137,48 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <select name="subject" id="subject"
-                                        class="single-select nice-select form-select style-white">
-                                        <option value="" disabled selected hidden>Select Subject*</option>
-                                        <option value="Web Design">Web Design</option>
-                                        <option value="Web Development">Web Development</option>
-                                        <option value="Engine Diagnostics">Engine Diagnostics</option>
-                                        <option value="Digital Marketing">Digital Marketing</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="tel" class="form-control style-white" name="number" id="number"
+                                    <input type="tel" class="form-control style-white" name="number" id="contact"
                                         placeholder="Phone Number*">
                                     <i class="fal fa-phone"></i>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control style-white" name="company_college_name"
+                                        id="company_college_name" placeholder="Company / College*">
+                                    <i class="fal fa-building"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="myexampleCourse"> {{--(use <strong>ctrl + select</strong> for
+                                        multiple)--}}</label>
+                                    <select name="course_ids[]" id="myexampleCourse"
+                                        class="multiple nice-select form-control form-select style-white" multiple style="height: 150px;">
+                                        @php
+                                        $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
+                                        @endphp
+                                        @foreach($courseTypes as $courseType)
+                                        <option value="" disabled selected hidden>Your interest*</option>
+                                        <optgroup label="{{ $courseType->name }}">
+                                            @php
+                                            $allcourses = App\Models\Course::where('course_type_id',
+                                            $courseType->id)->get();
+                                            @endphp
+                                            @foreach($allcourses as $ac)
+                                            <option value="{{ $ac->id }}">{{ $ac->name }}</option>
+                                            @endforeach
+                                        </optgroup>
+                                        @endforeach
+                                        <option value="other">Others</option>
+                                    </select>
+                                    <div id="otherOption" style="display: none;">
+                                        <label for="otherCourse">Enter your Option:</label>
+                                        <input type="text" class="form-control" id="otherCourse" name="other_course">
+                                    </div>
+                                </div>
+                            </div>
+                          
                             <div class="col-12">
                                 <div class="form-group ">
                                     <textarea name="message" id="message" cols="30" rows="3"

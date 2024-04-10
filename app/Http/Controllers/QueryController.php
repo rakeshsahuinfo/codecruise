@@ -35,7 +35,7 @@ class QueryController extends Controller
         try {
             $courseinfo=Course::find(decrypt($course_id));
             $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', decrypt($course_id))->select('tech_stacks.*')->get();
-            return view('enroll-course',['courseinfo'=>$courseinfo,'coursetechstack'=>$coursetechstack]);
+            return view('common.enroll-course',['courseinfo'=>$courseinfo,'coursetechstack'=>$coursetechstack]);
         } catch (Exception $ex) {
             return redirect('/landing-page')->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
         }

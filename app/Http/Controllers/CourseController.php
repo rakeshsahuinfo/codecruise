@@ -18,9 +18,10 @@ class CourseController extends Controller
         try {
             $course_id = decrypt($id);
             $courseinfo = Course::find($course_id);
+            $coursetype=CourseType::find($courseinfo->course_type_id);
             $coursemodule = CourseModule::where('course_id', $course_id)->first();
             $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $course_id)->select('tech_stacks.*')->get();
-            return view('common.course', ['courseinfo' => $courseinfo, 'coursemodule' => $coursemodule, 'coursetechstack' => $coursetechstack]);
+            return view('common.course', ['courseinfo' => $courseinfo,'coursetype'=>$coursetype, 'coursemodule' => $coursemodule, 'coursetechstack' => $coursetechstack]);
         } catch (Exception $e) {
             return back();
         }

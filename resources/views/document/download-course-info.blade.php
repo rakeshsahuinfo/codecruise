@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCruise-{{$courseinfo->name}}</title>
-    <link rel="shortcut icon" href="{{public_path('assets/img/logo/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{public_path('common/assets/img/logo/favicon.png')}}" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -102,7 +102,7 @@
 
 <body>
     <div class="logo">
-        <img src="{{ public_path('assets/img/logo/SALOGO2.png') }}" alt="Logo">
+        <img src="{{ public_path('common/assets/img/logo-white.png') }}" alt="Logo">
         <br>
         <span>Sail smooth in tech ocean</span>
     </div>

@@ -25,7 +25,7 @@ class QueryController extends Controller
             // Save the model to the database
             $uq->save();
 
-            return back()->with(['msg' => 'Query submitted successfully', 'status' => 'success']);
+            return redirect('/')->with(['msg' => 'Query submitted successfully', 'status' => 'success']);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
         }
@@ -37,7 +37,7 @@ class QueryController extends Controller
             $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', decrypt($course_id))->select('tech_stacks.*')->get();
             return view('common.enroll-course',['courseinfo'=>$courseinfo,'coursetechstack'=>$coursetechstack]);
         } catch (Exception $ex) {
-            return redirect('/landing-page')->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
+            return redirect('/')->with(['msg' => 'Query not submitted try again', 'status' => 'danger']);
         }
     }
 }

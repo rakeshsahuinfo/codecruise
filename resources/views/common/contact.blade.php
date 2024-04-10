@@ -142,7 +142,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="tel" class="form-control style-white" name="number" id="contact"
+                                    <input type="tel" class="form-control style-white" name="contact" id="contact"
                                         placeholder="Phone Number*">
                                     <i class="fal fa-phone"></i>
                                 </div>

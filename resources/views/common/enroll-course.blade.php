@@ -78,82 +78,90 @@
         </div>
         --}}
         <div class="row">
-            <div class="col-xl-5 mb-30 mb-xl-0">
-                <div class="me-xxl-5 mt-60">
-                    <div class="title-area mb-25">
-                        <h2 class="border-title h3">Have Any Questions?</h2>
+            <div class="col-xl-5 mb-10 mb-xl-0" style="margin-top: -120px;">
+                <div class="me-xxl-5 mt-5">
+                    <!-- <div class="title-area mb-10">
+                        <h2 class="border-title h3">{{$courseinfo->name}}</h2>
+                    </div> -->
+                   
+                    <div class="card" data-aos="zoom-in">
+                        <img src="{{ asset('course_banner/' . $courseinfo->course_banner) }}" alt=""
+                            class="p-3">
                     </div>
-                    <p class="mt-n2 mb-25">Have a inquiry or some feedback for us? Fill out the form <br> below to
-                        contact our team.</p>
-                    <div class="contact-feature">
-                        <div class="contact-feature-icon">
-                            <i class="fal fa-location-dot"></i>
+                    <div class="widget widget_info  ">
+                        <!-- <div class="th-video">
+                            <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
+                            <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                        </div> -->
+                        <span class="h4 course-price">Course Fee</span></span>
+                         
+                        <span class="h4 course-price">{{$courseinfo->course_fee}} 
+                            @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
+                        </span>
+                        <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
+                        <h3 class="widget_title">Course Information</h3>
+                        <div class="info-list">
+                            <ul>
+                                <!-- <li>
+                                    <i class="fa-light fa-user"></i>
+                                    <strong>Instructor: </strong>
+                                    <span>Kevin Perry</span>
+                                </li> -->
+                                <li>
+                                    <i class="fa-light fa-clock"></i>
+                                    <strong>Class Schedule: </strong>
+                                    <span>{{$courseinfo->class_schedule}}</span>
+                                </li>
+                                <li>
+                                    <i class="fa-light fa-clock"></i>
+                                    <strong>Duration: </strong>
+                                    <span>{{$courseinfo->course_duration}}</span>
+                                </li>
+                                <li>
+                                    <i class="fa-light fa-clock"></i>
+                                    <strong>Delivery Mode: </strong>
+                                    <span>{{$courseinfo->delivery_mode}}</span>
+                                </li>
+                                <li>
+                                    <i class="fa-light fa-tag"></i>
+                                    <strong>Course level: </strong>
+                                    <span>Beginners/Intermediate</span>
+                                </li>
+                                <li>
+                                    <i class="fa-light fa-globe"></i>
+                                    <strong>Language: </strong>
+                                    <span>English</span>
+                                </li>
+                                <!-- <li>
+                                    <i class="fa-light fa-puzzle-piece"></i>
+                                    <strong>Quizzes: </strong>
+                                    <span>04</span>
+                                </li> -->
+                            </ul>
                         </div>
-                        <div class="media-body">
-                            <p class="contact-feature_label">Our Address</p>
-                            <a href="#" class="contact-feature_link">A-74, TechnoPark, C-Cross Road, <br> Andheri(E),
-                                Mumbai, India</a>
-                        </div>
-                    </div>
-                    <div class="contact-feature">
-                        <div class="contact-feature-icon">
-                            <i class="fal fa-phone"></i>
-                        </div>
-                        <div class="media-body">
-                            <p class="contact-feature_label">Phone Number</p>
-                            <a href="tel:+917304562050" class="contact-feature_link">Mobile:<span>(+91)
-                                    730-456-2050</span></a>
-                        </div>
-                    </div>
-                    <div class="contact-feature">
-                        <div class="contact-feature-icon">
-                            <i class="fal fa-clock"></i>
-                        </div>
-                        <div class="media-body">
-                            <p class="contact-feature_label">Hours of Operation</p>
-                            <span class="contact-feature_link">Monday - Friday: 09:00 - 20:00</span>
-                            <span class="contact-feature_link">Sunday & Saturday: 10:30 - 22:00</span>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-xl-7">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">Contact With Us!</span>
-                    <h2 class="border-title">Get in Touch</h2>
-                    <p class="mt-n1 mb-30 sec-text">Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod tempor
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <span class="sub-title">Enroll for the course</span>
+                    <h2 class="border-title"> {{$courseinfo->name}}</h2>
                     <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
+                            @php
+                            $mycourse=App\Models\Course::find($courseinfo->id);
+                            @endphp
+                            @if($mycourse)
+                            <div class="col-12 col-md-12 mt-2">
                                 <div class="form-group">
-                                    <input type="text" class="form-control style-white" name="name" id="name"
-                                        placeholder="Your Name*">
-                                    <i class="fal fa-user"></i>
+                                <input type="text" name="mycourse" class="form-control style-white" id="mycourse"
+                                    value="{{$mycourse->name}}" readonly>
+                                <input type="hidden" name="course_ids[]" value="{{$mycourse->id}}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="email" class="form-control style-white" name="email" id="email"
-                                        placeholder="Email Address*">
-                                    <i class="fal fa-envelope"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="tel" class="form-control style-white" name="number" id="contact"
-                                        placeholder="Phone Number*">
-                                    <i class="fal fa-phone"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control style-white" name="company_college_name"
-                                        id="company_college_name" placeholder="Company / College*">
-                                    <i class="fal fa-building"></i>
-                                </div>
-                            </div>
+                            @else
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="myexampleCourse"> {{--(use <strong>ctrl + select</strong> for
@@ -183,16 +191,38 @@
                                     </div>
                                 </div>
                             </div>
-                          
-                            <div class="col-12">
-                                <div class="form-group ">
-                                    <textarea name="message" id="message" cols="30" rows="3"
-                                        class="form-control style-white" placeholder="Write Your Message*"></textarea>
-                                    <i class="fal fa-pen"></i>
+                            @endif
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control style-white" name="name" id="name"
+                                        placeholder="Your Name*">
+                                    <i class="fal fa-user"></i>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control style-white" name="email" id="email"
+                                        placeholder="Email Address*">
+                                    <i class="fal fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="tel" class="form-control style-white" name="contact" id="contact"
+                                        placeholder="Phone Number*">
+                                    <i class="fal fa-phone"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control style-white" name="company_college_name"
+                                        id="company_college_name" placeholder="Company / College*">
+                                    <i class="fal fa-building"></i>
+                                </div>
+                            </div>
+                            <input type="hidden" name="message" value="Enroll me">
                             <div class="form-btn col-12 mt-10">
-                                <button type="submit" class="th-btn">Send Message<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Enroll<i class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

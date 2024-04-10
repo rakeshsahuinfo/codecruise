@@ -37,10 +37,11 @@
 	Hero Area
 	==============================-->
 
-    <!--==============================
+<!--==============================
     Breadcumb
 ============================== -->
-<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title" data-opacity="8">
+<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/slider/slide-22.png')}}" data-overlay="title"
+    data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
@@ -62,6 +63,79 @@
 <!--==============================
 Service Area  
 ==============================-->
+<section class="inner-page" style="height: 10%;">
+    <div class="container mt-5">
+        <div class="row" id="about">
+            <div class="col-12 col-lg-4" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="col-12 col-md-9 col-lg-10">
+                            <div class="card-body">
+                                <p class="p fs-2 sec-title">ABOUT CODE-CRUISE</p>
+                                <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
+                                    empowering individuals with the skills and knowledge needed to thrive in the
+                                    digital era</p>
+                                <p class="p fs-4">OUR VISION</p>
+                                <p class="fs-5">Revolutionize tech education by providing accessible, innovative
+                                    learning experiences</p>
+                                <p class="p fs-4">OUR MISSION</p>
+                                <p class="fs-5">Empower individuals worldwide to thrive in the digital age through
+                                    comprehensive courses and dynamic learning environments</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 p-0" data-aos="fade-up">
+                <div class="row m-0">
+                    <div class="col-12 col-md-5 p-1"><img src="{{asset('common/assets/img/office/office1.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office1.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-3 p-1"><img src="{{asset('common/assets/img/office/office2.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office2.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-4 p-1"><img src="{{asset('common/assets/img/office/office3.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office3.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-3 p-1"><img src="{{asset('common/assets/img/office/office4.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office4.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-5 p-1"><img src="{{asset('common/assets/img/office/office5.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office5.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-4 p-1"><img src="{{asset('common/assets/img/office/office6.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office6.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                </div>
+            </div>
+
+            <p class="p fs-2 text-uppercase mt-4 sec-title">Our Core Values</p>
+            <div class="row">
+                <div class="col-4">
+                    <p class="p fs-4 text-uppercase"> Excellence</p>
+                    <p class="fs-5">We are committed to delivering high-quality education and learning experiences that
+                        exceed expectations, driven by a relentless pursuit of excellence in everything we do.</p>
+                </div>
+                <div class="col-4">
+                    <p class="p fs-4 text-uppercase">Innovation</p>
+                    <p class="fs-5">We embrace innovation and creativity as catalysts for progress, continuously seeking
+                        new ways to enhance learning outcomes and shape the future of tech education.</p>
+                </div>
+                <div class="col-4">
+                    <p class="p fs-4 text-uppercase">Community</p>
+                    <p class="fs-5">We believe in the power of collaboration, fostering a supportive and inclusive
+                        environment where learners, instructors, and industry experts come together.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="overflow-hidden space">
     <div class="container">
         <div class="title-area text-center">
@@ -76,7 +150,8 @@ Service Area
                             <img src="{{asset('common/assets/img/icon/service-icon-3-1.svg')}}" alt="Icon">
                         </div>
                         <h3 class="box-title">Learn From Anywhere</h3>
-                        <p class="service-card-text"> Competently unleash competitive initiatives for alternative interfaces. Enthusiastically supply resource eveling platforms</p>
+                        <p class="service-card-text"> Competently unleash competitive initiatives for alternative
+                            interfaces. Enthusiastically supply resource eveling platforms</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +162,8 @@ Service Area
                             <img src="{{asset('common/assets/img/icon/service-icon-3-2.svg')}}" alt="Icon">
                         </div>
                         <h3 class="box-title">Expert Instructor</h3>
-                        <p class="service-card-text"> Competently unleash competitive initiatives for alternative interfaces. Enthusiastically supply resource eveling platforms</p>
+                        <p class="service-card-text"> Competently unleash competitive initiatives for alternative
+                            interfaces. Enthusiastically supply resource eveling platforms</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +174,8 @@ Service Area
                             <img src="{{asset('common/assets/img/icon/service-icon-3-3.svg')}}" alt="Icon">
                         </div>
                         <h3 class="box-title">24/7 Live Support</h3>
-                        <p class="service-card-text"> Competently unleash competitive initiatives for alternative interfaces. Enthusiastically supply resource eveling platforms</p>
+                        <p class="service-card-text"> Competently unleash competitive initiatives for alternative
+                            interfaces. Enthusiastically supply resource eveling platforms</p>
                     </div>
                 </div>
             </div>
@@ -108,7 +185,8 @@ Service Area
 <!--==============================
 About Area  
 ==============================-->
-<div class="overflow-hidden overflow-hidden bg-smoke space" id="about-sec" data-bg-src="{{asset('common/assets/img/bg/about-5-bg.png')}}">
+<div class="overflow-hidden overflow-hidden bg-smoke space" id="about-sec"
+    data-bg-src="{{asset('common/assets/img/bg/about-5-bg.png')}}">
     <div class="container">
         <div class="row">
             <div class="col-xl-6 mb-50 mb-xl-0">
@@ -133,11 +211,14 @@ About Area
                     <span class="sub-title"><i class="fal fa-book me-2"></i> About Our University</span>
                     <h2 class="sec-title">Welcome to Edura University.</h2>
                 </div>
-                <p class="mt-n2 mb-25">Collaboratively simplify user friendly networks after principle centered coordinate effective methods of empowerment distributed niche markets pursue market positioning web-readiness after resource sucking applications. </p>
+                <p class="mt-n2 mb-25">Collaboratively simplify user friendly networks after principle centered
+                    coordinate effective methods of empowerment distributed niche markets pursue market positioning
+                    web-readiness after resource sucking applications. </p>
                 <div class="row mb-35 gy-4">
                     <div class="col-lg-6">
                         <div class="about-grid3">
-                            <div class="about-grid-icon"><img src="{{asset('common/assets/img/icon/about-grid-icon2-1.svg')}}" alt="icon"></div>
+                            <div class="about-grid-icon"><img
+                                    src="{{asset('common/assets/img/icon/about-grid-icon2-1.svg')}}" alt="icon"></div>
                             <div class="details">
                                 <h5>Undergraduate Education</h5>
                                 <p>With flexible courses</p>
@@ -146,7 +227,8 @@ About Area
                     </div>
                     <div class="col-lg-6">
                         <div class="about-grid3">
-                            <div class="icon"><img src="{{asset('common/assets/img/icon/about-grid-icon2-2.svg')}}" alt="icon"></div>
+                            <div class="icon"><img src="{{asset('common/assets/img/icon/about-grid-icon2-2.svg')}}"
+                                    alt="icon"></div>
                             <div class="details">
                                 <h5>Postgraduate Education</h5>
                                 <p>Study flexibly online</p>
@@ -183,25 +265,29 @@ Counter Area
         <div class="row justify-content-between">
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">3.9</span>k<span class="fw-normal">+</span></h2>
+                    <h2 class="counter-card_number"><span class="counter-number">3.9</span>k<span
+                            class="fw-normal">+</span></h2>
                     <p class="counter-card_text"><strong>Successfully</strong> Trained</p>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">15.8</span>k<span class="fw-normal">+</span></h2>
+                    <h2 class="counter-card_number"><span class="counter-number">15.8</span>k<span
+                            class="fw-normal">+</span></h2>
                     <p class="counter-card_text"><strong>Classes</strong> Completed</p>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">97.5</span>k<span class="fw-normal">+</span></h2>
+                    <h2 class="counter-card_number"><span class="counter-number">97.5</span>k<span
+                            class="fw-normal">+</span></h2>
                     <p class="counter-card_text"><strong>Satisfaction</strong> Rate</p>
                 </div>
             </div>
             <div class="col-sm-6 col-xl-3 counter-card-wrap">
                 <div class="counter-card">
-                    <h2 class="counter-card_number"><span class="counter-number">100.2</span>k<span class="fw-normal">+</span></h2>
+                    <h2 class="counter-card_number"><span class="counter-number">100.2</span>k<span
+                            class="fw-normal">+</span></h2>
                     <p class="counter-card_text"><strong>Students</strong> Community</p>
                 </div>
             </div>
@@ -225,13 +311,17 @@ Team Area
             <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
             <h2 class="sec-title">Meet Our Expert Instructor</h2>
         </div>
-        <div class="row th-carousel slider-shadow" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2" data-xs-slide-show="1">
+        <div class="row th-carousel slider-shadow" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2"
+            data-sm-slide-show="2" data-xs-slide-show="1">
             <!-- Single Item -->
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}" alt="Team">
@@ -258,8 +348,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_2.jpg')}}" alt="Team">
@@ -286,8 +379,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_3.jpg')}}" alt="Team">
@@ -314,8 +410,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_4.jpg')}}" alt="Team">
@@ -342,8 +441,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}" alt="Team">
@@ -370,8 +472,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_2.jpg')}}" alt="Team">
@@ -398,8 +503,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_3.jpg')}}" alt="Team">
@@ -426,8 +534,11 @@ Team Area
             <div class="col-lg-6">
                 <div class="team-card style2">
                     <div class="team-img-wrap">
-                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337" viewBox="0 0 327 337" fill="none">
-                            <path d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z" fill="#0D5EF4" />
+                        <svg class="team-shape" xmlns="http://www.w3.org/2000/svg" width="327" height="337"
+                            viewBox="0 0 327 337" fill="none">
+                            <path
+                                d="M158.167 331C158.167 333.946 160.555 336.333 163.5 336.333C166.446 336.333 168.833 333.946 168.833 331C168.833 328.054 166.446 325.667 163.5 325.667C160.555 325.667 158.167 328.054 158.167 331ZM158.167 6C158.167 8.94552 160.555 11.3333 163.5 11.3333C166.446 11.3333 168.833 8.94552 168.833 6C168.833 3.05448 166.446 0.666667 163.5 0.666667C160.555 0.666667 158.167 3.05448 158.167 6ZM325 167.5C325 257.254 253.238 330 163.5 330V332C254.359 332 327 258.343 327 167.5H325ZM2.00012 167.5C2.00012 77.7618 73.7458 7 163.5 7V5C72.6574 5 0.00012207 76.6411 0.00012207 167.5H2.00012Z"
+                                fill="#0D5EF4" />
                         </svg>
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/team_2_4.jpg')}}" alt="Team">
@@ -496,20 +607,24 @@ Blog Area
                 </div>
             </div>
         </div>
-        <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+        <div class="row slider-shadow th-carousel blog-slider-1" data-slide-show="3" data-lg-slide-show="2"
+            data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
                             <a href="blog.html"><i class="fa-light fa-clock"></i>05 Jun, 2023</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of Learning!</a>
+                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of
+                                Learning!</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="blog-details.html" class="link-btn">Read More Details<i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -517,16 +632,19 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
                             <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future: Education for Success</a>
+                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
+                                Education for Success</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="blog-details.html" class="link-btn">Read More Details<i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -534,16 +652,19 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
                             <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the lovely valley team work</a>
+                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
+                                lovely valley team work</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="blog-details.html" class="link-btn">Read More Details<i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -551,16 +672,19 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-1.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
                             <a href="blog.html"><i class="fa-light fa-clock"></i>02 Apr, 2023</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of Learning!</a>
+                        <h4 class="box-title"><a href="blog-details.html">Educate, Empower, Excel: Discover the Power of
+                                Learning!</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="blog-details.html" class="link-btn">Read More Details<i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -568,16 +692,19 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-2.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
                             <a href="blog.html"><i class="fa-light fa-clock"></i>03 Jun, 2023</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future: Education for Success</a>
+                        <h4 class="box-title"><a href="blog-details.html">Enrich Your Mind, Envision Your Future:
+                                Education for Success</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="blog-details.html" class="link-btn">Read More Details<i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -585,16 +712,19 @@ Blog Area
             <div class="col-md-6 col-xl-4">
                 <div class="th-blog blog-single style2">
                     <div class="blog-img">
-                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}" alt="Blog Image"></a>
+                        <a href="blog-details.html"><img src="{{asset('common/assets/img/blog/blog-1-3.jpg')}}"
+                                alt="Blog Image"></a>
                     </div>
                     <div class="blog-content">
                         <div class="blog-meta">
                             <a class="author" href="blog.html"><i class="fa-light fa-user"></i>by David Smith</a>
                             <a href="blog.html"><i class="fa-light fa-clock"></i>10 Jul, 2023</a>
                         </div>
-                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the lovely valley team work</a>
+                        <h4 class="box-title"><a href="blog-details.html">University class starting soon while the
+                                lovely valley team work</a>
                         </h4>
-                        <a href="blog-details.html" class="link-btn">Read More Details<i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="blog-details.html" class="link-btn">Read More Details<i
+                                class="fas fa-arrow-right ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -624,7 +754,8 @@ Cta Area
     </div>
     <div class="cta-img-1" data-overlay="title" data-opacity="8">
         <img src="{{asset('common/assets/img/normal/cta_1_1.png')}}" alt="Image">
-        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style2 popup-video"><i class="fa-sharp fa-solid fa-play"></i></a>
+        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn style2 popup-video"><i
+                class="fa-sharp fa-solid fa-play"></i></a>
     </div>
 </div>
 <!--==============================

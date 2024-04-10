@@ -78,7 +78,7 @@
         </div>
         --}}
         <div class="row">
-            <div class="col-xl-5 mb-30 mb-xl-0">
+            <div class="col-xl-5 mb-30 mb-xl-0" style="margin-top:-120px;">
                 <div class="me-xxl-5 mt-60">
                     <div class="title-area mb-25">
                         <h2 class="border-title h3">Have Any Questions?</h2>

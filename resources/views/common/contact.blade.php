@@ -174,7 +174,7 @@
                                     </select>
                                     <div id="otherOption" style="display: none;">
                                         <label for="otherCourse">Enter your Option:</label>
-                                        <input type="text" class="form-control" id="otherCourse" name="other_course">
+                                        <input type="text" class="form-control style-white" id="otherCourse" name="other_course">
                                     </div>
                                 </div>
                             </div>
@@ -221,4 +221,8 @@
 @stop
 @section('jsscript')
 @include('layouts.common.jsscript')
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{asset('common/assets/js/jquery.validate.min.js')}}"></script>
+<script src="{{asset('common/assets/js/validate.js')}}"></script>
+<script src="{{asset('common/assets/js/myscript.js')}}"></script>
 @stop

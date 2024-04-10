@@ -121,8 +121,7 @@
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                     <span class="sub-title">Contact With Us!</span>
                     <h2 class="border-title">Get in Touch</h2>
-                    <p class="mt-n1 mb-30 sec-text">Lorem ipsum dolor sit amet adipiscing elit, sed do eiusmod tempor
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="mt-n1 mb-30 sec-text"></p>
                     <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
                         @csrf
                         <div class="row">

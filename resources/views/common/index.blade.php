@@ -141,7 +141,7 @@
                                 <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
                                 <a href="course.html" class="author-name">Max Alexix</a>
                             </div>
-                            <div class="offer-tag">Free</div>
+                            <!-- <div class="offer-tag">Free</div> -->
                         </div>
                     </div>
                 </div>
@@ -320,7 +320,7 @@
 <!--==============================
 	Cta Area  
 	==============================-->
-    {{--
+{{--
 <section class="cta-area-2 position-relative space-bottom">
     <div class="cta-bg-img" data-bg-src="{{asset('common/assets/img/bg/cta-bg2.png')}}">
     </div>
@@ -911,8 +911,8 @@
     </div>
 </section>
 =============================
-	Testimonial Area  
-	==============================-->
+Testimonial Area
+==============================-->
 <section class="testi-area-1 overflow-hidden space-bottom"
     data-bg-src="{{asset('common/assets/img/bg/testi_bg_1.png')}}">
     <div class="shape-mockup testi-bg-shape1 jump" data-right="0" data-top="50%">

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[LandingPageController::class,'index'])->name('landing-page');
+Route::get('/contact',[AboutController::class,'contact'])->name('contact');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/course/{id}',[CourseController::class,'index'])->name('course');
 Route::get('/course-by-type/{course_type_id}',[CourseController::class,'courseByType'])->name('course-by-type');

@@ -8,7 +8,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
             <div class="row align-items-center justify-content-between">
                 <div class="col-auto">
                     <div class="header-logo">
-                        <a href="index.html"><img src="{{asset('common/assets/img/logo.svg')}}" alt="Edura"></a>
+                        <a href="{{route('landing-page')}}"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="Code-Cruise"></a>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -40,13 +40,10 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                                         <a href="contact.html">Course Catalog</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Team</a>
-                                    </li>
-                                    <li>
                                         <a href="{{'about'}}">About</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{route('contact')}}">Contact</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -57,7 +54,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                             <div class="header-button">
                                 <button type="button" class="icon-btn searchBoxToggler"><i
                                         class="far fa-search"></i></button>
-                                <a href="wishlist.html" class="icon-btn">
+                                <!-- <a href="wishlist.html" class="icon-btn">
                                     <i class="far fa-heart"></i>
                                     <span class="badge">3</span>
                                 </a>
@@ -66,7 +63,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                                     <span class="badge">5</span>
                                 </button>
                                 <a href="contact.html" class="th-btn ml-25">Contact Us <i
-                                        class="fas fa-arrow-right ms-1"></i></a>
+                                        class="fas fa-arrow-right ms-1"></i></a> -->
                             </div>
                         </div>
                     </div>

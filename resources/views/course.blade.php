@@ -21,7 +21,7 @@
                         <div class="custom-container" data-aos="zoom-out-down">
                             <div class="custom-div bg-success text-center">
                                 <a href="{{route('enroll-course',encrypt($courseinfo->id))}}" class="text-white"
-                                    target="_new">Enroll<br>Here</a>
+                                    target="_new">Enroll</a>
                             </div>
                             <div class="custom-div bg-primary text-white text-center">Course
                                 Fee<br>{{$courseinfo->course_fee}}</div>

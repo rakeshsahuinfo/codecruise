@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class LandingPageController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('common.index');
     }
     public function privacyPolicy(){
-        return view('privacy-policy');
+        return view('common.privacy-policy');
     }
 }

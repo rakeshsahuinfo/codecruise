@@ -92,11 +92,11 @@ Event Area
                             </li> -->
                             <li>
                                 <span class="meta-title">Category: </span>
-                                <a href="course.html">{{$coursetype->name}}</a>
+                                <a href="#">{{$coursetype->name}}</a>
                             </li>
                             <li>
                                 <span class="meta-title">Last Update: </span>
-                                <a href="course.html">{{Carbon\Carbon::parse($courseinfo->updated_at)->format('d-M-Y')}}</a>
+                                <a href="#">{{Carbon\Carbon::parse($courseinfo->updated_at)->format('d-M-Y')}}</a>
                             </li>
                             <li>
                                 <span class="meta-title">Review: </span>
@@ -322,8 +322,8 @@ Servce Area
 <section class="space-bottom">
     <div class="container">
         <div class="title-area text-center">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack Covered</span>
-            <h2 class="sec-title">Important Tech Stack Covered in this Course</h2>
+            <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack</span>
+            <h2 class="sec-title">Important Tech Stack Covered</h2>
         </div>
         <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
             <div class="container mt-2">

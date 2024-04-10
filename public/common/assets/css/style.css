@@ -68,8 +68,8 @@ Version: 1.0.0
 /*------------------- 1.2. Function -------------------*/
 /*------------------- 1.3. Variable-------------------*/
 :root {
-  --theme-color: #0D5EF4;
-  --theme-color2: #F20F10;
+  --theme-color: #007072;
+  --theme-color2: #FFC000;
   --title-color: #0F2239;
   --body-color: #4D5765;
   --smoke-color: #F3F7FB;
@@ -20827,7 +20827,8 @@ span.select2-selection.select2-selection--single:focus {
 
 .blog-grid-wrap {
   display: grid;
-  grid-template-areas: "one one one one one one two two two two two two" "one one one one one one three three three three three three";
+  grid-template-areas: "one one one one one one two two two two two two"
+ "one one one one one one three three three three three three";
 }
 
 .blog-grid .tag {
@@ -20983,7 +20984,9 @@ span.select2-selection.select2-selection--single:focus {
     --space: 60px;
   }
   .blog-grid-wrap {
-    grid-template-areas: "one one one" "two two two" "three three three";
+    grid-template-areas: "one one one"
+ "two two two"
+ "three three three";
   }
   .blog-grid .blog-img {
     min-width: 400px;

@@ -7,7 +7,7 @@
                 <ul class="woocommerce-mini-cart cart_list product_list_widget ">
                     <li class="woocommerce-mini-cart-item mini_cart_item">
                         <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                        <a href="#"><img src="assets/img/product/product_thumb_1_1.jpg" alt="Cart Image">Plastic
+                        <a href="#"><img src="{{asset('common/assets/img/product/product_thumb_1_1.jpg')}}" alt="Cart Image">Plastic
                             Book Bags</a>
                         <span class="quantity">1 ×
                             <span class="woocommerce-Price-amount amount">
@@ -16,7 +16,7 @@
                     </li>
                     <li class="woocommerce-mini-cart-item mini_cart_item">
                         <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                        <a href="#"><img src="assets/img/product/product_thumb_1_2.jpg" alt="Cart Image">The Genie
+                        <a href="#"><img src="{{asset('common/assets/img/product/product_thumb_1_2.jpg')}}" alt="Cart Image">The Genie
                             Mind</a>
                         <span class="quantity">1 ×
                             <span class="woocommerce-Price-amount amount">
@@ -25,7 +25,7 @@
                     </li>
                     <li class="woocommerce-mini-cart-item mini_cart_item">
                         <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                        <a href="#"><img src="assets/img/product/product_thumb_1_3.jpg" alt="Cart Image">The Energy
+                        <a href="#"><img src="{{asset('common/assets/img/product/product_thumb_1_3.jpg')}}" alt="Cart Image">The Energy
                             Book</a>
                         <span class="quantity">1 ×
                             <span class="woocommerce-Price-amount amount">
@@ -34,7 +34,7 @@
                     </li>
                     <li class="woocommerce-mini-cart-item mini_cart_item">
                         <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                        <a href="#"><img src="assets/img/product/product_thumb_1_4.jpg" alt="Cart Image">Pencil
+                        <a href="#"><img src="{{asset('common/assets/img/product/product_thumb_1_4.jpg')}}" alt="Cart Image">Pencil
                             Bag</a>
                         <span class="quantity">1 ×
                             <span class="woocommerce-Price-amount amount">
@@ -43,7 +43,7 @@
                     </li>
                     <li class="woocommerce-mini-cart-item mini_cart_item">
                         <a href="#" class="remove remove_from_cart_button"><i class="far fa-times"></i></a>
-                        <a href="#"><img src="assets/img/product/product_thumb_1_5.jpg" alt="Cart Image">Sharpner</a>
+                        <a href="#"><img src="{{asset('common/assets/img/product/product_thumb_1_5.jpg')}}" alt="Cart Image">Sharpner</a>
                         <span class="quantity">1 ×
                             <span class="woocommerce-Price-amount amount">
                                 <span class="woocommerce-Price-currencySymbol">$</span>1080.00</span>

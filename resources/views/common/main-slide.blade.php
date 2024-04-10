@@ -3,7 +3,7 @@
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="{{asset('common/assets/img/hero/hero_bg_1_1.jpg')}}">
+            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="{{asset('common/assets/img/slider/slide-11.png')}}">
             </div>
             <div class="container">
                 <div class="row align-items-center justify-content-center">
@@ -48,7 +48,7 @@
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="{{asset('common/assets/img/hero/hero_bg_1_2.jpg')}}">
+            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="{{asset('common/assets/img/slider/slide-22.png')}}">
             </div>
             <div class="container">
                 <div class="row align-items-center justify-content-center">
@@ -92,7 +92,7 @@
 
 
         <div class="th-hero-slide">
-            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="{{asset('common/assets/img/hero/hero_bg_1_3.jpg')}}">
+            <div class="th-hero-bg" data-overlay="title" data-opacity="8" data-bg-src="{{asset('common/assets/img/slider/slide-33.png')}}">
             </div>
             <div class="container">
                 <div class="row align-items-center justify-content-center">

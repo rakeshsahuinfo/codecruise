@@ -120,8 +120,8 @@
             <div class="col-md-6 col-xl-4">
                 <div class="course-box style2">
                     <div class="course-img">
-                        <img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
-                            style="height: 200px;">
+                        <a href="{{route('course',encrypt($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
+                            style="height: 200px;"></a>
                         <span class="tag"><a
                                 href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
                     </div>

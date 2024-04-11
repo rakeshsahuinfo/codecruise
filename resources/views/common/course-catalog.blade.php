@@ -379,14 +379,14 @@ Servce Area
                         </div>
                     </div>
                 </div>
-                <div class="th-pagination text-center pt-50">
+                <!-- <div class="th-pagination text-center pt-50">
                     <ul>
                         <li><a href="blog.html">01</a></li>
                         <li><a href="blog.html">02</a></li>
                         <li><a href="blog.html">03</a></li>
                         <li><a href="blog.html"><i class="far fa-arrow-right"></i></a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="col-xl-3 col-lg-4 order-lg-1">
                 <aside class="sidebar-area sidebar-shop">

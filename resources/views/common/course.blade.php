@@ -134,7 +134,11 @@ Event Area
                             <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
                                 <div class="course-curriculam">
                                     <h5 class="h5">The Course Curriculam</h5>
+                                    @if($coursemodule)
                                     {!! $coursemodule->description !!}
+                                    @else
+                                    Please check later we are updating content
+                                    @endif
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">

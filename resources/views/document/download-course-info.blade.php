@@ -133,8 +133,8 @@
         </div>
         @endif
 
-        <h3>{{$coursemodule->name}}</h3>
-        <p>{!!$coursemodule->description!!}</p>
+        <h3>@if($coursemodule) {{$coursemodule->name}} @endif</h3>
+        <p>@if($coursemodule) {!!$coursemodule->description!!} @endif</p>
     </div>
 </body>
 

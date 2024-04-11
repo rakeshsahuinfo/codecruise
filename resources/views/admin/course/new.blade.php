@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Course Description</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="5"></textarea>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="20"></textarea>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="course_duration">Course Duration</label>
@@ -90,7 +90,7 @@
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="course_banner">Course Banner</label>
-                                            <input type="file" accept="image/*" class="form-control" name="course_banner" id="course_banner">
+                                            <input type="file" accept="image/*" class="form-control" name="course_banner" id="course_banner" required>
                                         </div>
                                         
                                         <div class="form-group w-100 my-4">

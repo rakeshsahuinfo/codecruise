@@ -329,14 +329,14 @@ Course Area
             </div>
             --}}
         </div>
-        <div class="th-pagination text-center pt-20">
+        <!-- <div class="th-pagination text-center pt-20">
             <ul>
                 <li><a href="blog.html">01</a></li>
                 <li><a href="blog.html">02</a></li>
                 <li><a href="blog.html">03</a></li>
                 <li><a href="blog.html"><i class="far fa-arrow-right"></i></a></li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </section>
 

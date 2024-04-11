@@ -31583,6 +31583,18 @@ span.select2-selection.select2-selection--single:focus {
   color: var(--white-color);
 }
 
+.searchDiv{
+  color:white;
+  margin-top:15px;
+  padding-left: 15px;
+}
+.searchDivLink{
+  color:white;
+}
+.searchDivLink:hover{
+  color:white;
+}
+
 /* Medium Large devices */
 @media (max-width: 1299px) {
   .price-card2_img {

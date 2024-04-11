@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController as AdminCourseController;
+use App\Http\Controllers\Admin\CourseTypeController as AdminCourseTypeController;
 use App\Http\Controllers\Admin\TechStackController as AdminTechStackController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LandingPageController;
@@ -21,6 +22,7 @@ Route::get('/course/{id}',[CourseController::class,'index'])->name('course');
 Route::get('/course-by-type/{course_type_id}',[CourseController::class,'courseByType'])->name('course-by-type');
 Route::get('/course-catalog',[CourseController::class,'courseCatalog'])->name('course-catalog');
 Route::get('/download-course-info/{id}',[CourseController::class,'downloadCourseinfo'])->name('download-course-info');
+Route::get('/search-course', [CourseController::class,'searchCourse'])->name('search-course');
 Route::post('/save-query',[QueryController::class,'saveQuery'])->name('save-query');
 Route::get('/enroll-course/{course_id}',[QueryController::class,'enrollCourse'])->name('enroll-course');
 Route::get('/privacy-policy',[LandingPageController::class,'privacyPolicy'])->name('privacy-policy');
@@ -31,7 +33,11 @@ Route::post('/admin-sign-in',[AdminController::class,'signIn'])->name('admin-sig
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out',[AdminController::class,'signOut'])->name('admin-sign-out');
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin-dashboard');
-
+    Route::get('/course-type',[AdminCourseTypeController::class,'index'])->name('admin-course-type');
+    Route::get('/new-course-type',[AdminCourseTypeController::class,'new'])->name('new-course-type');
+    Route::post('/create-course-type',[AdminCourseTypeController::class,'create'])->name('create-course-type');
+    Route::get('/edit-course-type/{id}',[AdminCourseTypeController::class,'edit'])->name('edit-course-type');
+    Route::post('/update-course-type',[AdminCourseTypeController::class,'update'])->name('update-course-type');
     Route::get('/course',[AdminCourseController::class,'index'])->name('admin-course');
     Route::get('/new-course',[AdminCourseController::class,'new'])->name('new-course');
     Route::post('/create-course',[AdminCourseController::class,'create'])->name('create-course');

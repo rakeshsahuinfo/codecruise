@@ -40,7 +40,8 @@
 <!--==============================
     Breadcumb
 ============================== -->
-<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title" data-opacity="8">
+<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/slider/slide-22.png')}}" data-overlay="title"
+    data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
@@ -72,7 +73,8 @@ Servce Area
                 <div class="th-sort-bar course-sort-bar">
                     <div class="row justify-content-between align-items-center">
                         <div class="col-md">
-                            <p class="woocommerce-result-count">Showing <span class="text-theme">12 courses</span> Of 16
+                            <p class="woocommerce-result-count">Showing <span class="text-theme">{{$course->count()}}
+                                    courses</span> Of {{$course->count()}}
                                 Result</p>
                         </div>
 
@@ -81,15 +83,16 @@ Servce Area
                                 <a class="active" href="#" id="tab-shop-list" data-bs-toggle="tab"
                                     data-bs-target="#tab-list" role="tab" aria-controls="tab-grid"
                                     aria-selected="false"><i class="fa-solid fa-grid-2 me-2"></i>Grid</a>
-                                <a href="#" id="tab-shop-grid" data-bs-toggle="tab" data-bs-target="#tab-grid"
+                                <!-- <a href="#" id="tab-shop-grid" data-bs-toggle="tab" data-bs-target="#tab-grid"
                                     role="tab" aria-controls="tab-grid" aria-selected="true"><i
-                                        class="fa-solid fa-list me-2"></i>List</a>
+                                        class="fa-solid fa-list me-2"></i>List</a> -->
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="tab-content" id="nav-tabContent">
+                    {{--
                     <div class="tab-pane fade" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">
                         <div class="row gy-30">
                             <div class="col-12">
@@ -121,7 +124,8 @@ Servce Area
                                         </div>
                                         <div class="course-author">
                                             <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
+                                                <img src="{{asset('common/assets/img/course/author.png')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Max Alexix</a>
                                             </div>
                                             <a href="course-details.html" class="link-btn">View Details<i
@@ -159,7 +163,8 @@ Servce Area
                                         </div>
                                         <div class="course-author">
                                             <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
+                                                <img src="{{asset('common/assets/img/course/author.png')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Kevin Perry</a>
                                             </div>
                                             <a href="course-details.html" class="link-btn">View Details<i
@@ -197,7 +202,8 @@ Servce Area
                                         </div>
                                         <div class="course-author">
                                             <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
+                                                <img src="{{asset('common/assets/img/course/author.png')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Max Alexix</a>
                                             </div>
                                             <a href="course-details.html" class="link-btn">View Details<i
@@ -235,7 +241,8 @@ Servce Area
                                         </div>
                                         <div class="course-author">
                                             <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
+                                                <img src="{{asset('common/assets/img/course/author.png')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Kevin Perry</a>
                                             </div>
                                             <a href="course-details.html" class="link-btn">View Details<i
@@ -273,7 +280,8 @@ Servce Area
                                         </div>
                                         <div class="course-author">
                                             <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
+                                                <img src="{{asset('common/assets/img/course/author.png')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Max Alexix</a>
                                             </div>
                                             <a href="course-details.html" class="link-btn">View Details<i
@@ -311,7 +319,8 @@ Servce Area
                                         </div>
                                         <div class="course-author">
                                             <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
+                                                <img src="{{asset('common/assets/img/course/author.png')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Kevin Perry</a>
                                             </div>
                                             <a href="course-details.html" class="link-btn">View Details<i
@@ -322,381 +331,52 @@ Servce Area
                             </div>
                         </div>
                     </div>
+                    --}}
                     <div class="tab-pane fade active show" id="tab-list" role="tabpanel"
                         aria-labelledby="tab-shop-list">
                         <div class="row gy-30">
+                            @if($course)
+                            @foreach($course as $c)
                             <div class="col-md-6 col-xl-4">
                                 <div class="course-box style2">
                                     <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_1.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                                        <img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
+                                            style="height: 200px;">
+                                        <span class="tag"><a
+                                                href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
                                     </div>
                                     <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
+                                        <div class="course-author">
+                                            <div class="author-info fw-bold">
+                                                <!-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
+                                                <a href="course.html" class="author-name">Kevin Perry</a> -->
+                                                Fee {{$c->course_fee}}
+                                                <span class="pill bg-primary text-white px-2">
+                                                @if($c->apply_discount==1)
+                                                {{$c->current_discount}}
+                                                @endif
+                                                </span>
+                                            </div>
+                                            <div class="course-rating">
+                                                <!-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
+                                                    <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
+                                                </div>
+                                                (4.00) -->
+                                            </div>
                                         </div>
-                                        <h3 class="course-title"><a href="course-details.html">Education Software and
-                                                PHP
-                                                and JS System Script</a></h3>
-                                        <div class="course-meta">
+                                        <h3 class="course-title"><a
+                                                href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
+                                        <!-- <div class="course-meta">
                                             <span><i class="fal fa-file"></i>Lesson 8</span>
-                                            <span><i class="fal fa-user"></i>Students 60+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Max Alexix</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
+                                            <span><i class="fal fa-user"></i>Students 50</span>
+                                            <span><i class="fal fa-eye"></i>View: 12K</span>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_2.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Learn Figma – UI/UX
-                                                Design
-                                                Essential Training</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                                            <span><i class="fal fa-user"></i>Students 50+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_3.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Advanced Android 12 &
-                                                Kotlin
-                                                Development Course</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                                            <span><i class="fal fa-user"></i>Students 30+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Max Alexix</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_4.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">IT Statistics Data
-                                                Science and
-                                                Business Analysis</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                                            <span><i class="fal fa-user"></i>Students 20+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_5.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">The Complete HTML & CSS
-                                                Bootcamp 2023 Edition</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                                            <span><i class="fal fa-user"></i>Students 60+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Max Alexix</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_6.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Great Graphical Design
-                                                That
-                                                Catches Eyes</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                                            <span><i class="fal fa-user"></i>Students 50+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_7.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Marketing 2023: Complete
-                                                Guide To Social Growth</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                                            <span><i class="fal fa-user"></i>Students 30+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Max Alexix</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_8.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">The complete business
-                                                plan
-                                                course includes 20+ template</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                                            <span><i class="fal fa-user"></i>Students 20+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_9.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Fashion Photography From
-                                                To
-                                                Professional Courses</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                                            <span><i class="fal fa-user"></i>Students 60+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Max Alexix</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_10.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Fashion and Luxury
-                                                Fashion In
-                                                A Changing</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 9</span>
-                                            <span><i class="fal fa-user"></i>Students 50+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_11.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 04 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Best Statistics Data
-                                                Science &
-                                                Business Analysis</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 7</span>
-                                            <span><i class="fal fa-user"></i>Students 30+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Max Alexix</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="course-box style2">
-                                    <div class="course-img">
-                                        <img src="{{asset('common/assets/img/course/course_1_12.png')}}" alt="img">
-                                        <span class="tag"><i class="fas fa-clock"></i> 02 WEEKS</span>
-                                    </div>
-                                    <div class="course-content">
-                                        <div class="course-rating">
-                                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out
-                                                    of 5</span>
-                                            </div>(4.7)
-                                        </div>
-                                        <h3 class="course-title"><a href="course-details.html">Angular with Nodejs
-                                                Fullstack
-                                                Development</a></h3>
-                                        <div class="course-meta">
-                                            <span><i class="fal fa-file"></i>Lesson 10</span>
-                                            <span><i class="fal fa-user"></i>Students 20+</span>
-                                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                                        </div>
-                                        <div class="course-author">
-                                            <div class="author-info">
-                                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a>
-                                            </div>
-                                            <div class="offer-tag">Free</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+                            @endif
                         </div>
-
                     </div>
                 </div>
                 <div class="th-pagination text-center pt-50">
@@ -722,7 +402,14 @@ Servce Area
                             <li><input id="beginnercheck" name="beginnercheck" type="checkbox" checked>
                                 <label for="beginnercheck">Beginner<span class="checkmark"></span></label>
                                 <ul class="sub-cat">
+                                    @if($coursetype)
+                                    @foreach($coursetype as $ct)
                                     <li><input id="designcheck" name="designcheck" type="checkbox" checked>
+                                        <label for="designcheck">{{$ct->name}}<span class="checkmark"></span>
+                                    </li>
+                                    @endforeach
+                                    @endif
+                                    <!-- <li><input id="designcheck" name="designcheck" type="checkbox" checked>
                                         <label for="designcheck">Design<span class="checkmark"></span>
                                     </li>
                                     <li><input id="devcheck" name="devcheck" type="checkbox">
@@ -745,18 +432,18 @@ Servce Area
                                     </li>
                                     <li><input id="teccheck" name="teccheck" type="checkbox">
                                         <label for="teccheck">Technology<span class="checkmark"></span>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
-                            <li><input id="reviewcheck" name="reviewcheck" type="checkbox">
+                            <!-- <li><input id="reviewcheck" name="reviewcheck" type="checkbox">
                                 <label for="reviewcheck">Intermediate<span class="checkmark"></span></label>
                             </li>
                             <li><input id="reviewcheck" name="reviewcheck" type="checkbox">
                                 <label for="reviewcheck">Experts<span class="checkmark"></span></label>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
-                    <div class="widget widget_price_filter style2  ">
+                    <!-- <div class="widget widget_price_filter style2  ">
                         <h4 class="widget_title">Price Level</h4>
                         <ul>
                             <li><input id="freecheck" name="freecheck" type="checkbox" checked>
@@ -800,7 +487,7 @@ Servce Area
                                 <label for="instructor5">Liam Anton<span class="checkmark"></span></label>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </aside>
             </div>
         </div>

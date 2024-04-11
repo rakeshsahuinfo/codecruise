@@ -3,7 +3,7 @@
 @section('headasset')
 <style>
     .error{
-        padding-left: 5px;padding-top:4px;color:teal;
+        padding-left: 5px;padding-top:5px;color:teal;
     }
 </style>
 @stop
@@ -256,7 +256,6 @@
 @stop
 @section('jsscript')
 @include('layouts.common.jsscript')
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="{{asset('common/assets/js/jquery.validate.min.js')}}"></script>
 <script src="{{asset('common/assets/js/validate.js')}}"></script>
 <script src="{{asset('common/assets/js/myscript.js')}}"></script>

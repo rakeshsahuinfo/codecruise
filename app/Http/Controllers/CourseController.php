@@ -36,9 +36,9 @@ class CourseController extends Controller
 
     
     public function courseCatalog(){
-   
+        $coursetype=CourseType::all();
         $course = Course::join('course_type','courses.course_type_id','=','course_type.id')->select('courses.*','course_type.name as course_type_name')->orderBy('name','asc')->get();
-        return view('common.course-catalog',['course'=>$course]);
+        return view('common.course-catalog',['course'=>$course,'coursetype'=>$coursetype]);
     }
 
     public function downloadCourseinfo($id)
@@ -55,5 +55,17 @@ class CourseController extends Controller
             'Content-Disposition' => 'inline; filename=CodeCruise('.$courseinfo->name.').pdf'
         ]);
         // return $pdf->download("CodeCruise(".$courseinfo->name.").pdf");
+    }
+
+    public function searchCourse(Request $request){
+        $query = $request->input('query');
+        // Perform your search logic here
+        $results = Course::where('name', 'like', '%'.$query.'%')->limit(10)->get();
+        if($results){
+            foreach($results as $key=>$val){
+                $results[$key]->url=route('course',encrypt(($val->id)));
+            }
+        }
+        return response()->json($results);
     }
 }

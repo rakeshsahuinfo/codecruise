@@ -117,32 +117,40 @@
         <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="4" data-ml-slide-show="3"
             data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
             @foreach($course as $c)
-            <div class="col-md-6 col-lg-4">
-                <div class="course-box">
+            <div class="col-md-6 col-xl-4">
+                <div class="course-box style2">
                     <div class="course-img">
-                        <img style="width: 100%;height: 220px;" src="{{asset('course_banner/'.$c->course_banner)}}"
-                            alt="img">
-                        <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                        <img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
+                            style="height: 200px;">
+                        <span class="tag"><a
+                                href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
                     </div>
                     <div class="course-content">
-                        <div class="course-rating">
-                            <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                            </div>(4.7)
-                        </div>
-                        <h3 class="course-title"><a href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
-                        <div class="course-meta">
-                            <span><i class="fal fa-file"></i>Lesson 8</span>
-                            <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                        </div>
                         <div class="course-author">
-                            <div class="author-info">
-                                <img src="{{asset('common/assets/img/course/author.png')}}" alt="author">
-                                <a href="course.html" class="author-name">Max Alexix</a>
+                            <div class="author-info fw-bold">
+                                <!-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
+                                <a href="course.html" class="author-name">Kevin Perry</a> -->
+                                Fee {{$c->course_fee}}
+                                <span class="pill bg-primary text-white px-2">
+                                @if($c->apply_discount==1)
+                                {{$c->current_discount}}
+                                @endif
+                                </span>
                             </div>
-                            <!-- <div class="offer-tag">Free</div> -->
+                            <div class="course-rating">
+                                <!-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
+                                    <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
+                                </div>
+                                (4.00) -->
+                            </div>
                         </div>
+                        <h3 class="course-title"><a
+                                href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
+                        <!-- <div class="course-meta">
+                            <span><i class="fal fa-file"></i>Lesson 8</span>
+                            <span><i class="fal fa-user"></i>Students 50</span>
+                            <span><i class="fal fa-eye"></i>View: 12K</span>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -207,7 +215,7 @@
                         <img src="{{asset('common/assets/img/normal/student-group_1_1.png')}}" alt="img">
                     </div>
                     <div class="text-end">
-                        <a class="th-btn mt-30" href="contact.html">Get Started <i
+                        <a class="th-btn mt-30" href="{{route('contact')}}">Get Started <i
                                 class="far fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
@@ -388,22 +396,20 @@
                 <div class="title-area mb-30">
                     <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
                     <h2 class="sec-title">Meet Our Expert Instructor</h2>
-                    <p class="sec-text mt-20">Graduates of XYZ University have achieved remarkable success in their
-                        chosen fields, with many going on to pursue advanced degrees, secure fulfilling careers, and
-                        make valuable contributions to their communities.</p>
-                    <p class="sec-text">The university takes pride in its alumni network, which serves as a
-                        testament to the quality of education and the opportunities provided by the institution.</p>
+                    <p class="sec-text mt-20">
+                        At Code-Cruise, we pride ourselves on providing top-notch education led by industry expert trainers who are dedicated to helping you achieve your goals. Our team of experienced professionals brings real-world knowledge and practical insights to the classroom, ensuring that you receive the highest quality training available. Whether you're looking to enhance your skills, advance your career, or embark on a new learning journey, our expert trainers are here to guide and support you every step of the way. With their extensive expertise and commitment to excellence, you can trust that you're receiving the best education possible, tailored to meet your specific needs and aspirations. Join us today and experience the difference that our industry expert trainers can make in your educational journey!
+                    </p>
                 </div>
                 <div class="btn-group mt-30">
-                    <a href="course.html" class="th-btn">Explore Courses<i class="fas fa-arrow-right ms-2"></i></a>
-                    <a href="contact.html" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('course-catalog')}}" class="th-btn">Explore Courses<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('contact')}}" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="team-card team-card-1-1 team-card-1-1-active mt-0">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="{{asset('common/assets/img/team/team_1_1.jpg')}}" alt="Team">
+                            <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -411,27 +417,27 @@
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
+                            <!-- <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                 <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Hirmar Ubunti</a></h3>
-                            <span class="team-desig">Instructor</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr Aamer</a></h3>
+                            <span class="team-desig">Data Scientist & Trainer</span>
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>2 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 60+</span>
+                            <span><i class="fa-light fa-users"></i>Students 1k+</span>
                         </div>
                     </div>
                 </div>
                 <div class="team-card team-card-1-1">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="{{asset('common/assets/img/team/team_1_2.jpg')}}" alt="Team">
+                            <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -439,20 +445,20 @@
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
+                            <!-- <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                 <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Marvin McKinney</a></h3>
-                            <span class="team-desig">Founder & CEO</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Sanjay</a></h3>
+                            <span class="team-desig">Sr. Developer & Trainer</span>
                         </div>
                         <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>3 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 50+</span>
+                            <span><i class="fal fa-file-check"></i>4 Courses</span>
+                            <span><i class="fa-light fa-users"></i>Students 5k+</span>
                         </div>
                     </div>
                 </div>
@@ -461,7 +467,7 @@
                 <div class="team-card team-card-1-2 mt-md-0">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="{{asset('common/assets/img/team/team_1_3.jpg')}}" alt="Team">
+                            <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -469,27 +475,27 @@
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
+                            <!-- <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                 <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Courtney Henry</a></h3>
-                            <span class="team-desig">Junior Instructor</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Rakesh</a></h3>
+                            <span class="team-desig">Solution Architecht & Trainer</span>
                         </div>
                         <div class="team-info">
-                            <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 30+</span>
+                            <span><i class="fal fa-file-check"></i>6 Courses</span>
+                            <span><i class="fa-light fa-users"></i>Students 1k+</span>
                         </div>
                     </div>
                 </div>
                 <div class="team-card team-card-1-2 team-card-1-2-active">
                     <div class="team-img-wrap">
                         <div class="team-img">
-                            <img src="{{asset('common/assets/img/team/team_1_4.jpg')}}" alt="Team">
+                            <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
                     </div>
                     <div class="team-hover-wrap">
@@ -497,20 +503,20 @@
                             <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <div class="th-social">
+                            <!-- <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
                                 <a target="_blank" href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Brooklyn Simmons</a></h3>
-                            <span class="team-desig">Senior Instructor</span>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Sunil</a></h3>
+                            <span class="team-desig">Sr. Devops Engineer & Trainer</span>
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 70+</span>
+                            <span><i class="fa-light fa-users"></i>Students 500+</span>
                         </div>
                     </div>
                 </div>
@@ -1216,6 +1222,98 @@ Testimonial Area
     </div>
 </section>
 --}}
+<section class="inner-page overflow-hidden space" style="height: 10%;">
+    <div class="container mt-5">
+        <div class="row" id="about">
+            <div class="col-12 col-lg-4" data-aos="fade-up">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="col-12 col-md-9 col-lg-10">
+                            <div class="card-body">
+                                <div class="title-area">
+                                    <span class="sub-title fs-2"> ABOUT CODE-CRUISE</span>
+                                    <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
+                                        empowering individuals with the skills and knowledge needed to thrive in the
+                                        digital era</p>
+                                </div>
+
+                                <div class="title-area">
+                                    <span class="sub-title fs-4"> OUR VISION</span>
+                                    <p class="fs-5">Revolutionize tech education by providing accessible, innovative
+                                        learning experiences</p>
+                                </div>
+
+                                <div class="title-area">
+                                    <span class="sub-title fs-4">OUR MISSION</span>
+                                    <p class="fs-5">Empower individuals worldwide to thrive in the digital age through
+                                        comprehensive courses and dynamic learning environments</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-7 p-0" data-aos="fade-up">
+                <div class="row m-0">
+                    <div class="col-12 col-md-5 p-1"><img src="{{asset('common/assets/img/office/office1.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office1.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-3 p-1"><img src="{{asset('common/assets/img/office/office2.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office2.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-4 p-1"><img src="{{asset('common/assets/img/office/office3.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office3.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-3 p-1"><img src="{{asset('common/assets/img/office/office4.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office4.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-5 p-1"><img src="{{asset('common/assets/img/office/office5.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office5.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                    <div class="col-12 col-md-4 p-1"><img src="{{asset('common/assets/img/office/office6.jpg')}}"
+                            data-toggle="modal" data-target="#imageModal"
+                            data-src="{{asset('common/assets/img/office/office6.jpg')}}"
+                            class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
+                </div>
+            </div>
+            <div class="title-area">
+                <span class="sub-title fs-2">Our Core Values</span>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="title-area">
+                        <span class="sub-title fs-4">Excellence</span>
+                        <p class="fs-5">We are committed to delivering high-quality education and learning experiences
+                            that exceed expectations, driven by a relentless pursuit of excellence in everything we do.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="title-area">
+                        <span class="sub-title fs-4">Innovation</span>
+
+                        <p class="fs-5">We embrace innovation and creativity as catalysts for progress, continuously
+                            seeking new ways to enhance learning outcomes and shape the future of tech education.</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="title-area">
+                        <span class="sub-title fs-4">Community</span>
+
+                        <p class="fs-5">We believe in the power of collaboration, fostering a supportive and inclusive
+                            environment where learners, instructors, and industry experts come together.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!--==============================
 	Footer Area

@@ -63,7 +63,7 @@
 <!--==============================
 Service Area  
 ==============================-->
-<section class="inner-page" style="height: 10%;">
+<section class="inner-page overflow-hidden space" style="height: 10%;">
     <div class="container mt-5">
         <div class="row" id="about">
             <div class="col-12 col-lg-4" data-aos="fade-up">
@@ -71,16 +71,25 @@ Service Area
                     <div class="col-12">
                         <div class="col-12 col-md-9 col-lg-10">
                             <div class="card-body">
-                                <p class="p fs-2 sec-title">ABOUT CODE-CRUISE</p>
-                                <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
-                                    empowering individuals with the skills and knowledge needed to thrive in the
-                                    digital era</p>
-                                <p class="p fs-4">OUR VISION</p>
-                                <p class="fs-5">Revolutionize tech education by providing accessible, innovative
-                                    learning experiences</p>
-                                <p class="p fs-4">OUR MISSION</p>
-                                <p class="fs-5">Empower individuals worldwide to thrive in the digital age through
-                                    comprehensive courses and dynamic learning environments</p>
+                                <div class="title-area">
+                                    <span class="sub-title fs-2"> ABOUT CODE-CRUISE</span>
+                                    <p class="fs-5">Codecruise is a dynamic tech education platform dedicated to
+                                        empowering individuals with the skills and knowledge needed to thrive in the
+                                        digital era</p>
+                                </div>
+
+                                <div class="title-area">
+                                    <span class="sub-title fs-4"> OUR VISION</span>
+                                    <p class="fs-5">Revolutionize tech education by providing accessible, innovative
+                                        learning experiences</p>
+                                </div>
+
+                                <div class="title-area">
+                                    <span class="sub-title fs-4">OUR MISSION</span>
+                                    <p class="fs-5">Empower individuals worldwide to thrive in the digital age through
+                                        comprehensive courses and dynamic learning environments</p>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -114,28 +123,38 @@ Service Area
                             class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
                 </div>
             </div>
-
-            <p class="p fs-2 text-uppercase mt-4 sec-title">Our Core Values</p>
+            <div class="title-area">
+                <span class="sub-title fs-2"> Our Core Values</span>
+            </div>
             <div class="row">
                 <div class="col-4">
-                    <p class="p fs-4 text-uppercase"> Excellence</p>
-                    <p class="fs-5">We are committed to delivering high-quality education and learning experiences that
-                        exceed expectations, driven by a relentless pursuit of excellence in everything we do.</p>
+                    <div class="title-area">
+                        <span class="sub-title fs-4"> Excellence</span>
+                        <p class="fs-5">We are committed to delivering high-quality education and learning experiences
+                            that exceed expectations, driven by a relentless pursuit of excellence in everything we do.</p>
+                    </div>
                 </div>
                 <div class="col-4">
-                    <p class="p fs-4 text-uppercase">Innovation</p>
-                    <p class="fs-5">We embrace innovation and creativity as catalysts for progress, continuously seeking
-                        new ways to enhance learning outcomes and shape the future of tech education.</p>
+                    <div class="title-area">
+                        <span class="sub-title fs-4"> Innovation</span>
+
+                        <p class="fs-5">We embrace innovation and creativity as catalysts for progress, continuously
+                            seeking new ways to enhance learning outcomes and shape the future of tech education.</p>
+                    </div>
                 </div>
                 <div class="col-4">
-                    <p class="p fs-4 text-uppercase">Community</p>
-                    <p class="fs-5">We believe in the power of collaboration, fostering a supportive and inclusive
-                        environment where learners, instructors, and industry experts come together.</p>
+                    <div class="title-area">
+                        <span class="sub-title fs-4"> Community</span>
+
+                        <p class="fs-5">We believe in the power of collaboration, fostering a supportive and inclusive
+                            environment where learners, instructors, and industry experts come together.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+{{--
 <section class="overflow-hidden space">
     <div class="container">
         <div class="title-area text-center">
@@ -758,6 +777,7 @@ Cta Area
                 class="fa-sharp fa-solid fa-play"></i></a>
     </div>
 </div>
+--}}
 <!--==============================
 	Footer Area
 	==============================-->

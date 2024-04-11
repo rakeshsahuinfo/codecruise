@@ -40,7 +40,7 @@
     <!--==============================
     Breadcumb
 ============================== -->
-<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/bg/breadcumb-bg.jpg')}}" data-overlay="title" data-opacity="8">
+<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/slider/slide-22.png')}}" data-overlay="title" data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
@@ -62,17 +62,20 @@
 <!--==============================
 Course Area  
 ==============================-->
+@php
+
+@endphp
 <section class="space-top space-extra-bottom">
     <div class="container">
         <div class="th-sort-bar">
             <div class="row justify-content-between align-items-center">
                 <div class="col-md-auto">
-                    <span class="course-result-count">We found <span class="text-theme">12 courses</span> available for you</span>
+                    <span class="course-result-count">We found <span class="text-theme">{{$course->count()}} courses</span> available for you</span>
                 </div>
                 <div class="col-md-auto">
                     <div class="nav" role=tablist>
                         <a href="#" class="active" id="tab-course-grid" data-bs-toggle="tab" data-bs-target="#tab-grid" role="tab" aria-controls="tab-grid" aria-selected="true"><i class="fa-solid fa-grid-2"></i> Grid</a>
-                        <a href="#" id="tab-course-list" data-bs-toggle="tab" data-bs-target="#tab-list" role="tab" aria-controls="tab-grid" aria-selected="false"><i class="fas fa-list"></i> List</a>
+                        <!-- <a href="#" id="tab-course-list" data-bs-toggle="tab" data-bs-target="#tab-list" role="tab" aria-controls="tab-grid" aria-selected="false"><i class="fas fa-list"></i> List</a> -->
                     </div>
                 </div>
             </div>
@@ -80,240 +83,48 @@ Course Area
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade active show" id="tab-grid" role="tabpanel" aria-labelledby="tab-course-grid">
                 <div class="row gy-4 mb-30">
-
+                    @if($course)
+                    @foreach($course as $c)
                     <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat1 cat3">
                         <div class="course-box2 style2">
                             <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_1.jpg')}}" alt="course">
-                                <span class="tag">Free</span>
+                                <img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course" style="height: 180px;">
+                                <span class="tag"><a href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
                             </div>
                             <div class="course-content">
                                 <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
+                                    <div class="author-info fw-bold">
+                                        <!-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
+                                        <a href="course.html" class="author-name">Kevin Perry</a> -->
+                                        Fee {{$c->course_fee}}
+                                        <span class="pill bg-primary text-white px-2">
+                                        @if($c->apply_discount==1)
+                                        {{$c->current_discount}}
+                                        @endif
+                                        </span>
                                     </div>
                                     <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
+                                        <!-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                             <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                                         </div>
-                                        (4.00)
+                                        (4.00) -->
                                     </div>
                                 </div>
-                                <h3 class="course-title"><a href="course-details.html">Learn React JS Tutorial For Beginners</a></h3>
-                                <div class="course-meta">
+                                <h3 class="course-title"><a
+                                        href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
+                                <!-- <div class="course-meta">
                                     <span><i class="fal fa-file"></i>Lesson 8</span>
                                     <span><i class="fal fa-user"></i>Students 50</span>
                                     <span><i class="fal fa-eye"></i>View: 12K</span>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat3 cat1">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_2.jpg')}}" alt="course">
-                                <span class="tag">22.9$</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Techs HTML5 JS Tutorial For Newbies</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 9</span>
-                                    <span><i class="fal fa-user"></i>Students 55</span>
-                                    <span><i class="fal fa-eye"></i>View: 13K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat3 cat2">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_3.jpg')}}" alt="course">
-                                <span class="tag">11.9$</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Start Java3 JS Tutorial For Adanceds</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 6</span>
-                                    <span><i class="fal fa-user"></i>Students 60</span>
-                                    <span><i class="fal fa-eye"></i>View: 12K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat1 cat4">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_4.jpg')}}" alt="course">
-                                <span class="tag">20.1$</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Learn React JS Tutorial For Beginners</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 5</span>
-                                    <span><i class="fal fa-user"></i>Students 50</span>
-                                    <span><i class="fal fa-eye"></i>View: 14K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat2 cat1">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_5.jpg')}}" alt="course">
-                                <span class="tag">Free</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Start PHP JS Tutorial For Adance Guy</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 12</span>
-                                    <span><i class="fal fa-user"></i>Students 70</span>
-                                    <span><i class="fal fa-eye"></i>View: 12K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat3 cat4">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_6.jpg')}}" alt="course">
-                                <span class="tag">Free</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Go to HTML5 Tutorial For Newbie Kids</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 11</span>
-                                    <span><i class="fal fa-user"></i>Students 50</span>
-                                    <span><i class="fal fa-eye"></i>View: 11K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat2 cat4">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_7.jpg')}}" alt="course">
-                                <span class="tag">30.3$</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Learn React JS Tutorial For Beginners</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 5</span>
-                                    <span><i class="fal fa-user"></i>Students 80</span>
-                                    <span><i class="fal fa-eye"></i>View: 13K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat2 cat4">
-                        <div class="course-box2 style2">
-                            <div class="course-img">
-                                <img src="{{asset('common/assets/img/update1/course/course_1_8.jpg')}}" alt="course">
-                                <span class="tag">Free</span>
-                            </div>
-                            <div class="course-content">
-                                <div class="course-author">
-                                    <div class="author-info">
-                                        <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                        <a href="course.html" class="author-name">Kevin Perry</a>
-                                    </div>
-                                    <div class="course-rating">
-                                        <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                            <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
-                                        </div>
-                                        (4.00)
-                                    </div>
-                                </div>
-                                <h3 class="course-title"><a href="course-details.html">Techs HTML5 JS Tutorial For Newbies</a></h3>
-                                <div class="course-meta">
-                                    <span><i class="fal fa-file"></i>Lesson 8</span>
-                                    <span><i class="fal fa-user"></i>Students 50</span>
-                                    <span><i class="fal fa-eye"></i>View: 14K</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                    @endif
                 </div>
             </div>
+            {{--
             <div class="tab-pane fade " id="tab-list" role="tabpanel" aria-labelledby="tab-course-list">
                 <div class="row gy-30">
                     <div class="col-12">
@@ -516,6 +327,7 @@ Course Area
                     </div>
                 </div>
             </div>
+            --}}
         </div>
         <div class="th-pagination text-center pt-20">
             <ul>

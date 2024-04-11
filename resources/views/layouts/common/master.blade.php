@@ -1,6 +1,7 @@
 <!-- Edura Master -->
 <!doctype html>
 <html class="no-js" lang="zxx">
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -46,21 +47,23 @@
 	<link rel="stylesheet" href="{{asset('common/assets/css/style.css')}}">
 
 	@yield('headasset')
-	
+
 </head>
+
 <body>
 	@if(session('msg'))
 	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 8%;z-index:9999;">
 		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert"
 			style="height: 100%;padding:2%;font-size: 30px;background-color: azure;">
 			{{ session('msg') }}
-			<button style="color: black;font-weight: bold;" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+			<button style="color: black;font-weight: bold;" type="button" class="btn-close" data-bs-dismiss="alert"
+				aria-label="Close">X</button>
 		</div>
 	</div>
 	@endif
 
 	@yield('content')
-	
+
 	<!--==============================
     All Js File
 	============================== -->
@@ -90,7 +93,38 @@
 
 	<!-- Main Js File -->
 	<script src="{{asset('common/assets/js/main.js')}}"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	@yield('jsscript')
+	<script>
+		$(document).ready(function () {
+			$('.searchIP').on('input', function () {
+				var query = $(this).val();
+				if (query.length >= 1) {
+					$.ajax({
+						url: "{{ route('search-course') }}",
+						type: 'GET',
+						data: {
+							query: query
+						},
+						success: function (data) {
+							var html = ``;
+							if (data.length > 0) {
+								$.each(data, function (index, item) {
+									html += `<div class="searchDiv"><a href="${item.url}" class="searchDivLink">${item.name}</a></div>`;
+								});
+							} else {
+								html += `<div class="searchResult">No results found</div>`;
+							}
+							$('#searchResults').html(html);
+						}
+					});
+				} else {
+					$('#searchResults').empty();
+				}
+			});
+		});
+
+	</script>
 </body>
 
 </html>

@@ -113,7 +113,7 @@
 									html += `<div class="searchDiv"><a href="${item.url}" class="searchDivLink">${item.name}</a></div>`;
 								});
 							} else {
-								html += `<div class="searchResult">No results found</div>`;
+								html += `<div class="searchDiv">No results found</div>`;
 							}
 							$('#searchResults').html(html);
 						}

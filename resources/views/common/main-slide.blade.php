@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-md-6 text-lg-end text-center">
                     <div class="hero-img1">
-                        <img src="{{asset('common/assets/img/hero/hero_thumb_1_1.jpg')}}" alt="hero">
+                        <img src="{{asset('common/assets/img/slider/slide-11.png')}}" alt="hero">
                     </div>
                 </div>
             </div>

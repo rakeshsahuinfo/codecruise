@@ -28,9 +28,9 @@
                                         class="fab fa-instagram"></i></a>
                             </div>
                         </li>
-                        <li class="d-none d-lg-inline-block">
+                        <!-- <li class="d-none d-lg-inline-block">
                             <i class="far fa-user"></i><a href="contact.html">Login / Register</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>

@@ -33,7 +33,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                     <a href="{{route('course-catalog')}}">All Courses</a>
                 </li>
                 <li>
-                    <a href="{{'about'}}">About</a>
+                    <a href="{{route('about')}}">About</a>
                 </li>
                 <li>
                     <a href="{{route('contact')}}">Contact</a>

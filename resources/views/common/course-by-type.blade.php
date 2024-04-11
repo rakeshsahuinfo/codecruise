@@ -88,7 +88,7 @@ Course Area
                     <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat1 cat3">
                         <div class="course-box2 style2">
                             <div class="course-img">
-                                <img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course" style="height: 180px;">
+                                <a href="{{route('course',encrypt($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course" style="height: 180px;"></a>
                                 <span class="tag"><a href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
                             </div>
                             <div class="course-content">

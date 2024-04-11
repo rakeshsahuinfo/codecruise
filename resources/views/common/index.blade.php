@@ -425,7 +425,7 @@
                             </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Mr Aamer</a></h3>
+                            <h3 class="team-title"><a href="team-details.html">Mr. Aamer</a></h3>
                             <span class="team-desig">Data Scientist & Trainer</span>
                         </div>
                         <div class="team-info">
@@ -484,7 +484,7 @@
                         </div>
                         <div class="team-content">
                             <h3 class="team-title"><a href="team-details.html">Mr. Rakesh</a></h3>
-                            <span class="team-desig">Solution Architecht & Trainer</span>
+                            <span class="team-desig">Solution Architect & Trainer</span>
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>6 Courses</span>
@@ -512,7 +512,7 @@
                         </div>
                         <div class="team-content">
                             <h3 class="team-title"><a href="team-details.html">Mr. Sunil</a></h3>
-                            <span class="team-desig">Sr. Devops Engineer & Trainer</span>
+                            <span class="team-desig">Sr. DevOps Engineer & Trainer</span>
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>4 Courses</span>

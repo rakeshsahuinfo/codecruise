@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCruise-{{$courseinfo->name}}</title>
-    <link rel="shortcut icon" href="{{public_path('common/assets/img/logo/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('common/assets/img/favicon.png')}}" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;

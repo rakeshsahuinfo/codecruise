@@ -210,7 +210,7 @@
                         <img src="{{asset('common/assets/img/normal/wcu_1_1.png')}}" alt="img">
                     </div>
                     <div class="student-count jump-reverse">
-                        <h5 class="title"><span class="text-theme"><span class="counter-number">10</span>k+</span>
+                        <h5 class="title"><span class="text-theme"><span class="counter-number">10</span>K+</span>
                             Active Students</h5>
                         <img src="{{asset('common/assets/img/normal/student-group_1_1.png')}}" alt="img">
                     </div>
@@ -430,7 +430,7 @@
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>2 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 1k+</span>
+                            <span><i class="fa-light fa-users"></i>Students 1K+</span>
                         </div>
                     </div>
                 </div>
@@ -458,7 +458,7 @@
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 5k+</span>
+                            <span><i class="fa-light fa-users"></i>Students 5K+</span>
                         </div>
                     </div>
                 </div>
@@ -484,11 +484,11 @@
                         </div>
                         <div class="team-content">
                             <h3 class="team-title"><a href="team-details.html">Mr. Rakesh</a></h3>
-                            <span class="team-desig">Solution Architect & Trainer</span>
+                            <span class="team-desig">Sr. Solution Architect & Trainer</span>
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>6 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 1k+</span>
+                            <span><i class="fa-light fa-users"></i>Students 1K+</span>
                         </div>
                     </div>
                 </div>

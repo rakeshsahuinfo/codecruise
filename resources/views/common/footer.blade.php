@@ -55,13 +55,13 @@
                                 <p class="about-text">Sail Smooth in Tech Ocean</p>
                                 <div class="th-social">
                                     <h6 class="title text-white">FOLLOW US ON:</h6>
-                                    <a href="https://www.facebook.com/codecruiseindia"><i
+                                    <a href="https://www.facebook.com/codecruiseindia" target="_new"><i
                                             class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.twitter.com/codecruiseindia"><i class="fab fa-twitter"></i></a>
-                                    <a href="https://www.linkedin.com/company/codecruise"><i
+                                    <a href="https://www.twitter.com/codecruiseindia" target="_new"><i class="fab fa-twitter"></i></a>
+                                    <a href="https://www.linkedin.com/company/codecruise" target="_new"><i
                                             class="fab fa-linkedin-in"></i></a>
                                     <!-- <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a> -->
-                                    <a href="https://www.instagram.com/codecruise"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://www.instagram.com/codecruise" target="_new"><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -104,9 +104,9 @@
                             <h3 class="widget_title">Our Branches</h3>
                             <ul class="menu">
 
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Andheri</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">BKC</a></li>
-                                <li><i class="bx bx-chevron-right"></i> <a href="#">Vikhroli</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Andheri</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">BKC</a></li>
+                                <li><i class="bx bx-chevron-right"></i> <a href="javascript:void(0)">Vikhroli</a></li>
 
                             </ul>
                             <!-- <p class="footer-text">Subscribe our newsletter to get our latest

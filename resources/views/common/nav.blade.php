@@ -34,6 +34,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                                                 @endforeach
                                             </ul>
                                             @endif
+                                    </li>
                                     @endforeach
                                     @endif
                                     <li>

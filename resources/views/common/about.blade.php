@@ -123,28 +123,32 @@ Service Area
                             class="img-fluid img-thumbnail w-100" style="height: 300px"></div>
                 </div>
             </div>
-            <div class="title-area">
-                <span class="sub-title fs-2"> Our Core Values</span>
-            </div>
-            <div class="row">
-                <div class="col-4">
+            
+            <div class="row mt-5">
+                <div class="col-md-12 col-sm-12">
                     <div class="title-area">
-                        <span class="sub-title fs-4"> Excellence</span>
-                        <p class="fs-5">We are committed to delivering high-quality education and learning experiences
-                            that exceed expectations, driven by a relentless pursuit of excellence in everything we do.</p>
+                        <span class="sub-title fs-2">Our Core Values</span>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4 col-sm-12">
                     <div class="title-area">
-                        <span class="sub-title fs-4"> Innovation</span>
+                        <span class="sub-title fs-4">Excellence</span>
+                        <p class="fs-5">We are committed to delivering high-quality education and learning experiences
+                            that exceed expectations, driven by a relentless pursuit of excellence in everything we do.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="title-area">
+                        <span class="sub-title fs-4">Innovation</span>
 
                         <p class="fs-5">We embrace innovation and creativity as catalysts for progress, continuously
                             seeking new ways to enhance learning outcomes and shape the future of tech education.</p>
                     </div>
                 </div>
-                <div class="col-4">
+                <div class="col-md-4 col-sm-12">
                     <div class="title-area">
-                        <span class="sub-title fs-4"> Community</span>
+                        <span class="sub-title fs-4">Community</span>
 
                         <p class="fs-5">We believe in the power of collaboration, fostering a supportive and inclusive
                             environment where learners, instructors, and industry experts come together.</p>

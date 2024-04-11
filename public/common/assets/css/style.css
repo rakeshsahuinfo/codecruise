@@ -3000,6 +3000,7 @@ textarea.is-invalid {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  height: 70vh;
 }
 
 .bg-fluid {
@@ -11002,7 +11003,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
 .hero-style1 {
   position: relative;
   z-index: 6;
-  padding: 222px 0 217px 0;
+  padding: 92px 0 217px 0;
   /* Large devices */
   /* Medium devices */
   /* Extra small devices */
@@ -11065,6 +11066,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
   position: absolute;
   bottom: 30px;
   right: 25%;
+  height: 60vh;
   /* Hight Resoulation devices */
 }
 

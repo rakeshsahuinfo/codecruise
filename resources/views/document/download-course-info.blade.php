@@ -26,7 +26,7 @@
 
         .logo span {
             text-transform: uppercase;
-            color: teal;
+            color: #007072;
             font-size: 12px;
         }
 
@@ -36,7 +36,7 @@
         }
 
         .contact-info span {
-            color: #461313;
+            color: #007072;;
             font-size: 12px;
             font-weight: bold;
         }
@@ -56,9 +56,9 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .course-details h2 {
-            color: #461313;
-            font-size: 24px;
+        .course-details h3 {
+            color:#007072;;
+            font-size: 20px;
             margin-bottom: 20px;
         }
 
@@ -72,10 +72,11 @@
         .tech-stack {
             text-align: center;
             margin-top: 20px;
+            color: #007072;
         }
 
-        .tech-stack h2 {
-            color: #461313;
+        .tech-stack h3 {
+            color: #007072;
             font-size: 20px;
             margin-top: 10;
             margin-bottom: 20px;
@@ -114,12 +115,12 @@
     <hr>
 
     <div class="course-details">
-        <h2>{{$courseinfo->name}}</h2>
+        <h3>{{$courseinfo->name}}</h3>
         <p>{!!$courseinfo->description!!}</p>
 
         @if($coursetechstack)
         <div class="tech-stack">
-            <h2>Tech Stack To Be Covered</h2>
+            <h3>Tech Stack To Be Covered</h3>
             <div>
                 @foreach($coursetechstack as $ts)
                 <div class="tech-item">
@@ -132,7 +133,7 @@
         </div>
         @endif
 
-        <h2>{{$coursemodule->name}}</h2>
+        <h3>{{$coursemodule->name}}</h3>
         <p>{!!$coursemodule->description!!}</p>
     </div>
 </body>

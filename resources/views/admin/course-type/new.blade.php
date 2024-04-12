@@ -43,8 +43,39 @@
                                     <div class="form-row form-row-2 px-3 py-2">
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Course Type Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" required>
+                                            <input type="text" class="form-control" name="name" id="name" required  onkeyup="createSlug(this.value)">
                                         </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="name">slug</label>
+                                            <input type="text" class="form-control" name="slug" id="slug" required readonly> 
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="seo_title">SEO Title</label>
+                                            <input type="text" class="form-control" name="seo_title" id="seo_title" required > 
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="seo_description">SEO Description</label>
+                                            <textarea type="text" class="form-control" name="seo_description" id="seo_description" ></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="seo_keyword">Keyword</label>
+                                            <input type="text" class="form-control" name="seo_keyword" id="seo_keyword" > 
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="canonical">Canonical</label>
+                                            <input type="text" class="form-control" name="canonical" id="canonical"> 
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="is_index">is Index</label>
+                                            <input type="checkbox" name="is_index" id="is_index" value="1" checked>
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="is_follow">is Follow</label>
+                                            <input type="checkbox" name="is_follow" id="is_follow" value="1" checked>
+                                        </div>
+                                        
                                      
                                         <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>
@@ -71,11 +102,19 @@
 @stop
 @section('jsscript')
 <script src="https://cdn.tiny.cloud/1/911cbq2nvk2mpjfa4zvl2lrwp3qrlpebnarv36kpbyh15rz6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
+<script>
+    function slugify(text) {
+        return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-');
+    }
+    function createSlug(str){
+        var slug = slugify(str);
+        $("#slug").val(slug);
+    }
+</script>
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
   tinymce.init({
-    selector: 'textarea',
+    selector: '#mytextarea',
     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
     tinycomments_mode: 'embedded',

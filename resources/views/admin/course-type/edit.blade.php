@@ -45,9 +45,40 @@
                                       <input type="hidden" name="course_type_id" value="{{$coursetype->id}}">
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Course Type Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" value="{{$coursetype->name}}">
+                                            <input type="text" class="form-control" name="name" id="name" value="{{$coursetype->name}}" onkeyup="createSlug(this.value)">
                                         </div>
-                                     
+                                        <div class="form-group w-100  my-4">
+                                            <label for="slug">slug</label>
+                                            <input type="text" class="form-control" name="slug" id="slug" value="{{$coursetype->slug}}" required readonly> 
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="seo_title">SEO Title</label>
+                                            <input type="text" class="form-control" name="seo_title" id="seo_title" value="{{$coursetype->seo?$coursetype->seo->seo_title:''}}" required > 
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="seo_description">SEO Description</label>
+                                            <textarea type="text" class="form-control" name="seo_description" id="seo_description" > {{$coursetype->seo?$coursetype->seo->seo_description:''}}</textarea>
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="seo_keyword">Keyword</label>
+                                            <input type="text" class="form-control" name="seo_keyword" id="seo_keyword" value="{{$coursetype->seo?$coursetype->seo->seo_keyword:''}}" > 
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="canonical">Canonical</label>
+                                            <input type="text" class="form-control" name="canonical" id="canonical" value="{{$coursetype->seo?$coursetype->seo->canonical:''}}" > 
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="is_index">is Index</label>
+                                            <input type="checkbox" name="is_index" id="is_index" value="1" {{$coursetype->seo?($coursetype->seo->is_index?'checked':''):''}}>
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="is_follow">is Follow</label>
+                                            <input type="checkbox" name="is_follow" id="is_follow" value="1"  {{$coursetype->seo?($coursetype->seo->is_follow?'checked':''):''}}>
+                                        </div>
+                                        
                                         <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>
                                             <select class="selectpicker form-control" data-live-search="true" data-size="8" name="is_active" id="is_active" required>
@@ -73,11 +104,19 @@
 @stop
 @section('jsscript')
 <script src="https://cdn.tiny.cloud/1/911cbq2nvk2mpjfa4zvl2lrwp3qrlpebnarv36kpbyh15rz6/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-
+<script>
+    function slugify(text) {
+        return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-');
+    }
+    function createSlug(str){
+        var slug = slugify(str);
+        $("#slug").val(slug);
+    }
+</script>
 <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
 <script>
   tinymce.init({
-    selector: 'textarea',
+    selector: '#mytextarea',
     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
     tinycomments_mode: 'embedded',

@@ -58,4 +58,6 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     
     Route::get('/add-course-tech-stack/{course_id}',[AdminTechStackController::class,'addCourseTechStack'])->name('add-course-tech-stack');
     Route::post('/admin-course-assign-tech-stack',[AdminTechStackController::class,'courseAssignTechStack'])->name('admin-course-assign-tech-stack');
+
+    Route::get('/homepage', [])->name('homepage');
 });

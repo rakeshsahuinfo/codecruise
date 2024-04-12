@@ -73,9 +73,9 @@
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a
-                                            href="{{route('course-by-type',base64_encode( $ct->id))}}">{{$ct->name}}</a></h3>
-                                    <p class="category-card_text">56+ Courses </p>
-                                    <a href="{{route('course-by-type',base64_encode( $ct->id))}}" class="th-btn">Learn More <i
+                                            href="{{route('course-by-type',$ct->slug)}}">{{$ct->name}}</a></h3>
+                                    {{--<p class="category-card_text">56+ Courses </p>--}}
+                                    <a href="{{route('course-by-type',$ct->slug)}}" class="th-btn">Learn More <i
                                             class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -110,7 +110,12 @@
             </div>
         </div>
         @php
-        $course=App\Models\Course::where('course_type_id',1)->orWhere('course_type_id',2)->orderBy('name','asc')->get();
+        $course=App\Models\Course::where('is_active', 1)->where(function($queryBuilder) {
+            $queryBuilder->where('course_type_id', 1)
+            ->orWhere('course_type_id', 2);
+        })
+        ->orderBy('name', 'asc')
+        ->get();
         @endphp
         @if($course)
 
@@ -120,10 +125,9 @@
             <div class="col-md-6 col-xl-4">
                 <div class="course-box style2">
                     <div class="course-img">
-                        <a href="{{route('course',base64_encode($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
-                            style="height: 200px;"></a>
-                        <span class="tag"><a
-                                href="{{route('enroll-course',base64_encode($c->id))}}">Enroll</a></span>
+                        <a href="{{route('course',$c->slug)}}"><img src="{{asset('course_banner/'.$c->course_banner)}}"
+                                alt="course" style="height: 200px;"></a>
+                        <span class="tag"><a href="{{route('enroll-course',$c->slug)}}">Enroll</a></span>
                     </div>
                     <div class="course-content">
                         <div class="course-author">
@@ -132,9 +136,9 @@
                                 <a href="course.html" class="author-name">Kevin Perry</a> -->
                                 Fee {{$c->course_fee}}
                                 <span class="pill bg-primary text-white px-2">
-                                @if($c->apply_discount==1)
-                                {{$c->current_discount}}
-                                @endif
+                                    @if($c->apply_discount==1)
+                                    {{$c->current_discount}}
+                                    @endif
                                 </span>
                             </div>
                             <div class="course-rating">
@@ -144,8 +148,7 @@
                                 (4.00) -->
                             </div>
                         </div>
-                        <h3 class="course-title"><a
-                                href="{{route('course',base64_encode($c->id))}}">{{$c->name}}</a></h3>
+                        <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
                         <!-- <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 8</span>
                             <span><i class="fal fa-user"></i>Students 50</span>
@@ -397,12 +400,22 @@
                     <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
                     <h2 class="sec-title">Meet Our Expert Instructor</h2>
                     <p class="sec-text mt-20">
-                        At Code-Cruise, we pride ourselves on providing top-notch education led by industry expert trainers who are dedicated to helping you achieve your goals. Our team of experienced professionals brings real-world knowledge and practical insights to the classroom, ensuring that you receive the highest quality training available. Whether you're looking to enhance your skills, advance your career, or embark on a new learning journey, our expert trainers are here to guide and support you every step of the way. With their extensive expertise and commitment to excellence, you can trust that you're receiving the best education possible, tailored to meet your specific needs and aspirations. Join us today and experience the difference that our industry expert trainers can make in your educational journey!
+                        At Code-Cruise, we pride ourselves on providing top-notch education led by industry expert
+                        trainers who are dedicated to helping you achieve your goals. Our team of experienced
+                        professionals brings real-world knowledge and practical insights to the classroom, ensuring that
+                        you receive the highest quality training available. Whether you're looking to enhance your
+                        skills, advance your career, or embark on a new learning journey, our expert trainers are here
+                        to guide and support you every step of the way. With their extensive expertise and commitment to
+                        excellence, you can trust that you're receiving the best education possible, tailored to meet
+                        your specific needs and aspirations. Join us today and experience the difference that our
+                        industry expert trainers can make in your educational journey!
                     </p>
                 </div>
                 <div class="btn-group mt-30">
-                    <a href="{{route('course-catalog')}}" class="th-btn">Explore Courses<i class="fas fa-arrow-right ms-2"></i></a>
-                    <a href="{{route('contact')}}" class="th-btn style7">Contact Us<i class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('course-catalog')}}" class="th-btn">Explore Courses<i
+                            class="fas fa-arrow-right ms-2"></i></a>
+                    <a href="{{route('contact')}}" class="th-btn style7">Contact Us<i
+                            class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
@@ -516,7 +529,7 @@
                         </div>
                         <div class="team-info">
                             <span><i class="fal fa-file-check"></i>4 Courses</span>
-                            <span><i class="fa-light fa-users"></i>Students 500+</span>
+                            <span><i class="fa-light fa-users"></i>Students 1K+</span>
                         </div>
                     </div>
                 </div>

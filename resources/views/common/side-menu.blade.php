@@ -67,7 +67,7 @@
     <button class="searchClose"><i class="fal fa-times"></i></button>
     <form action="#">
         <input type="text" class="searchIP" placeholder="What are you looking for?">
-        <div id="searchResults"></div>
+        <div id="searchResults" class="searchResults"></div>
         <button type="submit"><i class="fal fa-search"></i></button>
     </form>
 </div>

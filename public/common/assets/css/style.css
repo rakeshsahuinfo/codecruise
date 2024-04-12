@@ -31594,6 +31594,9 @@ span.select2-selection.select2-selection--single:focus {
 .searchDivLink:hover{
   color:white;
 }
+.searchResults{
+  position: absolute; top: 70%; left: 0; width: 100%;
+}
 
 /* Medium Large devices */
 @media (max-width: 1299px) {

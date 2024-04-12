@@ -97,7 +97,7 @@
 	@yield('jsscript')
 	<script>
 		$(document).ready(function () {
-			$('.searchIP').on('input', function () {
+			$('.searchIP').on('keyup', function () {
 				var query = $(this).val();
 				if (query.length >= 1) {
 					$.ajax({

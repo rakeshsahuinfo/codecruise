@@ -266,11 +266,13 @@ Event Area
                             <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div> -->
-                        <span class="h4 course-price">Course Fee</span></span>
-                         
-                        <span class="h4 course-price">{{$courseinfo->course_fee}} 
-                            @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
-                        </span>
+                        <div class="title-area">
+                            <span class="sub-title fs-2">Course Fee</span>
+                            <span class="h4 course-price">{{$courseinfo->course_fee}} 
+                                @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
+                            </span>
+                        </div>
+                       
                         <a href="{{route('enroll-course',encrypt($courseinfo->id))}}" class="th-btn">Enroll</a>
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>
@@ -327,7 +329,11 @@ Servce Area
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack</span>
-            <h2 class="sec-title">Important Tech Stack Covered</h2>
+            <div class="title-area">
+                <span class="sub-title fs-3">Important Tech Stack Covered</span>
+            </div>
+           
+            <h2 class="sec-title"></h2>
         </div>
         <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
             <div class="container mt-2">
@@ -338,7 +344,7 @@ Servce Area
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
                         <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
                             <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}" style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
-                            <div class="card-tittle px-4 text-center text-bold">{{$ts->name}}</div>
+                            <div class="card-tittle px-4 text-center sub-title fs-6">{{$ts->name}}</div>
                             <div class="card-body"></div>
                         </div>
                     </div>

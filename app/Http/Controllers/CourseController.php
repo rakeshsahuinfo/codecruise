@@ -16,7 +16,7 @@ class CourseController extends Controller
     public function index($id)
     {
         try {
-            $course_id = decrypt($id);
+            $course_id = base64_decode($id);
             $courseinfo = Course::find($course_id);
             $coursetype=CourseType::find($courseinfo->course_type_id);
             $coursemodule = CourseModule::where('course_id', $course_id)->first();
@@ -28,7 +28,7 @@ class CourseController extends Controller
     }
 
     public function courseByType($id){
-        $course_type_id=decrypt($id);
+        $course_type_id=base64_decode($id);
         $course_type=CourseType::find($course_type_id);
         $course = Course::join('course_type','courses.course_type_id','=','course_type.id')->select('courses.*','course_type.name as course_type_name')->where('course_type_id',$course_type_id)->orderBy('name','asc')->get();
         return view('common.course-by-type',['course'=>$course,'course_type'=>$course_type]);
@@ -43,7 +43,7 @@ class CourseController extends Controller
 
     public function downloadCourseinfo($id)
     {
-        $course_id = decrypt($id);
+        $course_id = base64_decode($id);
         $courseinfo = Course::find($course_id);
         $coursemodule = CourseModule::where('course_id', $course_id)->first();
         $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $course_id)->select('tech_stacks.*')->get();
@@ -63,7 +63,7 @@ class CourseController extends Controller
         $results = Course::join('course_type','courses.course_type_id','=','course_type.id')->where('courses.name', 'like', '%'.$query.'%')->orWhere('course_type.name', 'like', '%'.$query.'%')->select('courses.*')->orderBy('courses.name','asc')->limit(10)->get();
         if($results){
             foreach($results as $key=>$val){
-                $results[$key]->url=route('course',encrypt(($val->id)));
+                $results[$key]->url=route('course',base64_encode(($val->id)));
             }
         }
         return response()->json($results);

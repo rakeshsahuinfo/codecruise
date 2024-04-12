@@ -77,7 +77,7 @@
                                 <ul class="menu">
                                     @if($ctype)
                                     @foreach($ctype as $ct)
-                                    <li><a href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></li>
+                                    <li><a href="{{route('course-by-type',base64_encode( $ct->id))}}">{{$ct->name}}</a></li>
                                     @endforeach
                                     @endif
                                 </ul>

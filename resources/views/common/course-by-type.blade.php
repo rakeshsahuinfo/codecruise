@@ -88,8 +88,8 @@ Course Area
                     <div class="col-md-6 col-lg-4 col-xxl-3 filter-item cat1 cat3">
                         <div class="course-box2 style2">
                             <div class="course-img">
-                                <a href="{{route('course',encrypt($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course" style="height: 180px;"></a>
-                                <span class="tag"><a href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
+                                <a href="{{route('course',base64_encode($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course" style="height: 180px;"></a>
+                                <span class="tag"><a href="{{route('enroll-course',base64_encode($c->id))}}">Enroll</a></span>
                             </div>
                             <div class="course-content">
                                 <div class="course-author">
@@ -111,7 +111,7 @@ Course Area
                                     </div>
                                 </div>
                                 <h3 class="course-title"><a
-                                        href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
+                                        href="{{route('course',base64_encode($c->id))}}">{{$c->name}}</a></h3>
                                 <!-- <div class="course-meta">
                                     <span><i class="fal fa-file"></i>Lesson 8</span>
                                     <span><i class="fal fa-user"></i>Students 50</span>

@@ -73,9 +73,9 @@
                                 </div>
                                 <div class="category-card_content">
                                     <h3 class="category-card_title"><a
-                                            href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a></h3>
+                                            href="{{route('course-by-type',base64_encode( $ct->id))}}">{{$ct->name}}</a></h3>
                                     <p class="category-card_text">56+ Courses </p>
-                                    <a href="{{route('course-by-type',encrypt( $ct->id))}}" class="th-btn">Learn More <i
+                                    <a href="{{route('course-by-type',base64_encode( $ct->id))}}" class="th-btn">Learn More <i
                                             class="fa-solid fa-arrow-right ms-1"></i></a>
                                 </div>
                             </div>
@@ -120,10 +120,10 @@
             <div class="col-md-6 col-xl-4">
                 <div class="course-box style2">
                     <div class="course-img">
-                        <a href="{{route('course',encrypt($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
+                        <a href="{{route('course',base64_encode($c->id))}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
                             style="height: 200px;"></a>
                         <span class="tag"><a
-                                href="{{route('enroll-course',encrypt($c->id))}}">Enroll</a></span>
+                                href="{{route('enroll-course',base64_encode($c->id))}}">Enroll</a></span>
                     </div>
                     <div class="course-content">
                         <div class="course-author">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <h3 class="course-title"><a
-                                href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></h3>
+                                href="{{route('course',base64_encode($c->id))}}">{{$c->name}}</a></h3>
                         <!-- <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 8</span>
                             <span><i class="fal fa-user"></i>Students 50</span>

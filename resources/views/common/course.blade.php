@@ -273,7 +273,7 @@ Event Area
                             </span>
                         </div>
                        
-                        <a href="{{route('enroll-course',encrypt($courseinfo->id))}}" class="th-btn">Enroll</a>
+                        <a href="{{route('enroll-course',base64_encode($courseinfo->id))}}" class="th-btn">Enroll</a>
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">
@@ -315,7 +315,7 @@ Event Area
                                 </li> -->
                             </ul>
                         </div>
-                        <a href="{{route('download-course-info',encrypt($courseinfo->id))}}" target="_new" class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download Information</a>
+                        <a href="{{route('download-course-info',base64_encode($courseinfo->id))}}" target="_new" class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download Information</a>
                     </div>
                 </aside>
             </div>

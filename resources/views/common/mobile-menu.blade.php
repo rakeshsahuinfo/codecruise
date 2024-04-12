@@ -15,14 +15,14 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                 @if($ctype)
                 @foreach($ctype as $ct)
                 <li class="menu-item-has-children">
-                    <a href="{{route('course-by-type',encrypt( $ct->id))}}">{{$ct->name}}</a>
+                    <a href="{{route('course-by-type',base64_encode( $ct->id))}}">{{$ct->name}}</a>
                         <ul class="sub-menu">
                             @php
                             $course=App\Models\Course::where('course_type_id',$ct->id)->orderBy('name','asc')->get();
                             @endphp
                             @if($course)
                             @foreach($course as $c)
-                            <li><a href="{{route('course',encrypt($c->id))}}">{{$c->name}}</a></li>
+                            <li><a href="{{route('course',base64_encode($c->id))}}">{{$c->name}}</a></li>
                             @endforeach
                         </ul>
                         @endif

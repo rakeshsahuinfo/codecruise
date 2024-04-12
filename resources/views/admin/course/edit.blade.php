@@ -53,7 +53,7 @@
                                                 
                                                 @if($course_type)
                                                 @foreach($course_type as $ct)
-                                                <option value="{{$ct->id}}" {{$course->course_type_id==$ct->course_type_id?"selected":""}}>{{$ct->name}}</option>
+                                                <option value="{{$ct->id}}" {{$course->course_type_id==$ct->id?"selected":""}}>{{$ct->name}}</option>
                                                 @endforeach
                                                 @endif
                                             </select>

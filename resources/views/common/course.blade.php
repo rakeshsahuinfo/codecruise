@@ -267,7 +267,7 @@ Event Area
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div> -->
                         <div class="title-area">
-                            <span class="sub-title fs-2">Course Fee</span>
+                            <span class="sub-title fs-4">Course Fee</span>
                             <span class="h4 course-price">{{$courseinfo->course_fee}} 
                                 @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
                             </span>
@@ -330,7 +330,7 @@ Servce Area
         <div class="title-area text-center">
             <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack</span>
             <div class="title-area">
-                <span class="sub-title fs-3">Important Tech Stack Covered</span>
+                <span class="sub-title fs-4">Important Tech Stack Covered</span>
             </div>
            
             <h2 class="sec-title"></h2>

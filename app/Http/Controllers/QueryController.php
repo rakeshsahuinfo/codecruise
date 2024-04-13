@@ -33,7 +33,8 @@ class QueryController extends Controller
 
     public function enrollCourse($course_id){
         try {
-            $courseinfo=Course::find(base64_decode($course_id));
+            // $courseinfo=Course::find(base64_decode($course_id));
+            $courseinfo=Course::where('slug',$course_id)->first();
             $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', base64_decode($course_id))->select('tech_stacks.*')->get();
             return view('common.enroll-course',['courseinfo'=>$courseinfo,'coursetechstack'=>$coursetechstack]);
         } catch (Exception $ex) {

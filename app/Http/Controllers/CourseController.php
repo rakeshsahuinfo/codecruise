@@ -45,10 +45,11 @@ class CourseController extends Controller
 
     public function downloadCourseinfo($id)
     {
-        $course_id = base64_decode($id);
-        $courseinfo = Course::find($course_id);
-        $coursemodule = CourseModule::where('course_id', $course_id)->first();
-        $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $course_id)->select('tech_stacks.*')->get();
+        // $course_id = base64_decode($id);
+        // $courseinfo = Course::find($course_id);
+        $courseinfo = Course::where('slug',$id)->first();
+        $coursemodule = CourseModule::where('course_id',  $courseinfo->id)->first();
+        $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $courseinfo->id)->select('tech_stacks.*')->get();
 
         $pdf = PDF::loadView('document.download-course-info',  ['courseinfo' => $courseinfo, 'coursemodule' => $coursemodule, 'coursetechstack' => $coursetechstack]);
 

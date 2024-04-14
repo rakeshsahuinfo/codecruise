@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://codecruise.in/</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course-by-type/specializations</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course/data-science</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course/full-stack-java</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course/full-stack-php</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course/mean-stack</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course/mern-stack</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course-by-type/certifications</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course/aws-cloud-practitioner</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course-by-type/specific-courses</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/course-catalog</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/enroll-course/aws-cloud-practitioner</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/enroll-course/data-science</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/enroll-course/full-stack-java</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/enroll-course/full-stack-php</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/enroll-course/mean-stack</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/enroll-course/mern-stack</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://codecruise.in/download-course-info/aws-cloud-practitioner</loc>
+  <lastmod>2024-04-14T09:12:05+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

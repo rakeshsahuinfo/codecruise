@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CodeCruise-{{$courseinfo->name}}</title>
-    <link rel="shortcut icon" href="{{public_path('assets/img/logo/favicon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('common/assets/img/favicon.png')}}" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,7 +26,7 @@
 
         .logo span {
             text-transform: uppercase;
-            color: teal;
+            color: #007072;
             font-size: 12px;
         }
 
@@ -36,7 +36,7 @@
         }
 
         .contact-info span {
-            color: #461313;
+            color: #007072;;
             font-size: 12px;
             font-weight: bold;
         }
@@ -56,9 +56,9 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .course-details h2 {
-            color: #461313;
-            font-size: 24px;
+        .course-details h3 {
+            color:#007072;;
+            font-size: 20px;
             margin-bottom: 20px;
         }
 
@@ -72,10 +72,11 @@
         .tech-stack {
             text-align: center;
             margin-top: 20px;
+            color: #007072;
         }
 
-        .tech-stack h2 {
-            color: #461313;
+        .tech-stack h3 {
+            color: #007072;
             font-size: 20px;
             margin-top: 10;
             margin-bottom: 20px;
@@ -102,7 +103,7 @@
 
 <body>
     <div class="logo">
-        <img src="{{ public_path('assets/img/logo/SALOGO2.png') }}" alt="Logo">
+        <img src="{{ public_path('common/assets/img/logo-white.png') }}" alt="Logo">
         <br>
         <span>Sail smooth in tech ocean</span>
     </div>
@@ -114,12 +115,12 @@
     <hr>
 
     <div class="course-details">
-        <h2>{{$courseinfo->name}}</h2>
+        <h3>{{$courseinfo->name}}</h3>
         <p>{!!$courseinfo->description!!}</p>
 
         @if($coursetechstack)
         <div class="tech-stack">
-            <h2>Tech Stack To Be Covered</h2>
+            <h3>Tech Stack To Be Covered</h3>
             <div>
                 @foreach($coursetechstack as $ts)
                 <div class="tech-item">
@@ -132,8 +133,8 @@
         </div>
         @endif
 
-        <h2>{{$coursemodule->name}}</h2>
-        <p>{!!$coursemodule->description!!}</p>
+        <h3>@if($coursemodule) {{$coursemodule->name}} @endif</h3>
+        <p>@if($coursemodule) {!!$coursemodule->description!!} @endif</p>
     </div>
 </body>
 

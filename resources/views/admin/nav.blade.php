@@ -14,10 +14,24 @@
             </a>
             <div class="collapse" id="collapsemaster" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{route('admin-course-type')}}">Course Type</a>
                     <a class="nav-link" href="{{route('admin-course')}}">Courses</a>
                     <a class="nav-link" href="{{route('admin-tech-stack')}}">Tech Stack</a>
                 </nav>
             </div>
+
+            <div class="sb-sidenav-menu-heading">SEO</div>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsemasterseo" aria-expanded="false" aria-controls="collapsemaster">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                SEO Detail
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapsemasterseo" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{route('homepage')}}">Home Page</a>
+                </nav>
+            </div>
+
 
             <div class="sb-sidenav-menu-heading">Interface</div>
             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">

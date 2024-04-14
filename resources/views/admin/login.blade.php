@@ -19,7 +19,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header text-center"><a href="{{route('landing-page')}}"><img src="{{asset('assets/img/logo/SALOGO2.png')}}" alt="" class="img-fluid"></a></div>
+                                    <div class="card-header text-center"><a href="{{route('landing-page')}}"><img src="{{asset('admin/assets/img/logo-white.png')}}" alt="" class="img-fluid"></a></div>
                                     <div class="card-body">
                                         <div class="alert {{session('status')?'alert-'.session('status'):''}} alert-dismissible {{session('msg')?'':'d-none'}}">
                                             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>

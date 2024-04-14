@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use App\Models\SEODetail;
+use App\Http\Controllers\Admin\CourseTypeController;
 
 class CourseController extends Controller
 {
@@ -45,8 +47,9 @@ class CourseController extends Controller
             // $image->storeAs('public/course_banner', $imageName);
             $image->move(public_path('course_banner'), $imageName);
 
-            Course::create([
+            $course = Course::create([
                 'name' => $request->name,
+                'slug' => $request->slug,
                 'course_type_id' => $request->course_type_id,
                 'description' => $request->description,
                 'course_duration' => $request->course_duration,
@@ -58,6 +61,9 @@ class CourseController extends Controller
                 'course_banner' => $imageName,
                 'is_active' => $request->is_active
             ]);
+
+            CourseTypeController::storeSEODetail($request, 'course', $course->id);
+
 
             return redirect('/admin/course')->with(["msg" => "Course Created", "status" => "success"]);
         } catch (Exception $ex) {
@@ -71,6 +77,7 @@ class CourseController extends Controller
         try {
             $course_type = CourseType::all();
             $course = Course::find($id);
+            $course->seo = SEODetail::where('subject_id', $course->id)->where('subject_type', 'course')->first();
             return view('admin.course.edit', ['course' => $course, 'course_type' => $course_type]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
@@ -109,6 +116,7 @@ class CourseController extends Controller
 
             // Update or create course data
             $course->name = $request->name;
+            $course->slug = $request->slug;
             $course->course_type_id = $request->course_type_id;
             $course->description = $request->description;
             $course->course_duration = $request->course_duration;
@@ -119,6 +127,8 @@ class CourseController extends Controller
             $course->apply_discount = $request->apply_discount;
             $course->is_active = $request->is_active;
             $course->update();
+
+            CourseTypeController::storeSEODetail($request, 'course', $course->id);
 
             return redirect('/admin/course')->with(["msg" => "Course Updated", "status" => "success"]);
         } catch (Exception $ex) {

@@ -23748,7 +23748,7 @@ span.select2-selection.select2-selection--single:focus {
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
   overflow: hidden;
-  min-height: 340px;
+  min-height: 350px;
 }
 
 .course-box .course-content {
@@ -24848,7 +24848,7 @@ span.select2-selection.select2-selection--single:focus {
   transition: 0.4s ease-in-out;
   padding: var(--box-space-x, 30px) var(--box-space-x, 30px) 0 var(--box-space-x, 30px);
   overflow: hidden;
-  min-height: 340px;
+  min-height: 350px;
 }
 
 .course-box2 .course-img {

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Code-Cruise | @yield('title')</title>
+	<title>Codecruise | @yield('title')</title>
 	<meta name="author" content="themeholy">
 	<meta name="description" content="Code-Cruise - Dynamic Tech Education Platform ">
 	<meta name="keywords" content="Code-Cruise - Online Courses & Education">

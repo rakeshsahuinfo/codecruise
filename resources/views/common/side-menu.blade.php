@@ -56,8 +56,8 @@
                         <span class="woocommerce-Price-currencySymbol">$</span>4398.00</span>
                 </p>
                 <p class="woocommerce-mini-cart__buttons buttons">
-                    <a href="cart.html" class="th-btn wc-forward">View cart</a>
-                    <a href="checkout.html" class="th-btn checkout wc-forward">Checkout</a>
+                    <a href="#" class="th-btn wc-forward">View cart</a>
+                    <a href="#" class="th-btn checkout wc-forward">Checkout</a>
                 </p>
             </div>
         </div>

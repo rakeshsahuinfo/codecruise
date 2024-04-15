@@ -7,7 +7,7 @@
                         <li><i class="far fa-phone"></i><a href="tel:+917304562050">+91 730 456 2050</a></li>
                         <li class="d-none d-xl-inline-block"><i class="far fa-envelope"></i><a
                                 href="mailto:ask@codecruise.in">ask@codecruise.in</a></li>
-                        <li><i class="far fa-clock"></i>All Days: 8:00 AM - 08:00 PM</li>
+                        <li><i class="far fa-clock"></i>Mon - Fri : 109:00 AM - 08:00 PM |  Sat - Sun : 10.30 AM - 10.00 PM</li>
                     </ul>
                 </div>
             </div>

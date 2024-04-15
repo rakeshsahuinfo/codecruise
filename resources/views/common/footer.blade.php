@@ -13,7 +13,7 @@
                         <i class="fal fa-phone"></i>
                     </div>
                     <div class="media-body">
-                        <p class="footer-contact_text">Call us any time:</p>
+                        <p class="footer-contact_text">Call</p>
                         <a href="tel+917304562050" class="footer-contact_link">+91 730 456 2050</a>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                         <i class="fal fa-envelope"></i>
                     </div>
                     <div class="media-body">
-                        <p class="footer-contact_text">Email us 24/7 hours:</p>
+                        <p class="footer-contact_text">Email</p>
                         <a href="mailto:ask@codecruise.in" class="footer-contact_link">ask@codecruise.in</a>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <i class="fal fa-location-dot"></i>
                     </div>
                     <div class="media-body">
-                        <p class="footer-contact_text">Our Office:</p>
+                        <p class="footer-contact_text">Office:</p>
                         <a href="https://www.google.com/maps" class="footer-contact_link">A-74, TechnoPark, C Cross
                             Road, Andheri(E), Mumbai,MH, India.</a>
                     </div>

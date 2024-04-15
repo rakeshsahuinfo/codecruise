@@ -56,6 +56,7 @@ class CourseController extends Controller
                 'class_schedule' => $request->class_schedule,
                 'delivery_mode' => $request->delivery_mode,
                 'course_fee' => $request->course_fee,
+                'apply_fee'=>$request->apply_fee,
                 'current_discount' => $request->current_discount,
                 'apply_discount' => $request->apply_discount,
                 'course_banner' => $imageName,
@@ -123,6 +124,7 @@ class CourseController extends Controller
             $course->class_schedule = $request->class_schedule;
             $course->delivery_mode = $request->delivery_mode;
             $course->course_fee = $request->course_fee;
+            $course->apply_fee=$request->apply_fee;
             $course->current_discount = $request->current_discount;
             $course->apply_discount = $request->apply_discount;
             $course->is_active = $request->is_active;

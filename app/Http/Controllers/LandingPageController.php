@@ -12,4 +12,8 @@ class LandingPageController extends Controller
     public function privacyPolicy(){
         return view('common.privacy-policy');
     }
+    public function Webinars(){
+        return view('common.webinars');
+    }
+    
 }

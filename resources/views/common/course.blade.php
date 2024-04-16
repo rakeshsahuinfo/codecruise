@@ -37,10 +37,11 @@
 	Hero Area
 	==============================-->
 
-    <!--==============================
+<!--==============================
     Breadcumb
 ============================== -->
-<div class="breadcumb-wrapper " data-bg-src="{{asset('course_banner/'.$courseinfo->course_banner)}}" data-overlay="title" data-opacity="8">
+<div class="breadcumb-wrapper " data-bg-src="{{asset('course_banner/'.$courseinfo->course_banner)}}"
+    data-overlay="title" data-opacity="8">
     <!-- <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
@@ -72,7 +73,8 @@ Event Area
                 <div class="course-single">
                     <div class="course-single-top">
                         <div class="course-img">
-                            <img src="{{asset('course_banner/'.$courseinfo->course_banner)}}" alt="Course Image" style="height: 480px;">
+                            <img src="{{asset('course_banner/'.$courseinfo->course_banner)}}" alt="Course Image"
+                                style="height: 480px;">
                             <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                             <span class="tag bg-theme">BEST SELLER</span> -->
                         </div>
@@ -83,13 +85,15 @@ Event Area
                         </div>
                         <h2 class="course-title">{{$courseinfo->name}}</h2>
                         <ul class="course-single-meta">
-                            <!-- <li class="course-single-meta-author">
+                            {{--
+                            <li class="course-single-meta-author">
                                 <img src="{{asset('common/assets/img/course/author2.png')}}" alt="author">
                                 <span>
                                     <span class="meta-title">Instructor: </span>
                                     <a href="course.html">Max Alexix</a>
                                 </span>
-                            </li> -->
+                            </li>
+                            --}}
                             <li>
                                 <span class="meta-title">Category: </span>
                                 <a href="#">{{$coursetype->name}}</a>
@@ -103,7 +107,8 @@ Event Area
                                 <span class="meta-title">Review: </span>
                                 <div class="course-rating">
                                     <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                        <span style="width:80%">Rated <strong class="rating">4.00</strong> out of 5</span>
+                                        <span style="width:80%">Rated <strong class="rating">4.00</strong> out of
+                                            5</span>
                                     </div>
                                     (4.00)
                                 </div>
@@ -114,23 +119,30 @@ Event Area
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#Coursedescription" role="tab" aria-controls="Coursedescription" aria-selected="true"><i class="fa-regular fa-bookmark"></i>Overview</a>
+                                <a class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                    href="#Coursedescription" role="tab" aria-controls="Coursedescription"
+                                    aria-selected="true"><i class="fa-regular fa-bookmark"></i>Overview</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="curriculam-tab" data-bs-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false"><i class="fa-regular fa-book"></i>Curriculam</a>
+                                <a class="nav-link" id="curriculam-tab" data-bs-toggle="tab" href="#curriculam"
+                                    role="tab" aria-controls="curriculam" aria-selected="false"><i
+                                        class="fa-regular fa-book"></i>Curriculam</a>
                             </li>
-                            <!-- <li class="nav-item" role="presentation">
+                            {{--
+                            <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false"><i class="fa-regular fa-user"></i>Instructor</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="fa-regular fa-star-sharp"></i>Reviews</a>
-                            </li> -->
+                            </li> 
+                            --}}
                         </ul>
                         <div class="tab-content" id="productTabContent">
-                            <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
+                            <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel"
+                                aria-labelledby="description-tab">
                                 <div class="course-description">
                                     <h5 class="h5">Description</h5>
-                                  {!! $courseinfo->description !!}
+                                    {!! $courseinfo->description !!}
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="curriculam" role="tabpanel" aria-labelledby="curriculam-tab">
@@ -143,24 +155,33 @@ Event Area
                                     @endif
                                 </div>
                             </div>
+                            {{--
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
                                 <div class="course-instructor">
                                     <div class="course-author-box">
                                         <div class="auhtor-img">
-                                            <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}" alt="Author Image">
+                                            <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}"
+                                                alt="Author Image">
                                         </div>
                                         <div class="media-body">
-                                            <h3 class="author-name"><a class="text-inherit" href="team-details.html">Kevin Perry</a></h3>
-                                            <p class="author-text">Optimize resource eveling innoation whereas visionary value. Compellingly engage extensible process with business process improvements.</p>
+                                            <h3 class="author-name"><a class="text-inherit"
+                                                    href="team-details.html">Kevin Perry</a></h3>
+                                            <p class="author-text">Optimize resource eveling innoation whereas visionary
+                                                value. Compellingly engage extensible process with business process
+                                                improvements.</p>
                                             <div class="author-meta">
                                                 <a href="course.html"><i class="fal fa-file-video"></i>4 Courses</a>
                                                 <span><i class="fal fa-users"></i>2500 Students</span>
                                             </div>
                                             <div class="th-social">
-                                                <a href="https://facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                                                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                                <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                                                <a href="https://facebook.com/" target="_blank"><i
+                                                        class="fab fa-facebook-f"></i></a>
+                                                <a href="https://twitter.com/" target="_blank"><i
+                                                        class="fab fa-twitter"></i></a>
+                                                <a href="https://linkedin.com/" target="_blank"><i
+                                                        class="fab fa-linkedin-in"></i></a>
+                                                <a href="https://instagram.com/" target="_blank"><i
+                                                        class="fab fa-instagram"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -173,45 +194,69 @@ Event Area
                                             <li class="review th-comment-item">
                                                 <div class="th-post-comment">
                                                     <div class="comment-avater">
-                                                        <img src="{{asset('common/assets/img/blog/comment-author-3.jpg')}}" alt="Comment Author">
+                                                        <img src="{{asset('common/assets/img/blog/comment-author-3.jpg')}}"
+                                                            alt="Comment Author">
                                                     </div>
                                                     <div class="comment-content">
                                                         <h4 class="name">Mark Jack</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>22 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
+                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>22
+                                                            April, 2022</span>
+                                                        <div class="star-rating" role="img"
+                                                            aria-label="Rated 5.00 out of 5">
+                                                            <span style="width:100%">Rated <strong
+                                                                    class="rating">5.00</strong> out of 5 based on <span
+                                                                    class="rating">1</span> customer rating</span>
                                                         </div>
-                                                        <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+                                                        <p class="text">Lorem ipsum dolor sit amet, consectetur
+                                                            adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                                                            et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                                            nostrud exercitation ullamco</p>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="review th-comment-item">
                                                 <div class="th-post-comment">
                                                     <div class="comment-avater">
-                                                        <img src="{{asset('common/assets/img/blog/comment-author-2.jpg')}}" alt="Comment Author">
+                                                        <img src="{{asset('common/assets/img/blog/comment-author-2.jpg')}}"
+                                                            alt="Comment Author">
                                                     </div>
                                                     <div class="comment-content">
                                                         <h4 class="name">Alexa Deo</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
+                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26
+                                                            April, 2022</span>
+                                                        <div class="star-rating" role="img"
+                                                            aria-label="Rated 5.00 out of 5">
+                                                            <span style="width:100%">Rated <strong
+                                                                    class="rating">5.00</strong> out of 5 based on <span
+                                                                    class="rating">1</span> customer rating</span>
                                                         </div>
-                                                        <p class="text">The purpose of lorem ipsum is to create a natural looking block of text (sentence, paragraph, page, etc.) that doesn't distract from the layout. A practice not without controversy, laying out pages.</p>
+                                                        <p class="text">The purpose of lorem ipsum is to create a
+                                                            natural looking block of text (sentence, paragraph, page,
+                                                            etc.) that doesn't distract from the layout. A practice not
+                                                            without controversy, laying out pages.</p>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="review th-comment-item">
                                                 <div class="th-post-comment">
                                                     <div class="comment-avater">
-                                                        <img src="{{asset('common/assets/img/blog/comment-author-1.jpg')}}" alt="Comment Author">
+                                                        <img src="{{asset('common/assets/img/blog/comment-author-1.jpg')}}"
+                                                            alt="Comment Author">
                                                     </div>
                                                     <div class="comment-content">
                                                         <h4 class="name">Tara sing</h4>
-                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26 April, 2022</span>
-                                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
-                                                            <span style="width:100%">Rated <strong class="rating">5.00</strong> out of 5 based on <span class="rating">1</span> customer rating</span>
+                                                        <span class="commented-on"><i class="fal fa-calendar-alt"></i>26
+                                                            April, 2022</span>
+                                                        <div class="star-rating" role="img"
+                                                            aria-label="Rated 5.00 out of 5">
+                                                            <span style="width:100%">Rated <strong
+                                                                    class="rating">5.00</strong> out of 5 based on <span
+                                                                    class="rating">1</span> customer rating</span>
                                                         </div>
-                                                        <p class="text">The passage experienced a surge in popularity during the 1960s when Letraset used it on their dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their software.</p>
+                                                        <p class="text">The passage experienced a surge in popularity
+                                                            during the 1960s when Letraset used it on their dry-transfer
+                                                            sheets, and again during the 90s as desktop publishers
+                                                            bundled the text with their software.</p>
                                                     </div>
                                                 </div>
                                             </li>
@@ -248,15 +293,19 @@ Event Area
                                             </div>
                                             <div class="col-12 form-group">
                                                 <input id="reviewcheck" name="reviewcheck" type="checkbox">
-                                                <label for="reviewcheck">Save my name, email, and website in this browser for the next time I comment.<span class="checkmark"></span></label>
+                                                <label for="reviewcheck">Save my name, email, and website in this
+                                                    browser for the next time I comment.<span
+                                                        class="checkmark"></span></label>
                                             </div>
                                             <div class="col-12 form-group mb-0">
-                                                <button class="th-btn">Post Review <i class="far fa-arrow-right ms-1"></i></button>
+                                                <button class="th-btn">Post Review <i
+                                                        class="far fa-arrow-right ms-1"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            --}}
                         </div>
                     </div>
                 </div>
@@ -264,29 +313,34 @@ Event Area
             <div class="col-xxl-4 col-lg-5">
                 <aside class="sidebar-area">
                     <div class="widget widget_info  ">
-                        <!-- <div class="th-video">
+                        {{-- <div class="th-video">
                             <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
-                            <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div> -->
+                            <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i
+                                    class="fas fa-play"></i></a>
+                        </div>
+                        --}}
                         @if($courseinfo->apply_fee==1)
                         <div class="title-area">
                             <span class="sub-title fs-4">Course Fee</span>
-                            <span class="h4 course-price">{{$courseinfo->course_fee}} 
-                                @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
+                            <span class="h4 course-price">{{$courseinfo->course_fee}}
+                                @if($courseinfo->apply_discount==1) <span
+                                    class="tag">{{$courseinfo->current_discount}}</span> @endif
                             </span>
                         </div>
                         @endif
-                       
+
                         <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">Enroll</a>
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">
                             <ul>
-                                <!-- <li>
+                                {{-- 
+                                <li>
                                     <i class="fa-light fa-user"></i>
                                     <strong>Instructor: </strong>
                                     <span>Kevin Perry</span>
-                                </li> -->
+                                </li> 
+                                --}}
                                 <li>
                                     <i class="fa-light fa-clock"></i>
                                     <strong>Class Schedule: </strong>
@@ -319,7 +373,9 @@ Event Area
                                 </li> -->
                             </ul>
                         </div>
-                        <a href="{{route('download-course-info',$courseinfo->slug)}}" target="_new" class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download Information</a>
+                        <a href="{{route('download-course-info',$courseinfo->slug)}}" target="_new"
+                            class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download
+                            Information</a>
                     </div>
                 </aside>
             </div>
@@ -336,10 +392,11 @@ Servce Area
             <div class="title-area">
                 <span class="sub-title fs-4">Important Tech Stack Covered</span>
             </div>
-           
+
             <h2 class="sec-title"></h2>
         </div>
-        <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="1" data-arrows="true">
+        <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2"
+            data-sm-slide-show="1" data-arrows="true">
             <div class="container mt-2">
                 <p class="text-center"></p>
                 <div class="row justify-content-center">
@@ -347,7 +404,8 @@ Servce Area
                     @foreach($coursetechstack as $ts)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
                         <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 100%;">
-                            <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}" style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
+                            <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}"
+                                style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
                             <div class="card-tittle px-4 text-center sub-title fs-6">{{$ts->name}}</div>
                             <div class="card-body"></div>
                         </div>
@@ -356,7 +414,7 @@ Servce Area
                     @endif
                 </div>
             </div>
-          
+
         </div>
     </div>
 </section>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\PromoSession;
+use App\Models\PromoSessionRegistration;
 use App\Models\SEODetail;
 use Exception;
 use Illuminate\Http\Request;
@@ -111,6 +112,18 @@ class PromoSessionController extends Controller
         } catch (Exception $ex) {
             Log::info($ex);
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+        }
+    }
+
+    
+
+    public function showRegistrations($promo_session_id){
+        try{
+            $proses=PromoSession::find($promo_session_id);
+            $prosesreg=PromoSessionRegistration::where('promo_session_id',$promo_session_id)->orderBy('created_at','desc')->get();
+            return view('admin.promo-session.promo-session-registration',['proses'=>$proses,'prosesreg'=>$prosesreg]);
+        }catch(Exception $ex){
+            Log::info("Something went wrong");
         }
     }
 }

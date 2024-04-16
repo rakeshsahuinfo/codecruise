@@ -39,6 +39,7 @@
                                     <th>Action</th>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>RegistrationLink</th>
                                     <th>PromoBanner</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
@@ -49,6 +50,7 @@
                                     <th>Action</th>
                                     <th>Name</th>
                                     <th>Description</th>
+                                    <th>RegistrationLink</th>
                                     <th>PromoBanner</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
@@ -60,13 +62,14 @@
                                 <tr>
                                     <td>
                                         <div class='d-flex'>
-                                            <a href="{{route('show-course',$ps->id)}}" title="View Course" class='text-dark'><i class='fas fa-eye'></i></a>                                
+                                            <a href="{{route('show-promo-session-registration',$ps->id)}}" title="View Registrations" class='text-dark'><i class='fas fa-eye'></i></a>                               
                                             <a href="{{route('edit-promo-session',$ps->id)}}" title="Edit Promo Session" class='mx-4 text-primary'><i class='fas fa-edit'></i></a>
                                             <a href="{{route('edit-course',$ps->id)}}" title="Delete Course" class='text-danger'><i class='fas fa-trash'></i></a>
                                         </div>
                                     </td>
                                     <td>{{$ps->name}}</td>
                                     <td>{!! $ps->description !!}</td>
+                                    <td>https://codecruise.in/promo-session/{{$ps->slug}}</td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('promo_banner/' . $ps->promo_banner) }}" alt="Promo Banner">
                                     </td>

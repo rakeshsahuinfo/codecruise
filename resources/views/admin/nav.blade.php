@@ -27,7 +27,6 @@
             <div class="collapse" id="collapsemasterpromos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
                     <a class="nav-link" href="{{route('admin-promo-session')}}">Promo Sessions</a>
-                    <a class="nav-link" href="{{route('admin-promo-session')}}">Registrations</a>
                 </nav>
             </div>
 

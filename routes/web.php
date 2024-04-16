@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PromoSessionController as AdminPromoSessionContro
 use App\Http\Controllers\Admin\TechStackController as AdminTechStackController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\PromoSessionRegistrationController;
 use App\Http\Controllers\QueryController;
 use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,8 @@ Route::get('/download-course-info/{id}',[CourseController::class,'downloadCourse
 Route::get('/search-course', [CourseController::class,'searchCourse'])->name('search-course');
 Route::post('/save-query',[QueryController::class,'saveQuery'])->name('save-query');
 Route::get('/enroll-course/{course_id}',[QueryController::class,'enrollCourse'])->name('enroll-course');
+Route::get('/promo-session/{slug}',[PromoSessionRegistrationController::class,'promoSession'])->name('promo-session');
+Route::post('/register-promo-session',[PromoSessionRegistrationController::class,'registerPromoSession'])->name('register-promo-session');
 Route::get('/privacy-policy',[LandingPageController::class,'privacyPolicy'])->name('privacy-policy');
 
 Route::get('/admin-login',[AdminController::class,'adminLogin'])->name('login');
@@ -60,13 +63,15 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/add-course-tech-stack/{course_id}',[AdminTechStackController::class,'addCourseTechStack'])->name('add-course-tech-stack');
     Route::post('/admin-course-assign-tech-stack',[AdminTechStackController::class,'courseAssignTechStack'])->name('admin-course-assign-tech-stack');
 
-    //promo Sessions
+    //Promo Session
     Route::get('/promo-session',[AdminPromoSessionController::class,'index'])->name('admin-promo-session');
     Route::get('/new-promo-session',[AdminPromoSessionController::class,'new'])->name('new-promo-session');
     Route::post('/create-promo-session',[AdminPromoSessionController::class,'create'])->name('create-promo-session');
     Route::get('/edit-promo-session/{id}',[AdminPromoSessionController::class,'edit'])->name('edit-promo-session');
     Route::post('/update-promo-session',[AdminPromoSessionController::class,'update'])->name('update-promo-session');
     Route::get('/show-promo-session/{id}',[AdminPromoSessionController::class,'index'])->name('show-promo-session');
+
+    Route::get('/show-promo-session-registration/{id}',[AdminPromoSessionController::class,'showRegistrations'])->name('show-promo-session-registration');
 
     Route::get('/homepage', [])->name('homepage');
 });

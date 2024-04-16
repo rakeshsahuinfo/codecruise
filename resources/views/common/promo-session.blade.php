@@ -1,5 +1,5 @@
 @extends('layouts.common.master')
-@section('title','Enroll')
+@section('title','Register')
 @section('headasset')
 <style>
     .error{
@@ -54,10 +54,10 @@
     </div>
     <div class="container">
         <div class="breadcumb-content text-center">
-            <h1 class="breadcumb-title">Contact Us</h1>
+            <h1 class="breadcumb-title">Promo Session</h1>
             <ul class="breadcumb-menu">
                 <li><a href="{{route('landing-page')}}">Home</a></li>
-                <li>Contact Us</li>
+                <li>Register</li>
             </ul>
         </div>
     </div>
@@ -78,121 +78,68 @@
         </div>
         --}}
         <div class="row">
-            <div class="col-xl-5 mb-10 mb-xl-0" style="margin-top: -120px;">
+            <div class="col-xl-6 mb-10 mb-xl-0" style="margin-top: -120px;">
                 <div class="me-xxl-5 mt-5">
-                    <!-- <div class="title-area mb-10">
-                        <h2 class="border-title h3">{{$courseinfo->name}}</h2>
-                    </div> -->
+                    {{-- <div class="title-area mb-10">
+                        <h2 class="border-title h3">{{$proses->name}}</h2>
+                    </div> --}}
                    
                     <div class="card" data-aos="zoom-in">
-                        <img src="{{ asset('course_banner/' . $courseinfo->course_banner) }}" alt=""
+                        <img src="{{ asset('promo_banner/' . $proses->promo_banner) }}" alt=""
                             class="p-3">
                     </div>
                     <div class="widget widget_info  ">
-                        <!-- <div class="th-video">
+                        {{-- <div class="th-video">
                             <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div> -->
-                        @if($courseinfo->apply_fee==1)
-                        <span class="h4 course-price">Course Fee</span></span>
-                        <span class="h4 course-price">{{$courseinfo->course_fee}} 
-                            @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
-                        </span>
-                        @endif
+                        </div> --}}
+                     
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
-                        <h3 class="widget_title">Course Information</h3>
-                        <div class="info-list">
-                            <ul>
-                                <!-- <li>
-                                    <i class="fa-light fa-user"></i>
-                                    <strong>Instructor: </strong>
-                                    <span>Kevin Perry</span>
-                                </li> -->
-                                <li>
-                                    <i class="fa-light fa-clock"></i>
-                                    <strong>Class Schedule: </strong>
-                                    <span>{{$courseinfo->class_schedule}}</span>
+                      
+                        <div class="course-single-bottom">
+                            <ul class="nav course-tab" id="courseTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#Coursedescription" role="tab" aria-controls="Coursedescription" aria-selected="true"><i class="fa-regular fa-bookmark"></i>{{$proses->name}}</a>
                                 </li>
-                                <li>
-                                    <i class="fa-light fa-clock"></i>
-                                    <strong>Duration: </strong>
-                                    <span>{{$courseinfo->course_duration}}</span>
+                                {{--
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="curriculam-tab" data-bs-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false"><i class="fa-regular fa-book"></i>Curriculam</a>
                                 </li>
-                                <li>
-                                    <i class="fa-light fa-clock"></i>
-                                    <strong>Delivery Mode: </strong>
-                                    <span>{{$courseinfo->delivery_mode}}</span>
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false"><i class="fa-regular fa-user"></i>Instructor</a>
                                 </li>
-                                <li>
-                                    <i class="fa-light fa-tag"></i>
-                                    <strong>Course level: </strong>
-                                    <span>Beginners/Intermediate</span>
-                                </li>
-                                <li>
-                                    <i class="fa-light fa-globe"></i>
-                                    <strong>Language: </strong>
-                                    <span>English</span>
-                                </li>
-                                <!-- <li>
-                                    <i class="fa-light fa-puzzle-piece"></i>
-                                    <strong>Quizzes: </strong>
-                                    <span>04</span>
-                                </li> -->
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="fa-regular fa-star-sharp"></i>Reviews</a>
+                                </li> 
+                                --}}
                             </ul>
+                            <div class="tab-content" id="productTabContent">
+                                <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
+                                    <div class="course-description">
+                                      {!! $proses->description !!}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                     </div>
                 </div>
             </div>
-            <div class="col-xl-7">
+            <div class="col-xl-6">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">Enroll for the course</span>
-                    <h2 class="border-title"> {{$courseinfo->name}}</h2>
-                    <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
+                    <span class="sub-title">Register for the Session</span>
+                    <form id="contact-form" method="post" action="{{route('register-promo-session')}}"  class="contact-form">
                         @csrf
                         <div class="row">
-                            @php
-                            $mycourse=App\Models\Course::find($courseinfo->id);
-                            @endphp
-                            @if($mycourse)
+                         
                             <div class="col-12 col-md-12 mt-2">
                                 <div class="form-group">
-                                <input type="text" name="mycourse" class="form-control style-white" id="mycourse"
-                                    value="{{$mycourse->name}}" readonly>
-                                <input type="hidden" name="course_ids[]" value="{{$mycourse->id}}">
+                                <input type="text" name="mysession" class="form-control style-white" id="mysession"
+                                    value="{{$proses->name}}" readonly>
+                                <input type="hidden" name="promo_session_id" value="{{$proses->id}}">
                                 </div>
                             </div>
-                            @else
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="myexampleCourse"> {{--(use <strong>ctrl + select</strong> for
-                                        multiple)--}}</label>
-                                    <select name="course_ids[]" id="myexampleCourse"
-                                        class="multiple nice-select form-control form-select style-white" multiple style="height: 150px;">
-                                        @php
-                                        $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
-                                        @endphp
-                                        @foreach($courseTypes as $courseType)
-                                        <option value="" disabled selected hidden>Your interest*</option>
-                                        <optgroup label="{{ $courseType->name }}">
-                                            @php
-                                            $allcourses = App\Models\Course::where('course_type_id',
-                                            $courseType->id)->get();
-                                            @endphp
-                                            @foreach($allcourses as $ac)
-                                            <option value="{{ $ac->id }}">{{ $ac->name }}</option>
-                                            @endforeach
-                                        </optgroup>
-                                        @endforeach
-                                        <option value="other">Others</option>
-                                    </select>
-                                    <div id="otherOption" style="display: none;">
-                                        <label for="otherCourse">Enter your Option:</label>
-                                        <input type="text" class="form-control style-white" id="otherCourse" name="other_course">
-                                    </div>
-                                </div>
-                            </div>
-                            @endif
+                          
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control style-white" name="name" id="name"
@@ -221,9 +168,9 @@
                                     <i class="fal fa-building"></i>
                                 </div>
                             </div>
-                            <input type="hidden" name="message" value="Enroll me">
+                        
                             <div class="form-btn col-12 mt-10">
-                                <button type="submit" class="th-btn">Enroll<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Register<i class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

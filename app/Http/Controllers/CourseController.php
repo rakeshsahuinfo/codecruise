@@ -42,8 +42,8 @@ class CourseController extends Controller
 
     public function courseCatalog()
     {
-        $coursetype = CourseType::all();
-        $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')->where('courses.is_active', 1)->select('courses.*', 'course_type.name as course_type_name')->orderBy('name', 'asc')->get();
+        $coursetype = CourseType::where('is_active',1)->get();
+        $course = Course::join('course_type', 'courses.course_type_id', '=', 'course_type.id')->where('courses.is_active', 1)->where('course_type.is_active', 1)->select('courses.*', 'course_type.name as course_type_name')->orderBy('courses.name', 'asc')->get();
         return view('common.course-catalog', ['course' => $course, 'coursetype' => $coursetype]);
     }
 

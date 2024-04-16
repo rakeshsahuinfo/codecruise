@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="seo_title">SEO Title</label>
-                                            <input type="text" class="form-control" name="seo_title" id="seo_title" required > 
+                                            <input type="text" class="form-control" name="seo_title" id="seo_title"> 
                                         </div>
                                         
                                         <div class="form-group w-100  my-4">

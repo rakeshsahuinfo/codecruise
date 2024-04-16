@@ -82,6 +82,13 @@
                                             <label for="course_fee">Course Fees</label>
                                             <input type="text" class="form-control" name="course_fee" id="course_fee" value="{{$course->course_fee}}" placeholder="Rs.5000">
                                         </div>
+                                        <div class="form-group w-100 my-4">
+                                            <label for="apply_fee">Apply Fees</label>
+                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="apply_fee" id="apply_fee" required>
+                                                <option value="1" {{$course->apply_fee==1?"selected":""}}>Yes</option>
+                                                <option value="0" {{$course->apply_fee==0?"selected":""}}>No</option>
+                                            </select>
+                                        </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="current_discount">Current Discount</label>
                                             <input type="text" class="form-control" name="current_discount" id="current_discount" value="{{$course->current_discount}}" placeholder="10% or Flat Rs.2000">

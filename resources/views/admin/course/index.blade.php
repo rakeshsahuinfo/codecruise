@@ -89,7 +89,8 @@
                                     <th>{{$c->course_duration}}</th>
                                     <th>{{$c->class_schedule}}</th>
                                     <th>{{$c->delivery_mode}}</th>
-                                    <th>{{$c->course_fee}}</th>
+                                    <th>{{$c->course_fee}}<br>
+                                        <b>Applied:</b>{{$c->apply_fee==1?"Yes":"No"}}</th>
                                     <th>
                                         {{$c->current_discount}}<br>
                                         <b>Applied:</b>{{$c->apply_discount==1?"Yes":"No"}}

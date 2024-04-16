@@ -348,29 +348,30 @@ Servce Area
                                     <div class="course-content">
                                         <div class="course-author">
                                             <div class="author-info fw-bold">
-                                                <!-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
-                                                <a href="course.html" class="author-name">Kevin Perry</a> -->
-                                                Fee {{$c->course_fee}}
-                                                <span class="pill bg-primary text-white px-2">
-                                                @if($c->apply_discount==1)
-                                                {{$c->current_discount}}
+                                                {{-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
+                                                <a href="course.html" class="author-name">Kevin Perry</a> --}}
+                                                @if($c->apply_fee==1)
+                                                <span class="text-theme fs-6 fees">Fees: <span class="text-dark fees">{{$c->course_fee}}</span></span>
                                                 @endif
+                                                <span class="pill bg-warning text-white px-2 fs-6 discount">
+                                                    @if($c->apply_discount==1)
+                                                    {{$c->current_discount}}
+                                                    @endif
                                                 </span>
                                             </div>
                                             <div class="course-rating">
-                                                <!-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
+                                                {{-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                                     <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
                                                 </div>
-                                                (4.00) -->
+                                                (4.00) --}}
                                             </div>
                                         </div>
-                                        <h3 class="course-title"><a
-                                                href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
-                                        <!-- <div class="course-meta">
+                                        <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
+                                        {{-- <div class="course-meta">
                                             <span><i class="fal fa-file"></i>Lesson 8</span>
                                             <span><i class="fal fa-user"></i>Students 50</span>
                                             <span><i class="fal fa-eye"></i>View: 12K</span>
-                                        </div> -->
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

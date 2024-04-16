@@ -18,7 +18,7 @@ $(document).ready(function (e) {
                 required: true,email: true,customEmail:true,
             },
             contact: {
-                required: true,number:true,maxlength: 12
+                required: true,number:true,maxlength: 10,minlength:10
             },
             // 'course_ids[]': {
             //     selectCheck: true
@@ -50,7 +50,7 @@ $(document).ready(function (e) {
                 required: true,email: true,customEmail:true,
             },
             contact: {
-                required: true,number:true,maxlength: 12
+                required: true,number:true,maxlength: 10,minlength:10
             },
             // 'course_ids[]': {
             //     selectCheck: true

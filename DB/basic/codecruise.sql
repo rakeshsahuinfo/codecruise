@@ -111,3 +111,27 @@ message text,
 created_at timestamp default current_timestamp,
 updated_at timestamp default current_timestamp
 );
+
+create table promo_sessions(
+    id bigint primary key AUTO_INCREMENT,
+    name varchar(255),
+    slug varchar(255),
+    description longtext,
+    promo_banner varchar(255),
+    is_active boolean,
+    created_at timestamp DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+
+create table promo_session_registration(
+   id bigint primary key auto_increment,
+    name varchar(255),
+    email varchar(255),
+    contact varchar(255),
+    company_college_name varchar(255),
+    promo_session_id bigint,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    foreign key(promo_session_id) references promo_sessions(id)
+);

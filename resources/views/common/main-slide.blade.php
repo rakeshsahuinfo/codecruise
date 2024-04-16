@@ -26,6 +26,7 @@
                 </div>
             </div>
         </div>
+        {{--
         <div class="hero-shape shape1">
             <img src="{{asset('common/assets/img/hero/shape_1_1.png')}}" alt="shape">
         </div>
@@ -40,6 +41,7 @@
         <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
             <img src="{{asset('common/assets/img/hero/shape_1_4.png')}}" alt="shape">
         </div>
+        --}}
     </div>
 
     <div class="th-hero-slide">
@@ -63,11 +65,12 @@
                 </div>
                 <div class="col-md-6 text-lg-end text-center">
                     <div class="hero-img1">
-                        <img src="{{asset('common/assets/img/hero/hero_thumb_1_2.jpg')}}" alt="hero">
+                        <img src="{{asset('common/assets/img/slider/slide-22.png')}}" alt="hero">
                     </div>
                 </div>
             </div>
         </div>
+        {{--
         <div class="hero-shape shape1">
             <img src="{{asset('common/assets/img/hero/shape_1_1.png')}}" alt="shape">
         </div>
@@ -82,6 +85,7 @@
         <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
             <img src="{{asset('common/assets/img/hero/shape_1_4.png')}}" alt="shape">
         </div>
+        --}}
     </div>
 
     <div class="th-hero-slide">
@@ -105,11 +109,12 @@
                 </div>
                 <div class="col-md-6 text-lg-end text-center">
                     <div class="hero-img1">
-                        <img src="{{asset('common/assets/img/hero/hero_thumb_1_3.jpg')}}" alt="hero">
+                        <img src="{{asset('common/assets/img/slider/slide-33.png')}}" alt="hero">
                     </div>
                 </div>
             </div>
         </div>
+        {{--
         <div class="hero-shape shape1">
             <img src="{{asset('common/assets/img/hero/shape_1_1.png')}}" alt="shape">
         </div>
@@ -124,5 +129,6 @@
         <div class="hero-shape shape5 shape-mockup jump-reverse" data-left="0" data-bottom="0">
             <img src="{{asset('common/assets/img/hero/shape_1_4.png')}}" alt="shape">
         </div>
+        --}}
     </div>
 </div>

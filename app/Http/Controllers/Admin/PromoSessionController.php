@@ -82,7 +82,7 @@ class PromoSessionController extends Controller
                 //     }
                 // }
                 if ($proses->promo_banner) {
-                    $imagePath = public_path('promo_banner/' . $proses->course_banner);
+                    $imagePath = public_path('promo_banner/' . $proses->promo_banner);
                     if (File::exists($imagePath)) {
                         File::delete($imagePath);
                     }

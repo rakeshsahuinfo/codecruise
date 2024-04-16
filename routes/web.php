@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CourseController as AdminCourseController;
 use App\Http\Controllers\Admin\CourseTypeController as AdminCourseTypeController;
+use App\Http\Controllers\Admin\PromoSessionController as AdminPromoSessionController;
 use App\Http\Controllers\Admin\TechStackController as AdminTechStackController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LandingPageController;
@@ -58,6 +59,14 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     
     Route::get('/add-course-tech-stack/{course_id}',[AdminTechStackController::class,'addCourseTechStack'])->name('add-course-tech-stack');
     Route::post('/admin-course-assign-tech-stack',[AdminTechStackController::class,'courseAssignTechStack'])->name('admin-course-assign-tech-stack');
+
+    //promo Sessions
+    Route::get('/promo-session',[AdminPromoSessionController::class,'index'])->name('admin-promo-session');
+    Route::get('/new-promo-session',[AdminPromoSessionController::class,'new'])->name('new-promo-session');
+    Route::post('/create-promo-session',[AdminPromoSessionController::class,'create'])->name('create-promo-session');
+    Route::get('/edit-promo-session/{id}',[AdminPromoSessionController::class,'edit'])->name('edit-promo-session');
+    Route::post('/update-promo-session',[AdminPromoSessionController::class,'update'])->name('update-promo-session');
+    Route::get('/show-promo-session/{id}',[AdminPromoSessionController::class,'index'])->name('show-promo-session');
 
     Route::get('/homepage', [])->name('homepage');
 });

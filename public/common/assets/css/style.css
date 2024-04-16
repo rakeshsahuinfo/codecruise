@@ -23572,6 +23572,10 @@ span.select2-selection.select2-selection--single:focus {
   padding: 2px 17px;
   border-radius: 999px;
 }
+.course-img .tag a{
+  color: var(--white-color);
+  font-size: small;
+}
 
 .course-img .tag i {
   margin-right: 3px;

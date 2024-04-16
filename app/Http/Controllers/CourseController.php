@@ -17,11 +17,15 @@ class CourseController extends Controller
     {
         try {
             // $course_id = base64_decode($id);
-            $courseinfo = Course::where('slug', $id)->first(); //find($course_id);
-            $coursetype = CourseType::find($courseinfo->course_type_id);
-            $coursemodule = CourseModule::where('course_id', $courseinfo->id)->first();
-            $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $courseinfo->id)->select('tech_stacks.*')->get();
-            return view('common.course', ['courseinfo' => $courseinfo, 'coursetype' => $coursetype, 'coursemodule' => $coursemodule, 'coursetechstack' => $coursetechstack]);
+            $courseinfo = Course::where('is_active',1)->where('slug', $id)->first(); //find($course_id);
+            if( $courseinfo){
+                $coursetype = CourseType::find($courseinfo->course_type_id);
+                $coursemodule = CourseModule::where('course_id', $courseinfo->id)->first();
+                $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $courseinfo->id)->select('tech_stacks.*')->get();
+                return view('common.course', ['courseinfo' => $courseinfo, 'coursetype' => $coursetype, 'coursemodule' => $coursemodule, 'coursetechstack' => $coursetechstack]);
+            }else{
+                return redirect('/');
+            }
         } catch (Exception $e) {
             return back();
         }

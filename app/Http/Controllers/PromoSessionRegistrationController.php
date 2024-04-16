@@ -12,8 +12,12 @@ class PromoSessionRegistrationController extends Controller
     public function promoSession($slug){
         try {
             // $courseinfo=Course::find(base64_decode($course_id));
-            $proses=PromoSession::where('slug',$slug)->first();
-            return view('common.promo-session',['proses'=>$proses]);
+            $proses=PromoSession::where('is_active',1)->where('slug',$slug)->first();
+            if($proses){
+                return view('common.promo-session',['proses'=>$proses]);
+            }else{
+                return redirect('/');
+            }
         } catch (Exception $ex) {
             return redirect('/')->with(['msg' => 'Something went wrong', 'status' => 'danger']);
         }

@@ -87,6 +87,7 @@
                 </div>
             </div>
         </div>
+        <hr>
     </div>
 </div>
 
@@ -162,7 +163,7 @@
             @endforeach
             @endif
         </div>
-        <br>
+        
     </div>
 </section>
 <!--==============================
@@ -423,17 +424,17 @@
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="team-card team-card-1-1 team-card-1-1-active mt-0">
-                    <div class="team-img-wrap">
+                    <!-- <div class="team-img-wrap">
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
-                    </div>
-                    <div class="team-hover-wrap">
+                    </div> -->
+                    <div class="team-img-wrap">
                         <div class="team-social">
-                            <a href="#" class="icon-btn">
+                            <!-- <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <!-- <div class="th-social">
+                            <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -441,7 +442,7 @@
                             </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Mr. Aamer</a></h3>
+                            <h3 class="team-title"><a href="javascript:void(0)">Mr. Aamer</a></h3>
                             <span class="team-desig">Data Scientist & Trainer</span>
                         </div>
                         <div class="team-info">
@@ -450,18 +451,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="team-card team-card-1-1">
-                    <div class="team-img-wrap">
+                <div class="team-card team-card-1-1 ">
+                    <!-- <div class="team-img-wrap">
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
-                    </div>
-                    <div class="team-hover-wrap">
+                    </div> -->
+                    <div class="team-img-wrap">
                         <div class="team-social">
-                            <a href="#" class="icon-btn">
+                             <!--<a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <!-- <div class="th-social">
+                            <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -469,7 +470,7 @@
                             </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Mr. Sanjay</a></h3>
+                            <h3 class="team-title"><a href="javascript:void(0)">Mr. Sanjay</a></h3>
                             <span class="team-desig">Sr. Developer & Trainer</span>
                         </div>
                         <div class="team-info">
@@ -480,18 +481,18 @@
                 </div>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="team-card team-card-1-2 mt-md-0">
-                    <div class="team-img-wrap">
+                <div class="team-card team-card-1-2 mt-md-0 team-card-1-1-active mt-0">
+                    <!-- <div class="team-img-wrap">
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
-                    </div>
-                    <div class="team-hover-wrap">
+                    </div> -->
+                    <div class="team-img-wrap">
                         <div class="team-social">
-                            <a href="#" class="icon-btn">
+                            <!--<a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <!-- <div class="th-social">
+                             <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -499,7 +500,7 @@
                             </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Mr. Rakesh</a></h3>
+                            <h3 class="team-title"><a href="javascript:void(0)">Mr. Rakesh</a></h3>
                             <span class="team-desig">Sr. Solution Architect & Trainer</span>
                         </div>
                         <div class="team-info">
@@ -509,17 +510,17 @@
                     </div>
                 </div>
                 <div class="team-card team-card-1-2 team-card-1-2-active">
-                    <div class="team-img-wrap">
+                    <!-- <div class="team-img-wrap">
                         <div class="team-img">
                             <img src="{{asset('common/assets/img/team/m.jfif')}}" alt="Team">
                         </div>
-                    </div>
-                    <div class="team-hover-wrap">
+                    </div> -->
+                    <div class="team-img-wrap">
                         <div class="team-social">
-                            <a href="#" class="icon-btn">
+                            <!-- <a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
-                            <!-- <div class="th-social">
+                            <div class="th-social">
                                 <a target="_blank" href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a>
                                 <a target="_blank" href="https://linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
                                 <a target="_blank" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
@@ -527,7 +528,7 @@
                             </div> -->
                         </div>
                         <div class="team-content">
-                            <h3 class="team-title"><a href="team-details.html">Mr. Sunil</a></h3>
+                            <h3 class="team-title"><a href="javascript:void(0)">Mr. Sunil</a></h3>
                             <span class="team-desig">Sr. DevOps Engineer & Trainer</span>
                         </div>
                         <div class="team-info">

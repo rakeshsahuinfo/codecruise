@@ -93,11 +93,12 @@
                             <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div> -->
+                        @if($courseinfo->apply_fee==1)
                         <span class="h4 course-price">Course Fee</span></span>
-                         
                         <span class="h4 course-price">{{$courseinfo->course_fee}} 
                             @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
                         </span>
+                        @endif
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">

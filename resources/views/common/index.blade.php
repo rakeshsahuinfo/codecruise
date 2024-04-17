@@ -67,7 +67,7 @@ Event Area
                                 <p><i class="fal fa-date"></i>20th Apr - 21st April 2024</p>
                                 <p><i class="fal fa-clock"></i>07:30 PM - 08:30 PM</p>
                             </div>
-                            <h3 class="event-card2_title"><a href="#">Demystifying Data Science</a></h3>
+                            <h3 class="event-card2_title"><a href="https://codecruise.in/promo/session/demystifying-data-science">Demystifying Data Science</a></h3>
                             <div class="event-card2_bottom">
                                 <a href="https://codecruise.in/promo/session/demystifying-data-science" class="th-btn">View Event</a>
                                 <div class="event-author">

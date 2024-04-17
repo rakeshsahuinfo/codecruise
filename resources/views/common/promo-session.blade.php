@@ -78,7 +78,7 @@
         </div>
         --}}
         <div class="row">
-            <div class="col-xl-6 mb-10 mb-xl-0" style="margin-top: -120px;">
+            <div class="col-xl-7 mb-10 mb-xl-0" style="margin-top: -120px;">
                 <div class="me-xxl-5 mt-5">
                     {{-- <div class="title-area mb-10">
                         <h2 class="border-title h3">{{$proses->name}}</h2>
@@ -88,44 +88,10 @@
                         <img src="{{ asset('promo_banner/' . $proses->promo_banner) }}" alt=""
                             class="p-3">
                     </div>
-                    <div class="widget widget_info  ">
-                        {{-- <div class="th-video">
-                            <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
-                            <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div> --}}
-                     
-                        <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
-                      
-                        <div class="course-single-bottom">
-                            <ul class="nav course-tab" id="courseTab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#Coursedescription" role="tab" aria-controls="Coursedescription" aria-selected="true"><i class="fa-regular fa-bookmark"></i>{{$proses->name}}</a>
-                                </li>
-                                {{--
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="curriculam-tab" data-bs-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false"><i class="fa-regular fa-book"></i>Curriculam</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false"><i class="fa-regular fa-user"></i>Instructor</a>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="fa-regular fa-star-sharp"></i>Reviews</a>
-                                </li> 
-                                --}}
-                            </ul>
-                            <div class="tab-content" id="productTabContent">
-                                <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
-                                    <div class="course-description">
-                                      {!! $proses->description !!}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+                    
                 </div>
             </div>
-            <div class="col-xl-6">
+            <div class="col-xl-5">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                     <span class="sub-title">Register for the Session</span>
                     <form id="contact-form" method="post" action="{{route('register-promo-session')}}"  class="contact-form">
@@ -175,6 +141,43 @@
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>
                     </form>
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="widget widget_info ">
+                    {{-- <div class="th-video">
+                        <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
+                        <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
+                    </div> --}}
+                 
+                    <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
+                  
+                    <div class="course-single-bottom">
+                        <ul class="nav course-tab" id="courseTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#Coursedescription" role="tab" aria-controls="Coursedescription" aria-selected="true"><i class="fa-regular fa-bookmark"></i>{{$proses->name}}</a>
+                            </li>
+                            {{--
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="curriculam-tab" data-bs-toggle="tab" href="#curriculam" role="tab" aria-controls="curriculam" aria-selected="false"><i class="fa-regular fa-book"></i>Curriculam</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false"><i class="fa-regular fa-user"></i>Instructor</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="fa-regular fa-star-sharp"></i>Reviews</a>
+                            </li> 
+                            --}}
+                        </ul>
+                        <div class="tab-content" id="productTabContent">
+                            <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel" aria-labelledby="description-tab">
+                                <div class="course-description">
+                                  {!! $proses->description !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

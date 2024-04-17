@@ -17,15 +17,11 @@
                         <li>
                             <div class="header-social">
                                 <span class="social-title">Follow Us:</span>
-                                <a href="https://www.facebook.com/codecruiseindia" target="_new"><i
-                                        class="fab fa-facebook-f"></i></a>
-                                <a href="https://twitter.com/codecruiseindia" target="_new"><i
-                                        class="fab fa-twitter"></i></a>
-                                <a href="https://www.linkedin.com/company/codecruise" target="_new"><i
-                                        class="fab fa-linkedin-in"></i></a>
-                                <!-- <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a> -->
-                                <a href="https://www.instagram.com/codecruise" target="_new"><i
-                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/codecruiseindia" target="_new"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/codecruiseindia" target="_new"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.linkedin.com/company/codecruise" target="_new"><i class="fab fa-linkedin-in"></i></a>
+                                <!-- <a href="https://youtube.com/codecruiseindia" target="_new"><i class="fab fa-youtube"></i></a> -->
+                                <a href="https://www.instagram.com/codecruise" target="_new"><i class="fab fa-instagram"></i></a>
                             </div>
                         </li>
                         <!-- <li class="d-none d-lg-inline-block">

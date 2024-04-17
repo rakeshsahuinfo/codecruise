@@ -10995,7 +10995,7 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
 .hero-style1 {
   position: relative;
   z-index: 6;
-  padding: 122px 0 109px 0;
+  padding: 101px 0 101px 0;
   /* Large devices */
   /* Medium devices */
   /* Extra small devices */
@@ -11003,19 +11003,19 @@ ul.comment-list .th-comment-item:first-child > .th-post-comment {
 
 @media (max-width: 1199px) {
   .hero-style1 {
-    padding: 81px 0 79px 0;
+    padding: 71px 0 70px 0;
   }
 }
 
 @media (max-width: 991px) {
   .hero-style1 {
-    padding: 71px 0 69px 0;
+    padding: 62px 0 61px 0;
   }
 }
 
 @media (max-width: 575px) {
   .hero-style1 {
-    padding: 61px 0 60px 0;
+    padding: 55px 0 55px 0;
   }
 }
 

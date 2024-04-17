@@ -42,8 +42,57 @@
 <!--==============================
 	Contact Area  
 	==============================-->
+<!--==============================
+Event Area  
+==============================-->
+<section class="">
+    <br/>
+        <div class="container z-index-common">
+           
+            <div class="row">
+                <div class="col-xl-6">
+                    <div class="title-area text-center">
+                    <span class="sub-title"><i class="fal fa-book me-2"></i>Fetaured Events</span>
+                    <h2 class="sec-title">Upcoming <span class="text-theme fw-light">Sessions</span></h2>
+                </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="event-card2">
+                        <!-- <div class="event-card2_img">
+                            <img src="{{asset('common/assets/img/update1/event/event_1_1.jpg')}}" alt="event">
+                        </div> -->
+                        <div class="event-card2_content">
+                            <div class="event-meta">
+                                <p><i class="fal fa-location-dot"></i>Online</p>
+                                <p><i class="fal fa-date"></i>20th Apr - 21st April 2024</p>
+                                <p><i class="fal fa-clock"></i>07:30 PM - 08:30 PM</p>
+                            </div>
+                            <h3 class="event-card2_title"><a href="#">Demystifying Data Science</a></h3>
+                            <div class="event-card2_bottom">
+                                <a href="https://codecruise.in/promo/session/demystifying-data-science" class="th-btn">View Event</a>
+                                <div class="event-author">
+                                    <div class="avater">
+                                        <img src="{{asset('common/assets/img/update1/event/1684322924622.jpg')}}" alt="avater">
+                                    </div>
+                                    <span class="author-name">Amer Syed</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>                
+            </div>
+            <!-- <div class="text-center mt-20 mt-xl-5">
+                <a href="event.html" class="th-btn">View All Events<i class="fas fa-arrow-right ms-2"></i></a>
+            </div> -->
+        </div>
+        <div class="shape-mockup jump d-none d-md-block" data-top="0%" data-left="0%"><img src="{{asset('common/assets/img/update1/shape/dot_shape_3.png')}}" alt="shapes"></div>
+        <div class="shape-mockup jump d-none d-md-block" data-top="4%" data-right="0%"><img src="{{asset('common/assets/img/update1/shape/cloud_1.png')}}" alt="shapes"></div>
+        <div class="shape-mockup jump-reverse d-none d-md-block" data-top="8%" data-right="0%"><img src="{{asset('common/assets/img/update1/shape/cloud_2.png')}}" alt="shapes"></div>
+    </section>    
 <div class="space-top">
     <div class="container">
+        
         <div class="category-sec-wrap">
             <div class="shape-mockup category-shape-arrow d-xl-block d-none">
                 <img src="{{asset('common/assets/img/normal/category-arrow.svg')}}" alt="img">

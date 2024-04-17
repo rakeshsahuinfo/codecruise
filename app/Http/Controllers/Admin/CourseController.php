@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Models\SEODetail;
 use App\Http\Controllers\Admin\CourseTypeController;
+use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
 {
@@ -39,9 +40,16 @@ class CourseController extends Controller
     {
         try {
             // return $request;
-            $request->validate([
-                'course_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
-            ]);
+            $rules = array(
+                'course_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:4096', // 4MB
+            );
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return back()->with(['msg' => 'Problem with uploading image', 'status' => 'danger']);
+            }
+            // $request->validate([
+            //     'course_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            // ]);
             $image = $request->file('course_banner');
             $imageName = time() . '.' . $image->extension();
             // $image->storeAs('public/course_banner', $imageName);
@@ -91,6 +99,13 @@ class CourseController extends Controller
             // return $request;
             $course = Course::findOrFail($request->course_id);
             if ($request->hasFile('course_banner')) {
+                $rules = array(
+                    'course_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:4096', // 4MB
+                );
+                $validator = Validator::make($request->all(), $rules);
+                if ($validator->fails()) {
+                    return back()->with(['msg' => 'Problem with uploading image', 'status' => 'danger']);
+                }
                 // Delete previous banner if it exists
                 // if ($course->course_banner) {
                 //     $imagePath = 'public/course_banner/' . $course->course_banner;

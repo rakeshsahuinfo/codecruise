@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 
 class PromoSessionController extends Controller
 {
@@ -31,9 +32,16 @@ class PromoSessionController extends Controller
     {
         try {
             // return $request;
-            $request->validate([
-                'promo_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
-            ]);
+            $rules = array(
+                'promo_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:4096', // 4MB
+            );
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return back()->with(['msg' => 'Problem with uploading image', 'status' => 'danger']);
+            }
+            // $request->validate([
+            //     'promo_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            // ]);
             $image = $request->file('promo_banner');
             $imageName = time() . '.' . $image->extension();
             // $image->storeAs('public/course_banner', $imageName);
@@ -75,6 +83,13 @@ class PromoSessionController extends Controller
             // return $request;
             $proses = PromoSession::findOrFail($request->promo_session_id);
             if ($request->hasFile('promo_banner')) {
+                $rules = array(
+                    'promo_banner' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:4096', // 4MB
+                );
+                $validator = Validator::make($request->all(), $rules);
+                if ($validator->fails()) {
+                    return back()->with(['msg' => 'Problem with uploading image', 'status' => 'danger']);
+                }
                 // Delete previous banner if it exists
                 // if ($course->course_banner) {
                 //     $imagePath = 'public/course_banner/' . $course->course_banner;

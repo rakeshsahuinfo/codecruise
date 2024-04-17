@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class TechStackController extends Controller
 {
@@ -33,9 +34,16 @@ class TechStackController extends Controller
     {
         try {
             // return $request;
-            $request->validate([
-                'tech_stack_logo' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
-            ]);
+            $rules = array(
+                'tech_stack_logo' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:4096', // 4MB
+            );
+            $validator = Validator::make($request->all(), $rules);
+            if ($validator->fails()) {
+                return back()->with(['msg' => 'Problem with uploading image', 'status' => 'danger']);
+            }
+            // $request->validate([
+            //     'tech_stack_logo' => 'required|image|mimes:jpeg,png,jpg,gif,jfif|max:2048',
+            // ]);
             $image = $request->file('tech_stack_logo');
             $imageName = time() . '.' . $image->extension();
             // $image->storeAs('public/tech_stack', $imageName);
@@ -71,6 +79,13 @@ class TechStackController extends Controller
             // return $request;
             $techstack = TechStack::findOrFail($request->tech_stack_id);
             if ($request->hasFile('tech_stack_logo')) {
+                $rules = array(
+                    'tech_stack_logo' => 'required|image|mimes:jpeg,png,jpg,gif,jfif,webp|max:4096', // 4MB
+                );
+                $validator = Validator::make($request->all(), $rules);
+                if ($validator->fails()) {
+                    return back()->with(['msg' => 'Problem with uploading image', 'status' => 'danger']);
+                }
                 // Delete previous banner if it exists
                 // if ($techstack->tech_stack_logo) {
                 //     $imagePath = 'public/tech_stack/' . $techstack->tech_stack_logo;

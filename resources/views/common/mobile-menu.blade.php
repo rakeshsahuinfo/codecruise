@@ -5,7 +5,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
     <div class="th-menu-area text-center">
         <button class="th-menu-toggle"><i class="fal fa-times"></i></button>
         <div class="mobile-logo">
-            <a href="index.html"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="Edura"></a>
+            <a href="{{route('landing-page')}}"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="Edura"></a>
         </div>
         <div class="th-mobile-menu">
             <ul>

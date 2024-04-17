@@ -41,7 +41,17 @@
                                 <div class="bp-list-wrapper">
                                     @csrf
                                     <div class="form-row form-row-2 px-3 py-2">
-                                      
+                                        <div class="form-group w-100  my-4">
+                                            <label for="promo_type">Promotion type</label>
+                                            <select name="promo_type" id="promo_type" class="selectpicker form-control" required>
+                                                <option value="" selected>Select</option>
+                                                <option value="session">promo-session</option>
+                                                <option value="webinar">promo-webinar</option>
+                                                <option value="eminar">promo-seminar</option>
+                                                <option value="enroll">promo-enroll</option>
+                                                <option value="event">promo-event</option>
+                                            </select>
+                                        </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Title Name</label>
                                             <input type="text" class="form-control" name="name" id="name" onkeyup="createSlug(this.value)">
@@ -87,7 +97,13 @@
                                             <label for="is_follow">is Follow</label>
                                             <input type="checkbox" name="is_follow" id="is_follow" value="1" >
                                         </div>
-                                        
+                                        <div class="form-group w-100 my-4">
+                                            <label for="is_active">Collect Message Option</label>
+                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="apply_message" id="apply_message" required>
+                                                <option value="1" selected>Yes</option>
+                                                <option value="0">No</option>
+                                            </select>
+                                        </div>
                                         
                                         <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>

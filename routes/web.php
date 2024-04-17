@@ -28,7 +28,7 @@ Route::get('/download-course-info/{id}',[CourseController::class,'downloadCourse
 Route::get('/search-course', [CourseController::class,'searchCourse'])->name('search-course');
 Route::post('/save-query',[QueryController::class,'saveQuery'])->name('save-query');
 Route::get('/enroll-course/{course_id}',[QueryController::class,'enrollCourse'])->name('enroll-course');
-Route::get('/promo-session/{slug}',[PromoSessionRegistrationController::class,'promoSession'])->name('promo-session');
+Route::get('promo/{promo_type}/{slug}',[PromoSessionRegistrationController::class,'promoSession'])->name('promo-session');
 Route::post('/register-promo-session',[PromoSessionRegistrationController::class,'registerPromoSession'])->name('register-promo-session');
 Route::get('/privacy-policy',[LandingPageController::class,'privacyPolicy'])->name('privacy-policy');
 

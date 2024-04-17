@@ -10,7 +10,7 @@ class PromoSession extends Model
     use HasFactory;
     protected $table = 'promo_sessions';
 
-    protected $fillable = ['name','slug','description', 'promo_banner', 'is_active','created_at','updated_at'];
+    protected $fillable = ['promo_type','name','slug','description', 'promo_banner','apply_message', 'is_active','created_at','updated_at'];
 
     public function registrations()
     {

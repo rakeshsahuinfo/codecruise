@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Validator;
 
 class PromoSessionController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         try {
             $proses = PromoSession::orderBy('id', 'desc')->get();
             return view('admin.promo-session.index', ['proses' => $proses]);
@@ -48,10 +49,12 @@ class PromoSessionController extends Controller
             $image->move(public_path('promo_banner'), $imageName);
 
             $proses = PromoSession::create([
+                'promo_type' => $request->promo_type,
                 'name' => $request->name,
                 'slug' => $request->slug,
                 'description' => $request->description,
                 'promo_banner' => $imageName,
+                'apply_message' => $request->apply_message,
                 'is_active' => $request->is_active
             ]);
 
@@ -68,7 +71,7 @@ class PromoSessionController extends Controller
     public function edit($id)
     {
         try {
-        
+
             $proses = PromoSession::find($id);
             $proses->seo = SEODetail::where('subject_id', $proses->id)->where('subject_type', 'promo_session')->first();
             return view('admin.promo-session.edit', ['proses' => $proses]);
@@ -115,9 +118,11 @@ class PromoSessionController extends Controller
             }
 
             // Update or create course data
+            $proses->promo_type = $request->promo_type;
             $proses->name = $request->name;
             $proses->slug = $request->slug;
             $proses->description = $request->description;
+            $proses->apply_message = $request->apply_message;
             $proses->is_active = $request->is_active;
             $proses->update();
 
@@ -130,14 +135,15 @@ class PromoSessionController extends Controller
         }
     }
 
-    
 
-    public function showRegistrations($promo_session_id){
-        try{
-            $proses=PromoSession::find($promo_session_id);
-            $prosesreg=PromoSessionRegistration::where('promo_session_id',$promo_session_id)->orderBy('created_at','desc')->get();
-            return view('admin.promo-session.promo-session-registration',['proses'=>$proses,'prosesreg'=>$prosesreg]);
-        }catch(Exception $ex){
+
+    public function showRegistrations($promo_session_id)
+    {
+        try {
+            $proses = PromoSession::find($promo_session_id);
+            $prosesreg = PromoSessionRegistration::where('promo_session_id', $promo_session_id)->orderBy('created_at', 'desc')->get();
+            return view('admin.promo-session.promo-session-registration', ['proses' => $proses, 'prosesreg' => $prosesreg]);
+        } catch (Exception $ex) {
             Log::info("Something went wrong");
         }
     }

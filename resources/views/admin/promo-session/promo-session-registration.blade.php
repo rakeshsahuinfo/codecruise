@@ -37,6 +37,7 @@
                                     <th>Email</th>
                                     <th>Contact</th>
                                     <th>Background</th>
+                                    <th>Message</th>
                                     <th>RegisterDate</th>
                                 </tr>
                             </thead>
@@ -46,6 +47,7 @@
                                     <th>Email</th>
                                     <th>Contact</th>
                                     <th>Background</th>
+                                    <th>Message</th>
                                     <th>RegisterDate</th>
                                 </tr>
                             </tfoot>
@@ -57,6 +59,7 @@
                                     <td>{{$psr->email}}</td>
                                     <td>{{$psr->contact}}</td>
                                     <td>{{$psr->company_college_name}}</td>
+                                    <td>{{$psr->message}}</td>
                                     <td>{{Carbon\Carbon::parse($psr->created_at)->format('d-M-y')}}</td>
                                 </tr>
                                 @endforeach

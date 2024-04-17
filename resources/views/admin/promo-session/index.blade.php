@@ -37,10 +37,12 @@
                             <thead>
                                 <tr>
                                     <th>Action</th>
+                                    <th>PromoType</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>RegistrationLink</th>
                                     <th>PromoBanner</th>
+                                    <th>CollectMessage</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
                                 </tr>
@@ -48,10 +50,12 @@
                             <tfoot>
                                 <tr>
                                     <th>Action</th>
+                                    <th>PromoType</th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>RegistrationLink</th>
                                     <th>PromoBanner</th>
+                                    <th>CollectMessage</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
                                 </tr>
@@ -67,12 +71,14 @@
                                             <a href="{{route('edit-course',$ps->id)}}" title="Delete Course" class='text-danger'><i class='fas fa-trash'></i></a>
                                         </div>
                                     </td>
+                                    <td>{{$ps->promo_type}}</td>
                                     <td>{{$ps->name}}</td>
                                     <td>{!! $ps->description !!}</td>
-                                    <td>https://codecruise.in/promo-session/{{$ps->slug}}</td>
+                                    <td>https://codecruise.in/promo/{{$ps->promo_type}}/{{$ps->slug}}</td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('promo_banner/' . $ps->promo_banner) }}" alt="Promo Banner">
                                     </td>
+                                    <td>{{$ps->apply_message==1?"Yes":"No"}}</td>
                                     <td>{{$ps->is_active==1?"Active":"Inactive"}}</td>
                                     <td>{{\Carbon\Carbon::parse($ps->created_at)->format('d-M-y')}}</td>
                                 </tr>

@@ -134,7 +134,15 @@
                                     <i class="fal fa-building"></i>
                                 </div>
                             </div>
-                        
+                            @if($proses->apply_message==1)
+                            <div class="col-12">
+                                <div class="form-group ">
+                                    <textarea name="message" id="message" cols="30" rows="3"
+                                        class="form-control style-white" placeholder="Write Your Message*"></textarea>
+                                    <i class="fal fa-pen"></i>
+                                </div>
+                            </div>
+                            @endif
                             <div class="form-btn col-12 mt-10">
                                 <button type="submit" class="th-btn">Register<i class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>

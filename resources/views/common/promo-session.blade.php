@@ -93,7 +93,7 @@
             </div>
             <div class="col-xl-5">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">Register for the Session</span>
+                    <span class="sub-title">Register for the {{$proses->promo_type}}</span>
                     <form id="contact-form" method="post" action="{{route('register-promo-session')}}"  class="contact-form">
                         @csrf
                         <div class="row">

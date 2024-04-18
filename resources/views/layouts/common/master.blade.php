@@ -28,15 +28,15 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap"
 		rel="stylesheet">
-
+		
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZWBXLP2PC"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
 
-		gtag('config', 'G-5ZWBXLP2PC');
+	gtag('config', 'G-5ZWBXLP2PC');
 	</script>
 
 	<!--==============================
@@ -144,7 +144,7 @@
 			launch_widget: true,
 			show_send_button: true,
 		};
-		initChatWidget(helloConfig, 1000)
+		initChatWidget(helloConfig, 5000)
 	</script>
 </body>
 

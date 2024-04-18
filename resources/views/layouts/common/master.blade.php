@@ -141,10 +141,10 @@
 			widgetToken: "6f9cf",
 			hide_launcher: false,
 			show_close_button: true,
-			launch_widget: true,
+			launch_widget: false,
 			show_send_button: true,
 		};
-		initChatWidget(helloConfig, 5000)
+		initChatWidget(helloConfig, 100)
 	</script>
 </body>
 

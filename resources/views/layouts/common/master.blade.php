@@ -28,15 +28,15 @@
 	<link
 		href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700&display=swap"
 		rel="stylesheet">
-		
+
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZWBXLP2PC"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
 
-	gtag('config', 'G-5ZWBXLP2PC');
+		gtag('config', 'G-5ZWBXLP2PC');
 	</script>
 
 	<!--==============================
@@ -54,12 +54,14 @@
 	<link rel="stylesheet" href="{{asset('common/assets/css/nice-select.min.css')}}">
 	<!-- Theme Custom CSS -->
 	<link rel="stylesheet" href="{{asset('common/assets/css/style.css')}}">
-
+	<link rel="stylesheet" href="{{asset('common/assets/css/whatsapp/floating-wpp.min.css')}}">
+	<link rel="stylesheet" href="{{asset('common/assets/css/whatsapp/floating-wpp.css')}}">
 	@yield('headasset')
 
 </head>
 
 <body>
+	<div id="myWapButton"></div>
 	@if(session('msg'))
 	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 8%;z-index:9999;">
 		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert"
@@ -145,6 +147,24 @@
 			show_send_button: true,
 		};
 		initChatWidget(helloConfig, 100)
+	</script>
+	
+	<script src="{{asset('common/assets/js/whatsapp/floating-wpp.min.js')}}"></script>
+	<script src="{{asset('common/assets/js/whatsapp/floating-wpp.js')}}"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#myWapButton').floatingWhatsApp({
+				phone: '917304562050',
+				popupMessage: 'Thank you for contacting Code Cruise. Please let us know how we can help you.🙏🤝',
+				message: "Hello,I want to enquire for a course",
+				showPopup: true,
+				showOnIE: false,
+				headerTitle: 'Welcome to Code-Cruise',
+				headerColor: '#01787a',
+				backgroundColor: '#01787a',
+				buttonImage: `<img src="{{asset('common/assets/img/whatsapp/whatsapp.svg')}}" style="width:50px;"/>`
+			});
+		});
 	</script>
 </body>
 

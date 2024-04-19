@@ -8,6 +8,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login - CodeCruise</title>
+        <link rel="shortcut icon" href="{{asset('admin/assets/img/favicon.png')}}" type="image/x-icon">
         <link href="{{asset('admin/css/styles.css')}}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>

@@ -125,7 +125,7 @@
             <div class="copyright-wrap">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md-6">
-                        <p class="copyright-text">Copyright © 2024 <a href="{{route('landing-page')}}">Codecruise</a>
+                        <p class="copyright-text">Copyright © 2024 <a href="{{route('landing-page')}}">CodeCruise</a>
                             All Rights Reserved.</p>
                     </div>
                     <div class="col-md-6 text-end d-none d-md-block">

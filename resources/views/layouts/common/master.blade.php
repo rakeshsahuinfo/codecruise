@@ -156,7 +156,7 @@
 			$('#myWapButton').floatingWhatsApp({
 				phone: '917304562050',
 				popupMessage: 'Thank you for contacting Code-Cruise. Please let us know how we can help you.🙏🤝',
-				message: "Hello,I want to enquire for a course",
+				message: "Hello, I want to enquire for a course",
 				showPopup: true,
 				showOnIE: false,
 				headerTitle: 'Welcome to Code-Cruise',

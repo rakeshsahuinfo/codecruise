@@ -63,13 +63,13 @@ Event Area
                         </div> -->
                         <div class="event-card2_content">
                             <div class="event-meta">
-                                <p><i class="fal fa-location-dot"></i>Online</p>
-                                <p><i class="fal fa-date"></i>20th Apr - 21st April 2024</p>
-                                <p><i class="fal fa-clock"></i>07:30 PM - 08:30 PM</p>
+                                <p><i class="fal fa-location-dot"></i>New Batch starting from</p>
+                                <p><i class="fal fa-date"></i>05th May 2024</p>
+                                <p><i class="fal fa-clock"></i>10:00 AM </p>
                             </div>
-                            <h3 class="event-card2_title"><a href="https://codecruise.in/promo/session/demystifying-data-science">Demystifying Data Science</a></h3>
+                            <h3 class="event-card2_title"><a href="https://codecruise.in/course/data-science">Certification course on Data Science and Data Analytics</a></h3>
                             <div class="event-card2_bottom">
-                                <a href="https://codecruise.in/promo/session/demystifying-data-science" class="th-btn">View Event</a>
+                                <a href="https://codecruise.in/course/data-science" class="th-btn">Enroll Now</a>
                                 <div class="event-author">
                                     <div class="avater">
                                         <img src="{{asset('common/assets/img/update1/event/1684322924622.jpg')}}" alt="avater">

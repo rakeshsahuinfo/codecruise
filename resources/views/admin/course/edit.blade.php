@@ -1,21 +1,26 @@
 @extends('layouts.admin.master')
 @section('title','CODECRUISE | EDIT COURSE')
 @section('headasset')
+<link href="{{asset('admin/assets/editor/Content/cleditor/jquery.cleditor.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/assets/editor/Content/Site.css" rel="stylesheet')}}" type="text/css" />
+<link href="{{asset('admin/assets/editor/Content/cleditor/jquery.cleditor.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/assets/editor/Content/Site.css" rel="stylesheet')}}" type="text/css" />
 @stop
 @section('content')
 @include('admin.top-nav')
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         @include('admin.nav')
-       
+
     </div>
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
                 <h3 class="mt-4 text-uppercase">Edit Course</h3>
-               
+
                 <div class="action-container">
-                    <a href="{{route('admin-course')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-eye mx-1'></i> All Courses</a>
+                    <a href="{{route('admin-course')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i
+                            class='fas fa-eye mx-1'></i> All Courses</a>
                 </div>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
@@ -29,7 +34,7 @@
                         {{session('msg')?session('msg'):''}}
                     </div>
                 </div>
-              
+
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -37,113 +42,142 @@
                     </div>
                     <div class="card-body">
                         <div class="col-md-8 offset-md-1">
-                            <form id="create-property-amenity" method="POST"
-                                action="{{route('update-course')}}" enctype="multipart/form-data">
+                            <form id="create-property-amenity" method="POST" action="{{route('update-course')}}"
+                                enctype="multipart/form-data">
                                 <div class="bp-list-wrapper">
                                     @csrf
                                     <div class="form-row form-row-2 px-3 py-2">
-                                      <input type="hidden" name="course_id" value="{{$course->id}}">
+                                        <input type="hidden" name="course_id" value="{{$course->id}}">
                                         <div class="form-group w-100  my-4">
                                             <label for="name">Course Name</label>
-                                            <input type="text" class="form-control" name="name" id="name" value="{{$course->name}}" onkeyup="createSlug(this.value)">
+                                            <input type="text" class="form-control" name="name" id="name"
+                                                value="{{$course->name}}" onkeyup="createSlug(this.value)">
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="name">slug</label>
-                                            <input type="text" class="form-control" name="slug" id="slug" value="{{$course->slug}}" readonly>
+                                            <input type="text" class="form-control" name="slug" id="slug"
+                                                value="{{$course->slug}}" readonly>
                                         </div>
                                         <div class="form-group w-100 my-4">
                                             <label for="course_type_id">Course Type</label>
-                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="course_type_id" id="course_type_id" required>
-                                                
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="course_type_id" id="course_type_id" required>
+
                                                 @if($course_type)
                                                 @foreach($course_type as $ct)
-                                                <option value="{{$ct->id}}" {{$course->course_type_id==$ct->id?"selected":""}}>{{$ct->name}}</option>
+                                                <option value="{{$ct->id}}" {{$course->
+                                                    course_type_id==$ct->id?"selected":""}}>{{$ct->name}}</option>
                                                 @endforeach
                                                 @endif
                                             </select>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Course Description</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="5">{{$course->description}}</textarea>
+                                            <textarea class="form-control" name="description" id="description" cols="30"
+                                                rows="5">{{$course->description}}</textarea>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="course_duration">Course Duration</label>
-                                            <input type="text" class="form-control" name="course_duration" id="course_duration" value="{{$course->course_duration}}" placeholder="In month or Hours">
+                                            <input type="text" class="form-control" name="course_duration"
+                                                id="course_duration" value="{{$course->course_duration}}"
+                                                placeholder="In month or Hours">
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="class_schedule">Class Schedule</label>
-                                            <input type="text" class="form-control" name="class_schedule" id="class_schedule" value="{{$course->class_schedule}}" placeholder="2-3 Hours">
+                                            <input type="text" class="form-control" name="class_schedule"
+                                                id="class_schedule" value="{{$course->class_schedule}}"
+                                                placeholder="2-3 Hours">
                                         </div>
                                         <div class="form-group w-100 my-4">
                                             <label for="delivery_mode">Delivery Mode</label>
-                                            <input type="text" class="form-control" name="delivery_mode" id="delivery_mode" value="{{$course->delivery_mode}}" placeholder="Online, Offline or Hybrid">
+                                            <input type="text" class="form-control" name="delivery_mode"
+                                                id="delivery_mode" value="{{$course->delivery_mode}}"
+                                                placeholder="Online, Offline or Hybrid">
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="course_fee">Course Fees</label>
-                                            <input type="text" class="form-control" name="course_fee" id="course_fee" value="{{$course->course_fee}}" placeholder="Rs.5000">
+                                            <input type="text" class="form-control" name="course_fee" id="course_fee"
+                                                value="{{$course->course_fee}}" placeholder="Rs.5000">
                                         </div>
                                         <div class="form-group w-100 my-4">
                                             <label for="apply_fee">Apply Fees</label>
-                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="apply_fee" id="apply_fee" required>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="apply_fee" id="apply_fee" required>
                                                 <option value="1" {{$course->apply_fee==1?"selected":""}}>Yes</option>
                                                 <option value="0" {{$course->apply_fee==0?"selected":""}}>No</option>
                                             </select>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="current_discount">Current Discount</label>
-                                            <input type="text" class="form-control" name="current_discount" id="current_discount" value="{{$course->current_discount}}" placeholder="10% or Flat Rs.2000">
+                                            <input type="text" class="form-control" name="current_discount"
+                                                id="current_discount" value="{{$course->current_discount}}"
+                                                placeholder="10% or Flat Rs.2000">
                                         </div>
-                                       
+
                                         <div class="form-group w-100 my-4">
                                             <label for="apply_discount">Apply Discount</label>
-                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="apply_discount" id="apply_discount" required>
-                                                <option value="1" {{$course->apply_discount==1?"selected":""}}>Yes</option>
-                                                <option value="0" {{$course->apply_discount==0?"selected":""}}>No</option>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="apply_discount" id="apply_discount" required>
+                                                <option value="1" {{$course->apply_discount==1?"selected":""}}>Yes
+                                                </option>
+                                                <option value="0" {{$course->apply_discount==0?"selected":""}}>No
+                                                </option>
                                             </select>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="course_banner">Course Banner</label>
-                                            <input type="file" accept="image/*" class="form-control" name="course_banner" id="course_banner">
+                                            <input type="file" accept="image/*" class="form-control"
+                                                name="course_banner" id="course_banner">
                                         </div>
 
                                         <div class="form-group w-100  my-4">
                                             <label for="seo_title">SEO Title</label>
-                                            <input type="text" class="form-control" name="seo_title" id="seo_title" value="{{$course->seo?$course->seo->seo_title:''}}"> 
+                                            <input type="text" class="form-control" name="seo_title" id="seo_title"
+                                                value="{{$course->seo?$course->seo->seo_title:''}}">
                                         </div>
-                                        
+
                                         <div class="form-group w-100  my-4">
                                             <label for="seo_description">SEO Description</label>
-                                            <textarea type="text" class="form-control" name="seo_description" id="seo_description" > {{$course->seo?$course->seo->seo_description:''}}</textarea>
+                                            <textarea type="text" class="form-control" name="seo_description"
+                                                id="seo_description"> {{$course->seo?$course->seo->seo_description:''}}</textarea>
                                         </div>
-                                        
+
                                         <div class="form-group w-100  my-4">
                                             <label for="seo_keyword">Keyword</label>
-                                            <input type="text" class="form-control" name="seo_keyword" id="seo_keyword" value="{{$course->seo?$course->seo->seo_keyword:''}}" > 
+                                            <input type="text" class="form-control" name="seo_keyword" id="seo_keyword"
+                                                value="{{$course->seo?$course->seo->seo_keyword:''}}">
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="canonical">Canonical</label>
-                                            <input type="text" class="form-control" name="canonical" id="canonical" value="{{$course->seo?$course->seo->canonical:''}}" > 
+                                            <input type="text" class="form-control" name="canonical" id="canonical"
+                                                value="{{$course->seo?$course->seo->canonical:''}}">
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="is_index">is Index</label>
-                                            <input type="checkbox" name="is_index" id="is_index" value="1" {{$course->seo?($course->seo->is_index?'checked':''):''}}>
+                                            <input type="checkbox" name="is_index" id="is_index" value="1"
+                                                {{$course->seo?($course->seo->is_index?'checked':''):''}}>
                                         </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="is_follow">is Follow</label>
-                                            <input type="checkbox" name="is_follow" id="is_follow" value="1"  {{$course->seo?($course->seo->is_follow?'checked':''):''}}>
+                                            <input type="checkbox" name="is_follow" id="is_follow" value="1"
+                                                {{$course->seo?($course->seo->is_follow?'checked':''):''}}>
                                         </div>
-                                        
-                                        
+
+
                                         <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>
-                                            <select class="selectpicker form-control" data-live-search="true" data-size="8" name="is_active" id="is_active" required>
-                                                <option value="1"  {{$course->is_active==1?"selected":""}}>Active</option>
-                                                <option value="0" {{$course->is_active==0?"selected":""}}>Inactive</option>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="is_active" id="is_active" required>
+                                                <option value="1" {{$course->is_active==1?"selected":""}}>Active
+                                                </option>
+                                                <option value="0" {{$course->is_active==0?"selected":""}}>Inactive
+                                                </option>
                                             </select>
                                         </div>
-                                      
+
                                         <div class="form-group text-center mt-2" style="width: 100%;">
-                                            <button type="submit" class="btn btn-submit btn-dark w-100">UPDATE COURSE <i class="fas fa-arrow-right"></i></button>
+                                            <button type="submit" class="btn btn-submit btn-dark w-100">UPDATE COURSE <i
+                                                    class="fas fa-arrow-right"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -158,30 +192,50 @@
 </div>
 @stop
 @section('jsscript')
-<script src="https://cdn.tiny.cloud/1/qct6i34mva10zv33t1mg214nd0ys74jfca2vuxzp6zajhtvl/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<script src="{{asset('admin/assets/editor/Scripts/jquery-1.6.3.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin/assets/editor/Scripts/jquery.cleditor.js')}}" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var options = {
+            width: "100%",
+            height: 500,
+            controls: "bold italic underline strikethrough subscript superscript | font size " +
+                "style | color highlight removeformat | bullets numbering | outdent " +
+                "indent | alignleft center alignright justify | undo redo | " +
+                "rule link image unlink | cut copy paste pastetext | print source"
+        };
+
+        var editor = $("#description").cleditor(options)[0];
+    });
+</script>
 <script>
     function slugify(text) {
         return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-');
     }
-    function createSlug(str){
+    function createSlug(str) {
         $('#seo_title').val(str)
         var slug = slugify(str);
         $("#slug").val(slug);
     }
 </script>
-<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+{{--
+<script src="https://cdn.tiny.cloud/1/qct6i34mva10zv33t1mg214nd0ys74jfca2vuxzp6zajhtvl/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
-  tinymce.init({
-    selector: '#description',
-    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-    tinycomments_mode: 'embedded',
-    tinycomments_author: 'Author name',
-    mergetags_list: [
-      { value: 'First.Name', title: 'First Name' },
-      { value: 'Email', title: 'Email' },
-    ],
-    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
-  });
+    tinymce.init({
+        selector: '#description',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+        tinycomments_mode: 'embedded',
+        tinycomments_author: 'Author name',
+        mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+        ],
+        ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+    });
 </script>
+--}}
 @stop

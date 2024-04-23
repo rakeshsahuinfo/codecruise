@@ -1,6 +1,10 @@
 @extends('layouts.admin.master')
 @section('title','CODECRUISE | EDIT PROMO SESSION')
 @section('headasset')
+<link href="{{asset('admin/assets/editor/Content/cleditor/jquery.cleditor.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/assets/editor/Content/Site.css" rel="stylesheet')}}" type="text/css" />
+<link href="{{asset('admin/assets/editor/Content/cleditor/jquery.cleditor.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('admin/assets/editor/Content/Site.css" rel="stylesheet')}}" type="text/css" />
 @stop
 @section('content')
 @include('admin.top-nav')
@@ -50,11 +54,16 @@
                                             <select name="promo_type" id="promo_type" class="selectpicker form-control"
                                                 required>
                                                 <option value="" selected>Select</option>
-                                                <option value="session" {{$proses->promo_type=="session"?"selected":""}}>promo-session</option>
-                                                <option value="webinar" {{$proses->promo_type=="webinar"?"selected":""}}>promo-webinar</option>
-                                                <option value="seminar" {{$proses->promo_type=="seminar"?"selected":""}}>promo-seminar</option>
-                                                <option value="enroll" {{$proses->promo_type=="enroll"?"selected":""}}>promo-enroll</option>
-                                                <option value="event" {{$proses->promo_type=="event"?"selected":""}}>promo-event</option>
+                                                <option value="session" {{$proses->
+                                                    promo_type=="session"?"selected":""}}>promo-session</option>
+                                                <option value="webinar" {{$proses->
+                                                    promo_type=="webinar"?"selected":""}}>promo-webinar</option>
+                                                <option value="seminar" {{$proses->
+                                                    promo_type=="seminar"?"selected":""}}>promo-seminar</option>
+                                                <option value="enroll" {{$proses->
+                                                    promo_type=="enroll"?"selected":""}}>promo-enroll</option>
+                                                <option value="event" {{$proses->
+                                                    promo_type=="event"?"selected":""}}>promo-event</option>
                                             </select>
                                         </div>
                                         <div class="form-group w-100  my-4">
@@ -150,8 +159,24 @@
 </div>
 @stop
 @section('jsscript')
-<script src="https://cdn.tiny.cloud/1/qct6i34mva10zv33t1mg214nd0ys74jfca2vuxzp6zajhtvl/tinymce/7/tinymce.min.js"
-    referrerpolicy="origin"></script>
+<script src="{{asset('admin/assets/editor/Scripts/jquery-1.6.3.js')}}" type="text/javascript"></script>
+<script src="{{asset('admin/assets/editor/Scripts/jquery.cleditor.js')}}" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var options = {
+            width: "100%",
+            height: 500,
+            controls: "bold italic underline strikethrough subscript superscript | font size " +
+                "style | color highlight removeformat | bullets numbering | outdent " +
+                "indent | alignleft center alignright justify | undo redo | " +
+                "rule link image unlink | cut copy paste pastetext | print source"
+        };
+
+        var editor = $("#description").cleditor(options)[0];
+    });
+</script>
 <script>
     function slugify(text) {
         return text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/[\s_]+/g, '-');
@@ -162,7 +187,10 @@
         $("#slug").val(slug);
     }
 </script>
-<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+{{--
+<script src="https://cdn.tiny.cloud/1/qct6i34mva10zv33t1mg214nd0ys74jfca2vuxzp6zajhtvl/tinymce/7/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
 <script>
     tinymce.init({
         selector: '#description',
@@ -177,4 +205,5 @@
         ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
     });
 </script>
+--}}
 @stop

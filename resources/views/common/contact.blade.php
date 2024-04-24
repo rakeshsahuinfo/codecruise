@@ -159,11 +159,11 @@
                                         multiple)--}}</label>
                                     <select name="course_ids[]" id="myexampleCourse"
                                         class="multiple nice-select form-control form-select style-white" multiple style="height: 150px;">
+                                        <option value="" selected>You are interest in ?</option>
                                         @php
                                         $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
                                         @endphp
                                         @foreach($courseTypes as $courseType)
-                                        <option value="" disabled selected hidden>Your interest*</option>
                                         <optgroup label="{{ $courseType->name }}">
                                             @php
                                             $allcourses = App\Models\Course::where('course_type_id',

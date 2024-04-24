@@ -46,53 +46,127 @@
 Event Area  
 ==============================-->
 <section class="">
-    <br/>
-        <div class="container z-index-common">
-           
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="title-area text-center">
+    <br />
+    <div class="container z-index-common">
+
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="title-area text-center">
                     <span class="sub-title"><i class="fal fa-book me-2"></i>Fetaured Events</span>
                     <h2 class="sec-title">Upcoming <span class="text-theme fw-light">Sessions</span></h2>
                 </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="event-card2">
-                        <!-- <div class="event-card2_img">
+            </div>
+            <div class="col-xl-6">
+                <div class="event-card2">
+                    <!-- <div class="event-card2_img">
                             <img src="{{asset('common/assets/img/update1/event/event_1_1.jpg')}}" alt="event">
                         </div> -->
-                        <div class="event-card2_content">
-                            <div class="event-meta">
-                                <p><i class="fal fa-location-dot"></i>New Batch starting from</p>
-                                <p><i class="fal fa-date"></i>05th May 2024</p>
-                                <p><i class="fal fa-clock"></i>10:00 AM </p>
-                            </div>
-                            <h3 class="event-card2_title"><a href="https://codecruise.in/course/data-science">Certification course on Data Science and Data Analytics</a></h3>
-                            <div class="event-card2_bottom">
-                                <a href="https://codecruise.in/course/data-science" class="th-btn">Enroll Now</a>
-                                <div class="event-author">
-                                    <div class="avater">
-                                        <img src="{{asset('common/assets/img/update1/event/1684322924622.jpg')}}" alt="avater">
-                                    </div>
-                                    <span class="author-name">Amer Syed</span>
+                    <div class="event-card2_content">
+                        <div class="event-meta">
+                            <p><i class="fal fa-location-dot"></i>New Batch starting from</p>
+                            <p><i class="fal fa-date"></i>05th May 2024</p>
+                            <p><i class="fal fa-clock"></i>10:00 AM </p>
+                        </div>
+                        <h3 class="event-card2_title"><a href="https://codecruise.in/course/data-science">Certification
+                                course on Data Science and Data Analytics</a></h3>
+                        <div class="event-card2_bottom">
+                            <a href="https://codecruise.in/course/data-science" class="th-btn">Enroll Now</a>
+                            <div class="event-author">
+                                <div class="avater">
+                                    <img src="{{asset('common/assets/img/update1/event/1684322924622.jpg')}}"
+                                        alt="avater">
                                 </div>
+                                <span class="author-name">Amer Syed</span>
                             </div>
                         </div>
-
                     </div>
-                </div>                
+
+                </div>
             </div>
-            <!-- <div class="text-center mt-20 mt-xl-5">
+        </div>
+        <!-- <div class="text-center mt-20 mt-xl-5">
                 <a href="event.html" class="th-btn">View All Events<i class="fas fa-arrow-right ms-2"></i></a>
             </div> -->
+    </div>
+    <div class="shape-mockup jump d-none d-md-block" data-top="0%" data-left="0%"><img
+            src="{{asset('common/assets/img/update1/shape/dot_shape_3.png')}}" alt="shapes"></div>
+    <div class="shape-mockup jump d-none d-md-block" data-top="4%" data-right="0%"><img
+            src="{{asset('common/assets/img/update1/shape/cloud_1.png')}}" alt="shapes"></div>
+    <div class="shape-mockup jump-reverse d-none d-md-block" data-top="8%" data-right="0%"><img
+            src="{{asset('common/assets/img/update1/shape/cloud_2.png')}}" alt="shapes"></div>
+</section>
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Column with Information -->
+        <div class="col-md-7">
+            <div class="card mb-4">
+                <div class="card-body px-4">
+                    <h2 class="sub-title">Unlock Your Future with Data Science, Business Analytics, and Cloud
+                        Certification</h2>
+                    <p class="card-text">Are you ready to dive into the world of data and drive meaningful insights for
+                        businesses? Our comprehensive program in Data Science and Business Analytics, coupled with AWS
+                        and Azure cloud certification, is your gateway to a rewarding career in the digital age.</p>
+                    <ul>
+                        <li>Master statistical analysis, machine learning, and data visualization.</li>
+                        <li>Gain hands-on experience with AWS and Azure cloud platforms.</li>
+                        <li>Learn to leverage the power of cloud computing for scalable data solutions.</li>
+                        <li>Join a thriving community of data enthusiasts and network with industry leaders.</li>
+                    </ul>
+                    <p>Don't just analyze data, transform it into actionable insights on the cloud. Start your journey
+                        today!</p>
+                    <h2 class="sub-title">Elevate Your Career with Full Stack Development, Cloud DevOps, and AWS/Azure
+                        Certification</h2>
+                    <p class="card-text">Ready to revolutionize the way we build and deploy applications? Our dynamic
+                        program in Full Stack Development and Cloud DevOps, combined with AWS and Azure certification,
+                        is your ticket to success in the rapidly evolving tech industry.</p>
+                    <ul>
+                        <li>Acquire proficiency in front-end and back-end development technologies.</li>
+                        <li>Learn to design, build, and deploy scalable cloud-based solutions on AWS and Azure.</li>
+                        <li>Explore best practices in DevOps, automation, and CI/CD pipelines.</li>
+                        <li>Collaborate with industry experts and work on cutting-edge projects.</li>
+                    </ul>
+                    <p>Seize the opportunity to become a versatile developer and cloud architect certified on AWS and
+                        Azure. Transform your career trajectory today!</p>
+                </div>
+            </div>
         </div>
-        <div class="shape-mockup jump d-none d-md-block" data-top="0%" data-left="0%"><img src="{{asset('common/assets/img/update1/shape/dot_shape_3.png')}}" alt="shapes"></div>
-        <div class="shape-mockup jump d-none d-md-block" data-top="4%" data-right="0%"><img src="{{asset('common/assets/img/update1/shape/cloud_1.png')}}" alt="shapes"></div>
-        <div class="shape-mockup jump-reverse d-none d-md-block" data-top="8%" data-right="0%"><img src="{{asset('common/assets/img/update1/shape/cloud_2.png')}}" alt="shapes"></div>
-    </section>    
+
+        <!-- Right Column with Carousel -->
+        <div class="col-md-5">
+
+            <div class="row slider-shadow th-carousel course-slider-1" data-slide-show="1" data-ml-slide-show="1"
+                data-lg-slide-show="1" data-md-slide-show="1" data-sm-slide-show="1" data-arrows="false">
+                <div class="col-md-12 col-xl-12">
+                    <div class="course-box style2">
+                        <div class="course-img1">
+                            <img src="{{asset('common/assets/img/advertise/slide1.jpeg')}}" alt="course">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xl-12">
+                    <div class="course-box style2">
+                        <div class="course-img1">
+                            <img src="{{asset('common/assets/img/advertise/slide2.jpeg')}}" alt="course">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xl-12">
+                    <div class="course-box style2">
+                        <div class="course-img1">
+                            <img src="{{asset('common/assets/img/advertise/slide3.jpeg')}}" alt="course">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="space-top">
     <div class="container">
-        
+
         <div class="category-sec-wrap">
             <div class="shape-mockup category-shape-arrow d-xl-block d-none">
                 <img src="{{asset('common/assets/img/normal/category-arrow.svg')}}" alt="img">
@@ -161,8 +235,8 @@ Event Area
         </div>
         @php
         $course=App\Models\Course::where('is_active', 1)->where(function($queryBuilder) {
-            $queryBuilder->where('course_type_id', 1)
-            ->orWhere('course_type_id', 2);
+        $queryBuilder->where('course_type_id', 1)
+        ->orWhere('course_type_id', 2);
         })
         ->orderBy('name', 'asc')
         ->get();
@@ -185,7 +259,8 @@ Event Area
                                 {{-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
                                 <a href="course.html" class="author-name">Kevin Perry</a> --}}
                                 @if($c->apply_fee==1)
-                                <span class="text-theme fs-6 fees">Fees: <span class="text-dark fees">{{$c->course_fee}}</span></span>
+                                <span class="text-theme fs-6 fees">Fees: <span
+                                        class="text-dark fees">{{$c->course_fee}}</span></span>
                                 @endif
                                 <span class="pill bg-warning text-white px-2 fs-6 discount">
                                     @if($c->apply_discount==1)
@@ -212,7 +287,7 @@ Event Area
             @endforeach
             @endif
         </div>
-        
+
     </div>
 </section>
 <!--==============================
@@ -508,7 +583,7 @@ Event Area
                     </div> -->
                     <div class="team-img-wrap">
                         <div class="team-social">
-                             <!--<a href="#" class="icon-btn">
+                            <!--<a href="#" class="icon-btn">
                                 <i class="far fa-plus"></i>
                             </a>
                             <div class="th-social">

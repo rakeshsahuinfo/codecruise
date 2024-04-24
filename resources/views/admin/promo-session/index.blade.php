@@ -74,7 +74,10 @@
                                     <td>{{$ps->promo_type}}</td>
                                     <td>{{$ps->name}}</td>
                                     <td>{!! $ps->description !!}</td>
-                                    <td>https://codecruise.in/promo/{{$ps->promo_type}}/{{$ps->slug}}</td>
+                                    <td>
+                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/promo/'.$ps->slug) !!}<br><br>
+                                        https://codecruise.in/promo/{{$ps->promo_type}}/{{$ps->slug}}
+                                    </td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('promo_banner/' . $ps->promo_banner) }}" alt="Promo Banner">
                                     </td>

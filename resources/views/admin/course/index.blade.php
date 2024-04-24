@@ -45,6 +45,8 @@
                                     <th>DeliveryMode</th>
                                     <th>Fees</th>
                                     <th>Discount</th>
+                                    <th>CourseInfoLink</th>
+                                    <th>CourseEnrollLink</th>
                                     <th>Banner</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
@@ -61,6 +63,8 @@
                                     <th>DeliveryMode</th>
                                     <th>Fees</th>
                                     <th>Discount</th>
+                                    <th>CourseInfoLink</th>
+                                    <th>CourseEnrollLink</th>
                                     <th>Banner</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
@@ -86,15 +90,23 @@
                                     <td>{{$c->name}}</td>
                                     <td>{{$c->course_type_name}}</td>
                                     <td>{!! $c->description !!}</td>
-                                    <th>{{$c->course_duration}}</th>
-                                    <th>{{$c->class_schedule}}</th>
-                                    <th>{{$c->delivery_mode}}</th>
-                                    <th>{{$c->course_fee}}<br>
-                                        <b>Applied:</b>{{$c->apply_fee==1?"Yes":"No"}}</th>
-                                    <th>
+                                    <td>{{$c->course_duration}}</td>
+                                    <td>{{$c->class_schedule}}</td>
+                                    <td>{{$c->delivery_mode}}</td>
+                                    <td>{{$c->course_fee}}<br>
+                                        <b>Applied:</b>{{$c->apply_fee==1?"Yes":"No"}}</td>
+                                    <td>
                                         {{$c->current_discount}}<br>
                                         <b>Applied:</b>{{$c->apply_discount==1?"Yes":"No"}}
-                                    </th>
+                                    </td>
+                                    <td>
+                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/course/'.$c->slug) !!}<br><br>
+                                        https://codecruise.in/course/{{$c->slug}}
+                                    </td>
+                                    <td>
+                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/enroll-course/'.$c->slug) !!}<br><br>
+                                        https://codecruise.in/enroll-course/{{$c->slug}}
+                                    </td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('course_banner/' . $c->course_banner) }}" alt="Main Banner">
                                     </td>

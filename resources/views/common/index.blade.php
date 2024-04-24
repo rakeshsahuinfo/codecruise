@@ -68,7 +68,7 @@ Event Area
                             <p><i class="fal fa-clock"></i>10:00 AM </p>
                         </div>
                         <h3 class="event-card2_title"><a href="https://codecruise.in/course/data-science">Certification
-                                course on Data Science and Data Analytics</a></h3>
+                                course in Data Science and Data Analytics</a></h3>
                         <div class="event-card2_bottom">
                             <a href="https://codecruise.in/course/data-science" class="th-btn">Enroll Now</a>
                             <div class="event-author">

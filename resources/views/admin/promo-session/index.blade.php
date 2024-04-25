@@ -75,7 +75,7 @@
                                     <td>{{$ps->name}}</td>
                                     <td>{!! $ps->description !!}</td>
                                     <td>
-                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/promo/'.$ps->slug) !!}<br><br>
+                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/promo/'.$ps->promo_type.'/'.$ps->slug) !!}<br><br>
                                         https://codecruise.in/promo/{{$ps->promo_type}}/{{$ps->slug}}
                                     </td>
                                     <td>

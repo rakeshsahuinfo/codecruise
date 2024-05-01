@@ -25,6 +25,10 @@ class PromoSessionRegistrationController extends Controller
 
     public function registerPromoSession(Request $request){
         try {
+            $checkreg=PromoSessionRegistration::where('email',$request->input('email'))->where('contact',$request->input('contact'))->where('promo_session_id',$request->input('promo_session_id'))->first();
+            if($checkreg){
+                return redirect('/')->with(['msg' => 'Registered for the Session Successfully', 'status' => 'success']);
+            }
             $proses=PromoSession::find($request->input('promo_session_id'));
             $prosesr = new PromoSessionRegistration();
             $prosesr->name = $request->input('name');
@@ -40,7 +44,7 @@ class PromoSessionRegistrationController extends Controller
             }
             $prosesr->save();
 
-            return redirect('/')->with(['msg' => 'Registered for the Session successfully', 'status' => 'success']);
+            return redirect('/')->with(['msg' => 'Registered for the Session Successfully', 'status' => 'success']);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Registeration failed try again', 'status' => 'danger']);
         }

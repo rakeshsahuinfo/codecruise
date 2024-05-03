@@ -128,7 +128,7 @@ class PromoSessionController extends Controller
 
             CourseTypeController::storeSEODetail($request, 'promo_session', $proses->id);
 
-            return redirect('/admin/promo-session')->with(["msg" => "prmo Session Updated", "status" => "success"]);
+            return redirect('/admin/promo-session')->with(["msg" => "Promo Session Updated", "status" => "success"]);
         } catch (Exception $ex) {
             Log::info($ex);
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);

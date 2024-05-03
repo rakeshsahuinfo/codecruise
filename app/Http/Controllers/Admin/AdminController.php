@@ -3,19 +3,26 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PromoSessionRegistration;
 use App\Models\User;
 use App\Models\UserQuery;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Log;
+use League\Csv\Writer;
 
 class AdminController extends Controller
 {
-    public function adminLogin(){
+    public function adminLogin()
+    {
         return view('admin.login');
     }
 
-    public function signIn(Request $request){
+    public function signIn(Request $request)
+    {
         // return $request;
         $credentials = ['email' => $request->email, 'password' => $request->password];
         $user = User::where('email', $request->email)->first();
@@ -31,17 +38,38 @@ class AdminController extends Controller
         }
     }
 
-    public function signOut(){
+    public function signOut()
+    {
         auth()->logout();
         return redirect('/admin-login')->with(['msg' => 'Logged out', 'status' => 'success']);
     }
 
-    public function dashboard(){
-        try{
-            $uq=UserQuery::orderBy('created_at','desc')->get();
-            return view('admin.dashboard',['user_query'=>$uq]);
-        }catch(Exception $ex){
+    public function dashboard()
+    {
+        try {
+            $uq = UserQuery::orderBy('created_at', 'desc')->get();
+            return view('admin.dashboard', ['user_query' => $uq]);
+        } catch (Exception $ex) {
             Log::info("Something went wrong");
         }
+    }
+
+    //Download Reg Candidate
+    public function downloadRegCandidate()
+    {
+
+        $data = DB::select("SELECT name, email, contact FROM user_query UNION SELECT name, email, contact FROM promo_session_registration");
+
+        $csv = Writer::createFromString('');
+        $csv->insertOne(['name', 'email', 'contact']);
+
+        foreach ($data as $row) {
+            // Cast object to array directly
+            $csv->insertOne((array) $row);
+        }
+
+        return response()->streamDownload(function () use ($csv) {
+            echo $csv->toString();
+        }, 'reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
     }
 }

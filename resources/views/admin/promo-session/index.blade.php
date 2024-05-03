@@ -83,7 +83,7 @@
                                     </td>
                                     <td>{{$ps->apply_message==1?"Yes":"No"}}</td>
                                     <td>{{$ps->is_active==1?"Active":"Inactive"}}</td>
-                                    <td>{{\Carbon\Carbon::parse($ps->created_at)->format('d-M-y')}}</td>
+                                    <td>{{ \Carbon\Carbon::parse($ps->created_at)->timezone('Asia/Kolkata')->format('d-M-y h:i A') }}</td>
                                 </tr>
                                 @endforeach
                                 @endif

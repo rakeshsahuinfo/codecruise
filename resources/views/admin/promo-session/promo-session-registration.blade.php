@@ -60,7 +60,7 @@
                                     <td>{{$psr->contact}}</td>
                                     <td>{{$psr->company_college_name}}</td>
                                     <td>{{$psr->message}}</td>
-                                    <td>{{Carbon\Carbon::parse($psr->created_at)->format('d-M-y')}}</td>
+                                    <td>{{ \Carbon\Carbon::parse($psr->created_at)->timezone('Asia/Kolkata')->format('d-M-y h:i A') }}</td>
                                 </tr>
                                 @endforeach
                                 @endif

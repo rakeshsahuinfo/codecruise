@@ -16,9 +16,13 @@ class FeedbackAuthController extends Controller
     public function redirectToGoogle($slug)
     {
         try {
-            $ps = PromoSession::where('slug', $slug)->first();
-            Session::put('promo_session_id', $ps->id);
-            return Socialite::driver('google')->redirect();
+            $ps = PromoSession::where('slug', $slug)->where('is_active',1)->first();
+            if($ps){
+                Session::put('promo_session_id', $ps->id);
+                return Socialite::driver('google')->redirect();
+            }else{
+                return redirect('/')->with(['msg' => 'Sorry! we are no longer accepting feedback', 'status' => 'danger']); 
+            }
         } catch (Exception $e) {
             return redirect('/');
         }
@@ -54,7 +58,7 @@ class FeedbackAuthController extends Controller
             $ufbcheck=UserFeedback::where('email',$request->email)->where('promo_session_id',$request->promo_session_id)->first();
             if($ufbcheck){
                 Session::forget('promo_session_id');
-                return redirect('/')->with(['msg' => 'You Have Already Submitted Your Feedback', 'status' => 'success']);
+                return redirect('/')->with(['msg' => 'You Have Already Submitted Your Feedback', 'status' => 'danger']);
             }
             $ufb=new UserFeedback($request->all());
             if($ufb->save()){

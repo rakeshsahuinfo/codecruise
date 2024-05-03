@@ -38,7 +38,6 @@ Route::get('/webinars', [LandingPageController::class, 'Webinars'])->name('webin
 //Feedback
 Route::get('/feedback/{slug}', [FeedbackAuthController::class, 'redirectToGoogle']);
 Route::get('/feedback/auth/google/callback', [FeedbackAuthController::class, 'handleGoogleCallback']);
-Route::get('/feedback-for-promo-session',[FeedbackAuthController::class,'feedbackForPromoSession'])->name('feedback-for-promo-session');
 
 Route::get('/admin-login', [AdminController::class, 'adminLogin'])->name('login');
 Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-sign-in');

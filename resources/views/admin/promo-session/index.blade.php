@@ -70,6 +70,9 @@
                                             <a href="{{route('edit-promo-session',$ps->id)}}" title="Edit Promo Session" class='mx-4 text-primary'><i class='fas fa-edit'></i></a>
                                             <a href="{{route('edit-course',$ps->id)}}" title="Delete Course" class='text-danger'><i class='fas fa-trash'></i></a>
                                         </div>
+                                        <div class='d-flex mt-2'>
+                                            <a href="{{route('download-promo-candidate',$ps->id)}}" title="Download Registered Candidates" class='text-success'><i class='fas fa-download'></i></a>                               
+                                        </div>
                                     </td>
                                     <td>{{$ps->promo_type}}</td>
                                     <td>{{$ps->name}}</td>

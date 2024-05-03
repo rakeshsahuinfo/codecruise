@@ -148,7 +148,7 @@
 		};
 		initChatWidget(helloConfig, 100)
 	</script>
-	
+
 	<script src="{{asset('common/assets/js/whatsapp/floating-wpp.min.js')}}"></script>
 	<script src="{{asset('common/assets/js/whatsapp/floating-wpp.js')}}"></script>
 	<script type="text/javascript">

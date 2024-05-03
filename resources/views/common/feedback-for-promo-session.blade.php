@@ -2,8 +2,10 @@
 @section('title','Feedback')
 @section('headasset')
 <style>
-    .error{
-        padding-left: 5px;padding-top:5px;color:teal;
+    .error {
+        padding-left: 5px;
+        padding-top: 5px;
+        color: teal;
     }
 </style>
 @stop
@@ -78,56 +80,96 @@
         </div>
         --}}
         <div class="row">
-            
+
             <div class="col-xl-8 offset-xl-2">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">Give Your Feedback!</span>
+                    <span class="sub-title">Please Give Your Feedback!</span>
                     <h4>{{$ps->name}}</h4>
                     <p class="mt-n1 mb-30 sec-text"></p>
-                    <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
+                    <form id="contact-form" method="post" action="{{ route('save-feedback') }}" class="contact-form">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control style-white" name="name" id="name"
-                                        placeholder="Your Name*" value="{{$name}}">
+                                        placeholder="Your Name*" value="{{ $name }}">
                                     <i class="fal fa-user"></i>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="email" class="form-control style-white" name="email" id="email"
-                                        placeholder="Email ID*" value="{{$email}}">
+                                        placeholder="Email ID*" value="{{ $email }}">
                                     <i class="fal fa-envelope"></i>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control style-white" name="alternate_email"
-                                        id="alternate_email" placeholder="Altername Email ID">
+                                        id="alternate_email" placeholder="Alternate Email ID">
                                     <i class="fal fa-building"></i>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <input type="tel" class="form-control style-white" name="contact" id="contact"
-                                        placeholder="Phone Number*" value="{{$contact}}">
+                                        placeholder="Phone Number*" value="{{ $contact }}">
                                     <i class="fal fa-phone"></i>
                                 </div>
                             </div>
-                         
-                          
-                            <div class="col-12">
-                                <div class="form-group ">
-                                    <textarea name="message" id="message" cols="30" rows="3"
-                                        class="form-control style-white" placeholder="Your Message"></textarea>
-                                    <i class="fal fa-pen"></i>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="session_rating">Overall, how would you rate the session? (1-10)</label>
+                                    <input type="number" class="form-control style-white" name="session_rating"
+                                        id="session_rating" min="1" max="10" required>
                                 </div>
                             </div>
-                            <input type="hidden" name="promo_session_id" value="{{$ps->id}}">
-                            <input type="hidden" name="user_type" value="{{$user_type}}">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="presentation_rating">How engaging was the presentation by the speaker?
+                                        (1-10)</label>
+                                    <input type="number" class="form-control style-white" name="presentation_rating"
+                                        id="presentation_rating" min="1" max="10" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="favorite_part">What was your favorite part of the session?</label>
+                                    <textarea class="form-control style-white" name="favorite_part" id="favorite_part"
+                                        rows="2"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="recommended_topic">What topics would you recommend for future
+                                        events?</label>
+                                    <input type="text" class="form-control style-white" name="recommended_topic"
+                                        id="recommended_topic">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="recommend_other">Would you recommend this session to a friend or
+                                        colleague?</label>
+                                    <select class="form-control style-white" name="recommend_other" id="recommend_other"
+                                        required>
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="suggestion">Any additional comments or suggestions?</label>
+                                    <textarea class="form-control style-white" name="suggestion" id="suggestion"
+                                        rows="2"></textarea>
+                                </div>
+                            </div>
+                            <input type="hidden" name="promo_session_id" value="{{ $ps->id }}">
+                            <input type="hidden" name="user_type" value="{{ $user_type }}">
                             <div class="form-btn col-12 mt-10">
-                                <button type="submit" class="th-btn">Submit<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Submit<i
+                                        class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

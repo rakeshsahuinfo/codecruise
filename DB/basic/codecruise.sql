@@ -135,3 +135,22 @@ create table promo_session_registration(
     updated_at timestamp default current_timestamp,
     foreign key(promo_session_id) references promo_sessions(id)
 );
+
+create table user_feedback(
+   id bigint primary key auto_increment,
+    name varchar(255),
+    email varchar(255),
+    alternate_email varchar(255),
+    contact varchar(255),
+    user_type varchar(255),
+    promo_session_id bigint,
+    session_rating int,
+    presentation_rating int,
+    favorite_part text,
+    recommended_topic varchar(255),
+    recommend_other boolean,
+    suggestion text,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    foreign key(promo_session_id) references promo_sessions(id)
+);

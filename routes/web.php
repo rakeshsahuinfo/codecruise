@@ -38,6 +38,7 @@ Route::get('/webinars', [LandingPageController::class, 'Webinars'])->name('webin
 //Feedback
 Route::get('/feedback/{slug}', [FeedbackAuthController::class, 'redirectToGoogle']);
 Route::get('/feedback/auth/google/callback', [FeedbackAuthController::class, 'handleGoogleCallback']);
+Route::post('/feedback/save-feedback', [FeedbackAuthController::class, 'saveFeedback'])->name('save-feedback');
 
 Route::get('/admin-login', [AdminController::class, 'adminLogin'])->name('login');
 Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-sign-in');
@@ -80,6 +81,7 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/show-promo-session/{id}', [AdminPromoSessionController::class, 'index'])->name('show-promo-session');
 
     Route::get('/show-promo-session-registration/{id}', [AdminPromoSessionController::class, 'showRegistrations'])->name('show-promo-session-registration');
+    Route::get('/show-promo-session-feedback/{id}', [AdminPromoSessionController::class, 'showFeedback'])->name('show-promo-session-feedback');
 
     Route::get('/download-reg-candidate', [AdminController::class, 'downloadRegCandidate'])->name('download-reg-candidate');
     Route::get('/download-inquiry-candidate', [AdminController::class, 'downloadInquiryCandidate'])->name('download-inquiry-candidate');

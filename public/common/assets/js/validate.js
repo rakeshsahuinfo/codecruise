@@ -26,6 +26,7 @@ $(document).ready(function (e) {
         },
         messages: {
             contact: {
+                minlength: "Number should not be less then 10 digits",
                 maxlength: "Number should not exceed 10 digits"
             },
             email: {

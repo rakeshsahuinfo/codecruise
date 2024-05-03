@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PromoSession;
 use App\Models\PromoSessionRegistration;
 use App\Models\SEODetail;
+use App\Models\UserFeedback;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -143,6 +144,16 @@ class PromoSessionController extends Controller
             $proses = PromoSession::find($promo_session_id);
             $prosesreg = PromoSessionRegistration::where('promo_session_id', $promo_session_id)->orderBy('created_at', 'desc')->get();
             return view('admin.promo-session.promo-session-registration', ['proses' => $proses, 'prosesreg' => $prosesreg]);
+        } catch (Exception $ex) {
+            Log::info("Something went wrong");
+        }
+    }
+
+    public function showFeedback($promo_session_id){
+        try {
+            $proses = PromoSession::find($promo_session_id);
+            $prosesfb = UserFeedback::where('promo_session_id', $promo_session_id)->orderBy('created_at', 'desc')->get();
+            return view('admin.promo-session.promo-session-feedback', ['proses' => $proses, 'prosesfb' => $prosesfb]);
         } catch (Exception $ex) {
             Log::info("Something went wrong");
         }

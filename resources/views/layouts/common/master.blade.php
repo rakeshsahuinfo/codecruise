@@ -63,7 +63,7 @@
 <body>
 	<div id="myWapButton"></div>
 	@if(session('msg'))
-	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 20%;z-index:9999;">
+	<div class="position-fixed top-50 start-50 translate-middle" style="width: 50%; height: 25%;z-index:9999;">
 		<div class="alert alert-{{ session('status') }} alert-dismissible fade show text-center" role="alert"
 			style="height: 100%;padding-top:10%;font-size: 22px;background-color: azure;">
 			{{ session('msg') }}

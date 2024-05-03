@@ -8,9 +8,53 @@
         color: teal;
     }
 
+    .rating {
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .rating i {
+        font-size: 20px;
+        color: #ddd;
+        margin: 0 25px;
+        /* Adjust spacing between stars */
+        position: relative;
+    }
+
+    .rating i.active {
+        font-size: 20px;
+        color: orange;
+    }
+
+    .rating-labels {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+
     @media only screen and (max-width: 768px) {
         .feedback-section {
             margin-top: -100px;
+        }
+
+        .rating {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .rating i {
+            font-size: 18px;
+            color: #ddd;
+            margin: 0 4px;
+            /* Adjust spacing between stars */
+            position: relative;
+        }
+
+        .rating i.active {
+            font-size: 18px;
+            color: orange;
         }
     }
 </style>
@@ -123,7 +167,7 @@
                                     <i class="fal fa-phone"></i>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            {{--<div class="col-md-12">
                                 <div class="form-group">
                                     <label for="session_rating">Overall, how would you rate the session? (1-10)</label>
                                     <input type="number" class="form-control style-white" name="session_rating"
@@ -137,7 +181,40 @@
                                     <input type="number" class="form-control style-white" name="presentation_rating"
                                         id="presentation_rating" min="1" max="10" required>
                                 </div>
+                            </div> --}}
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="session_rating">Overall, how would you rate the session? (1-10)</label>
+                                    <input type="hidden" name="session_rating" id="session_rating" required>
+                                    <div class="d-flex flex-column">
+                                        <div class="rating text-center" id="session_rating_stars">
+                                            <!-- Generate stars here using JavaScript -->
+                                        </div>
+                                        <div class="rating-labels">
+                                            <div>poor</div>
+                                            <div>excellent</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="presentation_rating">How engaging was the presentation by the speaker?
+                                        (1-10)</label>
+                                    <input type="hidden" name="presentation_rating" id="presentation_rating" required>
+                                    <div class="d-flex flex-column">
+                                        <div class="rating text-center" id="presentation_rating_stars">
+                                            <!-- Generate stars here using JavaScript -->
+                                        </div>
+                                        <div class="rating-labels">
+                                            <div>poor</div>
+                                            <div>excellent</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="favorite_part">What was your favorite part of the session?</label>
@@ -145,6 +222,7 @@
                                         rows="2"></textarea>
                                 </div>
                             </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="recommended_topic">What topics would you recommend for future
@@ -153,6 +231,7 @@
                                         id="recommended_topic">
                                 </div>
                             </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="recommend_other">Would you recommend this session to a friend or
@@ -164,6 +243,7 @@
                                     </select>
                                 </div>
                             </div>
+                            
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="suggestion">Any additional comments or suggestions?</label>
@@ -212,4 +292,26 @@
 <script src="{{asset('common/assets/js/jquery.validate.min.js')}}"></script>
 <script src="{{asset('common/assets/js/validate.js')}}"></script>
 <script src="{{asset('common/assets/js/myscript.js')}}"></script>
+<script>
+    // Function to generate stars
+    function generateStars(container, inputName) {
+        for (let i = 1; i <= 10; i++) {
+            $(container).append(`<i class="fas fa-star" data-value="${i}"></i>`);
+        }
+        $(container).on('click', 'i', function () {
+            const value = $(this).data('value');
+            // Toggle active class for clicked star and preceding stars
+            $(this).addClass('active').prevAll('i').addClass('active');
+            // Remove active class from succeeding stars
+            $(this).nextAll('i').removeClass('active');
+            $(`input[name="${inputName}"]`).val(value);
+        });
+    }
+
+    // Call the function for session rating stars
+    generateStars('#session_rating_stars', 'session_rating');
+
+    // Call the function for presentation rating stars
+    generateStars('#presentation_rating_stars', 'presentation_rating');
+</script>
 @stop

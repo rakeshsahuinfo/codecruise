@@ -40,7 +40,7 @@
                                     <th>PromoType</th>
                                     <th>Name</th>
                                     <th>Description</th>
-                                    <th>RegistrationLink</th>
+                                    <th>RegistrationFeedbackLink</th>
                                     <th>PromoBanner</th>
                                     <th>CollectMessage</th>
                                     <th>Status</th>
@@ -53,7 +53,7 @@
                                     <th>PromoType</th>
                                     <th>Name</th>
                                     <th>Description</th>
-                                    <th>RegistrationLink</th>
+                                    <th>RegistrationFeedbackLink</th>
                                     <th>PromoBanner</th>
                                     <th>CollectMessage</th>
                                     <th>Status</th>
@@ -79,7 +79,8 @@
                                     <td>{!! $ps->description !!}</td>
                                     <td>
                                         {!! QrCode::size(200)->generate( 'https://codecruise.in/promo/'.$ps->promo_type.'/'.$ps->slug) !!}<br><br>
-                                        https://codecruise.in/promo/{{$ps->promo_type}}/{{$ps->slug}}
+                                        https://codecruise.in/promo/{{$ps->promo_type}}/{{$ps->slug}}<br><br>
+                                        https://codecruise.in/feedback/{{$ps->slug}}
                                     </td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('promo_banner/' . $ps->promo_banner) }}" alt="Promo Banner">

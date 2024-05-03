@@ -13,6 +13,9 @@
         <main>
             <div class="container-fluid px-4">
                 <h3 class="mt-4 text-uppercase">User Registrations</h3>
+                <div class="action-container">
+                    <a href="{{route('download-promo-candidate',$proses->id)}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-download mx-1'></i> Download</a>
+                </div>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{route('admin-promo-session')}}">Promo Sessions</a></li>

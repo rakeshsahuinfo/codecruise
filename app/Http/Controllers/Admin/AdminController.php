@@ -54,7 +54,7 @@ class AdminController extends Controller
         }
     }
 
-    //Download Reg Candidate
+    //Download
     public function downloadRegCandidate()
     {
 
@@ -70,6 +70,42 @@ class AdminController extends Controller
 
         return response()->streamDownload(function () use ($csv) {
             echo $csv->toString();
-        }, 'reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
+        }, 'all_reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
+    }
+
+    public function downloadInquiryCandidate()
+    {
+
+        $data = DB::select("SELECT name, email, contact FROM user_query");
+
+        $csv = Writer::createFromString('');
+        $csv->insertOne(['name', 'email', 'contact']);
+
+        foreach ($data as $row) {
+            // Cast object to array directly
+            $csv->insertOne((array) $row);
+        }
+
+        return response()->streamDownload(function () use ($csv) {
+            echo $csv->toString();
+        }, 'inquiry_reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
+    }
+
+    public function downloadPromoCandidate($id)
+    {
+
+        $data = DB::select("SELECT name, email, contact FROM promo_session_registration where promo_session_id=$id");
+
+        $csv = Writer::createFromString('');
+        $csv->insertOne(['name', 'email', 'contact']);
+
+        foreach ($data as $row) {
+            // Cast object to array directly
+            $csv->insertOne((array) $row);
+        }
+
+        return response()->streamDownload(function () use ($csv) {
+            echo $csv->toString();
+        }, 'promo_reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
     }
 }

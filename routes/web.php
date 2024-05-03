@@ -77,6 +77,8 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/show-promo-session-registration/{id}',[AdminPromoSessionController::class,'showRegistrations'])->name('show-promo-session-registration');
 
     Route::get('/download-reg-candidate', [AdminController::class, 'downloadRegCandidate'])->name('download-reg-candidate');
+    Route::get('/download-inquiry-candidate', [AdminController::class, 'downloadInquiryCandidate'])->name('download-inquiry-candidate');
+    Route::get('/download-promo-candidate/{id}', [AdminController::class, 'downloadPromoCandidate'])->name('download-promo-candidate');
 
     Route::get('/homepage', [])->name('homepage');
 });

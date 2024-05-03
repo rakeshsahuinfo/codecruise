@@ -191,13 +191,13 @@
                                             <!-- Generate stars here using JavaScript -->
                                         </div>
                                         <div class="rating-labels">
-                                            <div>poor</div>
-                                            <div>excellent</div>
+                                            <div>Poor</div>
+                                            <div>Excellent</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="presentation_rating">How engaging was the presentation by the speaker?
@@ -208,13 +208,13 @@
                                             <!-- Generate stars here using JavaScript -->
                                         </div>
                                         <div class="rating-labels">
-                                            <div>poor</div>
-                                            <div>excellent</div>
+                                            <div>Boring</div>
+                                            <div>Very Engaging</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="favorite_part">What was your favorite part of the session?</label>
@@ -222,7 +222,7 @@
                                         rows="2"></textarea>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="recommended_topic">What topics would you recommend for future
@@ -231,7 +231,7 @@
                                         id="recommended_topic">
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="recommend_other">Would you recommend this session to a friend or
@@ -243,7 +243,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="suggestion">Any additional comments or suggestions?</label>

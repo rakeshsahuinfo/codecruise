@@ -7,6 +7,12 @@
         padding-top: 5px;
         color: teal;
     }
+
+    @media only screen and (max-width: 768px) {
+        .feedback-section {
+            margin-top: -100px;
+        }
+    }
 </style>
 @stop
 @section('content')
@@ -79,7 +85,7 @@
             </div>
         </div>
         --}}
-        <div class="row">
+        <div class="row feedback-section">
 
             <div class="col-xl-8 offset-xl-2">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">

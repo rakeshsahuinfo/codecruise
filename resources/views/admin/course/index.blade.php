@@ -101,11 +101,11 @@
                                     </td>
                                     <td>
                                         {!! QrCode::size(200)->generate( 'https://codecruise.in/course/'.$c->slug) !!}<br><br>
-                                        https://codecruise.in/course/{{$c->slug}}
+                                        {{url('/course/'.$c->slug)}}
                                     </td>
                                     <td>
                                         {!! QrCode::size(200)->generate( 'https://codecruise.in/enroll-course/'.$c->slug) !!}<br><br>
-                                        https://codecruise.in/enroll-course/{{$c->slug}}
+                                        {{url('/enroll-course/'.$c->slug)}}
                                     </td>
                                     <td>
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('course_banner/' . $c->course_banner) }}" alt="Main Banner">

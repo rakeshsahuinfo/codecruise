@@ -54,6 +54,8 @@ class PromoSessionController extends Controller
                 'name' => $request->name,
                 'slug' => $request->slug,
                 'description' => $request->description,
+                'speaker'=>$request->speaker,
+                'about_speaker'=>$request->about_speaker,
                 'promo_banner' => $imageName,
                 'apply_message' => $request->apply_message,
                 'is_active' => $request->is_active
@@ -123,6 +125,8 @@ class PromoSessionController extends Controller
             $proses->name = $request->name;
             $proses->slug = $request->slug;
             $proses->description = $request->description;
+            $proses->speaker=$request->speaker;
+            $proses->about_speaker=$request->about_speaker;
             $proses->apply_message = $request->apply_message;
             $proses->is_active = $request->is_active;
             $proses->update();

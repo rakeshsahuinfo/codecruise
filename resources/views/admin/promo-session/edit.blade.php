@@ -80,7 +80,17 @@
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Description</label>
                                             <textarea class="form-control" name="description" id="description" cols="30"
-                                                rows="5">{{$proses->description}}</textarea>
+                                                rows="25">{{$proses->description}}</textarea>
+                                        </div>
+
+                                        <div class="form-group w-100  my-4">
+                                            <label for="speaker">Speaker</label>
+                                            <input type="text" class="form-control" name="speaker" id="speaker" value="{{$proses->speaker}}">
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="about_speaker">About Speaker</label>
+                                            <input type="text" class="form-control" name="about_speaker" id="about_speaker" value="{{$proses->about_speaker}}">
                                         </div>
 
                                         <div class="form-group w-100  my-4">

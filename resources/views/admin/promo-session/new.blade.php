@@ -77,6 +77,16 @@
                                         </div>
 
                                         <div class="form-group w-100  my-4">
+                                            <label for="speaker">Speaker</label>
+                                            <input type="text" class="form-control" name="speaker" id="speaker">
+                                        </div>
+                                        
+                                        <div class="form-group w-100  my-4">
+                                            <label for="about_speaker">About Speaker</label>
+                                            <input type="text" class="form-control" name="about_speaker" id="about_speaker">
+                                        </div>
+
+                                        <div class="form-group w-100  my-4">
                                             <label for="promo_banner">Promo Banner</label>
                                             <input type="file" accept="image/*" class="form-control" name="promo_banner"
                                                 id="promo_banner" required>

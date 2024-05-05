@@ -102,7 +102,7 @@ Event Area
     <div class="row">
         <!-- Left Column with Information -->
         <div class="col-md-7">
-            <div class="card mb-4 adv-slider">
+            <div class="card mb-4 text-justify">
                 <div class="card-body px-4">
                     <h2 class="sub-title">Unlock Your Future with Data Science, Business Analytics, and Cloud
                         Certification</h2>
@@ -591,7 +591,7 @@ Event Area
                 <div class="title-area mb-30">
                     <span class="sub-title"><i class="fal fa-book me-2"></i> Our Instructor</span>
                     <h2 class="sec-title">Meet Our Expert Instructor</h2>
-                    <p class="sec-text mt-20">
+                    <p class="sec-text mt-20 text-justify">
                         At Code-Cruise, we pride ourselves on providing top-notch education led by industry expert
                         trainers who are dedicated to helping you achieve your goals. Our team of experienced
                         professionals brings real-world knowledge and practical insights to the classroom, ensuring that

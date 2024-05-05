@@ -18,7 +18,7 @@ class PromoSessionController extends Controller
     public function index()
     {
         try {
-            $proses = PromoSession::orderBy('id', 'desc')->get();
+            $proses = PromoSession::orderBy('is_active','desc')->orderBy('id', 'desc')->get();
             return view('admin.promo-session.index', ['proses' => $proses]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);

@@ -102,7 +102,7 @@ Event Area
     <div class="row">
         <!-- Left Column with Information -->
         <div class="col-md-7">
-            <div class="card mb-4">
+            <div class="card mb-4 adv-slider">
                 <div class="card-body px-4">
                     <h2 class="sub-title">Unlock Your Future with Data Science, Business Analytics, and Cloud
                         Certification</h2>

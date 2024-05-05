@@ -85,12 +85,12 @@
 
                                         <div class="form-group w-100  my-4">
                                             <label for="speaker">Speaker</label>
-                                            <input type="text" class="form-control" name="speaker" id="speaker" value="{{$proses->speaker}}">
+                                            <input type="text" class="form-control" name="speaker" id="speaker" value="{{$proses->speaker}}" required>
                                         </div>
                                         
                                         <div class="form-group w-100  my-4">
                                             <label for="about_speaker">About Speaker</label>
-                                            <input type="text" class="form-control" name="about_speaker" id="about_speaker" value="{{$proses->about_speaker}}">
+                                            <input type="text" class="form-control" name="about_speaker" id="about_speaker" value="{{$proses->about_speaker}}" required>
                                         </div>
 
                                         <div class="form-group w-100  my-4">
@@ -138,6 +138,16 @@
                                                 <option value="1" {{$proses->apply_message==1?"selected":""}}>Yes
                                                 </option>
                                                 <option value="0" {{$proses->apply_message==0?"selected":""}}>No
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group w-100 my-4">
+                                            <label for="stop_feedback">Stop Feedback</label>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="stop_feedback" id="stop_feedback" required>
+                                                <option value="1" {{$proses->stop_feedback==1?"selected":""}}>Yes
+                                                </option>
+                                                <option value="0" {{$proses->stop_feedback==0?"selected":""}}>No
                                                 </option>
                                             </select>
                                         </div>

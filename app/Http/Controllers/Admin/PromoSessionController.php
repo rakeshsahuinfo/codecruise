@@ -58,6 +58,7 @@ class PromoSessionController extends Controller
                 'about_speaker'=>$request->about_speaker,
                 'promo_banner' => $imageName,
                 'apply_message' => $request->apply_message,
+                'stop_feedback' => $request->stop_feedback,
                 'is_active' => $request->is_active
             ]);
 
@@ -128,6 +129,7 @@ class PromoSessionController extends Controller
             $proses->speaker=$request->speaker;
             $proses->about_speaker=$request->about_speaker;
             $proses->apply_message = $request->apply_message;
+            $proses->stop_feedback = $request->stop_feedback;
             $proses->is_active = $request->is_active;
             $proses->update();
 

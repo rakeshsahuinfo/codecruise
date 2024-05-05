@@ -44,6 +44,7 @@
                                     <th>RegistrationFeedbackLink</th>
                                     <th>PromoBanner</th>
                                     <th>CollectMessage</th>
+                                    <th>StopFeedback</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
                                 </tr>
@@ -58,6 +59,7 @@
                                     <th>RegistrationFeedbackLink</th>
                                     <th>PromoBanner</th>
                                     <th>CollectMessage</th>
+                                    <th>StopFeedback</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
                                 </tr>
@@ -91,6 +93,7 @@
                                         <img class="img-fluid" width="200" height="100" src="{{ asset('promo_banner/' . $ps->promo_banner) }}" alt="Promo Banner">
                                     </td>
                                     <td>{{$ps->apply_message==1?"Yes":"No"}}</td>
+                                    <td>{{$ps->stop_feedback==1?"Yes":"No"}}</td>
                                     <td>{{$ps->is_active==1?"Active":"Inactive"}}</td>
                                     <td>{{ \Carbon\Carbon::parse($ps->created_at)->timezone('Asia/Kolkata')->format('d-M-y h:i A') }}</td>
                                 </tr>

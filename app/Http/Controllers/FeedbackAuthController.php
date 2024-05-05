@@ -16,7 +16,7 @@ class FeedbackAuthController extends Controller
     public function redirectToGoogle($slug)
     {
         try {
-            $ps = PromoSession::where('slug', $slug)->where('is_active', 1)->first();
+            $ps = PromoSession::where('slug', $slug)->where('stop_feedback', 0)->first();
             if ($ps) {
                 Session::put('promo_session_id', $ps->id);
                 return Socialite::driver('google')->redirect();

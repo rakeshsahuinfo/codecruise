@@ -78,12 +78,12 @@
 
                                         <div class="form-group w-100  my-4">
                                             <label for="speaker">Speaker</label>
-                                            <input type="text" class="form-control" name="speaker" id="speaker">
+                                            <input type="text" class="form-control" name="speaker" id="speaker" required>
                                         </div>
                                         
                                         <div class="form-group w-100  my-4">
                                             <label for="about_speaker">About Speaker</label>
-                                            <input type="text" class="form-control" name="about_speaker" id="about_speaker">
+                                            <input type="text" class="form-control" name="about_speaker" id="about_speaker" required>
                                         </div>
 
                                         <div class="form-group w-100  my-4">
@@ -125,6 +125,15 @@
                                                 data-size="8" name="apply_message" id="apply_message" required>
                                                 <option value="1" selected>Yes</option>
                                                 <option value="0">No</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group w-100 my-4">
+                                            <label for="stop_feedback">Stop Feedback</label>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="stop_feedback" id="stop_feedback" required>
+                                                <option value="1">Yes</option>
+                                                <option value="0" selected>No</option>
                                             </select>
                                         </div>
 

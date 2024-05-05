@@ -12,6 +12,9 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                 <li>
                     <a href="{{route('landing-page')}}">home</a>
                 </li>
+                <li>
+                    <a href="{{route('upcoming-event')}}">Upcoming Events</a>
+                </li>
                 @if($ctype)
                 @foreach($ctype as $ct)
                 <li class="menu-item-has-children">

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
 Route::get('/contact', [AboutController::class, 'contact'])->name('contact');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::get('/upcoming-event',[AboutController::class, 'upcomingEvent'])->name('upcoming-event');
 Route::get('/course/{id}', [CourseController::class, 'index'])->name('course');
 Route::get('/course-by-type/{course_type_id}', [CourseController::class, 'courseByType'])->name('course-by-type');
 Route::get('/course-catalog', [CourseController::class, 'courseCatalog'])->name('course-catalog');

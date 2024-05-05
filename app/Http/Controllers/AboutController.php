@@ -12,4 +12,7 @@ class AboutController extends Controller
     public function contact(){
         return view('common.contact');
     }
+    public function upcomingevent(){
+        return view('common.upcoming-event');
+    }
 }

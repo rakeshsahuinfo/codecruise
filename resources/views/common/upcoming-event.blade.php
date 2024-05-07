@@ -76,7 +76,7 @@ Service Area
             <h2 class="sec-title">Our Upcoming Events</h2>
         </div>
         @php
-        $promos=App\Models\PromoSession::where('is_active',1)->orderBy('created_at','asc')->get();
+        $promos=App\Models\PromoSession::where('is_active',1)->orderBy('session_date','asc')->get();
         @endphp
 
         <div class="row slider-shadow event-slider-1 th-carousel gx-70" data-slide-show="3" data-lg-slide-show="3"

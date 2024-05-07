@@ -69,7 +69,14 @@
                                             <label for="name">slug</label>
                                             <input type="text" class="form-control" name="slug" id="slug" readonly>
                                         </div>
-
+                                        <div class="form-group w-100  my-4">
+                                            <label for="session_date">Session Date</label>
+                                            <input type="date" class="form-control" name="session_date" id="session_date" required>
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="session_time">Session Time</label>
+                                            <input type="text" class="form-control" name="session_time" id="session_time" required>
+                                        </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Description</label>
                                             <textarea class="form-control" name="description" id="description" cols="30"

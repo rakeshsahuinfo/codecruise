@@ -6,12 +6,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Code-Cruise | @yield('title')</title>
-	<meta name="author" content="themeholy">
 	<meta name="description" content="Code-Cruise - Dynamic Tech Education Platform ">
 	<meta name="keywords" content="Code-Cruise - Online Courses & Education">
 	<meta name="robots" content="INDEX,FOLLOW">
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Code Cruise">
+    <meta name="sitemap_link" content="{{url('/sitemap.xml')}}">
 
 	<!-- Favicons - Place favicon.ico in the root directory -->
 	<link rel="shortcut icon" href="{{asset('common/assets/img/favicon.png')}}" type="image/x-icon">

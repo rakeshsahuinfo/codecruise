@@ -102,7 +102,7 @@ Service Area
                         </div>
                         <div class="event-meta">
                             <p><i class="fal fa-location-dot"></i>Mumbai, India,</p>
-                            <p><i class="fal fa-clock"></i>07:30 pm - 8:30 pm</p>
+                            <p><i class="fal fa-clock"></i>{{$prs->session_time}}</p>
                         </div>
                         <h3 class="event-card_title"><a
                                 href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}">{{$prs->name}}</a></h3>

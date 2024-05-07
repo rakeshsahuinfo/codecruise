@@ -18,7 +18,7 @@ class PromoSessionController extends Controller
     public function index()
     {
         try {
-            $proses = PromoSession::orderBy('is_active','desc')->orderBy('id', 'desc')->get();
+            $proses = PromoSession::orderBy('is_active','desc')->orderBy('created_at', 'desc')->get();
             return view('admin.promo-session.index', ['proses' => $proses]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
@@ -53,6 +53,8 @@ class PromoSessionController extends Controller
                 'promo_type' => $request->promo_type,
                 'name' => $request->name,
                 'slug' => $request->slug,
+                'session_date'=>$request->session_date,
+                'session_time'=>$request->session_time,
                 'description' => $request->description,
                 'speaker'=>$request->speaker,
                 'about_speaker'=>$request->about_speaker,
@@ -125,6 +127,8 @@ class PromoSessionController extends Controller
             $proses->promo_type = $request->promo_type;
             $proses->name = $request->name;
             $proses->slug = $request->slug;
+            $proses->session_date=$request->session_date;
+            $proses->session_time=$request->session_time;
             $proses->description = $request->description;
             $proses->speaker=$request->speaker;
             $proses->about_speaker=$request->about_speaker;

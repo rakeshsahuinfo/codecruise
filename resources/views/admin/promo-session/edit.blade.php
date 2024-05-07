@@ -76,7 +76,14 @@
                                             <input type="text" class="form-control" name="slug" id="slug"
                                                 value="{{$proses->slug}}" readonly>
                                         </div>
-
+                                        <div class="form-group w-100  my-4">
+                                            <label for="session_date">Session Date</label>
+                                            <input type="date" class="form-control" name="session_date" id="session_date" required value="{{$proses->session_date}}">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="session_time">Session Time</label>
+                                            <input type="text" class="form-control" name="session_time" id="session_time" required value="{{$proses->session_time}}">
+                                        </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="description">Description</label>
                                             <textarea class="form-control" name="description" id="description" cols="30"

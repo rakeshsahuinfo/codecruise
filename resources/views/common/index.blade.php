@@ -42,7 +42,66 @@
 <!--==============================
 	Contact Area  
 	==============================-->
+<!--==============================
+	Event Area  
+	==============================-->
+<section class="space" data-bg-src="{{asset('common/assets/img/bg/event-bg_1.png')}}">
+    <div class="shape-mockup event-shape1 jump" data-top="0" data-left="-60px">
+        <img src="{{asset('common/assets/img/team/team-shape_1_1.png')}}" alt="img">
+    </div>
+    <div class="container">
+        <div class="title-area text-center">
+            <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
+            <h2 class="sec-title">Our Upcoming Events</h2>
+        </div>
+        @php
+        $promos=App\Models\PromoSession::where('is_active',1)->orderBy('session_date','asc')->get();
+        @endphp
 
+        <div class="row slider-shadow event-slider-1 th-carousel gx-70" data-slide-show="3" data-lg-slide-show="3"
+            data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true">
+            @if($promos)
+            @foreach($promos as $prs)
+            <div class="col-lg-6 col-xl-4">
+                <div class="event-card">
+                    <div class="event-card_img"
+                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
+                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 100px;height: 100px;"
+                            alt="event">
+                    </div>
+                    <div class="event-card_content">
+                        <div class="event-author">
+                            <div class="avater">
+                                <img src="{{asset('common/assets/img/event/event-author.png')}}" alt="avater">
+                            </div>
+                            <div class="details">
+                                <span class="author-name">{{$prs->speaker}}</span>
+                                <p class="author-desig">{{$prs->about_speaker}}</p>
+                            </div>
+                        </div>
+                        <div class="event-meta">
+                            <p><i class="fal fa-location-dot"></i>Online</p>
+                            <p><i class="fal fa-clock"></i>{{$prs->session_time}}</p>
+                            <p><i class="fal fa-calendar"></i>{{Carbon\Carbon::parse($prs->session_date)->format('d-M-Y')}}</p>
+                        </div>
+                        <h3 class="event-card_title"><a
+                                href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}">{{$prs->name}}</a></h3>
+                        <div class="event-card_bottom">
+                            <a href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}" class="th-btn">View Event <i
+                                    class="far fa-arrow-right ms-1"></i></a>
+                        </div>
+                        <div class="event-card-shape jump">
+                            <img src="{{asset('common/assets/img/event/event-box-shape1.png')}}" alt="img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            @endif
+        </div>
+
+    </div>
+</section>
 {{--
 <!--==============================
 Event Area  
@@ -97,7 +156,6 @@ Event Area
     <div class="shape-mockup jump-reverse d-none d-md-block" data-top="8%" data-right="0%"><img
             src="{{asset('common/assets/img/update1/shape/cloud_2.png')}}" alt="shapes"></div>
 </section>
---}}
 <div class="container mt-5">
     <div class="row">
         <!-- Left Column with Information -->
@@ -167,65 +225,7 @@ Event Area
         </div>
     </div>
 </div>
-<!--==============================
-	Event Area  
-	==============================-->
-<section class="space" data-bg-src="{{asset('common/assets/img/bg/event-bg_1.png')}}">
-    <div class="shape-mockup event-shape1 jump" data-top="0" data-left="-60px">
-        <img src="{{asset('common/assets/img/team/team-shape_1_1.png')}}" alt="img">
-    </div>
-    <div class="container">
-        <div class="title-area text-center">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
-            <h2 class="sec-title">Our Upcoming Events</h2>
-        </div>
-        @php
-        $promos=App\Models\PromoSession::where('is_active',1)->orderBy('session_date','asc')->get();
-        @endphp
-
-        <div class="row slider-shadow event-slider-1 th-carousel gx-70" data-slide-show="3" data-lg-slide-show="3"
-            data-md-slide-show="1" data-sm-slide-show="1" data-xs-slide-show="1" data-arrows="true">
-            @if($promos)
-            @foreach($promos as $prs)
-            <div class="col-lg-6 col-xl-4">
-                <div class="event-card">
-                    <div class="event-card_img"
-                        data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
-                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 100px;height: 100px;"
-                            alt="event">
-                    </div>
-                    <div class="event-card_content">
-                        <div class="event-author">
-                            <div class="avater">
-                                <img src="{{asset('common/assets/img/event/event-author.png')}}" alt="avater">
-                            </div>
-                            <div class="details">
-                                <span class="author-name">{{$prs->speaker}}</span>
-                                <p class="author-desig">{{$prs->about_speaker}}</p>
-                            </div>
-                        </div>
-                        <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Mumbai, India,</p>
-                            <p><i class="fal fa-clock"></i>{{$prs->session_time}}</p>
-                        </div>
-                        <h3 class="event-card_title"><a
-                                href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}">{{$prs->name}}</a></h3>
-                        <div class="event-card_bottom">
-                            <a href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}" class="th-btn">View Event <i
-                                    class="far fa-arrow-right ms-1"></i></a>
-                        </div>
-                        <div class="event-card-shape jump">
-                            <img src="{{asset('common/assets/img/event/event-box-shape1.png')}}" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            @endif
-        </div>
-
-    </div>
-</section>
+--}}
 <div class="space-top">
     <div class="container">
 

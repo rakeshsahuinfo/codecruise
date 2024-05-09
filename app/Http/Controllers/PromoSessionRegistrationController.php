@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\PromoSession;
 use App\Models\PromoSessionRegistration;
 use Carbon\Carbon;
@@ -14,8 +15,9 @@ class PromoSessionRegistrationController extends Controller
         try {
             // $courseinfo=Course::find(base64_decode($course_id));
             $proses=PromoSession::where('is_active',1)->where('slug',$slug)->first();
+            $country=Country::all();
             if($proses){
-                return view('common.promo-session',['proses'=>$proses]);
+                return view('common.promo-session',['proses'=>$proses,'country'=>$country]);
             }else{
                 return redirect('/');
             }
@@ -34,7 +36,7 @@ class PromoSessionRegistrationController extends Controller
             $prosesr = new PromoSessionRegistration();
             $prosesr->name = $request->input('name');
             $prosesr->email = $request->input('email');
-            $prosesr->contact = $request->input('contact');
+            $prosesr->contact = "+".$request->input('phone_code')." ".$request->input('contact');
             $prosesr->company_college_name = $request->input('company_college_name');
             $prosesr->promo_session_id = $request->input('promo_session_id'); // Assuming 'course_id' is the name of the input field for course_ids
             // Save the model to the database

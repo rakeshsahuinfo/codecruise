@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -10,7 +11,8 @@ class AboutController extends Controller
         return view('common.about');
     }
     public function contact(){
-        return view('common.contact');
+        $country=Country::all();
+        return view('common.contact',['country'=>$country]);
     }
     public function upcomingevent(){
         return view('common.upcoming-event');

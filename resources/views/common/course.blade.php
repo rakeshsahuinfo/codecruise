@@ -130,11 +130,15 @@ Event Area
                             </li>
                             {{--
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false"><i class="fa-regular fa-user"></i>Instructor</a>
+                                <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor"
+                                    role="tab" aria-controls="instructor" aria-selected="false"><i
+                                        class="fa-regular fa-user"></i>Instructor</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="fa-regular fa-star-sharp"></i>Reviews</a>
-                            </li> 
+                                <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab"
+                                    aria-controls="reviews" aria-selected="false"><i
+                                        class="fa-regular fa-star-sharp"></i>Reviews</a>
+                            </li>
                             --}}
                         </ul>
                         <div class="tab-content" id="productTabContent">
@@ -334,12 +338,12 @@ Event Area
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">
                             <ul>
-                                {{-- 
+                                {{--
                                 <li>
                                     <i class="fa-light fa-user"></i>
                                     <strong>Instructor: </strong>
                                     <span>Kevin Perry</span>
-                                </li> 
+                                </li>
                                 --}}
                                 <li>
                                     <i class="fa-light fa-clock"></i>
@@ -376,6 +380,17 @@ Event Area
                         <a href="{{route('download-course-info',$courseinfo->slug)}}" target="_new"
                             class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download
                             Information</a>
+                    </div>
+                    <div class="widget widget_banner  " data-overlay="theme" data-opacity="9"
+                        data-bg-src="assets/img/widget/widget-banner-bg.png">
+                        <div class="widget-banner">
+                            <h4 class="title">Need Help? We Are Here To Help You</h4>
+                            <div class="logo"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="img"></div>
+                            <h5 class="subtitle">Call us directly on</h5>
+                            <a href="tel:+917304562050" class="link">+91 730 456 2050</a>
+                            <a href="{{route('contact')}}" target="_new" class="th-btn style7">Contact Us Now <i
+                                    class="far fa-arrow-right ms-1"></i></a>
+                        </div>
                     </div>
                 </aside>
             </div>

@@ -139,14 +139,25 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                   <select class="form-control style-white" name="phone_code" id="phone_code" required>
+                                    @if($country)
+                                    @foreach($country as $con)
+                                    <option value="{{$con->phonecode}}" {{($con->phonecode==91)?"selected":""}}>{{$con->nicename}}</option>
+                                    @endforeach
+                                    @endif
+                                   </select>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
                                 <div class="form-group">
                                     <input type="tel" class="form-control style-white" name="contact" id="contact"
                                         placeholder="Phone Number*">
                                     <i class="fal fa-phone"></i>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control style-white" name="company_college_name"
                                         id="company_college_name" placeholder="Company / College*">

@@ -159,6 +159,16 @@
                                             </select>
                                         </div>
                                         <div class="form-group w-100 my-4">
+                                            <label for="stop_registration">Stop Registrations</label>
+                                            <select class="selectpicker form-control" data-live-search="true"
+                                                data-size="8" name="stop_registration" id="stop_registration" required>
+                                                <option value="1" {{$proses->stop_registration==1?"selected":""}}>Yes
+                                                </option>
+                                                <option value="0" {{$proses->stop_registration==0?"selected":""}}>No
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>
                                             <select class="selectpicker form-control" data-live-search="true"
                                                 data-size="8" name="is_active" id="is_active" required>

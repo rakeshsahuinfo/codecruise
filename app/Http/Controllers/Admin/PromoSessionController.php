@@ -18,7 +18,7 @@ class PromoSessionController extends Controller
     public function index()
     {
         try {
-            $proses = PromoSession::orderBy('is_active','desc')->orderBy('id', 'asc')->get();
+            $proses = PromoSession::orderBy('is_active', 'desc')->orderBy('id', 'asc')->get();
             return view('admin.promo-session.index', ['proses' => $proses]);
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
@@ -53,14 +53,15 @@ class PromoSessionController extends Controller
                 'promo_type' => $request->promo_type,
                 'name' => $request->name,
                 'slug' => $request->slug,
-                'session_date'=>$request->session_date,
-                'session_time'=>$request->session_time,
+                'session_date' => $request->session_date,
+                'session_time' => $request->session_time,
                 'description' => $request->description,
-                'speaker'=>$request->speaker,
-                'about_speaker'=>$request->about_speaker,
+                'speaker' => $request->speaker,
+                'about_speaker' => $request->about_speaker,
                 'promo_banner' => $imageName,
                 'apply_message' => $request->apply_message,
                 'stop_feedback' => $request->stop_feedback,
+                'stop_registration' => $request->stop_registration,
                 'is_active' => $request->is_active
             ]);
 
@@ -127,13 +128,14 @@ class PromoSessionController extends Controller
             $proses->promo_type = $request->promo_type;
             $proses->name = $request->name;
             $proses->slug = $request->slug;
-            $proses->session_date=$request->session_date;
-            $proses->session_time=$request->session_time;
+            $proses->session_date = $request->session_date;
+            $proses->session_time = $request->session_time;
             $proses->description = $request->description;
-            $proses->speaker=$request->speaker;
-            $proses->about_speaker=$request->about_speaker;
+            $proses->speaker = $request->speaker;
+            $proses->about_speaker = $request->about_speaker;
             $proses->apply_message = $request->apply_message;
             $proses->stop_feedback = $request->stop_feedback;
+            $proses->stop_registration = $request->stop_registration;
             $proses->is_active = $request->is_active;
             $proses->update();
 
@@ -159,7 +161,8 @@ class PromoSessionController extends Controller
         }
     }
 
-    public function showFeedback($promo_session_id){
+    public function showFeedback($promo_session_id)
+    {
         try {
             $proses = PromoSession::find($promo_session_id);
             $prosesfb = UserFeedback::where('promo_session_id', $promo_session_id)->orderBy('created_at', 'desc')->get();

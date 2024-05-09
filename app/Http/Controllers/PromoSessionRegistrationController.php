@@ -28,11 +28,15 @@ class PromoSessionRegistrationController extends Controller
 
     public function registerPromoSession(Request $request){
         try {
+            $proses=PromoSession::find($request->input('promo_session_id'));
+            if($proses->stop_registration==1){
+                return back()->with(['msg' => 'Sorry, Registration process is closed.', 'status' => 'danger']);
+            }
             $checkreg=PromoSessionRegistration::where('email',$request->input('email'))->where('contact',$request->input('contact'))->where('promo_session_id',$request->input('promo_session_id'))->first();
             if($checkreg){
                 return redirect('/')->with(['msg' => 'Registered for the Session Successfully', 'status' => 'success']);
             }
-            $proses=PromoSession::find($request->input('promo_session_id'));
+           
             $prosesr = new PromoSessionRegistration();
             $prosesr->name = $request->input('name');
             $prosesr->email = $request->input('email');

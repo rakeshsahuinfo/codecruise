@@ -25408,6 +25408,7 @@ span.select2-selection.select2-selection--single:focus {
   border: 1px solid var(--border-color);
   z-index: 2;
   margin-top: 67px;
+  min-height: 385px;
   /* Extra large devices */
   /* Medium Large devices */
   /* Large devices */

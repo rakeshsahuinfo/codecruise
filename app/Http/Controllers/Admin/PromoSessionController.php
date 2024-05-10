@@ -198,4 +198,11 @@ class PromoSessionController extends Controller
             'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
         ]);
     }
+
+    public function verifyParticipationCertificate($id)
+    {
+        $psr = PromoSessionRegistration::find($id);
+        $ps = PromoSession::find($psr->promo_session_id);
+        return view('common.participation-certificate',['psr' => $psr, 'ps' => $ps]);
+    }
 }

@@ -44,6 +44,9 @@ Route::post('/feedback/save-feedback', [FeedbackAuthController::class, 'saveFeed
 Route::get('/admin-login', [AdminController::class, 'adminLogin'])->name('login');
 Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-sign-in');
 
+//Certificate
+Route::get('/verify-participation-certificate/{id}',[AdminPromoSessionController::class,'verifyParticipationCertificate'])->name('verify-participation-certificate');
+
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out', [AdminController::class, 'signOut'])->name('admin-sign-out');
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');

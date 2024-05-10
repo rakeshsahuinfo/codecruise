@@ -32,7 +32,7 @@ class PromoSessionRegistrationController extends Controller
             if($proses->stop_registration==1){
                 return back()->with(['msg' => 'Sorry, Registration process is closed.', 'status' => 'danger']);
             }
-            $checkreg=PromoSessionRegistration::where('email',$request->input('email'))->where('contact',$request->input('contact'))->where('promo_session_id',$request->input('promo_session_id'))->first();
+            $checkreg=PromoSessionRegistration::where('email',$request->input('email'))->where('contact',"+".$request->input('phone_code')." ".$request->input('contact'))->where('promo_session_id',$request->input('promo_session_id'))->first();
             if($checkreg){
                 return redirect('/')->with(['msg' => 'Registered for the Session Successfully', 'status' => 'success']);
             }

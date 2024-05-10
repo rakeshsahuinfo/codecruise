@@ -36,6 +36,7 @@
                         <table id="datatablesSimple">
                             <thead>
                                 <tr>
+                                    <th>Action</th>
                                     <th>Candidate</th>
                                     <th>Email</th>
                                     <th>Contact</th>
@@ -46,6 +47,7 @@
                             </thead>
                             <tfoot>
                                 <tr>
+                                    <th>Action</th>
                                     <th>Candidate</th>
                                     <th>Email</th>
                                     <th>Contact</th>
@@ -58,6 +60,12 @@
                                 @if($prosesreg)
                                 @foreach($prosesreg as $psr)
                                 <tr>
+                                    <td>
+                                        <div class='d-flex'>
+                                            <a href="{{route('participation-certificate',$psr->id)}}" target="_new" title="Paticipation Certificate" class='text-info'><i class='fas fa-certificate'></i></a>  
+                                            <a href="{{route('completion-certificate',$psr->id)}}" target="_new" title="Completion Certificate" class='text-primary mx-3'><i class='fas fa-certificate'></i></a>   
+                                        </div>
+                                    </td>
                                     <td>{{$psr->name}}</td>
                                     <td>{{$psr->email}}</td>
                                     <td>{{$psr->contact}}</td>

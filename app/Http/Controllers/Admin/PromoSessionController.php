@@ -7,10 +7,12 @@ use App\Models\PromoSession;
 use App\Models\PromoSessionRegistration;
 use App\Models\SEODetail;
 use App\Models\UserFeedback;
+use PDF;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
 
 class PromoSessionController extends Controller
@@ -170,5 +172,30 @@ class PromoSessionController extends Controller
         } catch (Exception $ex) {
             Log::info("Something went wrong");
         }
+    }
+
+    //certificate
+    public function participationCertificate($id)
+    {
+        $psr = PromoSessionRegistration::find($id);
+        $ps = PromoSession::find($psr->promo_session_id);
+
+        $pdf = PDF::loadView('certificate.participation',  ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
+        return Response::make($pdf->output(), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
+        ]);
+    }
+
+    public function participationCompletion($id)
+    {
+        $psr = PromoSessionRegistration::find($id);
+        $ps = PromoSession::find($psr->promo_session_id);
+
+        $pdf = PDF::loadView('certificate.completion',  ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
+        return Response::make($pdf->output(), 200, [
+            'Content-Type' => 'application/pdf',
+            'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
+        ]);
     }
 }

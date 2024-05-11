@@ -46,6 +46,7 @@ Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-s
 
 //Certificate
 Route::get('/verify-participation-certificate/{id}',[AdminPromoSessionController::class,'verifyParticipationCertificate'])->name('verify-participation-certificate');
+Route::get('/verify-completion-certificate/{id}',[AdminPromoSessionController::class,'verifyCompletionCertificate'])->name('verify-completion-certificate');
 
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out', [AdminController::class, 'signOut'])->name('admin-sign-out');

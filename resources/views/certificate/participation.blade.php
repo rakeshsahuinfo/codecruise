@@ -68,7 +68,7 @@
             margin-bottom: 10px;
         }
         .footer{
-            width: 460px;
+            width: 560px;
         }
         .footer td{
             height: 30px;
@@ -84,11 +84,11 @@
 
         .signature {
             font-size: 18px;
-            text-align: right;
+            text-align: left;
         }
         .sign{
             vertical-align: bottom;
-            text-align: right;
+            text-align: left;
             padding-right: 20px;
         }
        
@@ -117,6 +117,9 @@
                         @else
                         <img src="{{public_path('/certificate/'.$ps->co_founder.'.png')}}">
                         @endif
+                    </td>
+                    <td rowspan="2">
+                        <img src="{{ public_path('qr_code/'.$psr->reg_code.'.svg') }}" />
                     </td>
                 </tr>
                 <tr>

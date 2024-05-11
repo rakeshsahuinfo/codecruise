@@ -66,7 +66,7 @@ class PromoSessionController extends Controller
                 'apply_message' => $request->apply_message,
                 'stop_feedback' => $request->stop_feedback,
                 'stop_registration' => $request->stop_registration,
-                'co_founder'=>$request->co_founder,
+                'co_founder' => $request->co_founder,
                 'is_active' => $request->is_active
             ]);
 
@@ -141,7 +141,7 @@ class PromoSessionController extends Controller
             $proses->apply_message = $request->apply_message;
             $proses->stop_feedback = $request->stop_feedback;
             $proses->stop_registration = $request->stop_registration;
-            $proses->co_founder=$request->co_founder;
+            $proses->co_founder = $request->co_founder;
             $proses->is_active = $request->is_active;
             $proses->update();
 
@@ -188,14 +188,16 @@ class PromoSessionController extends Controller
             $psr->reg_code = $reg_code;
             $psr->save();
         }
-        $fileName = $psr->reg_code . '.png';
-        $qrCodeImagePath = public_path('qr_code/' . $fileName);
+        
+        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+        $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
-        if (file_exists($qrCodeImagePath)) {
-            unlink($qrCodeImagePath);
+        $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($id)));
+
+        // Check if the PNG file already exists
+        if (!file_exists($qrCodeImagePath)) {
+            file_put_contents($svgFile, $qrCodeText);
         }
-
-        // QrCode::size(200)->format('png')->generate(url('/verify-participation-certificate/' . base64_encode($id)), $qrCodeImagePath);
 
         $pdf = PDF::loadView('certificate.participation', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
         return Response::make($pdf->output(), 200, [
@@ -208,19 +210,21 @@ class PromoSessionController extends Controller
     {
         $psr = PromoSessionRegistration::find($id);
         $ps = PromoSession::find($psr->promo_session_id);
-        if ($psr->reg_code == null || $psr->reg_code == "") {
+        if (empty($psr->reg_code)) {
             $reg_code = Self::generateUniqueCode();
             $psr->reg_code = $reg_code;
             $psr->save();
         }
-        $fileName = $psr->reg_code . '.png';
-        $qrCodeImagePath = public_path('qr_code/' . $fileName);
-
-        if (file_exists($qrCodeImagePath)) {
-            unlink($qrCodeImagePath);
-        }
         
-        // QrCode::size(200)->format('png')->generate(url('/verify-completion-certificate/' . base64_encode($id)), $qrCodeImagePath);
+        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+        $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
+
+        $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($id)));
+
+        // Check if the PNG file already exists
+        if (!file_exists($qrCodeImagePath)) {
+            file_put_contents($svgFile, $qrCodeText);
+        }
 
         $pdf = PDF::loadView('certificate.completion',  ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
         return Response::make($pdf->output(), 200, [
@@ -231,9 +235,16 @@ class PromoSessionController extends Controller
 
     public function verifyParticipationCertificate($id)
     {
-        $psr = PromoSessionRegistration::find($id);
+        $psr = PromoSessionRegistration::find(base64_decode($id));
         $ps = PromoSession::find($psr->promo_session_id);
         return view('common.participation-certificate', ['psr' => $psr, 'ps' => $ps]);
+    }
+
+    public function verifyCompletionCertificate($id)
+    {
+        $psr = PromoSessionRegistration::find(base64_decode($id));
+        $ps = PromoSession::find($psr->promo_session_id);
+        return view('common.completion-certificate', ['psr' => $psr, 'ps' => $ps]);
     }
 
     public static function generateUniqueCode()

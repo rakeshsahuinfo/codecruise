@@ -188,7 +188,7 @@ class PromoSessionController extends Controller
             $psr->reg_code = $reg_code;
             $psr->save();
         }
-        
+
         $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
         $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
@@ -215,7 +215,7 @@ class PromoSessionController extends Controller
             $psr->reg_code = $reg_code;
             $psr->save();
         }
-        
+
         $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
         $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
@@ -249,58 +249,66 @@ class PromoSessionController extends Controller
 
     public function verifyParticipationCertificate($promo_session_reg_id)
     {
-        $id=base64_decode($promo_session_reg_id);
-        $psr = PromoSessionRegistration::find($id);
-        $ps = PromoSession::find($psr->promo_session_id);
-        if (empty($psr->reg_code)) {
-            $reg_code = Self::generateUniqueCode();
-            $psr->reg_code = $reg_code;
-            $psr->save();
+        try {
+            $id = base64_decode($promo_session_reg_id);
+            $psr = PromoSessionRegistration::find($id);
+            $ps = PromoSession::find($psr->promo_session_id);
+            if (empty($psr->reg_code)) {
+                $reg_code = Self::generateUniqueCode();
+                $psr->reg_code = $reg_code;
+                $psr->save();
+            }
+
+            $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+            $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
+
+            $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($id)));
+
+            // Check if the PNG file already exists
+            if (!file_exists($qrCodeImagePath)) {
+                file_put_contents($svgFile, $qrCodeText);
+            }
+
+            $pdf = PDF::loadView('certificate.verify-participation', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
+            return Response::make($pdf->output(), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
+            ]);
+        } catch (Exception $ex) {
+            return redirect('/');
         }
-        
-        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
-        $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
-
-        $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($id)));
-
-        // Check if the PNG file already exists
-        if (!file_exists($qrCodeImagePath)) {
-            file_put_contents($svgFile, $qrCodeText);
-        }
-
-        $pdf = PDF::loadView('certificate.verify-participation', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
-        return Response::make($pdf->output(), 200, [
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
-        ]);
     }
 
     public function verifyCompletionCertificate($promo_session_reg_id)
     {
-        $id=base64_decode($promo_session_reg_id);
-        $psr = PromoSessionRegistration::find($id);
-        $ps = PromoSession::find($psr->promo_session_id);
-        if (empty($psr->reg_code)) {
-            $reg_code = Self::generateUniqueCode();
-            $psr->reg_code = $reg_code;
-            $psr->save();
+        try {
+            $id = base64_decode($promo_session_reg_id);
+            $psr = PromoSessionRegistration::find($id);
+            $ps = PromoSession::find($psr->promo_session_id);
+            if (empty($psr->reg_code)) {
+                $reg_code = Self::generateUniqueCode();
+                $psr->reg_code = $reg_code;
+                $psr->save();
+            }
+
+            $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+            $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
+
+            $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($id)));
+
+            // Check if the PNG file already exists
+            if (!file_exists($qrCodeImagePath)) {
+                file_put_contents($svgFile, $qrCodeText);
+            }
+
+            $pdf = PDF::loadView('certificate.verify-completion', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
+            return Response::make($pdf->output(), 200, [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
+            ]);
+        } catch (Exception $ex) {
+            return redirect('/');
         }
-        
-        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
-        $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
-
-        $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($id)));
-
-        // Check if the PNG file already exists
-        if (!file_exists($qrCodeImagePath)) {
-            file_put_contents($svgFile, $qrCodeText);
-        }
-
-        $pdf = PDF::loadView('certificate.verify-completion', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
-        return Response::make($pdf->output(), 200, [
-            'Content-Type' => 'application/pdf',
-            'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
-        ]);
     }
 
     public static function generateUniqueCode()

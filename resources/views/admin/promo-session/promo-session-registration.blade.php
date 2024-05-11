@@ -42,6 +42,7 @@
                                     <th>Contact</th>
                                     <th>Background</th>
                                     <th>Message</th>
+                                    <th>RegCode</th>
                                     <th>RegisterDate</th>
                                 </tr>
                             </thead>
@@ -53,6 +54,7 @@
                                     <th>Contact</th>
                                     <th>Background</th>
                                     <th>Message</th>
+                                    <th>RegCode</th>
                                     <th>RegisterDate</th>
                                 </tr>
                             </tfoot>
@@ -71,6 +73,7 @@
                                     <td>{{$psr->contact}}</td>
                                     <td>{{$psr->company_college_name}}</td>
                                     <td>{{$psr->message}}</td>
+                                    <td>{{$psr->reg_code}}</td>
                                     <td>{{ \Carbon\Carbon::parse($psr->created_at)->timezone('Asia/Kolkata')->format('d-M-y h:i A') }}</td>
                                 </tr>
                                 @endforeach

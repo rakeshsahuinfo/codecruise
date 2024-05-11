@@ -47,6 +47,7 @@
                                     <th>CollectMessage</th>
                                     <th>StopFeedback</th>
                                     <th>StopRegistration</th>
+                                    <th>SigningAuthority</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
                                 </tr>
@@ -64,6 +65,7 @@
                                     <th>CollectMessage</th>
                                     <th>StopFeedback</th>
                                     <th>StopRegistration</th>
+                                    <th>SigningAuthority</th>
                                     <th>Status</th>
                                     <th>CreatedDate</th>
                                 </tr>
@@ -103,6 +105,7 @@
                                     <td>{{$ps->apply_message==1?"Yes":"No"}}</td>
                                     <td>{{$ps->stop_feedback==1?"Yes":"No"}}</td>
                                     <td>{{$ps->stop_registration==1?"Yes":"No"}}</td>
+                                    <td>{{$ps->co_founder}}</td>
                                     <td>{{$ps->is_active==1?"Active":"Inactive"}}</td>
                                     <td>{{ \Carbon\Carbon::parse($ps->created_at)->timezone('Asia/Kolkata')->format('d-M-y h:i A') }}</td>
                                 </tr>

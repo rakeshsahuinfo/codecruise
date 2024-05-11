@@ -78,7 +78,7 @@
             padding-bottom: 5px;
         }
         .date {
-            font-size: 20px;
+            font-size: 18px;
             margin-bottom: 20px;
         }
 
@@ -88,15 +88,10 @@
         }
         .sign{
             vertical-align: bottom;
-            padding-bottom: 5px;
             text-align: right;
             padding-right: 20px;
         }
-        .sign img{
-            width: 150px;
-            height: 80px;
-        }
-
+        
     </style>
 </head>
 
@@ -117,7 +112,11 @@
                         Issued On
                     </td>
                     <td class="sign">
+                        @if(empty($ps->co_founder))
                         <img src="{{public_path('/certificate/sanjay.png')}}">
+                        @else
+                        <img src="{{public_path('/certificate/'.$ps->co_founder.'.png')}}">
+                        @endif
                     </td>
                 </tr>
                 <tr>

@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Validator;
+use BaconQrCode\Writer;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PromoSessionController extends Controller
 {
@@ -64,6 +66,7 @@ class PromoSessionController extends Controller
                 'apply_message' => $request->apply_message,
                 'stop_feedback' => $request->stop_feedback,
                 'stop_registration' => $request->stop_registration,
+                'co_founder'=>$request->co_founder,
                 'is_active' => $request->is_active
             ]);
 
@@ -138,6 +141,7 @@ class PromoSessionController extends Controller
             $proses->apply_message = $request->apply_message;
             $proses->stop_feedback = $request->stop_feedback;
             $proses->stop_registration = $request->stop_registration;
+            $proses->co_founder=$request->co_founder;
             $proses->is_active = $request->is_active;
             $proses->update();
 
@@ -179,8 +183,21 @@ class PromoSessionController extends Controller
     {
         $psr = PromoSessionRegistration::find($id);
         $ps = PromoSession::find($psr->promo_session_id);
+        if (empty($psr->reg_code)) {
+            $reg_code = Self::generateUniqueCode();
+            $psr->reg_code = $reg_code;
+            $psr->save();
+        }
+        $fileName = $psr->reg_code . '.png';
+        $qrCodeImagePath = public_path('qr_code/' . $fileName);
 
-        $pdf = PDF::loadView('certificate.participation',  ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
+        if (file_exists($qrCodeImagePath)) {
+            unlink($qrCodeImagePath);
+        }
+
+        // QrCode::size(200)->format('png')->generate(url('/verify-participation-certificate/' . base64_encode($id)), $qrCodeImagePath);
+
+        $pdf = PDF::loadView('certificate.participation', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
         return Response::make($pdf->output(), 200, [
             'Content-Type' => 'application/pdf',
             'Content-Disposition' => 'inline; filename=CodeCruise(' . $psr->name . ').pdf'
@@ -191,6 +208,19 @@ class PromoSessionController extends Controller
     {
         $psr = PromoSessionRegistration::find($id);
         $ps = PromoSession::find($psr->promo_session_id);
+        if ($psr->reg_code == null || $psr->reg_code == "") {
+            $reg_code = Self::generateUniqueCode();
+            $psr->reg_code = $reg_code;
+            $psr->save();
+        }
+        $fileName = $psr->reg_code . '.png';
+        $qrCodeImagePath = public_path('qr_code/' . $fileName);
+
+        if (file_exists($qrCodeImagePath)) {
+            unlink($qrCodeImagePath);
+        }
+        
+        // QrCode::size(200)->format('png')->generate(url('/verify-completion-certificate/' . base64_encode($id)), $qrCodeImagePath);
 
         $pdf = PDF::loadView('certificate.completion',  ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
         return Response::make($pdf->output(), 200, [
@@ -203,6 +233,16 @@ class PromoSessionController extends Controller
     {
         $psr = PromoSessionRegistration::find($id);
         $ps = PromoSession::find($psr->promo_session_id);
-        return view('common.participation-certificate',['psr' => $psr, 'ps' => $ps]);
+        return view('common.participation-certificate', ['psr' => $psr, 'ps' => $ps]);
+    }
+
+    public static function generateUniqueCode()
+    {
+        $code = "CC" . strtoupper(substr(sha1(microtime()), 0, 14));
+        // Check if the generated SKU already exists in the database
+        while (PromoSessionRegistration::where('reg_code', $code)->exists()) {
+            $code = "CC" . strtoupper(substr(sha1(microtime()), 0, 14));
+        }
+        return $code;
     }
 }

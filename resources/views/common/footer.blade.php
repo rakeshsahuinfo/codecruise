@@ -94,7 +94,7 @@
                                 <ul class="menu">
                                     <li><i class="bx bx-chevron-right"></i> <a href="{{route('landing-page')}}">Home</a>
                                     </li>
-                                    <li><i class="bx bx-chevron-right"></i> <a href="{{route('about')}}">About us</a>
+                                    <li><i class="bx bx-chevron-right"></i> <a href="{{route('about')}}">About Us</a>
                                     </li>
                                     <li><i class="bx bx-chevron-right"></i> <a href="{{route('privacy-policy')}}"
                                             target="_new">Privacy Policy</a></li>

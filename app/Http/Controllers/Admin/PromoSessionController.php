@@ -19,6 +19,16 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PromoSessionController extends Controller
 {
+    public function test(){
+        $psr=PromoSessionRegistration::all();
+        foreach($psr as $pr){
+            $p=PromoSessionRegistration::find($pr->id);
+            $p->reg_code=Self::generateUniqueCode();
+            $p->save();
+        }
+        return ['updated'];
+    }
+
     public function index()
     {
         try {
@@ -192,7 +202,7 @@ class PromoSessionController extends Controller
         $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
         $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
-        $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($id)));
+        $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($psr->reg_code)));
 
         // Check if the PNG file already exists
         if (!file_exists($qrCodeImagePath)) {
@@ -219,7 +229,7 @@ class PromoSessionController extends Controller
         $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
         $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
-        $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($id)));
+        $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($psr->reg_code)));
 
         // Check if the PNG file already exists
         if (!file_exists($qrCodeImagePath)) {
@@ -247,11 +257,11 @@ class PromoSessionController extends Controller
     //     return view('common.completion-certificate', ['psr' => $psr, 'ps' => $ps]);
     // }
 
-    public function verifyParticipationCertificate($promo_session_reg_id)
+    public function verifyParticipationCertificate($code)
     {
         try {
-            $id = base64_decode($promo_session_reg_id);
-            $psr = PromoSessionRegistration::find($id);
+            $reg_code = base64_decode($code);
+            $psr = PromoSessionRegistration::where('reg_code',$reg_code)->first();
             $ps = PromoSession::find($psr->promo_session_id);
             if (empty($psr->reg_code)) {
                 $reg_code = Self::generateUniqueCode();
@@ -259,10 +269,10 @@ class PromoSessionController extends Controller
                 $psr->save();
             }
 
-            $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+            $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.svg');
             $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
-            $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($id)));
+            $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($psr->reg_code)));
 
             // Check if the PNG file already exists
             if (!file_exists($qrCodeImagePath)) {
@@ -279,11 +289,11 @@ class PromoSessionController extends Controller
         }
     }
 
-    public function verifyCompletionCertificate($promo_session_reg_id)
+    public function verifyCompletionCertificate($code)
     {
         try {
-            $id = base64_decode($promo_session_reg_id);
-            $psr = PromoSessionRegistration::find($id);
+            $reg_code = base64_decode($code);
+            $psr = PromoSessionRegistration::where('reg_code',$reg_code)->first();
             $ps = PromoSession::find($psr->promo_session_id);
             if (empty($psr->reg_code)) {
                 $reg_code = Self::generateUniqueCode();
@@ -291,10 +301,10 @@ class PromoSessionController extends Controller
                 $psr->save();
             }
 
-            $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+            $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.svg');
             $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
-            $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($id)));
+            $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($psr->reg_code)));
 
             // Check if the PNG file already exists
             if (!file_exists($qrCodeImagePath)) {

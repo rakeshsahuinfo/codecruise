@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\PromoSessionController;
 use App\Models\Country;
 use App\Models\PromoSession;
 use App\Models\PromoSessionRegistration;
@@ -38,6 +39,7 @@ class PromoSessionRegistrationController extends Controller
             }
            
             $prosesr = new PromoSessionRegistration();
+            $prosesr->reg_code=PromoSessionController::generateUniqueCode();
             $prosesr->name = $request->input('name');
             $prosesr->email = $request->input('email');
             $prosesr->contact = "+".$request->input('phone_code')." ".$request->input('contact');

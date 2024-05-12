@@ -199,7 +199,7 @@ class PromoSessionController extends Controller
             $psr->save();
         }
 
-        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.svg');
         $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
         $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($psr->reg_code)));
@@ -226,7 +226,7 @@ class PromoSessionController extends Controller
             $psr->save();
         }
 
-        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.png');
+        $qrCodeImagePath = public_path('qr_code/' . $psr->reg_code . '.svg');
         $svgFile = public_path('qr_code/' . $psr->reg_code . '.svg');
 
         $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($psr->reg_code)));

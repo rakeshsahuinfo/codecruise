@@ -27,7 +27,7 @@
         .watermark {
             position: absolute;
             height: 400px;
-            width: 400px;;
+            width: 400px;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);

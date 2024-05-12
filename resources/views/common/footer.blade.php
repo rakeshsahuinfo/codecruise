@@ -46,6 +46,9 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-md-6 col-xxl-3 col-xl-3">
+                        <img src="{{asset('common/assets/img/office/main.jpg')}}" alt="">
+                    </div>
+                    <div class="col-md-6 col-xxl-3 col-xl-3">
                         <div class="widget footer-widget">
                             <div class="th-widget-about">
                                 <div class="about-logo">

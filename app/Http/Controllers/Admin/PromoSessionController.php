@@ -204,10 +204,11 @@ class PromoSessionController extends Controller
 
         $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($psr->reg_code)));
 
-        // Check if the PNG file already exists
-        if (!file_exists($qrCodeImagePath)) {
-            file_put_contents($svgFile, $qrCodeText);
+        // Check if the SVG file already exists
+        if (file_exists($qrCodeImagePath)) {
+            unlink($qrCodeImagePath);
         }
+        file_put_contents($svgFile, $qrCodeText);
 
         $pdf = PDF::loadView('certificate.participation', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
         return Response::make($pdf->output(), 200, [
@@ -231,10 +232,11 @@ class PromoSessionController extends Controller
 
         $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($psr->reg_code)));
 
-        // Check if the PNG file already exists
-        if (!file_exists($qrCodeImagePath)) {
-            file_put_contents($svgFile, $qrCodeText);
+        // Check if the SVG file already exists
+        if (file_exists($qrCodeImagePath)) {
+            unlink($qrCodeImagePath);
         }
+        file_put_contents($svgFile, $qrCodeText);
 
         $pdf = PDF::loadView('certificate.completion',  ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
         return Response::make($pdf->output(), 200, [
@@ -274,10 +276,11 @@ class PromoSessionController extends Controller
 
             $qrCodeText = QrCode::size(80)->generate(url('/verify-participation-certificate/' . base64_encode($psr->reg_code)));
 
-            // Check if the PNG file already exists
-            if (!file_exists($qrCodeImagePath)) {
-                file_put_contents($svgFile, $qrCodeText);
+            // Check if the SVG file already exists
+            if (file_exists($qrCodeImagePath)) {
+                unlink($qrCodeImagePath);
             }
+            file_put_contents($svgFile, $qrCodeText);
 
             $pdf = PDF::loadView('certificate.verify-participation', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
             return Response::make($pdf->output(), 200, [
@@ -306,10 +309,11 @@ class PromoSessionController extends Controller
 
             $qrCodeText = QrCode::size(80)->generate(url('/verify-completion-certificate/' . base64_encode($psr->reg_code)));
 
-            // Check if the PNG file already exists
-            if (!file_exists($qrCodeImagePath)) {
-                file_put_contents($svgFile, $qrCodeText);
+            // Check if the SVG file already exists
+            if (file_exists($qrCodeImagePath)) {
+                unlink($qrCodeImagePath);
             }
+            file_put_contents($svgFile, $qrCodeText);
 
             $pdf = PDF::loadView('certificate.verify-completion', ['psr' => $psr, 'ps' => $ps])->setPaper('a4', 'landscape');
             return Response::make($pdf->output(), 200, [

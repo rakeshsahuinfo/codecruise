@@ -58,10 +58,10 @@ class AdminController extends Controller
     public function downloadRegCandidate()
     {
 
-        $data = DB::select("SELECT name, email, contact FROM user_query UNION SELECT name, email, contact FROM promo_session_registration");
+        $data = DB::select("SELECT name, email, contact, company_college_name, message FROM user_query UNION SELECT name, email, contact, company_college_name, message FROM promo_session_registration");
 
         $csv = Writer::createFromString('');
-        $csv->insertOne(['name', 'email', 'contact']);
+        $csv->insertOne(['name', 'email', 'contact', 'background', 'message']);
 
         foreach ($data as $row) {
             // Cast object to array directly
@@ -76,10 +76,10 @@ class AdminController extends Controller
     public function downloadInquiryCandidate()
     {
 
-        $data = DB::select("SELECT name, email, contact FROM user_query");
+        $data = DB::select("SELECT name, email, contact, company_college_name, message FROM user_query");
 
         $csv = Writer::createFromString('');
-        $csv->insertOne(['name', 'email', 'contact']);
+        $csv->insertOne(['name', 'email', 'contact', 'background', 'message']);
 
         foreach ($data as $row) {
             // Cast object to array directly
@@ -94,10 +94,10 @@ class AdminController extends Controller
     public function downloadPromoCandidate($id)
     {
 
-        $data = DB::select("SELECT name, email, contact FROM promo_session_registration where promo_session_id=$id");
+        $data = DB::select("SELECT name, email, contact, company_college_name, message FROM promo_session_registration where promo_session_id=$id");
 
         $csv = Writer::createFromString('');
-        $csv->insertOne(['name', 'email', 'contact']);
+        $csv->insertOne(['name', 'email', 'contact', 'background', 'message']);
 
         foreach ($data as $row) {
             // Cast object to array directly

@@ -39,7 +39,7 @@
                                     <th>Action</th>
                                     <th>Name</th>
                                     <th>CourseType</th>
-                                    <th>Description</th>
+                                    {{--<th>Description</th>--}}
                                     <th>CourseDuration</th>
                                     <th>Schedule</th>
                                     <th>DeliveryMode</th>
@@ -57,7 +57,7 @@
                                     <th>Action</th>
                                     <th>Name</th>
                                     <th>CourseType</th>
-                                    <th>Description</th>
+                                    {{--<th>Description</th>--}}
                                     <th>CourseDuration</th>
                                     <th>Schedule</th>
                                     <th>DeliveryMode</th>
@@ -89,7 +89,7 @@
                                     </td>
                                     <td>{{$c->name}}</td>
                                     <td>{{$c->course_type_name}}</td>
-                                    <td>{!! $c->description !!}</td>
+                                    {{--<td>{!! $c->description !!}</td>--}}
                                     <td>{{$c->course_duration}}</td>
                                     <td>{{$c->class_schedule}}</td>
                                     <td>{{$c->delivery_mode}}</td>

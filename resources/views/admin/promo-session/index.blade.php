@@ -40,7 +40,7 @@
                                     <th>PromoType</th>
                                     <th>Name</th>
                                     <th>DateTime</th>
-                                    <th>Description</th>
+                                    {{--<th>Description</th>--}}
                                     <th>Speaker</th>
                                     <th>RegistrationFeedbackLink</th>
                                     <th>PromoBanner</th>
@@ -58,7 +58,7 @@
                                     <th>PromoType</th>
                                     <th>Name</th>
                                     <th>DateTime</th>
-                                    <th>Description</th>
+                                    {{--<th>Description</th>--}}
                                     <th>Speaker</th>
                                     <th>RegistrationFeedbackLink</th>
                                     <th>PromoBanner</th>
@@ -96,7 +96,7 @@
                                         {!!preg_replace('/(?<=\d)(st|nd|rd|th)\b/', '<sup>$1</sup>', \Carbon\Carbon::parse($ps->session_date)->format('jS F, Y'))!!}<br>
                                         {{$ps->session_time}}
                                     </td>
-                                    <td>{!! $ps->description !!}</td>
+                                    {{--<td>{!! $ps->description !!}</td>--}}
                                     <td>{{$ps->speaker}}<br><br>{{$ps->about_speaker}}</td>
                                     <td>
                                         {!! QrCode::size(200)->generate( url('/promo/'.$ps->promo_type.'/'.$ps->slug)) !!}<br><br>

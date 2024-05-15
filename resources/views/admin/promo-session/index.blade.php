@@ -89,6 +89,7 @@
                                     <td>
                                         <strong>Name:</strong>{{$ps->name}}<br>
                                         <strong>Alias:</strong>{{$ps->session_alias}}<br><br>
+                                        <strong>About:</strong><br>
                                         {{$ps->about_session}}
                                         
                                     </td>

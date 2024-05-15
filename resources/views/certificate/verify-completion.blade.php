@@ -70,6 +70,13 @@
 
         .event {
             font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .about-event {
+            font-size: 12px;
+            font-weight: 400;
             text-transform: uppercase;
             margin-bottom: 100px;
         }
@@ -116,7 +123,8 @@
             <div class="divider">
                 <hr>
             </div>
-            <div class="event">COURSE: {{ $ps->name }}</div>
+            <div class="event">{{ $ps->session_alias }}</div>
+            <div class="about-event">{{ $ps->about_session }}</div>
             <table class="footer">
                 <tr>
                     <td class="issue">

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [LandingPageController::class, 'index'])->name('landing-page');
 Route::get('/contact', [AboutController::class, 'contact'])->name('contact');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
-Route::get('/upcoming-event',[AboutController::class, 'upcomingEvent'])->name('upcoming-event');
+Route::get('/upcoming-event', [AboutController::class, 'upcomingEvent'])->name('upcoming-event');
 Route::get('/course/{id}', [CourseController::class, 'index'])->name('course');
 Route::get('/course-by-type/{course_type_id}', [CourseController::class, 'courseByType'])->name('course-by-type');
 Route::get('/course-catalog', [CourseController::class, 'courseCatalog'])->name('course-catalog');
@@ -45,8 +45,8 @@ Route::get('/admin-login', [AdminController::class, 'adminLogin'])->name('login'
 Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-sign-in');
 
 //Certificate
-Route::get('/verify-participation-certificate/{code}',[AdminPromoSessionController::class,'verifyParticipationCertificate'])->name('verify-participation-certificate');
-Route::get('/verify-completion-certificate/{code}',[AdminPromoSessionController::class,'verifyCompletionCertificate'])->name('verify-completion-certificate');
+Route::get('/verify-participation-certificate/{code}', [AdminPromoSessionController::class, 'verifyParticipationCertificate'])->name('verify-participation-certificate');
+Route::get('/verify-completion-certificate/{code}', [AdminPromoSessionController::class, 'verifyCompletionCertificate'])->name('verify-completion-certificate');
 
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out', [AdminController::class, 'signOut'])->name('admin-sign-out');
@@ -86,6 +86,8 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/show-promo-session/{id}', [AdminPromoSessionController::class, 'index'])->name('show-promo-session');
 
     Route::get('/show-promo-session-registration/{id}', [AdminPromoSessionController::class, 'showRegistrations'])->name('show-promo-session-registration');
+    Route::get('/edit-promo-session-registration/{id}', [AdminPromoSessionController::class, 'editRegistrations'])->name('edit-promo-session-registration');
+    Route::post('/update-promo-session-registration', [AdminPromoSessionController::class, 'updateRegistrations'])->name('update-promo-session-registration');
     Route::get('/show-promo-session-feedback/{id}', [AdminPromoSessionController::class, 'showFeedback'])->name('show-promo-session-feedback');
 
     Route::get('/download-reg-candidate', [AdminController::class, 'downloadRegCandidate'])->name('download-reg-candidate');
@@ -93,8 +95,8 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/download-promo-candidate/{id}', [AdminController::class, 'downloadPromoCandidate'])->name('download-promo-candidate');
 
     //Certificate
-    Route::get('/participation-certificate/{id}',[AdminPromoSessionController::class,'participationCertificate'])->name('participation-certificate');
-    Route::get('/completion-certificate/{id}',[AdminPromoSessionController::class,'completionCertificate'])->name('completion-certificate');
+    Route::get('/participation-certificate/{id}', [AdminPromoSessionController::class, 'participationCertificate'])->name('participation-certificate');
+    Route::get('/completion-certificate/{id}', [AdminPromoSessionController::class, 'completionCertificate'])->name('completion-certificate');
 
     Route::get('/homepage', [])->name('homepage');
 });

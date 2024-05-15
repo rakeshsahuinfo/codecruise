@@ -19,11 +19,12 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PromoSessionController extends Controller
 {
-    public function test(){
-        $psr=PromoSessionRegistration::all();
-        foreach($psr as $pr){
-            $p=PromoSessionRegistration::find($pr->id);
-            $p->reg_code=Self::generateUniqueCode();
+    public function test()
+    {
+        $psr = PromoSessionRegistration::all();
+        foreach ($psr as $pr) {
+            $p = PromoSessionRegistration::find($pr->id);
+            $p->reg_code = Self::generateUniqueCode();
             $p->save();
         }
         return ['updated'];
@@ -67,6 +68,8 @@ class PromoSessionController extends Controller
                 'promo_type' => $request->promo_type,
                 'name' => $request->name,
                 'slug' => $request->slug,
+                'session_alias'=>$request->session_alias,
+                'about_session'=>$request->about_session,
                 'session_date' => $request->session_date,
                 'session_time' => $request->session_time,
                 'description' => $request->description,
@@ -143,6 +146,8 @@ class PromoSessionController extends Controller
             $proses->promo_type = $request->promo_type;
             $proses->name = $request->name;
             $proses->slug = $request->slug;
+            $proses->session_alias = $request->session_alias;
+            $proses->about_session = $request->about_session;
             $proses->session_date = $request->session_date;
             $proses->session_time = $request->session_time;
             $proses->description = $request->description;
@@ -172,6 +177,31 @@ class PromoSessionController extends Controller
             $proses = PromoSession::find($promo_session_id);
             $prosesreg = PromoSessionRegistration::where('promo_session_id', $promo_session_id)->orderBy('created_at', 'desc')->get();
             return view('admin.promo-session.promo-session-registration', ['proses' => $proses, 'prosesreg' => $prosesreg]);
+        } catch (Exception $ex) {
+            Log::info("Something went wrong");
+        }
+    }
+
+    public function editRegistrations($id)
+    {
+        try {
+            $psr = PromoSessionRegistration::find($id);
+            return view('admin.promo-session.edit-regitration', ['psr' => $psr]);
+        } catch (Exception $ex) {
+            Log::info("Something went wrong");
+        }
+    }
+
+    public function updateRegistrations(Request $request)
+    {
+        try {
+            $psr=PromoSessionRegistration::find($request->promo_session_reg_id);
+            $psr->name=$request->name;
+            $psr->email=$request->email;
+            $psr->contact=$request->contact;
+            $psr->company_college_name=$request->company_college_name;
+            $psr->update();
+            return redirect('/admin/show-promo-session-registration/'.$psr->promo_session_id)->with(['msg' => 'Participants Detail Updated', 'status' => 'success']);
         } catch (Exception $ex) {
             Log::info("Something went wrong");
         }
@@ -263,7 +293,7 @@ class PromoSessionController extends Controller
     {
         try {
             $reg_code = base64_decode($code);
-            $psr = PromoSessionRegistration::where('reg_code',$reg_code)->first();
+            $psr = PromoSessionRegistration::where('reg_code', $reg_code)->first();
             $ps = PromoSession::find($psr->promo_session_id);
             if (empty($psr->reg_code)) {
                 $reg_code = Self::generateUniqueCode();
@@ -296,7 +326,7 @@ class PromoSessionController extends Controller
     {
         try {
             $reg_code = base64_decode($code);
-            $psr = PromoSessionRegistration::where('reg_code',$reg_code)->first();
+            $psr = PromoSessionRegistration::where('reg_code', $reg_code)->first();
             $ps = PromoSession::find($psr->promo_session_id);
             if (empty($psr->reg_code)) {
                 $reg_code = Self::generateUniqueCode();

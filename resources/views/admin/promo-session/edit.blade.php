@@ -77,6 +77,14 @@
                                                 value="{{$proses->slug}}" readonly>
                                         </div>
                                         <div class="form-group w-100  my-4">
+                                            <label for="session_alias">Name On Certificate</label>
+                                            <input type="text" class="form-control" name="session_alias" id="session_alias" value="{{$proses->session_alias}}" required>
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="about_session">About Session</label>
+                                            <input type="text" class="form-control" name="about_session" id="about_session" value="{{$proses->about_session}}" required>
+                                        </div>
+                                        <div class="form-group w-100  my-4">
                                             <label for="session_date">Session Date</label>
                                             <input type="date" class="form-control" name="session_date" id="session_date" required value="{{$proses->session_date}}">
                                         </div>

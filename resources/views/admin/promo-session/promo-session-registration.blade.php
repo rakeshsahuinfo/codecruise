@@ -64,6 +64,9 @@
                                 <tr>
                                     <td>
                                         <div class='d-flex'>
+                                            <a href="{{route('edit-promo-session-registration',$psr->id)}}" title="Edit Participation Details" class='text-dark'><i class='fas fa-edit'></i></a>  
+                                        </div>
+                                        <div class='d-flex mt-2'>
                                             <a href="{{route('participation-certificate',$psr->id)}}" target="_new" title="Participation Certificate" class='text-info'><i class='fas fa-certificate'></i></a>  
                                             <a href="{{route('completion-certificate',$psr->id)}}" target="_new" title="Completion Certificate" class='text-primary mx-3'><i class='fas fa-certificate'></i></a>   
                                         </div>

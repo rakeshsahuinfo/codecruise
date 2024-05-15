@@ -86,7 +86,12 @@
                                         </div>
                                     </td>
                                     <td>{{$ps->promo_type}}</td>
-                                    <td>{{$ps->name}}</td>
+                                    <td>
+                                        <strong>Name:</strong>{{$ps->name}}<br>
+                                        <strong>Alias:</strong>{{$ps->session_alias}}<br><br>
+                                        {{$ps->about_session}}
+                                        
+                                    </td>
                                     <td>
                                         {!!preg_replace('/(?<=\d)(st|nd|rd|th)\b/', '<sup>$1</sup>', \Carbon\Carbon::parse($ps->session_date)->format('jS F, Y'))!!}<br>
                                         {{$ps->session_time}}

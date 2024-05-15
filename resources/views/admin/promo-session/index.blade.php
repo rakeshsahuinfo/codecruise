@@ -88,7 +88,7 @@
                                     <td>{{$ps->promo_type}}</td>
                                     <td>
                                         <strong>Name:</strong>{{$ps->name}}<br>
-                                        <strong>Alias:</strong>{{$ps->session_alias}}<br><br>
+                                        <strong>Alias:</strong>{{$ps->session_alias}}<br>
                                         <strong>About:</strong><br>
                                         {{$ps->about_session}}
                                         

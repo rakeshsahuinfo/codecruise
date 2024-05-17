@@ -433,6 +433,73 @@ Servce Area
         </div>
     </div>
 </section>
+
+    <!--==============================
+Process Area  
+==============================-->
+<section class="space overflow-hidden">
+        <div class="process-bg-shape1 spin shape-mockup d-xl-block d-none" data-left="7%" data-top="15%">
+            <img src="{{asset('common/assets/img/process/process-bg-shape-1-1.png')}}" alt="img">
+        </div>
+        <div class="process-bg-shape2 jump shape-mockup" data-right="-1%" data-bottom="15%">
+            <img src="{{asset('common/assets/img/process/process-bg-shape-1-2.png')}}" alt="img">
+        </div>
+        <div class="container">
+            <div class="title-area text-center">
+                <span class="sub-title"><i class="fal fa-book me-1"></i> ENROLLMENT PROCESS</span>
+                <h2 class="sec-title">Steps to start learning?</h2>
+            </div>
+            <div class="process-card-area">
+                <div class="row gy-50 justify-content-center">
+                    <div class="col-md-6 col-lg-4 process-card-wrap">
+                        <div class="process-card">
+                            <!-- <div class="process-card_img">
+                                <img src="{{asset('common/assets/img/process/process-1-1.png')}}" alt="img">
+                            </div> 
+                            <div class="process-card_icon">
+                                <img src="{{asset('common/assets/img/icon/process-icon-1-1.svg')}}" alt="icon">
+                            </div>-->
+                            <h2 class="box-title">1. Application Submission</h2>
+                            <p class="process-card_text text-justify">Applicants submit an online form with <br>key profile details for the desired course..</p>
+                        </div>
+                        <div class="process-arrow">
+                            <img src="{{asset('common/assets/img/icon/process-arrow.svg')}}" alt="line">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 process-card-wrap">
+                        <div class="process-card">
+                            <!-- <div class="process-card_img">
+                                <img src="{{asset('common/assets/img/process/process-1-2.png')}}" alt="img">
+                            </div> 
+                            <div class="process-card_icon">
+                                <img src="{{asset('common/assets/img/icon/process-icon-1-2.svg')}}" alt="icon">
+                            </div>-->
+                            <h2 class="box-title">2. Application Review and Discovery Call</h2>
+                            <p class="process-card_text text-justify"> Our academic team meticulously reviews applications. Qualified candidates then receive a guidance call from a seasoned counselor, who assists in choosing the ideal learning path tailored to their career aspirations.</p>
+                        </div>
+                        <div class="process-arrow">
+                            <img src="{{asset('common/assets/img/icon/process-arrow.svg')}}" alt="line">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 process-card-wrap">
+                        <div class="process-card">
+                            <!-- <div class="process-card_img">
+                                <img src="{{asset('common/assets/img/process/process-1-3.png')}}" alt="img">
+                            </div> 
+                            <div class="process-card_icon">
+                                <img src="{{asset('common/assets/img/icon/process-icon-1-3.svg')}}" alt="icon">
+                            </div>-->
+                            <h2 class="box-title">3. Confirmation and Enrollment</h2><br>
+                            <p class="process-card_text text-justify">Accepted applicants receive admission offers. Upon acceptance, they finalize enrollment by submitting required documents, fees, and attending an orientation session to commence their education journey.</p>
+                        </div>
+                        <div class="process-arrow">
+                            <img src="{{asset('common/assets/img/icon/process-arrow.svg')}}" alt="line">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <!--==============================
 Footer Area
 ==============================-->

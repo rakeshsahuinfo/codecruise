@@ -40,7 +40,7 @@
 <!--==============================
     Breadcumb
 ============================== -->
-<!-- <div class="breadcumb-wrapper " data-bg-src="{{asset('course_banner/'.$courseinfo->course_banner)}}"
+<div class="breadcumb-wrapper " data-bg-src="{{asset('course_banner/'.$courseinfo->course_banner)}}"
     data-overlay="title" data-opacity="8">
     <!-- <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
@@ -49,7 +49,7 @@
     </div>
     <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" data-left="50px" data-bottom="80px">
         <img src="{{asset('common/assets/img/bg/breadcumb_shape_1_3.png')}}" alt="shape">
-    </div> 
+    </div> -->
     <div class="container">
         <div class="breadcumb-content text-center">
             <h1 class="breadcumb-title">Courses Details</h1>
@@ -59,14 +59,14 @@
             </ul>
         </div>
     </div>
-</div>-->
+</div>
 <!--==============================
 Project Area  
 ==============================-->
 <!--==============================
 Event Area  
 ==============================-->
-<section class="">
+<section class="space-top space-extra2-bottom">
     <div class="container">
         <div class="row">
             <div class="col-xxl-8 col-lg-7">
@@ -82,8 +82,6 @@ Event Area
                             <!-- <span><i class="fal fa-file"></i>Lesson 8</span> -->
                             <span><i class="fal fa-user"></i>Students 60+</span>
                             <span><i class="fal fa-chart-simple"></i>Beginner</span>
-                             <span class="meta-title">Category: </span><a href="#">{{$coursetype->name}}</a>
-                           
                         </div>
                         <h2 class="course-title">{{$courseinfo->name}}</h2>
                         <ul class="course-single-meta">
@@ -95,11 +93,11 @@ Event Area
                                     <a href="course.html">Max Alexix</a>
                                 </span>
                             </li>
-                            
+                            --}}
                             <li>
                                 <span class="meta-title">Category: </span>
                                 <a href="#">{{$coursetype->name}}</a>
-                            </li>--}}
+                            </li>
                             <li>
                                 <span class="meta-title">Last Update: </span>
                                 <a href="#">{{Carbon\Carbon::parse($courseinfo->updated_at)->format('d-M-Y')}}</a>
@@ -115,8 +113,8 @@ Event Area
                                     (4.00)
                                 </div>
                             </li>
-                           
-                        </ul> --}}
+                            --}}
+                        </ul>
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -132,11 +130,15 @@ Event Area
                             </li>
                             {{--
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor" role="tab" aria-controls="instructor" aria-selected="false"><i class="fa-regular fa-user"></i>Instructor</a>
+                                <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor"
+                                    role="tab" aria-controls="instructor" aria-selected="false"><i
+                                        class="fa-regular fa-user"></i>Instructor</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false"><i class="fa-regular fa-star-sharp"></i>Reviews</a>
-                            </li> 
+                                <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab"
+                                    aria-controls="reviews" aria-selected="false"><i
+                                        class="fa-regular fa-star-sharp"></i>Reviews</a>
+                            </li>
                             --}}
                         </ul>
                         <div class="tab-content" id="productTabContent">
@@ -336,12 +338,12 @@ Event Area
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">
                             <ul>
-                                {{-- 
+                                {{--
                                 <li>
                                     <i class="fa-light fa-user"></i>
                                     <strong>Instructor: </strong>
                                     <span>Kevin Perry</span>
-                                </li> 
+                                </li>
                                 --}}
                                 <li>
                                     <i class="fa-light fa-clock"></i>
@@ -379,15 +381,17 @@ Event Area
                             class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download
                             Information</a>
                     </div>
-                    <div class="widget widget_banner  " data-overlay="theme" data-opacity="9" data-bg-src="assets/img/widget/widget-banner-bg.png">
-                            <div class="widget-banner">
-                                <h4 class="title">Need Help? We Are Here To Help You</h4>
-                                <div class="logo"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="img"></div>
-                                <h5 class="subtitle">Call us directly on</h5>
-                                <a href="tel:+917304562050" class="link">+91 730 456 2050</a>
-                                <a href="{{route('contact')}}" target="_new" class="th-btn style7">Contact Us Now <i class="far fa-arrow-right ms-1"></i></a>
-                            </div>
+                    <div class="widget widget_banner  " data-overlay="theme" data-opacity="9"
+                        data-bg-src="assets/img/widget/widget-banner-bg.png">
+                        <div class="widget-banner">
+                            <h4 class="title">Need Help? We Are Here To Help You</h4>
+                            <div class="logo"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="img"></div>
+                            <h5 class="subtitle">Call us directly on</h5>
+                            <a href="tel:+917304562050" class="link">+91 730 456 2050</a>
+                            <a href="{{route('contact')}}" target="_new" class="th-btn style7">Contact Us Now <i
+                                    class="far fa-arrow-right ms-1"></i></a>
                         </div>
+                    </div>
                 </aside>
             </div>
         </div>
@@ -429,161 +433,73 @@ Servce Area
         </div>
     </div>
 </section>
- <!--==============================
-Category Area  
+
+    <!--==============================
+Process Area  
 ==============================-->
-<section class="space">
+<section class="space overflow-hidden">
+        <div class="process-bg-shape1 spin shape-mockup d-xl-block d-none" data-left="7%" data-top="15%">
+            <img src="{{asset('common/assets/img/process/process-bg-shape-1-1.png')}}" alt="img">
+        </div>
+        <div class="process-bg-shape2 jump shape-mockup" data-right="-1%" data-bottom="15%">
+            <img src="{{asset('common/assets/img/process/process-bg-shape-1-2.png')}}" alt="img">
+        </div>
         <div class="container">
-            <div class="title-area text-center text-md-start">
-               <span class="sub-title">Why learn at Codecruise</span>
-                <h2 class="sec-title fw-medium">Our Course Features</h2>
+            <div class="title-area text-center">
+                <span class="sub-title"><i class="fal fa-book me-1"></i> ENROLLMENT PROCESS</span>
+                <h2 class="sec-title">Steps to start learning?</h2>
             </div>
-            <div class="row gy-50">
-                <div class="col-sm-6 col-xl-4">
-                    <div class="category-card2">
-                        <div class="category-card2_icon">
-                            <img src="{{asset('common/assets/img/update1/icon/category_1_1.svg')}}" alt="icon">
+            <div class="process-card-area">
+                <div class="row gy-50 justify-content-center">
+                    <div class="col-md-6 col-lg-4 process-card-wrap">
+                        <div class="process-card">
+                            <!-- <div class="process-card_img">
+                                <img src="{{asset('common/assets/img/process/process-1-1.png')}}" alt="img">
+                            </div> 
+                            <div class="process-card_icon">
+                                <img src="{{asset('common/assets/img/icon/process-icon-1-1.svg')}}" alt="icon">
+                            </div>-->
+                            <h2 class="box-title">1. Application Submission</h2>
+                            <p class="process-card_text text-justify">Applicants submit an online form with <br>key profile details for the desired course..</p>
                         </div>
-                        <div class="category-card2_content">
-                            <h3 class="category-card2_title"><a href="javascript:void(0)">Project-based Learning</a></h3>
-                            <!--<p class="category-card2_text">Globally maintain magnetic process with model foster data after ubiuitous architectures.</p>
-                            <a href="/about" class="link-btn">Learn More<i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4">
-                    <div class="category-card2">
-                        <div class="category-card2_icon">
-                            <img src="{{asset('common/assets/img/update1/icon/category_1_2.svg')}}" alt="icon">
-                        </div>
-                        <div class="category-card2_content">
-                            <h3 class="category-card2_title"><a href="javascript:void(0)">Topic-based Assessments</a></h3>
-                            <!--<p class="category-card2_text">Ubiuitos maintain magnetic process with model foster data after architectures ubiuitous.</p>-->
-                            <a href="/about" class="link-btn">Learn More<i class="fas fa-arrow-right"></i></a>
+                        <div class="process-arrow">
+                            <img src="{{asset('common/assets/img/icon/process-arrow.svg')}}" alt="line">
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-xl-4">
-                    <div class="category-card2">
-                        <div class="category-card2_icon">
-                            <img src="{{asset('common/assets/img/update1/icon/category_1_3.svg')}}" alt="icon">
+                    <div class="col-md-6 col-lg-4 process-card-wrap">
+                        <div class="process-card">
+                            <!-- <div class="process-card_img">
+                                <img src="{{asset('common/assets/img/process/process-1-2.png')}}" alt="img">
+                            </div> 
+                            <div class="process-card_icon">
+                                <img src="{{asset('common/assets/img/icon/process-icon-1-2.svg')}}" alt="icon">
+                            </div>-->
+                            <h2 class="box-title">2. Application Review and Discovery Call</h2>
+                            <p class="process-card_text text-justify"> Our academic team meticulously reviews applications. Qualified candidates then receive a guidance call from a seasoned counselor, who assists in choosing the ideal learning path tailored to their career aspirations.</p>
                         </div>
-                        <div class="category-card2_content">
-                            <h3 class="category-card2_title"><a href="javascript:void(0)">Work on Live Projects</a></h3>
-                            <!--<p class="category-card2_text">Magnetic maintain Globally process with model architectures data after ubiuitous foster.</p>-->
-                            <a href="/about" class="link-btn">Learn More<i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4">
-                    <div class="category-card2">
-                        <div class="category-card2_icon">
-                            <img src="{{asset('common/assets/img/update1/icon/category_1_4.svg')}}" alt="icon">
-                        </div>
-                        <div class="category-card2_content">
-                            <h3 class="category-card2_title"><a href="javascript:void(0)">Interview Preparation</a></h3>
-                            <!--<p class="category-card2_text">Genious maintain magnetic process with model foster data after ubiuitous Previoiuslyws.</p>-->
-                            <a href="/about" class="link-btn">Learn More<i class="fas fa-arrow-right"></i></a>
+                        <div class="process-arrow">
+                            <img src="{{asset('common/assets/img/icon/process-arrow.svg')}}" alt="line">
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-xl-4">
-                    <div class="category-card2">
-                        <div class="category-card2_icon">
-                            <img src="{{asset('common/assets/img/update1/icon/category_1_5.svg')}}" alt="icon">
+                    <div class="col-md-6 col-lg-4 process-card-wrap">
+                        <div class="process-card">
+                            <!-- <div class="process-card_img">
+                                <img src="{{asset('common/assets/img/process/process-1-3.png')}}" alt="img">
+                            </div> 
+                            <div class="process-card_icon">
+                                <img src="{{asset('common/assets/img/icon/process-icon-1-3.svg')}}" alt="icon">
+                            </div>-->
+                            <h2 class="box-title">3. Confirmation and Enrollment</h2><br>
+                            <p class="process-card_text text-justify">Accepted applicants receive admission offers. Upon acceptance, they finalize enrollment by submitting required documents, fees, and attending an orientation session to commence their education journey.</p>
                         </div>
-                        <div class="category-card2_content">
-                            <h3 class="category-card2_title"><a href="javascript:void(0)">Internships</a></h3>
-                            <!--<p class="category-card2_text">Getting maintain magnetic process with model foster data after ubiuitous architectures.</p>-->
-                            <a href="/about" class="link-btn">Learn More<i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4">
-                    <div class="category-card2">
-                        <div class="category-card2_icon">
-                            <img src="{{asset('common/assets/img/update1/icon/category_1_6.svg')}}" alt="icon">
-                        </div>
-                        <div class="category-card2_content">
-                            <h3 class="category-card2_title"><a href="javascript:void(0)">Placement Assistance</a></h3>
-                            <!--<p class="category-card2_text">Startup maintain magnetic process with model foster data after architectures ubiuitous.</p>-->
-                            <a href="/about" class="link-btn">Learn More<i class="fas fa-arrow-right"></i></a>
+                        <div class="process-arrow">
+                            <img src="{{asset('common/assets/img/icon/process-arrow.svg')}}" alt="line">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-  <!--==============================
-Feature Area  
-==============================-->
-<div class="space">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 mb-45 mb-xl-0">
-                    <div class="title-area text-center text-xl-start mb-35">
-                        <span class="sub-title">Why Choose Codecruise</span>
-                        <h2 class="sec-title fw-semibold">Get An Experience Person in Personal Learning</h2>
-                    </div>
-                    <!--<p class="mt-n2 mb-35 text-center text-xl-start">Enthusiastically facilitate distinctive experiences whereas excellent metrics. Dynamically fashion fully tested methodologies with cost effective data. Completely synergize ethical web services rather than professional applications.</p>-->
-                    <div class="row gy-30">
-                        <div class="col-md-6">
-                            <div class="feature-block">
-                                <div class="feature-block_icon">
-                                    <img src="{{asset('common/assets/img/update1/icon/feature_3_1.svg')}}" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="feature-block_title">Highly Experienced</h3>
-                                    <!--<p class="feature-block_text">Quickly iterate reliable infomediarie vis-a-vis top-line action items.</p>-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="feature-block">
-                                <div class="feature-block_icon">
-                                    <img src="{{asset('common/assets/img/update1/icon/feature_3_2.svg')}}" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="feature-block_title">Dedicated Support</h3>
-                                    <!--<p class="feature-block_text">Quickly iterate reliable infomediarie vis-a-vis top-line action items.</p>-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="feature-block">
-                                <div class="feature-block_icon">
-                                    <img src="{{asset('common/assets/img/update1/icon/feature_3_3.svg')}}" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="feature-block_title">Question, Quiz & Test</h3>
-                                    <!--<p class="feature-block_text">Quickly iterate reliable infomediarie vis-a-vis top-line action items.</p>-->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="feature-block">
-                                <div class="feature-block_icon">
-                                    <img src="{{asset('common/assets/img/update1/icon/feature_3_4.svg')}}" alt="icon">
-                                </div>
-                                <div class="media-body">
-                                    <h3 class="feature-block_title">Live Coaching</h3>
-                                    <!--<p class="feature-block_text">Quickly iterate reliable infomediarie vis-a-vis top-line action items.</p>-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-6">
-                    <div class="ps-xxl-5 ms-xl-2">
-                        <div class="video-box2">
-                            <!--<img src="{{asset('common/assets/img/update1/normal/video_3.jpg')}}" alt="video">-->
-                            <a href="https://www.youtube.com/watch?v=GBm_sAwIAAM" class="play-btn popup-video"><i class="fas fa-play"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 <!--==============================
 Footer Area
 ==============================-->

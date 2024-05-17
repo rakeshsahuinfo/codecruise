@@ -51,7 +51,7 @@
     </div>
     <div class="container">
         <div class="title-area text-center">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
+            <span class="sub-title"><i class="fal fa-book me-2"></i> Featured Events</span>
             <h2 class="sec-title">Our Upcoming Events</h2>
         </div>
         @php

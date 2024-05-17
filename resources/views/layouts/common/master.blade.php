@@ -6,11 +6,15 @@
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<title>Code-Cruise | @yield('title')</title>
+	
 	<meta name="description" content="Code-Cruise - Dynamic Tech Education Platform ">
 	<meta name="keywords" content="Code-Cruise - Online Courses & Education">
 	<meta name="robots" content="INDEX,FOLLOW">
     <meta name="author" content="Code Cruise">
     <meta name="sitemap_link" content="{{url('/sitemap.xml')}}">
+    
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- Favicons - Place favicon.ico in the root directory -->
 	<link rel="shortcut icon" href="{{asset('common/assets/img/favicon.png')}}" type="image/x-icon">
@@ -34,7 +38,6 @@
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
-
 		gtag('config', 'G-5ZWBXLP2PC');
 	</script>
 
@@ -53,6 +56,8 @@
 	<link rel="stylesheet" href="{{asset('common/assets/css/nice-select.min.css')}}">
 	<!-- Theme Custom CSS -->
 	<link rel="stylesheet" href="{{asset('common/assets/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('common/assets/css/style-min.css')}}">
+	
 	<link rel="stylesheet" href="{{asset('common/assets/css/whatsapp/floating-wpp.min.css')}}">
 	<link rel="stylesheet" href="{{asset('common/assets/css/whatsapp/floating-wpp.css')}}">
 	@yield('headasset')

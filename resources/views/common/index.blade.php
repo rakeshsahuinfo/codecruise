@@ -51,7 +51,7 @@
     </div>
     <div class="container">
         <div class="title-area text-center">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
+            <span class="sub-title"><i class="fal fa-book me-2"></i> Featured Events</span>
             <h2 class="sec-title">Our Upcoming Events</h2>
         </div>
         @php
@@ -66,7 +66,7 @@
                 <div class="event-card">
                     <div class="event-card_img"
                         data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
-                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 100px;height: 100px;"
+                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 200px;height: 200px;"
                             alt="event">
                     </div>
                     <div class="event-card_content">
@@ -90,7 +90,7 @@
                             <a href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}" class="th-btn">View Event <i
                                     class="far fa-arrow-right ms-1"></i></a>
                         </div>
-                        <div class="event-card-shape jump">
+                        <div class="event-card-shape">
                             <img src="{{asset('common/assets/img/event/event-box-shape1.png')}}" alt="img">
                         </div>
                     </div>
@@ -113,7 +113,7 @@ Event Area
         <div class="row">
             <div class="col-xl-6">
                 <div class="title-area text-center">
-                    <span class="sub-title"><i class="fal fa-book me-2"></i>Fetaured Events</span>
+                    <span class="sub-title"><i class="fal fa-book me-2"></i>Featured Events</span>
                     <h2 class="sec-title">Upcoming <span class="text-theme fw-light">Sessions</span></h2>
                 </div>
             </div>

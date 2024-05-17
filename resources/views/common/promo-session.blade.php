@@ -120,7 +120,7 @@
                                     <i class="fal fa-envelope"></i>
                                 </div>
                             </div>
-                            <div class="col-md-5">
+                             <div class="col-md-5">
                                 <div class="form-group">
                                    <select class="form-control style-white" name="phone_code" id="phone_code" required>
                                     @if($country)

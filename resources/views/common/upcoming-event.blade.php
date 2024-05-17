@@ -40,7 +40,7 @@
 <!--==============================
     Breadcumb
 ============================== -->
-<div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/slider/slide-22.png')}}" data-overlay="title"
+<!-- <div class="breadcumb-wrapper " data-bg-src="{{asset('common/assets/img/slider/slide-22.png')}}" data-overlay="title"
     data-opacity="8">
     <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
@@ -59,7 +59,7 @@
             </ul>
         </div>
     </div>
-</div>
+</div>-->
 <!--==============================
 Service Area  
 ==============================-->
@@ -72,7 +72,7 @@ Service Area
     </div>
     <div class="container">
         <div class="title-area text-center">
-            <span class="sub-title"><i class="fal fa-book me-2"></i> Fetaured Events</span>
+            <span class="sub-title"><i class="fal fa-book me-2"></i> Featured Events</span>
             <h2 class="sec-title">Our Upcoming Events</h2>
         </div>
         @php
@@ -87,7 +87,7 @@ Service Area
                 <div class="event-card">
                     <div class="event-card_img"
                         data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
-                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 100px;height: 100px;"
+                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 200px;height: 200px;"
                             alt="event">
                     </div>
                     <div class="event-card_content">

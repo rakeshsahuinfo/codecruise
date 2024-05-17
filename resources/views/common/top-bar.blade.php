@@ -20,7 +20,7 @@
                                 <a href="https://www.facebook.com/codecruiseindia" target="_new"><i class="fab fa-facebook-f"></i></a>
                                 <a href="https://twitter.com/codecruiseindia" target="_new"><i class="fab fa-twitter"></i></a>
                                 <a href="https://www.linkedin.com/company/codecruise" target="_new"><i class="fab fa-linkedin-in"></i></a>
-                                <!-- <a href="https://youtube.com/codecruiseindia" target="_new"><i class="fab fa-youtube"></i></a> -->
+                                <a href="https://www.youtube.com/channel/UCuhxp7IX2ynRCqo9R54xVow" target="_new"><i class="fab fa-youtube"></i></a>
                                 <a href="https://www.instagram.com/codecruise" target="_new"><i class="fab fa-instagram"></i></a>
                             </div>
                         </li>

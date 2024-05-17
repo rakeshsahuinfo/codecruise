@@ -10,12 +10,25 @@
             <label for="email">Email</label></br>
             <input type="email" name="email" class="form-control" id="email" placeholder="&nbsp;&nbsp;Email">
         </div>
-        <div class="col-12 col-md-6 mt-3">
-            <label for="contact">Contact no</label></br>
-            <input type="text" class="form-control" name="contact" id="contact"
-                placeholder="&nbsp;&nbsp;Contact">
+        <div class="col-md-5">
+            <div class="form-group">
+               <select class="form-control style-white" name="phone_code" id="phone_code" required>
+                @if($country)
+                @foreach($country as $con)
+                <option value="{{$con->phonecode}}" {{($con->phonecode==91)?"selected":""}}>{{$con->nicename}}</option>
+                @endforeach
+                @endif
+               </select>
+            </div>
         </div>
-        <div class="col-12 col-md-6 mt-3">
+        <div class="col-md-7">
+            <div class="form-group">
+                <input type="tel" class="form-control style-white" name="contact" id="contact"
+                    placeholder="Phone Number*">
+                <i class="fal fa-phone"></i>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-3">
             <label for="company_college_name">Company/College</label></br>
             <input type="text" name="company_college_name" class="form-control"  id="company_college_name"
                 placeholder="&nbsp;&nbsp;Company/College">

@@ -68,10 +68,12 @@ class PromoSessionController extends Controller
                 'promo_type' => $request->promo_type,
                 'name' => $request->name,
                 'slug' => $request->slug,
-                'session_alias'=>$request->session_alias,
-                'about_session'=>$request->about_session,
+                'session_alias' => $request->session_alias,
+                'about_session' => $request->about_session,
                 'session_date' => $request->session_date,
                 'session_time' => $request->session_time,
+                'session_mode' => $request->session_mode,
+                'session_venue' => $request->session_venue,
                 'description' => $request->description,
                 'speaker' => $request->speaker,
                 'about_speaker' => $request->about_speaker,
@@ -150,6 +152,8 @@ class PromoSessionController extends Controller
             $proses->about_session = $request->about_session;
             $proses->session_date = $request->session_date;
             $proses->session_time = $request->session_time;
+            $proses->session_mode = $request->session_mode;
+            $proses->session_venue = $request->session_venue;
             $proses->description = $request->description;
             $proses->speaker = $request->speaker;
             $proses->about_speaker = $request->about_speaker;
@@ -195,13 +199,13 @@ class PromoSessionController extends Controller
     public function updateRegistrations(Request $request)
     {
         try {
-            $psr=PromoSessionRegistration::find($request->promo_session_reg_id);
-            $psr->name=$request->name;
-            $psr->email=$request->email;
-            $psr->contact=$request->contact;
-            $psr->company_college_name=$request->company_college_name;
+            $psr = PromoSessionRegistration::find($request->promo_session_reg_id);
+            $psr->name = $request->name;
+            $psr->email = $request->email;
+            $psr->contact = $request->contact;
+            $psr->company_college_name = $request->company_college_name;
             $psr->update();
-            return redirect('/admin/show-promo-session-registration/'.$psr->promo_session_id)->with(['msg' => 'Participants Detail Updated', 'status' => 'success']);
+            return redirect('/admin/show-promo-session-registration/' . $psr->promo_session_id)->with(['msg' => 'Participants Detail Updated', 'status' => 'success']);
         } catch (Exception $ex) {
             Log::info("Something went wrong");
         }

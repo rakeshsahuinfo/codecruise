@@ -93,6 +93,14 @@
                                             <input type="text" class="form-control" name="session_time" id="session_time" required value="{{$proses->session_time}}">
                                         </div>
                                         <div class="form-group w-100  my-4">
+                                            <label for="session_mode">Session Mode</label>
+                                            <input type="text" class="form-control" name="session_mode" id="session_mode" value="{{$proses->session_mode}}" required placeholder="Online/Offline">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="session_venue">Session Venue</label>
+                                            <input type="text" class="form-control" name="session_venue" id="session_venue" value="{{$proses->session_venue}}" required placeholder="Mumbai">
+                                        </div>
+                                        <div class="form-group w-100  my-4">
                                             <label for="description">Description</label>
                                             <textarea class="form-control" name="description" id="description" cols="30"
                                                 rows="25">{{$proses->description}}</textarea>

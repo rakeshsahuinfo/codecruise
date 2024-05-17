@@ -101,9 +101,10 @@ Service Area
                             </div>
                         </div>
                         <div class="event-meta">
-                            <p><i class="fal fa-location-dot"></i>Online</p>
+                            <p><i class="fal fa-location-dot"></i>{{$prs->session_mode}}</p>
                             <p><i class="fal fa-clock"></i>{{$prs->session_time}}</p>
                             <p><i class="fal fa-calendar"></i>{{Carbon\Carbon::parse($prs->session_date)->format('d-M-Y')}}</p>
+                            <p><i class="fal fa-location"></i>{{$prs->session_venue}}</p>
                         </div>
                         <h3 class="event-card_title"><a
                                 href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}">{{$prs->name}}</a></h3>

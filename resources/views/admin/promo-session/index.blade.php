@@ -95,7 +95,9 @@
                                     </td>
                                     <td>
                                         {!!preg_replace('/(?<=\d)(st|nd|rd|th)\b/', '<sup>$1</sup>', \Carbon\Carbon::parse($ps->session_date)->format('jS F, Y'))!!}<br>
-                                        {{$ps->session_time}}
+                                        {{$ps->session_time}}<br>
+                                        <strong>Mode: </strong>{{$ps->session_mode}}<br>
+                                        <strong>Venue: </strong>{{$ps->session_venue}}
                                     </td>
                                     {{--<td>{!! $ps->description !!}</td>--}}
                                     <td>{{$ps->speaker}}<br><br>{{$ps->about_speaker}}</td>

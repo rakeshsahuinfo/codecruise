@@ -102,7 +102,7 @@
                                     {{--<td>{!! $ps->description !!}</td>--}}
                                     <td>{{$ps->speaker}}<br><br>{{$ps->about_speaker}}</td>
                                     <td>
-                                        {!! QrCode::size(200)->generate( url('/promo/'.$ps->promo_type.'/'.$ps->slug)) !!}<br><br>
+                                        {!! QrCode::size(120)->generate( url('/promo/'.$ps->promo_type.'/'.$ps->slug)) !!}<br><br>
                                         {{url('/promo/'.$ps->promo_type.'/'.$ps->slug)}}
                                         <br><br>
                                         {{url('/feedback/'.$ps->slug)}}

@@ -100,11 +100,11 @@
                                         <b>Applied:</b>{{$c->apply_discount==1?"Yes":"No"}}
                                     </td>
                                     <td>
-                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/course/'.$c->slug) !!}<br><br>
+                                        {!! QrCode::size(120)->generate( 'https://codecruise.in/course/'.$c->slug) !!}<br><br>
                                         {{url('/course/'.$c->slug)}}
                                     </td>
                                     <td>
-                                        {!! QrCode::size(200)->generate( 'https://codecruise.in/enroll-course/'.$c->slug) !!}<br><br>
+                                        {!! QrCode::size(120)->generate( 'https://codecruise.in/enroll-course/'.$c->slug) !!}<br><br>
                                         {{url('/enroll-course/'.$c->slug)}}
                                     </td>
                                     <td>

@@ -405,7 +405,7 @@ Event Area
                         </div>
                         <a href="{{route('download-course-info',$courseinfo->slug)}}" target="_new"
                             class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download
-                            Information</a>
+                            Syllabus</a>
                     </div>
                     <!-- <div class="widget widget_banner  " data-overlay="theme" data-opacity="9"
                         data-bg-src="assets/img/widget/widget-banner-bg.png">

@@ -91,9 +91,9 @@
                             <a href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}" class="th-btn">View Event <i
                                     class="far fa-arrow-right ms-1"></i></a>
                         </div>
-                        <div class="event-card-shape">
+                        <!-- <div class="event-card-shape">
                             <img src="{{asset('common/assets/img/event/event-box-shape1.png')}}" alt="img">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

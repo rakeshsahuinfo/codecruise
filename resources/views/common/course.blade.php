@@ -156,69 +156,63 @@ Event Area
                                     Please check later we are updating content
                                     @endif
                                 </div>
-                            </div>
-                            
+                            </div>                            
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
                                 <div class="course-instructor">
-                                <br>
-                                <div class="title-area text-center">
-                                        <!-- <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack</span> -->
-                                        <div class="title-area">
-                                            <span class="sub-title fs-4">Important Tech Stack Covered</span>
-                                        </div>
-           
-                                </div>
-                            <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2"
-                                data-sm-slide-show="1" data-arrows="true">
-                                <div class="container mt-2">
-                                    <div class="row justify-content-center">
-                                        @if($coursetechstack)
-                                        @foreach($coursetechstack as $ts)
-                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
-                                            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 90%;">
-                                                <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}"
-                                                    style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
-                                                <div class="card-tittle px-4 text-center sub-title fs-6">{{$ts->name}}</div>
-                                                <div class="card-body"></div>
+                                    <br><h5 class="h5">Tech Stack Covered</h5>
+                                
+                                    <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2"
+                                    data-sm-slide-show="1" data-arrows="true">
+                                    <div class="container mt-2">
+                                        <div class="row justify-content-center">
+                                            @if($coursetechstack)
+                                            @foreach($coursetechstack as $ts)
+                                            <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+                                                <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 90%;">
+                                                    <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}"
+                                                        style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
+                                                    <div class="card-tittle px-4 text-center sub-title fs-6">{{$ts->name}}</div>
+                                                    <div class="card-body"></div>
+                                                </div>
                                             </div>
+                                            @endforeach
+                                            @endif
                                         </div>
-                                        @endforeach
-                                        @endif
                                     </div>
-                                </div>
 
-                            </div>
-                                    <!-- <div class="course-author-box">
-                                        <div class="auhtor-img">
-                                            <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}"
-                                                alt="Author Image">
-                                        </div>
-                                        <div class="media-body">
-                                            <h3 class="author-name"><a class="text-inherit"
-                                                    href="team-details.html">Kevin Perry</a></h3>
-                                            <p class="author-text">Optimize resource eveling innoation whereas visionary
-                                                value. Compellingly engage extensible process with business process
-                                                improvements.</p>
-                                            <div class="author-meta">
-                                                <a href="course.html"><i class="fal fa-file-video"></i>4 Courses</a>
-                                                <span><i class="fal fa-users"></i>2500 Students</span>
+                                    </div>
+                                        <!-- <div class="course-author-box">
+                                            <div class="auhtor-img">
+                                                <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}"
+                                                    alt="Author Image">
                                             </div>
-                                            <div class="th-social">
-                                                <a href="https://facebook.com/" target="_blank"><i
-                                                        class="fab fa-facebook-f"></i></a>
-                                                <a href="https://twitter.com/" target="_blank"><i
-                                                        class="fab fa-twitter"></i></a>
-                                                <a href="https://linkedin.com/" target="_blank"><i
-                                                        class="fab fa-linkedin-in"></i></a>
-                                                <a href="https://instagram.com/" target="_blank"><i
-                                                        class="fab fa-instagram"></i></a>
+                                            <div class="media-body">
+                                                <h3 class="author-name"><a class="text-inherit"
+                                                        href="team-details.html">Kevin Perry</a></h3>
+                                                <p class="author-text">Optimize resource eveling innoation whereas visionary
+                                                    value. Compellingly engage extensible process with business process
+                                                    improvements.</p>
+                                                <div class="author-meta">
+                                                    <a href="course.html"><i class="fal fa-file-video"></i>4 Courses</a>
+                                                    <span><i class="fal fa-users"></i>2500 Students</span>
+                                                </div>
+                                                <div class="th-social">
+                                                    <a href="https://facebook.com/" target="_blank"><i
+                                                            class="fab fa-facebook-f"></i></a>
+                                                    <a href="https://twitter.com/" target="_blank"><i
+                                                            class="fab fa-twitter"></i></a>
+                                                    <a href="https://linkedin.com/" target="_blank"><i
+                                                            class="fab fa-linkedin-in"></i></a>
+                                                    <a href="https://instagram.com/" target="_blank"><i
+                                                            class="fab fa-instagram"></i></a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div> -->
+                                        </div> -->
+                                    </div>
                                 </div>
                             </div>
                             {{--
-                                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="course-Reviews">
                                     <div class="th-comments-wrap ">
                                         <ul class="comment-list">
@@ -337,7 +331,6 @@ Event Area
                                 </div>
                             </div>
                             --}}
-                        </div>
                     </div>
                 </div>
             </div>
@@ -470,13 +463,38 @@ Servce Area
 <!--==============================
 Process Area  
 ==============================-->
+    <!--==============================
+Cta Area  
+==============================-->
+<section class="space-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6 mb-30 mb-xl-0">
+                    <div class="cta-card" data-bg-src="{{asset('common/assets/img/update1/bg/Participation.png')}}">
+                        <div class="title-area mb-40">
+                            <h4 class="sec-title"><br><br><br><br> </h4>
+                        </div>
+                        <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">Certificate of Participation<i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="cta-card" data-bg-src="{{asset('common/assets/img/update1/bg/Completion.png')}}">
+                        <div class="title-area mb-40">
+                            <h4 class="sec-title"> <br><br><br><br></h4>
+                        </div>
+                        <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">Certificate of Completion<i class="fas fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <section class="space overflow-hidden">
     <div class="process-bg-shape1 spin shape-mockup d-xl-block d-none" data-left="7%" data-top="15%">
         <img src="{{asset('common/assets/img/process/process-bg-shape-1-1.png')}}" alt="img">
     </div>
-    <div class="process-bg-shape2 jump shape-mockup" data-right="-1%" data-bottom="15%">
+    <!-- <div class="process-bg-shape2 jump shape-mockup" data-right="-1%" data-bottom="15%">
         <img src="{{asset('common/assets/img/process/process-bg-shape-1-2.png')}}" alt="img">
-    </div>
+    </div> -->
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title"><i class="fal fa-book me-1"></i> ENROLLMENT PROCESS</span>
@@ -486,12 +504,12 @@ Process Area
             <div class="row gy-50 justify-content-center">
                 <div class="col-md-6 col-lg-4 process-card-wrap">
                     <div class="process-card">
-                        <!-- <div class="process-card_img">
+                        <div class="process-card_img">
                                 <img src="{{asset('common/assets/img/process/process-1-1.png')}}" alt="img">
                             </div> 
-                            <div class="process-card_icon">
+                            <!-- <div class="process-card_icon">
                                 <img src="{{asset('common/assets/img/icon/process-icon-1-1.svg')}}" alt="icon">
-                            </div>-->
+                            </div> -->
                         <h2 class="box-title">1. Application Submission</h2>
                         <p class="process-card_text text-justify">Applicants submit an online form with <br>key profile
                             details for the desired course..</p>
@@ -502,12 +520,12 @@ Process Area
                 </div>
                 <div class="col-md-6 col-lg-4 process-card-wrap">
                     <div class="process-card">
-                        <!-- <div class="process-card_img">
+                        <div class="process-card_img">
                                 <img src="{{asset('common/assets/img/process/process-1-2.png')}}" alt="img">
                             </div> 
-                            <div class="process-card_icon">
+                            <!-- <div class="process-card_icon">
                                 <img src="{{asset('common/assets/img/icon/process-icon-1-2.svg')}}" alt="icon">
-                            </div>-->
+                            </div> -->
                         <h2 class="box-title">2. Application Review and Discovery Call</h2>
                         <p class="process-card_text text-justify"> Our academic team meticulously reviews applications.
                             Qualified candidates then receive a guidance call from a seasoned counselor, who assists in
@@ -519,12 +537,12 @@ Process Area
                 </div>
                 <div class="col-md-6 col-lg-4 process-card-wrap">
                     <div class="process-card">
-                        <!-- <div class="process-card_img">
+                        <div class="process-card_img">
                                 <img src="{{asset('common/assets/img/process/process-1-3.png')}}" alt="img">
                             </div> 
-                            <div class="process-card_icon">
+                            <!-- <div class="process-card_icon">
                                 <img src="{{asset('common/assets/img/icon/process-icon-1-3.svg')}}" alt="icon">
-                            </div>-->
+                            </div> -->
                         <h2 class="box-title">3. Confirmation and Enrollment</h2><br>
                         <p class="process-card_text text-justify">Accepted applicants receive admission offers. Upon
                             acceptance, they finalize enrollment by submitting required documents, fees, and attending

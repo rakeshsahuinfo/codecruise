@@ -75,9 +75,9 @@ Event Area
                     <div class="course-single-top">
                         <h2 class="course-title">{{$courseinfo->name}}</h2>
                         <div class="course-meta style2">
-                            <!-- <span><i class="fal fa-file"></i>Lesson 8</span> -->
+                            <!-- <span><i class="fal fa-file"></i>Lesson 8</span> 
                             <span><i class="fal fa-user"></i>Students 60+</span>
-                            <span><i class="fal fa-chart-simple"></i>Beginner</span>
+                            <span><i class="fal fa-chart-simple"></i>Beginner</span>-->
                             <span><i class="fal fa-gear"></i>Category : {{$coursetype->name}}</span>
                             <span><i class="fal fa-calendar"></i>Last Update : {{Carbon\Carbon::parse($courseinfo->updated_at)->format('d M Y')}}</span>
                         </div>

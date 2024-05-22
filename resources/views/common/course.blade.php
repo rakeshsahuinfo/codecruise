@@ -469,6 +469,8 @@ Cta Area
 <section class="space-bottom">
         <div class="container">
             <div class="row">
+                <h4 class="sec-title">Codecruise offers Certificate of Participation and Completion Certificate with QR Code </h4>
+                
                 <div class="col-xl-6 mb-30 mb-xl-0">
                     <div class="cta-card" data-bg-src="{{asset('common/assets/img/update1/bg/Participation.png')}}">
                         <div class="title-area mb-40">

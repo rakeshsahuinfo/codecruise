@@ -40,16 +40,17 @@
 <!--==============================
     Breadcumb
 ============================== -->
-<div class="breadcumb-wrapper " data-bg-src="{{asset('course_banner/'.$courseinfo->course_banner)}}"
-    data-overlay="title" data-opacity="8">
-    <!-- <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
+<!-- <div class="breadcumb-wrapper " data-bg-src="{{asset('course_banner/'.$courseinfo->course_banner)}}"
+    data-overlay="title" data-opacity="8"> 
+
+    <div class="breadcumb-shape" data-bg-src="{{asset('common/assets/img/bg/breadcumb_shape_1_1.png')}}">
     </div>
     <div class="shape-mockup breadcumb-shape2 jump d-lg-block d-none" data-right="30px" data-bottom="30px">
         <img src="{{asset('common/assets/img/bg/breadcumb_shape_1_2.png')}}" alt="shape">
     </div>
     <div class="shape-mockup breadcumb-shape3 jump-reverse d-lg-block d-none" data-left="50px" data-bottom="80px">
         <img src="{{asset('common/assets/img/bg/breadcumb_shape_1_3.png')}}" alt="shape">
-    </div> -->
+    </div> 
     <div class="container">
         <div class="breadcumb-content text-center">
             <h1 class="breadcumb-title">Courses Details</h1>
@@ -59,33 +60,30 @@
             </ul>
         </div>
     </div>
-</div>
+</div>-->
 <!--==============================
 Project Area  
 ==============================-->
 <!--==============================
 Event Area  
 ==============================-->
-<section class="space-top space-extra2-bottom">
+<section class="space-extra2-bottom">
     <div class="container">
         <div class="row">
             <div class="col-xxl-8 col-lg-7">
                 <div class="course-single">
                     <div class="course-single-top">
-                        <div class="course-img">
-                            <img src="{{asset('course_banner/'.$courseinfo->course_banner)}}" alt="Course Image"
-                                style="width: 100vh;">
-                            <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
-                            <span class="tag bg-theme">BEST SELLER</span> -->
-                        </div>
+                        <h2 class="course-title">{{$courseinfo->name}}</h2>
                         <div class="course-meta style2">
                             <!-- <span><i class="fal fa-file"></i>Lesson 8</span> -->
                             <span><i class="fal fa-user"></i>Students 60+</span>
                             <span><i class="fal fa-chart-simple"></i>Beginner</span>
+                            <span><i class="fal fa-gear"></i>Category : {{$coursetype->name}}</span>
+                            <span><i class="fal fa-calendar"></i>Last Update : {{Carbon\Carbon::parse($courseinfo->updated_at)->format('d M Y')}}</span>
                         </div>
-                        <h2 class="course-title">{{$courseinfo->name}}</h2>
-                        <ul class="course-single-meta">
-                            {{--
+                        
+                        {{--<ul class="course-single-meta">
+                           
                             <li class="course-single-meta-author">
                                 <img src="{{asset('common/assets/img/course/author2.png')}}" alt="author">
                                 <span>
@@ -93,7 +91,7 @@ Event Area
                                     <a href="course.html">Max Alexix</a>
                                 </span>
                             </li>
-                            --}}
+                            
                             <li>
                                 <span class="meta-title">Category: </span>
                                 <a href="#">{{$coursetype->name}}</a>
@@ -102,7 +100,6 @@ Event Area
                                 <span class="meta-title">Last Update: </span>
                                 <a href="#">{{Carbon\Carbon::parse($courseinfo->updated_at)->format('d-M-Y')}}</a>
                             </li>
-                            {{--
                             <li>
                                 <span class="meta-title">Review: </span>
                                 <div class="course-rating">
@@ -113,8 +110,8 @@ Event Area
                                     (4.00)
                                 </div>
                             </li>
-                            --}}
-                        </ul>
+                           
+                        </ul> --}}
                     </div>
                     <div class="course-single-bottom">
                         <ul class="nav course-tab" id="courseTab" role="tablist">
@@ -128,12 +125,13 @@ Event Area
                                     role="tab" aria-controls="curriculam" aria-selected="false"><i
                                         class="fa-regular fa-book"></i>Curriculam</a>
                             </li>
-                            {{--
+                            
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="instructor-tab" data-bs-toggle="tab" href="#instructor"
                                     role="tab" aria-controls="instructor" aria-selected="false"><i
-                                        class="fa-regular fa-user"></i>Instructor</a>
+                                        class="fa-regular fa-user"></i>Tech Stack</a>
                             </li>
+                            {{--
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="reviews-tab" data-bs-toggle="tab" href="#reviews" role="tab"
                                     aria-controls="reviews" aria-selected="false"><i
@@ -159,10 +157,38 @@ Event Area
                                     @endif
                                 </div>
                             </div>
-                            {{--
+                            
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
                                 <div class="course-instructor">
-                                    <div class="course-author-box">
+                                <br>
+                                <div class="title-area text-center">
+                                        <!-- <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack</span> -->
+                                        <div class="title-area">
+                                            <span class="sub-title fs-4">Important Tech Stack Covered</span>
+                                        </div>
+           
+                                </div>
+                            <div class="row" data-slide-show="4" data-ml-slide-show="3" data-lg-slide-show="3" data-md-slide-show="2"
+                                data-sm-slide-show="1" data-arrows="true">
+                                <div class="container mt-2">
+                                    <div class="row justify-content-center">
+                                        @if($coursetechstack)
+                                        @foreach($coursetechstack as $ts)
+                                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 my-2 d-flex">
+                                            <div class="card shadow flex-fill" data-aos="zoom-in-up" style="height: 90%;">
+                                                <img src="{{ asset('tech_stack/' . $ts->tech_stack_logo) }}"
+                                                    style="width: 120px;height:120px;margin: 5px auto;border-radius: 5px;" class="p-3">
+                                                <div class="card-tittle px-4 text-center sub-title fs-6">{{$ts->name}}</div>
+                                                <div class="card-body"></div>
+                                            </div>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                    </div>
+                                </div>
+
+                            </div>
+                                    <!-- <div class="course-author-box">
                                         <div class="auhtor-img">
                                             <img src="{{asset('common/assets/img/team/team_2_1.jpg')}}"
                                                 alt="Author Image">
@@ -188,10 +214,11 @@ Event Area
                                                         class="fab fa-instagram"></i></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                            {{--
+                                <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="course-Reviews">
                                     <div class="th-comments-wrap ">
                                         <ul class="comment-list">
@@ -316,7 +343,13 @@ Event Area
             </div>
             <div class="col-xxl-4 col-lg-5">
                 <aside class="sidebar-area">
-                    <div class="widget widget_info  ">
+                        <div class="course-img">
+                            <img src="{{asset('course_banner/'.$courseinfo->course_banner)}}" alt="Course Image"
+                                style="width: 100vh;">
+                            <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
+                            <span class="tag bg-theme">BEST SELLER</span> -->
+                        </div>
+                        <div class="widget widget_info  ">
                         {{-- <div class="th-video">
                             <img src="{{asset('common/assets/img/widget/video_1.jpg')}}" alt="video">
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i
@@ -333,7 +366,7 @@ Event Area
                         </div>
                         @endif
 
-                        <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">Enroll</a>
+                        <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">Enquire Now</a>
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">
@@ -381,7 +414,7 @@ Event Area
                             class="th-btn style6 mt-35 mb-0"><i class="far fa-file-pdf me-2"></i>Download
                             Information</a>
                     </div>
-                    <div class="widget widget_banner  " data-overlay="theme" data-opacity="9"
+                    <!-- <div class="widget widget_banner  " data-overlay="theme" data-opacity="9"
                         data-bg-src="assets/img/widget/widget-banner-bg.png">
                         <div class="widget-banner">
                             <h4 class="title">Need Help? We Are Here To Help You</h4>
@@ -391,7 +424,7 @@ Event Area
                             <a href="{{route('contact')}}" target="_new" class="th-btn style7">Contact Us Now <i
                                     class="far fa-arrow-right ms-1"></i></a>
                         </div>
-                    </div>
+                    </div> -->
                 </aside>
             </div>
         </div>
@@ -400,7 +433,7 @@ Event Area
 <!--==============================
 Servce Area  
 ==============================-->
-<section class="space-bottom">
+<!-- <section class="space-bottom">
     <div class="container">
         <div class="title-area text-center">
             <span class="sub-title"><i class="fal fa-book me-2"></i> Tech Stack</span>
@@ -432,7 +465,7 @@ Servce Area
 
         </div>
     </div>
-</section>
+</section> -->
 
 <!--==============================
 Process Area  

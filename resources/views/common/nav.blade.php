@@ -19,9 +19,14 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                                     <li>
                                         <a href="{{route('landing-page')}}">Home</a>
                                     </li>
+                                    @php
+                                        $checkpromos=App\Models\PromoSession::where('is_active', 1)->exists();
+                                    @endphp
+                                    @if( $checkpromos)
                                     <li>
-                                        <a href="{{route('upcoming-event')}}">Events</a>
+                                        <a href="{{route('upcoming-event')}}">Event</a>
                                     </li>
+                                    @endif
                                     @if($ctype)
                                     @foreach($ctype as $ct)
                                     <li class="menu-item-has-children">

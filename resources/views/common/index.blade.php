@@ -45,6 +45,10 @@
 <!--==============================
 	Event Area  
 	==============================-->
+@php
+$checkpromos=App\Models\PromoSession::where('is_active', 1)->exists();
+@endphp
+@if( $checkpromos)
 <section class="space" data-bg-src="{{asset('common/assets/img/bg/event-bg_1.png')}}">
     <div class="shape-mockup event-shape1 jump" data-top="0" data-left="-60px">
         <img src="{{asset('common/assets/img/team/team-shape_1_1.png')}}" alt="img">
@@ -82,7 +86,9 @@
                         <div class="event-meta">
                             <p><i class="fal fa-location-dot"></i>{{$prs->session_mode}}</p>
                             <p><i class="fal fa-clock"></i>{{$prs->session_time}}</p>
-                            <p><i class="fal fa-calendar"></i>{{Carbon\Carbon::parse($prs->session_date)->format('d-M-Y')}}</p>
+                            <p><i
+                                    class="fal fa-calendar"></i>{{Carbon\Carbon::parse($prs->session_date)->format('d-M-Y')}}
+                            </p>
                             <p><i class="fal fa-location"></i>{{$prs->session_venue}}</p>
                         </div>
                         <h3 class="event-card_title"><a
@@ -103,6 +109,7 @@
 
     </div>
 </section>
+@endif
 {{--
 <!--==============================
 Event Area  
@@ -559,108 +566,129 @@ Event Area
     </div>
 </section>
 --}}
-    <!--==============================
+<!--==============================
 Feature Area  
 ==============================-->
 <div class="why-sec-v2 overflow-hidden space" data-bg-src="{{asset('common/assets/img/bg/why-bg-2.png')}}">
-        <div class="shape-mockup why2-shape-1 spin" data-top="40%" data-right="6%">
-            <img src="{{asset('common/assets/img/normal/wcu_2_shape1.png')}}" alt="img">
-        </div>
-        <div class="shape-mockup why2-shape-2 jump" data-bottom="25%" data-left="3%">
-            <img src="{{asset('common/assets/img/normal/blog-3-bg-shape.png')}}" alt="img">
-        </div>
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- <div class="col-xl-6 align-self-end order-xl-2">
+    <div class="shape-mockup why2-shape-1 spin" data-top="40%" data-right="6%">
+        <img src="{{asset('common/assets/img/normal/wcu_2_shape1.png')}}" alt="img">
+    </div>
+    <div class="shape-mockup why2-shape-2 jump" data-bottom="25%" data-left="3%">
+        <img src="{{asset('common/assets/img/normal/blog-3-bg-shape.png')}}" alt="img">
+    </div>
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- <div class="col-xl-6 align-self-end order-xl-2">
                     <div class="wcu-img-2 mb-50 mb-xl-0">
                         <img src="assets/img/normal/wcu_2_1.png" alt="img">
                     </div>
                 </div> -->
-                <div class="col-xl-12 order-xl-1">
-                    <div class="wcu-wrap2">
-                        <div class="title-area mb-xl-5">
-                            <span class="sub-title"><i class="fal fa-book me-1"></i> WHY CHOOSE US</span>
-                            <h2 class="sec-title">CodeCruise Advantage</h2>
+            <div class="col-xl-12 order-xl-1">
+                <div class="wcu-wrap2">
+                    <div class="title-area mb-xl-5">
+                        <span class="sub-title"><i class="fal fa-book me-1"></i> WHY CHOOSE US</span>
+                        <h2 class="sec-title">CodeCruise Advantage</h2>
+                    </div>
+                    <div class="row g-12">
+                        <div class="col-sm-4">
+                            <div class="wcu-box style2">
+                                <div class="wcu-box_icon">
+                                    <img src="{{asset('common/assets/img/icon/wcu-icon-2-4.svg')}}" alt="img">
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Immersive Classroom
+                                            Experience</a></h3>
+                                    <p class="wcu-box_text text-justify">At CodeCruise, we go beyond the traditional
+                                        classroom to offer an immersive educational journey. Our in-person professional
+                                        training courses,
+                                        led by industry experts, provide a dynamic learning environment.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row g-12">
-                            <div class="col-sm-4">
-                                <div class="wcu-box style2">
-                                    <div class="wcu-box_icon">
-                                        <img src="{{asset('common/assets/img/icon/wcu-icon-2-4.svg')}}" alt="img">
-                                    </div>
-                                    <div class="wcu-box_details">
-                                        <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Immersive Classroom Experience</a></h3>
-                                        <p class="wcu-box_text text-justify">At CodeCruise, we go beyond the traditional classroom to offer an immersive educational journey. Our in-person professional training courses, 
-                                            led by industry experts, provide a dynamic learning environment.
-                                        </p>
-                                    </div>
+                        <div class="col-sm-4">
+                            <div class="wcu-box style2">
+                                <div class="wcu-box_icon">
+                                    <img src="{{asset('common/assets/img/icon/about-grid-icon2.svg')}}" alt="img">
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Recognized Codecruise®
+                                            Certification</a></h3>
+                                    <p class="wcu-box_text text-justify">Earning the Certification with CodeCruise opens
+                                        doors to a global career. The industry-focused curriculum ensures that you are
+                                        equipped with the skills and knowledge demanded by top employers worldwide.</p>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="wcu-box style2">
-                                    <div class="wcu-box_icon">
-                                        <img src="{{asset('common/assets/img/icon/about-grid-icon2.svg')}}" alt="img">
-                                    </div>
-                                    <div class="wcu-box_details">
-                                        <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Recognized Codecruise® Certification</a></h3>
-                                        <p class="wcu-box_text text-justify">Earning the Certification with CodeCruise opens doors to a global career. The industry-focused curriculum ensures that you are equipped with the skills and knowledge demanded by top employers worldwide.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="wcu-box style2">
-                                    <div class="wcu-box_icon">
-                                        <img src="{{asset('common/assets/img/icon/wcu-icon-2-3.svg')}}" alt="img">
-                                    </div>
-                                    <div class="wcu-box_details">
-                                        <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Hands-On Training by Industry Experts</a></h3>
-                                        <p class="wcu-box_text text-justify">Our hands-on training sessions are conducted by leading professionals in the technology field. By working directly with industry experts, you gain insights and skills that are directly applicable to your career.</p>
-                                    </div>
-                                </div>
-                            </div>
-                           
                         </div>
-                        <div class="row g-12">
-                            <div class="col-sm-4">
-                                <div class="wcu-box style2">
-                                    <div class="wcu-box_icon">
-                                        <img src="{{asset('common/assets/img/icon/about-grid-icon2-2.svg')}}" alt="img">
-                                    </div>
-                                    <div class="wcu-box_details">
-                                        <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Real-World Projects & Case Studies</a></h3>
-                                        <p class="wcu-box_text text-justify">Our curriculum includes real-world projects and case studies that reflect the complexities of the technology industry. This hands-on approach ensures that you can navigate and solve real-life challenges, making you job-ready from day one.</p>
-                                    </div>
+                        <div class="col-sm-4">
+                            <div class="wcu-box style2">
+                                <div class="wcu-box_icon">
+                                    <img src="{{asset('common/assets/img/icon/wcu-icon-2-3.svg')}}" alt="img">
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Hands-On Training by
+                                            Industry Experts</a></h3>
+                                    <p class="wcu-box_text text-justify">Our hands-on training sessions are conducted by
+                                        leading professionals in the technology field. By working directly with industry
+                                        experts, you gain insights and skills that are directly applicable to your
+                                        career.</p>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <div class="wcu-box style2">
-                                    <div class="wcu-box_icon">
-                                        <img src="{{asset('common/assets/img/icon/wcu-icon-2-2.svg')}}" alt="img">
-                                    </div>
-                                    <div class="wcu-box_details">
-                                        <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Alumni Status</a></h3>
-                                        <p class="wcu-box_text text-justify">Upon completion, you become part of an elite community with Codecruise® Alumni Status. This grants you privileged connections, ongoing learning opportunities, and lifetime access to a global network of industry professionals and partner companies.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-4">
-                                <div class="wcu-box style2">
-                                    <div class="wcu-box_icon">
-                                        <img src="{{asset('common/assets/img/icon/wcu-icon-2-1.svg')}}" alt="img">
-                                    </div>
-                                    <div class="wcu-box_details">
-                                        <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">360° Degree Career Support</a></h3>
-                                        <p class="wcu-box_text text-justify">Our support doesn’t end with the completion of your course. CodeCruise provides comprehensive career support, including personalized resume building, interview preparation, exclusive access to partner companies, and interactive Live DoubtBuster and Refresher sessions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                           
                         </div>
+
+                    </div>
+                    <div class="row g-12">
+                        <div class="col-sm-4">
+                            <div class="wcu-box style2">
+                                <div class="wcu-box_icon">
+                                    <img src="{{asset('common/assets/img/icon/about-grid-icon2-2.svg')}}" alt="img">
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Real-World Projects & Case
+                                            Studies</a></h3>
+                                    <p class="wcu-box_text text-justify">Our curriculum includes real-world projects and
+                                        case studies that reflect the complexities of the technology industry. This
+                                        hands-on approach ensures that you can navigate and solve real-life challenges,
+                                        making you job-ready from day one.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="wcu-box style2">
+                                <div class="wcu-box_icon">
+                                    <img src="{{asset('common/assets/img/icon/wcu-icon-2-2.svg')}}" alt="img">
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">Alumni Status</a></h3>
+                                    <p class="wcu-box_text text-justify">Upon completion, you become part of an elite
+                                        community with Codecruise® Alumni Status. This grants you privileged
+                                        connections, ongoing learning opportunities, and lifetime access to a global
+                                        network of industry professionals and partner companies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="wcu-box style2">
+                                <div class="wcu-box_icon">
+                                    <img src="{{asset('common/assets/img/icon/wcu-icon-2-1.svg')}}" alt="img">
+                                </div>
+                                <div class="wcu-box_details">
+                                    <h3 class="h5 wcu-box_title"><a href="javascript:void(0)">360° Degree Career
+                                            Support</a></h3>
+                                    <p class="wcu-box_text text-justify">Our support doesn’t end with the completion of
+                                        your course. CodeCruise provides comprehensive career support, including
+                                        personalized resume building, interview preparation, exclusive access to partner
+                                        companies, and interactive Live DoubtBuster and Refresher sessions.</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 <!--==============================
 	Team Area  

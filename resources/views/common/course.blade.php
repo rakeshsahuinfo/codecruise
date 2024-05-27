@@ -350,9 +350,10 @@ Event Area
                         </div>
                         --}}
                         @if($courseinfo->apply_fee==1)
-                        <div class="title-area">
-                            <span class="sub-title fs-4">Course Fee</span>
-                            <span class="h4 course-price">{{$courseinfo->course_fee}}
+                        <div class="">
+                            <!-- <span class="sub-title fs-4">Course Fee</span> -->
+                            <span class="h4 course-price">INR {{$courseinfo->course_fee}}
+                            <del class="h6">{{$courseinfo->course_fee * 1.3}}</del>
                                 @if($courseinfo->apply_discount==1) <span
                                     class="tag">{{$courseinfo->current_discount}}</span> @endif
                             </span>

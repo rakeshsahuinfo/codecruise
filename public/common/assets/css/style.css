@@ -68,7 +68,7 @@
   --smoke-color: #F3F7FB;
   --black-color: #000000;
   --white-color: #ffffff;
-  --light-color: #72849B;
+  --light-color: #9b9b9b;
   --yellow-color: #FFB539;
   --success-color: #28a745;
   --error-color: #dc3545;
@@ -153,6 +153,9 @@ video {
   height: auto;
 }
 
+del{
+  color: #9C9C9C;
+}
 ul {
   list-style-type: disc;
 }

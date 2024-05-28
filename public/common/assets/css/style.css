@@ -68,7 +68,7 @@
   --smoke-color: #F3F7FB;
   --black-color: #000000;
   --white-color: #ffffff;
-  --light-color: #9b9b9b;
+  --light-color: #72849B;
   --yellow-color: #FFB539;
   --success-color: #28a745;
   --error-color: #dc3545;
@@ -78,7 +78,7 @@
   --icon-font: "Font Awesome 6 Pro";
   --main-container: 1380px;
   --container-gutters: 24px;
-  --section-space: 60px;
+  --section-space: 120px;
   --section-space-mobile: 80px;
   --section-title-space: 70px;
   --ripple-ani-duration: 5s;
@@ -153,9 +153,6 @@ video {
   height: auto;
 }
 
-del{
-  color: #9C9C9C;
-}
 ul {
   list-style-type: disc;
 }
@@ -23749,7 +23746,7 @@ span.select2-selection.select2-selection--single:focus {
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
   overflow: hidden;
-  min-height: 350px;
+  min-height: 360px;
 }
 
 .course-box .course-content {
@@ -24849,7 +24846,7 @@ span.select2-selection.select2-selection--single:focus {
   transition: 0.4s ease-in-out;
   padding: var(--box-space-x, 30px) var(--box-space-x, 30px) 0 var(--box-space-x, 30px);
   overflow: hidden;
-  min-height: 350px;
+  min-height: 420px;
 }
 
 .course-box2 .course-img {
@@ -25411,7 +25408,7 @@ span.select2-selection.select2-selection--single:focus {
   border: 1px solid var(--border-color);
   z-index: 2;
   margin-top: 67px;
-  min-height: 385px;
+  min-height: 400px;
   /* Extra large devices */
   /* Medium Large devices */
   /* Large devices */

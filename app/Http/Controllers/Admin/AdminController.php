@@ -108,4 +108,36 @@ class AdminController extends Controller
             echo $csv->toString();
         }, 'promo_reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
     }
+
+    public static function  currency_format($number)
+    {
+        $num = floor($number);
+        // $decimalPart = round(($number - $num), 2);
+        // if ($decimalPart == 0) {
+        //     $decimalPart = "0.00";
+        // }
+        // if ($decimalPart > 0 && (($decimalPart*100)%10) ==0) {
+        //     $decimalPart = $decimalPart."0";
+        // }
+        $decimalPart = "";
+        $explrestunits = "";
+        if (strlen($num) > 3) {
+            $lastthree = substr($num, strlen($num) - 3, strlen($num));
+            $restunits = substr($num, 0, strlen($num) - 3);
+            $restunits = (strlen($restunits) % 2 == 1) ? "0" . $restunits : $restunits;
+            $expunit = str_split($restunits, 2);
+            for ($i = 0; $i < sizeof($expunit); $i++) {
+
+                if ($i == 0) {
+                    $explrestunits .= (int)$expunit[$i] . ",";
+                } else {
+                    $explrestunits .= $expunit[$i] . ",";
+                }
+            }
+            $thecash = $explrestunits . $lastthree;
+        } else {
+            $thecash = $num;
+        }
+        return $thecash . substr(strval($decimalPart), 1);
+    }
 }

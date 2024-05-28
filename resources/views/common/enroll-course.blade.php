@@ -94,10 +94,21 @@
                             <a href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="play-btn popup-video"><i class="fas fa-play"></i></a>
                         </div> -->
                         @if($courseinfo->apply_fee==1)
-                        <span class="h4 course-price">Course Fee</span></span>
-                        <span class="h4 course-price">{{$courseinfo->course_fee}} 
-                            @if($courseinfo->apply_discount==1) <span class="tag">{{$courseinfo->current_discount}}</span> @endif
-                        </span>
+                        <div class="">
+                            <!-- <span class="sub-title fs-4">Course Fee</span> -->
+                            <span class="h4 course-price">₹ {{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
+                                @if($courseinfo->apply_discount==1) 
+                                    @php
+                                        $course_fee = (int)$courseinfo->course_fee;
+                                        $current_discount = (int)$courseinfo->current_discount;
+                                        $total_fee = $course_fee + ($course_fee * $current_discount/100);
+                                        $rounded_total_fee = round($total_fee, 0);
+                                    @endphp
+                                    <del class="h6">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del>
+                                    <span class="tag">Flat {{$courseinfo->current_discount}}% Off</span> 
+                                @endif
+                            </span>
+                        </div>
                         @endif
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>

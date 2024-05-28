@@ -321,7 +321,7 @@ Event Area
                     <div class="course-img">
                         <a href="{{route('course',$c->slug)}}"><img src="{{asset('course_banner/'.$c->course_banner)}}"
                                 alt="course" style="height: 210px;"></a>
-                        <span class="tag"><a href="{{route('enroll-course',$c->slug)}}">Enroll</a></span>
+                        <span class="tag"><a href="{{route('course',$c->slug)}}">View</a></span>
                     </div>
                     <div class="course-content">
                         <div class="course-author">

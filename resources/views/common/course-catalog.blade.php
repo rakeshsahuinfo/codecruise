@@ -358,7 +358,7 @@ Servce Area
                                                             $course_fee = (int)$c->course_fee;
                                                             $current_discount = (int)$c->current_discount;
                                                             $total_fee = $course_fee + ($course_fee * $current_discount/100);
-                                                            $rounded_total_fee = round($total_fee, 0);
+                                                            $rounded_total_fee = ceil(round($total_fee, 0)/10)*10;
                                                         @endphp
                                                         <del class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del> 
                                                         <span class="tag discount-offer">Flat {{$c->current_discount}}% Off</span> 

@@ -143,7 +143,7 @@
                 </tr>
                 <tr>
                     <td class="date">
-                        {{ \Carbon\Carbon::parse($ps->session_date)->format('d-m-Y') }}
+                        {!! preg_replace('/(?<=\d)(st|nd|rd|th)\b/', '<sup>$1</sup>', Carbon\Carbon::parse($ps->issue_date)->format('jS F, Y')) !!}
                     </td>
                     <td class="signature">
                         Director & Co-Founder

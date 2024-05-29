@@ -172,6 +172,10 @@
                                             <label for="co_founder">Signing Authority</label>
                                             <input type="text" class="form-control" name="co_founder" id="co_founder" required>
                                         </div>
+                                        <div class="form-group w-100  my-4">
+                                            <label for="issue_date">Certificate Isssue Date</label>
+                                            <input type="date" class="form-control" name="issue_date" id="issue_date" required>
+                                        </div>
                                         <div class="form-group w-100 my-4">
                                             <label for="is_active">Status</label>
                                             <select class="selectpicker form-control" data-live-search="true"

@@ -82,6 +82,7 @@ class PromoSessionController extends Controller
                 'stop_feedback' => $request->stop_feedback,
                 'stop_registration' => $request->stop_registration,
                 'co_founder' => $request->co_founder,
+                'issue_date'=>$request->issue_date,
                 'is_active' => $request->is_active
             ]);
 
@@ -161,6 +162,7 @@ class PromoSessionController extends Controller
             $proses->stop_feedback = $request->stop_feedback;
             $proses->stop_registration = $request->stop_registration;
             $proses->co_founder = $request->co_founder;
+            $proses->issue_date=$request->issue_date;
             $proses->is_active = $request->is_active;
             $proses->update();
 

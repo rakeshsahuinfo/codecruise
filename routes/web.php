@@ -97,6 +97,7 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     //Certificate
     Route::get('/participation-certificate/{id}',[AdminPromoSessionController::class,'participationCertificate'])->name('participation-certificate');
     Route::get('/completion-certificate/{id}',[AdminPromoSessionController::class,'completionCertificate'])->name('completion-certificate');
+    Route::post('/issue-completion-certificate',[AdminPromoSessionController::class,'issueCompletionCertificate'])->name('issue-completion-certificate');
 
     Route::get('/homepage', [])->name('homepage');
 });

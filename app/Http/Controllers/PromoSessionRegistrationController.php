@@ -51,6 +51,7 @@ class PromoSessionRegistrationController extends Controller
             }else{
                 $prosesr->message="";
             }
+            $prosesr->completion_certificate=0;
             $prosesr->save();
             $session_date=preg_replace('/(?<=\d)(st|nd|rd|th)\b/', '<sup>$1</sup>', Carbon::parse($proses->session_date)->format('jS F, Y'));
             Self::acknowledgementMail($request->input('email'), $request->input('name'), $proses->promo_banner, $proses->name,  $session_date, $proses->session_time);

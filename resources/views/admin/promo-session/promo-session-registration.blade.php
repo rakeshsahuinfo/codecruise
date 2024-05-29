@@ -66,6 +66,12 @@
                                         <div class='d-flex'>
                                             <a href="{{route('edit-promo-session-registration',$psr->id)}}" title="Edit Participation Details" class='text-dark'><i class='fas fa-edit'></i></a>  
                                         </div>
+                                        <div class="d-flex mt-2">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" data-psr-id="{{ $psr->id }}" role="switch" id="flexSwitchCheckDefault{{$psr->id}}" {{ $psr->completion_certificate == 1 ? 'checked' : '' }} onchange="allowCompletionCertificate({{ $psr->id }})">
+                                                <label class="form-check-label" for="flexSwitchCheckDefault{{ $psr->id }}">Completion Certificate</label>
+                                            </div>
+                                        </div>
                                         <div class='d-flex mt-2'>
                                             <a href="{{route('participation-certificate',$psr->id)}}" target="_new" title="Participation Certificate" class='text-info'><i class='fas fa-certificate'></i></a>  
                                             <a href="{{route('completion-certificate',$psr->id)}}" target="_new" title="Completion Certificate" class='text-primary mx-3'><i class='fas fa-certificate'></i></a>   
@@ -93,4 +99,36 @@
 </div>
 @stop
 @section('jsscript')
+
+<script>
+     function allowCompletionCertificate(psrId) {
+        var checkbox = document.getElementById('flexSwitchCheckDefault' + psrId);
+        var isChecked = checkbox.checked ? 1 : 0;
+
+        $.ajax({
+            url: "{{route('issue-completion-certificate')}}", // Adjust the URL as needed
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                psr_id: psrId,
+                completion_certificate: isChecked
+            },
+            success: function(response) {
+                if(response.message==='success'){
+                    alert("Updated");
+                    location.reload();
+                }
+                if(response.message==='fail'){
+                    alert("Error");
+                    location.reload();
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error updating completion certificate status:', error);
+            }
+        });
+    }
+
+</script>
+
 @stop

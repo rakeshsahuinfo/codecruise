@@ -82,7 +82,7 @@ class PromoSessionController extends Controller
                 'stop_feedback' => $request->stop_feedback,
                 'stop_registration' => $request->stop_registration,
                 'co_founder' => $request->co_founder,
-                'issue_date'=>$request->issue_date,
+                'issue_date' => $request->issue_date,
                 'is_active' => $request->is_active
             ]);
 
@@ -162,7 +162,7 @@ class PromoSessionController extends Controller
             $proses->stop_feedback = $request->stop_feedback;
             $proses->stop_registration = $request->stop_registration;
             $proses->co_founder = $request->co_founder;
-            $proses->issue_date=$request->issue_date;
+            $proses->issue_date = $request->issue_date;
             $proses->is_active = $request->is_active;
             $proses->update();
 
@@ -333,6 +333,9 @@ class PromoSessionController extends Controller
         try {
             $reg_code = base64_decode($code);
             $psr = PromoSessionRegistration::where('reg_code', $reg_code)->first();
+            if($psr->completion_certificate==0){
+                return redirect('/')->with(['msg' => 'Certificate of completion is not issued to this candidate', 'status' => 'danger']);
+            }
             $ps = PromoSession::find($psr->promo_session_id);
             if (empty($psr->reg_code)) {
                 $reg_code = Self::generateUniqueCode();
@@ -359,6 +362,18 @@ class PromoSessionController extends Controller
         } catch (Exception $ex) {
             return redirect('/');
         }
+    }
+
+    public function issueCompletionCertificate(Request $request){
+        $psr = PromoSessionRegistration::find($request->input('psr_id'));
+
+        if ($psr) {
+            $psr->completion_certificate = $request->input('completion_certificate');
+            $psr->save();
+    
+            return response()->json(['message' => 'success']);
+        }
+        return response()->json(['message' => 'fail'], 500);
     }
 
     public static function generateUniqueCode()

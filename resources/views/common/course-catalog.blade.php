@@ -360,8 +360,8 @@ Servce Area
                                                             $total_fee = $course_fee + ($course_fee * $current_discount/100);
                                                             $rounded_total_fee = round($total_fee, 0);
                                                         @endphp
-                                                        <del class="h6">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del><br>
-                                                        <span class="tag">Flat {{$c->current_discount}}% Off</span> 
+                                                        <del class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del> 
+                                                        <span class="tag discount-offer">Flat {{$c->current_discount}}% Off</span> 
                                                     @endif
                                                 </span>
                                                 @endif
@@ -399,10 +399,10 @@ Servce Area
             <div class="col-xl-3 col-lg-4 order-lg-1">
                 <aside class="sidebar-area sidebar-shop">
                     <div class="widget widget_search  ">
-                        <form class="search-form">
-                            <input type="text" placeholder="Search Product...">
-                            <button type="submit"><i class="far fa-search"></i></button>
-                        </form>
+                        <div class="search-form">
+                            <input type="text" placeholder="Search Course..." class="searchBoxToggler">
+                            <button type="submit"><i class="far fa-search searchBoxToggler"></i></button>
+                        </div>
                     </div>
                     <div class="widget widget_categories style2  ">
                         <h3 class="widget_title">Categories</h3>

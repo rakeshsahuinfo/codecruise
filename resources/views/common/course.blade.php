@@ -352,7 +352,7 @@ Event Area
                         @if($courseinfo->apply_fee==1)
                         <div class="">
                             <!-- <span class="sub-title fs-4">Course Fee</span> -->
-                            <span class="h4 course-price">₹ {{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
+                            <span class="h4 course-price">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
                                 @if($courseinfo->apply_discount==1) 
                                     @php
                                         $course_fee = (int)$courseinfo->course_fee;

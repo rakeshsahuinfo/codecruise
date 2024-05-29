@@ -96,7 +96,7 @@
                         @if($courseinfo->apply_fee==1)
                         <div class="">
                             <!-- <span class="sub-title fs-4">Course Fee</span> -->
-                            <span class="h4 course-price">₹ {{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
+                            <span class="h4 course-price">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
                                 @if($courseinfo->apply_discount==1) 
                                     @php
                                         $course_fee = (int)$courseinfo->course_fee;
@@ -157,7 +157,7 @@
             </div>
             <div class="col-xl-7">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">Enroll for the course</span>
+                    <span class="sub-title">SEND YOUR INTEREST FOR</span>
                     <h2 class="border-title"> {{$courseinfo->name}}</h2>
                     <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
                         @csrf
@@ -245,7 +245,7 @@
                             </div>
                             <input type="hidden" name="message" value="Enroll me">
                             <div class="form-btn col-12 mt-10">
-                                <button type="submit" class="th-btn">Enroll<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Submit<i class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

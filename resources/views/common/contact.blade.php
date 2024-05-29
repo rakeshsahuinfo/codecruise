@@ -119,7 +119,7 @@
             </div>
             <div class="col-xl-7">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">Contact With Us!</span>
+                    <span class="sub-title">Contact Us</span>
                     <h2 class="border-title">Get in Touch</h2>
                     <p class="mt-n1 mb-30 sec-text"></p>
                     <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">

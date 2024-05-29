@@ -24921,6 +24921,14 @@ span.select2-selection.select2-selection--single:focus {
   box-shadow: none;
 }
 
+.old-fee{
+  font-size: smaller !important;
+}
+
+.discount-offer{
+  font-size: small !important;
+}
+
 /* Medium Large devices */
 @media (max-width: 1399px) {
   .course-box2.style3 .course-content {

@@ -256,6 +256,9 @@ class PromoSessionController extends Controller
     public function completionCertificate($id)
     {
         $psr = PromoSessionRegistration::find($id);
+        if($psr->completion_certificate==0){
+            return back()->with(['msg' => 'Certificate of completion is not issued to this candidate', 'status' => 'danger']);
+        }
         $ps = PromoSession::find($psr->promo_session_id);
         if (empty($psr->reg_code)) {
             $reg_code = Self::generateUniqueCode();

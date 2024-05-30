@@ -1,5 +1,5 @@
 @php
-$ctype=App\Models\CourseType::where('is_active',1)->get();
+$ctype=App\Models\CourseType::where('is_active',1)->orderBy('name','asc')->get();
 @endphp
 <div class="sticky-wrapper">
     <!-- Main Menu Area -->
@@ -8,7 +8,8 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
             <div class="row align-items-center justify-content-between">
                 <div class="col-auto">
                     <div class="header-logo">
-                        <a href="{{route('landing-page')}}"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="Code-Cruise"></a>
+                        <a href="{{route('landing-page')}}"><img src="{{asset('common/assets/img/logo-white.png')}}"
+                                alt="Code-Cruise"></a>
                     </div>
                 </div>
                 <div class="col-auto">
@@ -20,32 +21,56 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                                         <a href="{{route('landing-page')}}">Home</a>
                                     </li>
                                     @php
-                                        $checkpromos=App\Models\PromoSession::where('is_active', 1)->exists();
+                                    $checkpromos=App\Models\PromoSession::where('is_active', 1)->exists();
                                     @endphp
                                     @if( $checkpromos)
                                     <li>
                                         <a href="{{route('upcoming-event')}}">Event</a>
                                     </li>
                                     @endif
+                                    {{--
                                     @if($ctype)
                                     @foreach($ctype as $ct)
                                     <li class="menu-item-has-children">
                                         <a href="{{route('course-by-type',$ct->slug)}}">{{$ct->name}}</a>
-                                            <ul class="sub-menu">
-                                                @php
-                                                $course=App\Models\Course::where('course_type_id',$ct->id)->where('is_active',1)->orderBy('name','asc')->get();
-                                                @endphp
-                                                @if($course)
-                                                @foreach($course as $c)
-                                                <li><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></li>
-                                                @endforeach
-                                            </ul>
-                                            @endif
+                                        <ul class="sub-menu">
+                                            @php
+                                            $course=App\Models\Course::where('course_type_id',$ct->id)->where('is_active',1)->orderBy('name','asc')->get();
+                                            @endphp
+                                            @if($course)
+                                            @foreach($course as $c)
+                                            <li><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
                                     </li>
                                     @endforeach
                                     @endif
+                                    --}}
+                                    <li class="menu-item-has-children">
+                                        <a href="#">Courses</a>
+                                        <ul class="sub-menu">
+                                            @if($ctype)
+                                            @foreach($ctype as $ct)
+                                            <li class="menu-item-has-children">
+                                                <a href="{{route('course-by-type',$ct->slug)}}">{{$ct->name}}</a>
+                                                @php
+                                                $course=App\Models\Course::where('course_type_id',$ct->id)->where('is_active',1)->orderBy('name','asc')->get();
+                                                @endphp
+                                                <ul class="sub-menu">
+                                                    @if($course)
+                                                    @foreach($course as $c)
+                                                    <li><a href="{{route('course',$c->slug)}}">{{$c->name}} <span class="new-label">offer</span></a></li>
+                                                    @endforeach
+                                                    @endif
+                                                </ul>
+                                            </li>
+                                            @endforeach
+                                            @endif
+                                        </ul>
+                                    </li>
                                     <li>
-                                        <a href="{{route('course-catalog')}}">All Courses</a>
+                                        <a href="{{route('course-catalog')}}">Course Catalog</a>
                                     </li>
                                     <li>
                                         <a href="{{route('about')}}">About</a>

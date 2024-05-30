@@ -31,7 +31,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                         @endphp
                         @if($course)
                         @foreach($course as $c)
-                        <li><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></li>
+                        <li><a href="{{route('course',$c->slug)}}">{{$c->name}} <span class="new-label">offer</span></a></li>
                         @endforeach
                     </ul>
                     @endif
@@ -39,7 +39,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                 @endforeach
                 @endif
                 <li>
-                    <a href="{{route('course-catalog')}}">All Courses</a>
+                    <a href="{{route('course-catalog')}}">Course Catalog</a>
                 </li>
                 <li>
                     <a href="{{route('about')}}">About</a>

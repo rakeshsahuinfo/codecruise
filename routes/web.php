@@ -43,7 +43,7 @@ Route::get('/feedback/{slug}', [FeedbackAuthController::class, 'redirectToGoogle
 Route::get('/feedback/auth/google/callback', [FeedbackAuthController::class, 'handleGoogleCallback']);
 Route::post('/feedback/save-feedback', [FeedbackAuthController::class, 'saveFeedback'])->name('save-feedback');
 
-Route::get('/admin-login', [AdminController::class, 'adminLogin'])->name('login');
+Route::get('/admin-login', [AdminController::class, 'adminLogin'])->name('admin-login');
 Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-sign-in');
 
 //Certificate
@@ -106,7 +106,7 @@ Route::group(['middleware' => ['auth', CheckRole::class, PreventBackHistory::cla
 
 
 //Open Login
-Route::get('/sign-in', [UserController::class, 'signIn'])->name('sign-in');
+Route::get('/sign-in', [UserController::class, 'signIn'])->name('login');
 Route::get('/login/google', [UserController::class, 'redirect'])->name('login-google-redirect');
 Route::get('/login/google/callback', [UserController::class, 'callback'])->name('login-google-callback');
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'user'], function () {

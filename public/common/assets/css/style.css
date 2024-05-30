@@ -24929,6 +24929,27 @@ span.select2-selection.select2-selection--single:focus {
   font-size: small !important;
 }
 
+.login-wrapper{
+  width: 90%;
+  padding: 5%;
+  margin: 0px auto;
+}
+
+.login-logo {
+  /* margin: 0 auto 20px; */
+  text-align: center;
+}
+
+.btn-google {
+  padding: 0%;
+}
+
+.btn-google img {
+  width: 300px;
+  height: 100%;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
 /* Medium Large devices */
 @media (max-width: 1399px) {
   .course-box2.style3 .course-content {

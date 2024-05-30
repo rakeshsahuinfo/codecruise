@@ -78,6 +78,18 @@ $ctype=App\Models\CourseType::where('is_active',1)->orderBy('name','asc')->get()
                                     <li>
                                         <a href="{{route('contact')}}">Contact</a>
                                     </li>
+                                    @if(Auth::user())
+                                    <li>
+                                        <a href="{{route('user-desk')}}"> Welcome {{auth()->user()->name}}</a>
+                                     </li>
+                                    <li>
+                                       <a href="{{route('sign-out')}}">Sign-out</a>
+                                    </li>
+                                    @else
+                                    <li>
+                                        <a href="{{route('sign-in')}}">Sign-In</a>
+                                    </li>
+                                    @endif
                                 </ul>
                             </nav>
                             <button type="button" class="th-menu-toggle d-block d-lg-none"><i

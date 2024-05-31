@@ -141,7 +141,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control style-white" name="company_college_name"
-                                        id="company_college_name" placeholder="Company / College*">
+                                        id="company_college_name" placeholder="FY, SY, TY, College name/Company name*">
                                     <i class="fal fa-building"></i>
                                 </div>
                             </div>

@@ -58,7 +58,7 @@ class AdminController extends Controller
     public function downloadRegCandidate()
     {
 
-        $data = DB::select("SELECT name, email, contact, company_college_name, message FROM user_query UNION SELECT name, email, contact, company_college_name, message FROM promo_session_registration");
+        $data = DB::select("SELECT name, email, contact, company_college_name, message, created_at FROM user_query UNION SELECT name, email, contact, company_college_name, message, created_at FROM promo_session_registration order by created_at asc");
 
         $csv = Writer::createFromString('');
         $csv->insertOne(['name', 'email', 'contact', 'background', 'message']);

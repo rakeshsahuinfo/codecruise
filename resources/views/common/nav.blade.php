@@ -60,7 +60,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->orderBy('name','asc')->get()
                                                 <ul class="sub-menu">
                                                     @if($course)
                                                     @foreach($course as $c)
-                                                    <li><a href="{{route('course',$c->slug)}}">{{$c->name}} <span class="new-label">offer</span></a></li>
+                                                    <li><a href="{{route('course',$c->slug)}}">{{$c->name}} {!! ($c->apply_discount == 1) ? '<span class="new-label">offer</span>' : '' !!}</a></li>
                                                     @endforeach
                                                     @endif
                                                 </ul>

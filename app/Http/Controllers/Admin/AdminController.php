@@ -57,7 +57,6 @@ class AdminController extends Controller
     //Download
     public function downloadRegCandidate()
     {
-        
         // $data = DB::select("SELECT name, email, contact, company_college_name, message, created_at FROM user_query UNION SELECT name, email, contact, company_college_name, message, created_at FROM promo_session_registration order by created_at asc");
         $data = DB::select("
             SELECT name, email, contact 
@@ -71,11 +70,17 @@ class AdminController extends Controller
             ORDER BY created_at ASC
         ");
 
+        $dataCollection = collect($data)->unique(function ($item) {
+            return $item->name . $item->email . $item->contact;
+        })->values();
+
+        $dataArray = $dataCollection->toArray();
+
         $csv = Writer::createFromString('');
         // $csv->insertOne(['name', 'email', 'contact', 'background', 'message']);
         $csv->insertOne(['name', 'email', 'contact']);
 
-        foreach ($data as $row) {
+        foreach ($dataArray as $row) {
             // Cast object to array directly
             $csv->insertOne((array) $row);
         }

@@ -57,6 +57,7 @@ class AdminController extends Controller
     //Download
     public function downloadRegCandidate()
     {
+        // $data = DB::select("SELECT name, email, contact FROM (SELECT name, email, contact, created_at FROM user_query UNION SELECT name, email, contact, created_at FROM promo_session_registration) AS combined ORDER BY created_at ASC");
 
         $data = DB::select("SELECT name, email, contact, company_college_name, message, created_at FROM user_query UNION SELECT name, email, contact, company_college_name, message, created_at FROM promo_session_registration order by created_at asc");
 

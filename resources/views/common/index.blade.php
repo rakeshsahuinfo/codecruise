@@ -325,18 +325,25 @@ Event Area
                     </div>
                     <div class="course-content">
                         <div class="course-author">
+                            <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
                             <div class="author-info fw-bold">
                                 {{-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
                                 <a href="course.html" class="author-name">Kevin Perry</a> --}}
                                 @if($c->apply_fee==1)
-                                <span class="text-theme fs-6 fees">Fees: <span
-                                        class="text-dark fees">{{$c->course_fee}}</span></span>
-                                @endif
+                                <span class="text-theme fs-6 fees">Fees: <span class="text-dark fees">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$c->course_fee)}}</span></span>
                                 <span class="pill bg-warning text-white px-2 fs-6 discount">
-                                    @if($c->apply_discount==1)
-                                    {{$c->current_discount}}
+                                    @if($c->apply_discount==1) 
+                                        @php
+                                            $course_fee = (int)$c->course_fee;
+                                            $current_discount = (int)$c->current_discount;
+                                            $total_fee = $course_fee + ($course_fee * $current_discount/100);
+                                            $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
+                                        @endphp
+                                        <del class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del> 
+                                        <span class="tag discount-offer"><br>Flat {{$c->current_discount}}% Off</span> 
                                     @endif
                                 </span>
+                                @endif
                             </div>
                             <div class="course-rating">
                                 {{-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
@@ -345,7 +352,6 @@ Event Area
                                 (4.00) --}}
                             </div>
                         </div>
-                        <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
                         {{-- <div class="course-meta">
                             <span><i class="fal fa-file"></i>Lesson 8</span>
                             <span><i class="fal fa-user"></i>Students 50</span>

@@ -23746,7 +23746,7 @@ span.select2-selection.select2-selection--single:focus {
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 350px;
 }
 
 .course-box .course-content {

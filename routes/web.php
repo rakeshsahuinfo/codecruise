@@ -110,7 +110,6 @@ Route::get('/sign-in', [UserController::class, 'signIn'])->name('login');
 Route::get('/login/google', [UserController::class, 'redirect'])->name('login-google-redirect');
 Route::get('/login/google/callback', [UserController::class, 'callback'])->name('login-google-callback');
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'user'], function () {
-    Route::get('/user-desk',[UserController::class,'userDesk'])->name('user-desk');
+    Route::get('/user-desk', [UserController::class, 'userDesk'])->name('user-desk');
     Route::get('/sign-out', [UserController::class, 'signOut'])->name('sign-out');
 });
-

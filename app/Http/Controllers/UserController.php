@@ -11,7 +11,8 @@ use Laravel\Socialite\Facades\Socialite;
 
 class UserController extends Controller
 {
-    public function signIn(){
+    public function signIn()
+    {
         return view('common.sign-in');
     }
 
@@ -34,7 +35,7 @@ class UserController extends Controller
             } else {
                 $new_user = new User();
                 $new_user->email = $user->email;
-                $new_user->password="";
+                $new_user->password = "";
                 $new_user->name = $user->name;
                 $new_user->role = "open";
                 if ($new_user->save()) {
@@ -57,7 +58,8 @@ class UserController extends Controller
         return redirect('/')->with(['msg' => 'Logged out', 'status' => 'success']);
     }
 
-    public function userDesk(){
+    public function userDesk()
+    {
         return view('common.home.user-desk');
     }
 }

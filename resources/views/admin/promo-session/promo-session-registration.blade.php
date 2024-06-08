@@ -7,14 +7,16 @@
 <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         @include('admin.nav')
-       
+
     </div>
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
                 <h3 class="mt-4 text-uppercase">User Registrations</h3>
                 <div class="action-container">
-                    <a href="{{route('download-promo-candidate',$proses->id)}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-download mx-1'></i> Download</a>
+                    <a href="{{route('download-promo-candidate',$proses->id)}}"
+                        class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-download mx-1'></i>
+                        Download</a>
                 </div>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
@@ -64,17 +66,29 @@
                                 <tr>
                                     <td>
                                         <div class='d-flex'>
-                                            <a href="{{route('edit-promo-session-registration',$psr->id)}}" title="Edit Participation Details" class='text-dark'><i class='fas fa-edit'></i></a>  
+                                            <a href="{{route('edit-promo-session-registration',$psr->id)}}"
+                                                title="Edit Participation Details" class='text-dark'><i
+                                                    class='fas fa-edit'></i></a>
                                         </div>
                                         <div class="d-flex mt-2">
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" type="checkbox" data-psr-id="{{ $psr->id }}" role="switch" id="flexSwitchCheckDefault{{$psr->id}}" {{ $psr->completion_certificate == 1 ? 'checked' : '' }} onchange="allowCompletionCertificate({{ $psr->id }})">
-                                                <label class="form-check-label" for="flexSwitchCheckDefault{{ $psr->id }}">Completion Certificate</label>
+                                                <input class="form-check-input" type="checkbox"
+                                                    data-psr-id="{{ $psr->id }}" role="switch"
+                                                    id="flexSwitchCheckDefault{{ $psr->id }}" {{
+                                                    $psr->completion_certificate == 1 ? 'checked' : '' }}
+                                                onchange="allowCompletionCertificate({{ $psr->id }})">
+                                                <label class="form-check-label"
+                                                    for="flexSwitchCheckDefault{{$psr->id}}">Completion
+                                                    Certificate</label>
                                             </div>
                                         </div>
                                         <div class='d-flex mt-2'>
-                                            <a href="{{route('participation-certificate',$psr->id)}}" target="_new" title="Participation Certificate" class='text-info'><i class='fas fa-certificate'></i></a>  
-                                            <a href="{{route('completion-certificate',$psr->id)}}" target="_new" title="Completion Certificate" class='text-primary mx-3'><i class='fas fa-certificate'></i></a>   
+                                            <a href="{{route('participation-certificate',$psr->id)}}" target="_new"
+                                                title="Participation Certificate" class='text-info'><i
+                                                    class='fas fa-certificate'></i></a>
+                                            <a href="{{route('completion-certificate',$psr->id)}}" target="_new"
+                                                title="Completion Certificate" class='text-primary mx-3'><i
+                                                    class='fas fa-certificate'></i></a>
                                         </div>
                                     </td>
                                     <td>{{$psr->name}}</td>
@@ -83,12 +97,14 @@
                                     <td>{{$psr->company_college_name}}</td>
                                     <td>{{$psr->message}}</td>
                                     <td>{{$psr->reg_code}}</td>
-                                    <td>{{ \Carbon\Carbon::parse($psr->created_at)->timezone('Asia/Kolkata')->format('d-M-y h:i A') }}</td>
+                                    <td>{{
+                                        \Carbon\Carbon::parse($psr->created_at)->timezone('Asia/Kolkata')->format('d-M-y
+                                        h:i A') }}</td>
                                 </tr>
                                 @endforeach
                                 @endif
                             </tbody>
-                            
+
                         </table>
                     </div>
                 </div>
@@ -101,7 +117,7 @@
 @section('jsscript')
 
 <script>
-     function allowCompletionCertificate(psrId) {
+    function allowCompletionCertificate(psrId) {
         var checkbox = document.getElementById('flexSwitchCheckDefault' + psrId);
         var isChecked = checkbox.checked ? 1 : 0;
 
@@ -113,17 +129,17 @@
                 psr_id: psrId,
                 completion_certificate: isChecked
             },
-            success: function(response) {
-                if(response.message==='success'){
+            success: function (response) {
+                if (response.message === 'success') {
                     alert("Updated");
                     location.reload();
                 }
-                if(response.message==='fail'){
+                if (response.message === 'fail') {
                     alert("Error");
                     location.reload();
                 }
             },
-            error: function(xhr, status, error) {
+            error: function (xhr, status, error) {
                 console.error('Error updating completion certificate status:', error);
             }
         });

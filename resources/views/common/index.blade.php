@@ -70,7 +70,7 @@ $checkpromos=App\Models\PromoSession::where('is_active', 1)->exists();
                 <div class="event-card">
                     <div class="event-card_img"
                         data-mask-src="{{asset('common/assets/img/event/event_img-shape.png')}}">
-                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 200px;height: 200px;"
+                        <img src="{{asset('promo_banner/'.$prs->promo_banner)}}" style="width: 100px;height: 100px;"
                             alt="event">
                     </div>
                     <div class="event-card_content">
@@ -97,9 +97,9 @@ $checkpromos=App\Models\PromoSession::where('is_active', 1)->exists();
                             <a href="{{url('/promo/'.$prs->promo_type.'/'.$prs->slug)}}" class="th-btn">View Event <i
                                     class="far fa-arrow-right ms-1"></i></a>
                         </div>
-                        <!-- <div class="event-card-shape">
+                        <div class="event-card-shape jump">
                             <img src="{{asset('common/assets/img/event/event-box-shape1.png')}}" alt="img">
-                        </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ Event Area
         <div class="row">
             <div class="col-xl-6">
                 <div class="title-area text-center">
-                    <span class="sub-title"><i class="fal fa-book me-2"></i>Featured Events</span>
+                    <span class="sub-title"><i class="fal fa-book me-2"></i>Fetaured Events</span>
                     <h2 class="sec-title">Upcoming <span class="text-theme fw-light">Sessions</span></h2>
                 </div>
             </div>
@@ -324,23 +324,25 @@ Event Area
                         <span class="tag"><a href="{{route('course',$c->slug)}}">View</a></span>
                     </div>
                     <div class="course-content">
+                        <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
                         <div class="course-author">
-                            <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
                             <div class="author-info fw-bold">
                                 {{-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
                                 <a href="course.html" class="author-name">Kevin Perry</a> --}}
                                 @if($c->apply_fee==1)
-                                <span class="text-theme fs-6 fees">Fees: <span class="text-dark fees">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$c->course_fee)}}</span></span>
+                                <span class="text-theme fs-6 fees">Fees: <span
+                                        class="text-dark fees">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$c->course_fee)}}</span></span>
                                 <span class="pill bg-warning text-white px-2 fs-6 discount">
-                                    @if($c->apply_discount==1) 
-                                        @php
-                                            $course_fee = (int)$c->course_fee;
-                                            $current_discount = (int)$c->current_discount;
-                                            $total_fee = $course_fee + ($course_fee * $current_discount/100);
-                                            $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
-                                        @endphp
-                                        <del class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del> 
-                                        <span class="tag discount-offer"><br>Flat {{$c->current_discount}}% Off</span> 
+                                    @if($c->apply_discount==1)
+                                    @php
+                                    $course_fee = (int)$c->course_fee;
+                                    $current_discount = (int)$c->current_discount;
+                                    $total_fee = $course_fee + ($course_fee * $current_discount/100);
+                                    $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
+                                    @endphp
+                                    <del
+                                        class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del>
+                                    <span class="tag discount-offer"><br>Flat {{$c->current_discount}}% Off</span>
                                     @endif
                                 </span>
                                 @endif

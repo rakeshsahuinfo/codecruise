@@ -340,40 +340,47 @@ Servce Area
                             <div class="col-md-6 col-xl-4">
                                 <div class="course-box style2">
                                     <div class="course-img">
-                                        <a href="{{route('course',$c->slug)}}"><img src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
-                                            style="height: 200px;"></a>
-                                        <span class="tag"><a
-                                                href="{{route('course',$c->slug)}}">View</a></span>
+                                        <a href="{{route('course',$c->slug)}}"><img
+                                                src="{{asset('course_banner/'.$c->course_banner)}}" alt="course"
+                                                style="height: 200px;"></a>
+                                        <span class="tag"><a href="{{route('course',$c->slug)}}">View</a></span>
                                     </div>
                                     <div class="course-content">
                                         <div class="course-author">
                                             <div class="author-info fw-bold">
-                                                {{-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}" alt="author">
+                                                {{-- <img src="{{asset('common/assets/img/update1/course/author.jpg')}}"
+                                                    alt="author">
                                                 <a href="course.html" class="author-name">Kevin Perry</a> --}}
                                                 @if($c->apply_fee==1)
-                                                <span class="text-theme fs-6 fees">Fees: <span class="text-dark fees">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$c->course_fee)}}</span></span>
+                                                <span class="text-theme fs-6 fees">Fees: <span
+                                                        class="text-dark fees">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$c->course_fee)}}</span></span>
                                                 <span class="pill bg-warning text-white px-2 fs-6 discount">
-                                                    @if($c->apply_discount==1) 
-                                                        @php
-                                                            $course_fee = (int)$c->course_fee;
-                                                            $current_discount = (int)$c->current_discount;
-                                                            $total_fee = $course_fee + ($course_fee * $current_discount/100);
-                                                            $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
-                                                        @endphp
-                                                        <del class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del> 
-                                                        <span class="tag discount-offer">Flat {{$c->current_discount}}% Off</span> 
+                                                    @if($c->apply_discount==1)
+                                                    @php
+                                                    $course_fee = (int)$c->course_fee;
+                                                    $current_discount = (int)$c->current_discount;
+                                                    $total_fee = $course_fee + ($course_fee * $current_discount/100);
+                                                    $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
+                                                    @endphp
+                                                    <del
+                                                        class="h6 old-fee">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del>
+                                                    <span class="tag discount-offer">Flat {{$c->current_discount}}%
+                                                        Off</span>
                                                     @endif
                                                 </span>
                                                 @endif
                                             </div>
                                             <div class="course-rating">
-                                                {{-- <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
-                                                    <span style="width:79%">Rated <strong class="rating">4.00</strong> out of 5</span>
+                                                {{-- <div class="star-rating" role="img"
+                                                    aria-label="Rated 4.00 out of 5">
+                                                    <span style="width:79%">Rated <strong class="rating">4.00</strong>
+                                                        out of 5</span>
                                                 </div>
                                                 (4.00) --}}
                                             </div>
                                         </div>
-                                        <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a></h3>
+                                        <h3 class="course-title"><a href="{{route('course',$c->slug)}}">{{$c->name}}</a>
+                                        </h3>
                                         {{-- <div class="course-meta">
                                             <span><i class="fal fa-file"></i>Lesson 8</span>
                                             <span><i class="fal fa-user"></i>Students 50</span>

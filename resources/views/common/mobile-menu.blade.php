@@ -31,7 +31,8 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                         @endphp
                         @if($course)
                         @foreach($course as $c)
-                        <li><a href="{{route('course',$c->slug)}}">{{$c->name}} {!! ($c->apply_discount == 1) ? '<span class="new-label">offer</span>' : '' !!}</a></li>
+                        <li><a href="{{route('course',$c->slug)}}">{{$c->name}} {!! ($c->apply_discount == 1) ? '<span
+                                    class="new-label">offer</span>' : '' !!}</a></li>
                         @endforeach
                     </ul>
                     @endif
@@ -50,9 +51,9 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                 @if(Auth::user())
                 <li>
                     <a href="{{route('user-desk')}}"> Welcome {{auth()->user()->name}}</a>
-                 </li>
+                </li>
                 <li>
-                   <a href="{{route('sign-out')}}">Sign-out</a>
+                    <a href="{{route('sign-out')}}">Sign-out</a>
                 </li>
                 @else
                 <li>

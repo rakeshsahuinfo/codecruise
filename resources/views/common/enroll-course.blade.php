@@ -2,8 +2,10 @@
 @section('title','Enroll')
 @section('headasset')
 <style>
-    .error{
-        padding-left: 5px;padding-top:5px;color:teal;
+    .error {
+        padding-left: 5px;
+        padding-top: 5px;
+        color: teal;
     }
 </style>
 @stop
@@ -83,10 +85,9 @@
                     <!-- <div class="title-area mb-10">
                         <h2 class="border-title h3">{{$courseinfo->name}}</h2>
                     </div> -->
-                   
+
                     <div class="card" data-aos="zoom-in">
-                        <img src="{{ asset('course_banner/' . $courseinfo->course_banner) }}" alt=""
-                            class="p-3">
+                        <img src="{{ asset('course_banner/' . $courseinfo->course_banner) }}" alt="" class="p-3">
                     </div>
                     <div class="widget widget_info  ">
                         <!-- <div class="th-video">
@@ -96,16 +97,18 @@
                         @if($courseinfo->apply_fee==1)
                         <div class="">
                             <!-- <span class="sub-title fs-4">Course Fee</span> -->
-                            <span class="h4 course-price">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
-                                @if($courseinfo->apply_discount==1) 
-                                    @php
-                                        $course_fee = (int)$courseinfo->course_fee;
-                                        $current_discount = (int)$courseinfo->current_discount;
-                                        $total_fee = $course_fee + ($course_fee * $current_discount/100);
-                                        $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
-                                    @endphp
-                                    <del class="h6">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del>
-                                    <span class="tag">Flat {{$courseinfo->current_discount}}% Off</span> 
+                            <span
+                                class="h4 course-price">₹{{App\Http\Controllers\Admin\AdminController::currency_format((int)$courseinfo->course_fee)}}
+                                @if($courseinfo->apply_discount==1)
+                                @php
+                                $course_fee = (int)$courseinfo->course_fee;
+                                $current_discount = (int)$courseinfo->current_discount;
+                                $total_fee = $course_fee + ($course_fee * $current_discount/100);
+                                $rounded_total_fee = ceil(round($total_fee, 0)/500)*500;
+                                @endphp
+                                <del
+                                    class="h6">{{App\Http\Controllers\Admin\AdminController::currency_format($rounded_total_fee)}}</del>
+                                <span class="tag">Flat {{$courseinfo->current_discount}}% Off</span>
                                 @endif
                             </span>
                         </div>
@@ -151,7 +154,7 @@
                                 </li> -->
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -159,7 +162,7 @@
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                     <span class="sub-title">SEND YOUR INTEREST FOR</span>
                     <h2 class="border-title"> {{$courseinfo->name}}</h2>
-                    <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
+                    <form id="contact-form" method="post" action="{{route('save-query')}}" class="contact-form">
                         @csrf
                         <div class="row">
                             @php
@@ -168,9 +171,9 @@
                             @if($mycourse)
                             <div class="col-12 col-md-12 mt-2">
                                 <div class="form-group">
-                                <input type="text" name="mycourse" class="form-control style-white" id="mycourse"
-                                    value="{{$mycourse->name}}" readonly>
-                                <input type="hidden" name="course_ids[]" value="{{$mycourse->id}}">
+                                    <input type="text" name="mycourse" class="form-control style-white" id="mycourse"
+                                        value="{{$mycourse->name}}" readonly>
+                                    <input type="hidden" name="course_ids[]" value="{{$mycourse->id}}">
                                 </div>
                             </div>
                             @else
@@ -179,7 +182,8 @@
                                     <label for="myexampleCourse"> {{--(use <strong>ctrl + select</strong> for
                                         multiple)--}}</label>
                                     <select name="course_ids[]" id="myexampleCourse"
-                                        class="multiple nice-select form-control form-select style-white" multiple style="height: 150px;">
+                                        class="multiple nice-select form-control form-select style-white" multiple
+                                        style="height: 150px;">
                                         @php
                                         $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
                                         @endphp
@@ -199,7 +203,8 @@
                                     </select>
                                     <div id="otherOption" style="display: none;">
                                         <label for="otherCourse">Enter your Option:</label>
-                                        <input type="text" class="form-control style-white" id="otherCourse" name="other_course">
+                                        <input type="text" class="form-control style-white" id="otherCourse"
+                                            name="other_course">
                                     </div>
                                 </div>
                             </div>
@@ -220,13 +225,14 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
-                                   <select class="form-control style-white" name="phone_code" id="phone_code" required>
-                                    @if($country)
-                                    @foreach($country as $con)
-                                    <option value="{{$con->phonecode}}" {{($con->phonecode==91)?"selected":""}}>{{$con->nicename}}</option>
-                                    @endforeach
-                                    @endif
-                                   </select>
+                                    <select class="form-control style-white" name="phone_code" id="phone_code" required>
+                                        @if($country)
+                                        @foreach($country as $con)
+                                        <option value="{{$con->phonecode}}" {{($con->
+                                            phonecode==91)?"selected":""}}>{{$con->nicename}}</option>
+                                        @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -245,7 +251,8 @@
                             </div>
                             <input type="hidden" name="message" value="Enroll me">
                             <div class="form-btn col-12 mt-10">
-                                <button type="submit" class="th-btn">Submit<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Submit<i
+                                        class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

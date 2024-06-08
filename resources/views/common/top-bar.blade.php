@@ -4,7 +4,7 @@
             <div class="col-auto d-none d-lg-block">
                 <div class="header-links">
                     <ul>
-                        <li><i class="far fa-phone"></i><a href="tel:+917304562050">+91 730 456 2050</a></li>
+                        <li><i class="far fa-phone"></i><a href="tel:+918080975897">+91 808 097 5897</a> | <a href="tel:+917304562050">+91 730 456 2050</a></li>
                         <li class="d-none d-xl-inline-block"><i class="far fa-envelope"></i><a
                                 href="mailto:ask@codecruise.in">ask@codecruise.in</a></li>
                         <li><i class="far fa-clock"></i>Mon - Fri: 09:00 - 20:00 | Sun - Sat: 10:30 - 22:00</li>

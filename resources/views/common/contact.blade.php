@@ -2,8 +2,10 @@
 @section('title','Contact-Us')
 @section('headasset')
 <style>
-    .error{
-        padding-left: 5px;padding-top:5px;color:teal;
+    .error {
+        padding-left: 5px;
+        padding-top: 5px;
+        color: teal;
     }
 </style>
 @stop
@@ -101,6 +103,8 @@
                         </div>
                         <div class="media-body">
                             <p class="contact-feature_label">Phone Number</p>
+                            <a href="tel:+918080975897" class="contact-feature_link">Mobile:<span>(+91)
+                                    808 097 5897</span></a>
                             <a href="tel:+917304562050" class="contact-feature_link">Mobile:<span>(+91)
                                     730-456-2050</span></a>
                         </div>
@@ -122,7 +126,7 @@
                     <span class="sub-title">Contact Us</span>
                     <h2 class="border-title">Get in Touch</h2>
                     <p class="mt-n1 mb-30 sec-text"></p>
-                    <form id="contact-form" method="post" action="{{route('save-query')}}"  class="contact-form">
+                    <form id="contact-form" method="post" action="{{route('save-query')}}" class="contact-form">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -141,13 +145,14 @@
                             </div>
                             <div class="col-md-5">
                                 <div class="form-group">
-                                   <select class="form-control style-white" name="phone_code" id="phone_code" required>
-                                    @if($country)
-                                    @foreach($country as $con)
-                                    <option value="{{$con->phonecode}}" {{($con->phonecode==91)?"selected":""}}>{{$con->nicename}}</option>
-                                    @endforeach
-                                    @endif
-                                   </select>
+                                    <select class="form-control style-white" name="phone_code" id="phone_code" required>
+                                        @if($country)
+                                        @foreach($country as $con)
+                                        <option value="{{$con->phonecode}}" {{($con->
+                                            phonecode==91)?"selected":""}}>{{$con->nicename}}</option>
+                                        @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-7">
@@ -169,7 +174,8 @@
                                     <label for="myexampleCourse"> {{--(use <strong>ctrl + select</strong> for
                                         multiple)--}}</label>
                                     <select name="course_ids[]" id="myexampleCourse"
-                                        class="multiple nice-select form-control form-select style-white" multiple style="height: 150px;">
+                                        class="multiple nice-select form-control form-select style-white" multiple
+                                        style="height: 150px;">
                                         <option value="" selected>You are interest in ?</option>
                                         @php
                                         $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
@@ -189,11 +195,12 @@
                                     </select>
                                     <div id="otherOption" style="display: none;">
                                         <label for="otherCourse">Enter your Option:</label>
-                                        <input type="text" class="form-control style-white" id="otherCourse" name="other_course">
+                                        <input type="text" class="form-control style-white" id="otherCourse"
+                                            name="other_course">
                                     </div>
                                 </div>
                             </div>
-                          
+
                             <div class="col-12">
                                 <div class="form-group ">
                                     <textarea name="message" id="message" cols="30" rows="3"
@@ -202,7 +209,8 @@
                                 </div>
                             </div>
                             <div class="form-btn col-12 mt-10">
-                                <button type="submit" class="th-btn">Send Message<i class="fas fa-long-arrow-right ms-2"></i></button>
+                                <button type="submit" class="th-btn">Send Message<i
+                                        class="fas fa-long-arrow-right ms-2"></i></button>
                             </div>
                         </div>
                         <p class="form-messages mb-0 mt-3"></p>

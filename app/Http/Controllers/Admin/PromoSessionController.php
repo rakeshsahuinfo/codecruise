@@ -81,6 +81,8 @@ class PromoSessionController extends Controller
                 'apply_message' => $request->apply_message,
                 'stop_feedback' => $request->stop_feedback,
                 'stop_registration' => $request->stop_registration,
+                'is_free' => $request->is_free,
+                'fees' => $request->fees,
                 'co_founder' => $request->co_founder,
                 'issue_date' => $request->issue_date,
                 'is_active' => $request->is_active
@@ -161,6 +163,8 @@ class PromoSessionController extends Controller
             $proses->apply_message = $request->apply_message;
             $proses->stop_feedback = $request->stop_feedback;
             $proses->stop_registration = $request->stop_registration;
+            $proses->is_free = $request->is_free;
+            $proses->fees = $request->fees;
             $proses->co_founder = $request->co_founder;
             $proses->issue_date = $request->issue_date;
             $proses->is_active = $request->is_active;
@@ -256,7 +260,7 @@ class PromoSessionController extends Controller
     public function completionCertificate($id)
     {
         $psr = PromoSessionRegistration::find($id);
-        if($psr->completion_certificate==0){
+        if ($psr->completion_certificate == 0) {
             return back()->with(['msg' => 'Certificate of completion is not issued to this candidate', 'status' => 'danger']);
         }
         $ps = PromoSession::find($psr->promo_session_id);
@@ -336,7 +340,7 @@ class PromoSessionController extends Controller
         try {
             $reg_code = base64_decode($code);
             $psr = PromoSessionRegistration::where('reg_code', $reg_code)->first();
-            if($psr->completion_certificate==0){
+            if ($psr->completion_certificate == 0) {
                 return redirect('/')->with(['msg' => 'Certificate of completion is not issued to this candidate', 'status' => 'danger']);
             }
             $ps = PromoSession::find($psr->promo_session_id);
@@ -367,13 +371,14 @@ class PromoSessionController extends Controller
         }
     }
 
-    public function issueCompletionCertificate(Request $request){
+    public function issueCompletionCertificate(Request $request)
+    {
         $psr = PromoSessionRegistration::find($request->input('psr_id'));
 
         if ($psr) {
             $psr->completion_certificate = $request->input('completion_certificate');
             $psr->save();
-    
+
             return response()->json(['message' => 'success']);
         }
         return response()->json(['message' => 'fail'], 500);

@@ -45,6 +45,10 @@
                                     <th>Background</th>
                                     <th>Message</th>
                                     <th>RegCode</th>
+                                    <th>PaymentLink</th>
+                                    <th>RazorpayPaymentID</th>
+                                    <th>PaymentAmount</th>
+                                    <th>PaymentStatus</th>
                                     <th>RegisterDate</th>
                                 </tr>
                             </thead>
@@ -57,6 +61,10 @@
                                     <th>Background</th>
                                     <th>Message</th>
                                     <th>RegCode</th>
+                                    <th>PaymentLink</th>
+                                    <th>RazorpayPaymentID</th>
+                                    <th>PaymentAmount</th>
+                                    <th>PaymentStatus</th>
                                     <th>RegisterDate</th>
                                 </tr>
                             </tfoot>
@@ -97,6 +105,16 @@
                                     <td>{{$psr->company_college_name}}</td>
                                     <td>{{$psr->message}}</td>
                                     <td>{{$psr->reg_code}}</td>
+                                    <td>
+                                        @if($proses->is_free==1)
+                                        NA
+                                        @else
+                                        {{url('/promo/promo-payment/'.$proses->promo_type.'/'.$proses->slug.'/'.base64_encode($psr->reg_code))}}
+                                        @endif
+                                    </td>
+                                    <td>{{$psr->razorpay_payment_id}}</td>
+                                    <td>₹.{{$psr->payment_amount}}</td>
+                                    <td>{{$psr->payment_status}}</td>
                                     <td>{{
                                         \Carbon\Carbon::parse($psr->created_at)->timezone('Asia/Kolkata')->format('d-M-y
                                         h:i A') }}</td>

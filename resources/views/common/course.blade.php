@@ -342,8 +342,9 @@ Event Area
             <div class="col-xxl-4 col-lg-5">
                 <aside class="sidebar-area">
                     <div class="course-img">
+                    <a href="{{route('enroll-course',$courseinfo->slug)}}">
                         <img src="{{asset('course_banner/'.$courseinfo->course_banner)}}" alt="Course Image"
-                            style="width: 100vh;">
+                            style="width: 100vh;"></a>
                         <!-- <span class="tag"><i class="fas fa-clock"></i> 03 WEEKS</span>
                             <span class="tag bg-theme">BEST SELLER</span> -->
                     </div>

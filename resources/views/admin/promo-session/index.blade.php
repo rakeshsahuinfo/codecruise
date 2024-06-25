@@ -42,7 +42,6 @@
                                     <th>PromoType</th>
                                     <th>Name</th>
                                     <th>DateTime</th>
-                                    <th>FeesInfo</th>
                                     {{--<th>Description</th>--}}
                                     <th>Speaker</th>
                                     <th>RegistrationFeedbackLink</th>
@@ -62,7 +61,6 @@
                                     <th>PromoType</th>
                                     <th>Name</th>
                                     <th>DateTime</th>
-                                    <th>FeesInfo</th>
                                     {{--<th>Description</th>--}}
                                     <th>Speaker</th>
                                     <th>RegistrationFeedbackLink</th>
@@ -113,12 +111,6 @@
                                             {{$ps->session_time}}<br>
                                             <strong>Mode: </strong>{{$ps->session_mode}}<br>
                                             <strong>Venue: </strong>{{$ps->session_venue}}
-                                    </td>
-                                    <td>
-                                        <strong>Is Free:</strong> {{$ps->is_free==1?"Yes":"No"}}<br>
-                                        @if($ps->is_free==0)
-                                        <strong>Fees: </strong>₹.{{$ps->fees}}
-                                        @endif
                                     </td>
                                     {{--<td>{!! $ps->description !!}</td>--}}
                                     <td>{{$ps->speaker}}<br><br>{{$ps->about_speaker}}</td>

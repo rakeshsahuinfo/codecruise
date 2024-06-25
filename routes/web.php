@@ -9,7 +9,6 @@ use App\Http\Controllers\Admin\TechStackController as AdminTechStackController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FeedbackAuthController;
 use App\Http\Controllers\LandingPageController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PromoSessionRegistrationController;
 use App\Http\Controllers\QueryController;
 use App\Http\Controllers\UserController;
@@ -50,12 +49,6 @@ Route::post('/admin-sign-in', [AdminController::class, 'signIn'])->name('admin-s
 //Certificate
 Route::get('/verify-participation-certificate/{code}', [AdminPromoSessionController::class, 'verifyParticipationCertificate'])->name('verify-participation-certificate');
 Route::get('/verify-completion-certificate/{code}', [AdminPromoSessionController::class, 'verifyCompletionCertificate'])->name('verify-completion-certificate');
-
-//Promo Session Payment
-Route::get('/promo/promo-payment/{promo_type}/{slug}/{reg_code}', [PaymentController::class, 'showPromoPaymentForm'])->name('promo-payment-form');
-Route::post('/promo/promo-payment', [PaymentController::class, 'processPromoPayment'])->name('process-promo-payment');
-Route::post('/promo/payment-success', [PaymentController::class, 'promoPaymentSuccess'])->name('promo-payment-success');
-Route::get('/promo/payment-success-message', [PaymentController::class, 'promoPaymentSuccessMessage'])->name('promo-payment-success-message');
 
 Route::group(['middleware' => ['auth', CheckRole::class, PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out', [AdminController::class, 'signOut'])->name('admin-sign-out');

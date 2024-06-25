@@ -194,21 +194,6 @@
                                                 </option>
                                             </select>
                                         </div>
-                                        <div class="form-group w-100 my-4">
-                                            <label for="is_free">Is Session Free</label>
-                                            <select class="selectpicker form-control" data-live-search="true"
-                                                data-size="8" name="is_free" id="is_free" required>
-                                                <option value="1" {{$proses->is_free==1?"selected":""}}>Yes
-                                                </option>
-                                                <option value="0" {{$proses->is_free==0?"selected":""}}>No
-                                                </option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group w-100  my-4">
-                                            <label for="fees">Fees</label>
-                                            <input type="text" class="form-control" name="fees" id="fees"
-                                                value="{{$proses->fees}}" required>
-                                        </div>
                                         <div class="form-group w-100  my-4">
                                             <label for="co_founder">Signing Authority</label>
                                             <input type="text" class="form-control" name="co_founder" id="co_founder"

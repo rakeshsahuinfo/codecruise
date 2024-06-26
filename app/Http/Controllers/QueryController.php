@@ -8,6 +8,7 @@ use App\Models\CourseTechStack;
 use App\Models\UserQuery;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class QueryController extends Controller
 {
@@ -37,8 +38,9 @@ class QueryController extends Controller
             if ($query_for == "enrollment") {
                 $course=Course::find($request->input('course_ids')[0]);
                 if($course->apply_fee==1){
-                    //Self::acknowledgementMail($request->input('email'), $request->input('name'), $course->course_banner, $course->name);
+                    Self::acknowledgementMail($request->input('email'), $request->input('name'), $course->name);
                 }
+                return redirect('/payment-option/'.$course->slug)->with(['msg' => 'You form submitted successfully', 'status' => 'success']);
             }
             return redirect('/')->with(['msg' => 'You form submitted successfully', 'status' => 'success']);
         } catch (Exception $ex) {
@@ -51,7 +53,7 @@ class QueryController extends Controller
         try {
             // $courseinfo=Course::find(base64_decode($course_id));
             $courseinfo = Course::where('slug', $course_id)->first();
-            $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', base64_decode($course_id))->select('tech_stacks.*')->get();
+            $coursetechstack = CourseTechStack::join('tech_stacks', 'tech_stacks.id', '=', 'course_tech_stack.tech_stack_id')->where('course_tech_stack.course_id', $courseinfo->id)->select('tech_stacks.*')->get();
             $country = Country::all();
             return view('common.enroll-course', ['courseinfo' => $courseinfo, 'coursetechstack' => $coursetechstack, 'country' => $country]);
         } catch (Exception $ex) {
@@ -69,7 +71,7 @@ class QueryController extends Controller
         return $code;
     }
     
-    public static function acknowledgementMail($to_email, $to_name, $course_url, $course_name){
+    public static function acknowledgementMail($to_email, $to_name, $course_name){
         $curl = curl_init();
         curl_setopt_array($curl, array(
           CURLOPT_URL => 'https://control.msg91.com/api/v5/email/send',
@@ -90,10 +92,11 @@ class QueryController extends Controller
                         }
                     ],
                     "variables": {
-                        "VAR1": "'.url('/course_banner/'.$course_url).'",
-                        "VAR2": "'.$to_name.'",
-                        "VAR3": "'.$course_name.'",
-                        "VAR4": "'.url('/payment_option/payment_options.webp').'"
+                        "VAR1": "'.$to_name.'",
+                        "VAR2": "'.$course_name.'",
+                        "VAR3": "'.asset('/payment_option/payment_options.webp').'",
+                        "VAR4": "Enrollment For Course '.$course_name.'",
+                        "VAR5": "CodeCruise Powered By WhizzAct"
                     }
                 }
             ],
@@ -101,7 +104,7 @@ class QueryController extends Controller
                 "email": "no-reply@codecruise.in"
             },
             "domain": "mail.codecruise.in",
-            "template_id": "thank_u_for_enrollment"
+            "template_id": "mail_for_confirmation_to_book_slot_v2"
         }',
           CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
@@ -112,5 +115,16 @@ class QueryController extends Controller
         $response = curl_exec($curl);
         curl_close($curl);
         // echo $response;
+    }
+
+    public function paymentOption($slug)
+    {
+        try {
+            // $courseinfo=Course::find(base64_decode($course_id));
+            $courseinfo = Course::where('slug', $slug)->first();
+            return view('common.payment-option', ['courseinfo' => $courseinfo]);
+        } catch (Exception $ex) {
+            return redirect('/')->with(['msg' => 'Make payment to complete your enrollment process', 'status' => 'danger']);
+        }
     }
 }

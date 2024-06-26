@@ -82,7 +82,7 @@ class PromoSessionRegistrationController extends Controller
                         }
                     ],
                     "variables": {
-                        "VAR1": "'.url('/promo_banner/'.$banner_url).'",
+                        "VAR1": "'.asset('/promo_banner/'.$banner_url).'",
                         "VAR2": "'.$to_name.'",
                         "VAR3": "'.$session_name.'",
                         "VAR4": "'.$session_date.'",

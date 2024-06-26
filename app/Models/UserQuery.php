@@ -9,7 +9,7 @@ class UserQuery extends Model
 {
     use HasFactory;
 
-     /**
+    /**
      * The table associated with the model.
      *
      * @var string
@@ -22,7 +22,7 @@ class UserQuery extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'contact', 'company_college_name', 'course_ids', 'other_course', 'message','created_at','updated_at'
+        'query_for','reg_code', 'name', 'email', 'contact', 'company_college_name', 'course_ids', 'other_course', 'message', 'created_at', 'updated_at'
     ];
 
     /**

@@ -128,6 +128,7 @@
                     <p class="mt-n1 mb-30 sec-text"></p>
                     <form id="contact-form" method="post" action="{{route('save-query')}}" class="contact-form">
                         @csrf
+                        <input type="hidden" name="query_for" value="open">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -176,7 +177,7 @@
                                     <select name="course_ids[]" id="myexampleCourse"
                                         class="multiple nice-select form-control form-select style-white" multiple
                                         style="height: 150px;">
-                                        <option value="" selected>You are interest in ?</option>
+                                        <option value="0" selected>You are interest in ?</option>
                                         @php
                                         $courseTypes = App\Models\CourseType::where('is_active', 1)->get();
                                         @endphp

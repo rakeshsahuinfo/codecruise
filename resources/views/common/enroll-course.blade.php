@@ -164,6 +164,7 @@
                     <h2 class="border-title"> {{$courseinfo->name}}</h2>
                     <form id="contact-form" method="post" action="{{route('save-query')}}" class="contact-form">
                         @csrf
+                        <input type="hidden" name="query_for" value="enrollment">
                         <div class="row">
                             @php
                             $mycourse=App\Models\Course::find($courseinfo->id);

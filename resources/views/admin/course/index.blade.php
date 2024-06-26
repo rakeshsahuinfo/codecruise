@@ -85,7 +85,9 @@
                                             <a href="{{route('add-course-tech-stack',$c->id)}}" target="_new" title="Course Tech Stack" class='mx-4 text-dark'><i class='fas fa-plug'></i></a>
                                             <a href="{{route('show-course',$c->id)}}" target="_new" title="Course Schedule" class='text-dark'><i class='d-none fas fa-hourglass'></i></a>
                                         </div>
-                                       
+                                        <div class="d-flex mt-3">
+                                            <a href="{{route('show-course-enrollment',$c->id)}}" title="View Enrollment" class='text-dark'><i class='fas fa-eye'></i></a>
+                                        </div>
                                     </td>
                                     <td>{{$c->name}}</td>
                                     <td>{{$c->course_type_name}}</td>

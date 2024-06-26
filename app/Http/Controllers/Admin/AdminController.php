@@ -47,7 +47,7 @@ class AdminController extends Controller
     public function dashboard()
     {
         try {
-            $uq = UserQuery::orderBy('created_at', 'desc')->get();
+            $uq = UserQuery::where('query_for','open')->orderBy('created_at', 'desc')->get();
             return view('admin.dashboard', ['user_query' => $uq]);
         } catch (Exception $ex) {
             Log::info("Something went wrong");
@@ -93,7 +93,7 @@ class AdminController extends Controller
     public function downloadInquiryCandidate()
     {
 
-        $data = DB::select("SELECT name, email, contact, company_college_name, message FROM user_query");
+        $data = DB::select("SELECT name, email, contact, company_college_name, message FROM user_query where query_for='open'");
 
         $csv = Writer::createFromString('');
         $csv->insertOne(['name', 'email', 'contact', 'background', 'message']);
@@ -124,6 +124,24 @@ class AdminController extends Controller
         return response()->streamDownload(function () use ($csv) {
             echo $csv->toString();
         }, 'promo_reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
+    }
+    
+    public function downloadEnrolledCandidate($id)
+    {
+
+        $data = DB::select("SELECT name, email, contact, company_college_name FROM user_query where query_for='enrollment' and course_ids='".json_encode([$id])."'");
+
+        $csv = Writer::createFromString('');
+        $csv->insertOne(['name', 'email', 'contact', 'background']);
+
+        foreach ($data as $row) {
+            // Cast object to array directly
+            $csv->insertOne((array) $row);
+        }
+
+        return response()->streamDownload(function () use ($csv) {
+            echo $csv->toString();
+        }, 'course_enrollment_details_' . Carbon::now()->format('Ymd_His') . '.csv');
     }
 
     public static function  currency_format($number)

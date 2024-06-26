@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use App\Models\SEODetail;
 use App\Http\Controllers\Admin\CourseTypeController;
+use App\Models\UserQuery;
 use Illuminate\Support\Facades\Validator;
 
 class CourseController extends Controller
@@ -201,6 +202,16 @@ class CourseController extends Controller
             }
         } catch (Exception $ex) {
             return back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+        }
+    }
+
+    public function showCourseEnrollment($id){
+        try {
+            $course = Course::find($id);
+            $userquery = UserQuery::where('query_for','enrollment')->where('course_ids', json_encode([$id]))->orderBy('created_at', 'desc')->get();
+            return view('admin.course.course-enrollment', ['course' => $course, 'userquery' => $userquery]);
+        } catch (Exception $ex) {
+            Log::info("Something went wrong");
         }
     }
 }

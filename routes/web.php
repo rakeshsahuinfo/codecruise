@@ -64,6 +64,7 @@ Route::group(['middleware' => ['auth', CheckRole::class, PreventBackHistory::cla
     Route::get('/edit-course/{id}', [AdminCourseController::class, 'edit'])->name('edit-course');
     Route::post('/update-course', [AdminCourseController::class, 'update'])->name('update-course');
     Route::get('/show-course/{id}', [AdminCourseController::class, 'index'])->name('show-course');
+    Route::get('/show-course-enrollment/{id}', [AdminCourseController::class, 'showCourseEnrollment'])->name('show-course-enrollment');
 
     Route::get('/tech-stack', [AdminTechStackController::class, 'index'])->name('admin-tech-stack');
     Route::get('/new-tech-stack', [AdminTechStackController::class, 'new'])->name('new-tech-stack');
@@ -95,6 +96,7 @@ Route::group(['middleware' => ['auth', CheckRole::class, PreventBackHistory::cla
     Route::get('/download-reg-candidate', [AdminController::class, 'downloadRegCandidate'])->name('download-reg-candidate');
     Route::get('/download-inquiry-candidate', [AdminController::class, 'downloadInquiryCandidate'])->name('download-inquiry-candidate');
     Route::get('/download-promo-candidate/{id}', [AdminController::class, 'downloadPromoCandidate'])->name('download-promo-candidate');
+    Route::get('/download-enrolled-candidate/{id}', [AdminController::class, 'downloadEnrolledCandidate'])->name('download-enrolled-candidate');
 
     //Certificate
     Route::get('/participation-certificate/{id}', [AdminPromoSessionController::class, 'participationCertificate'])->name('participation-certificate');

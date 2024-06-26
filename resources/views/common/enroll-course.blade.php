@@ -87,7 +87,9 @@
                     </div> -->
 
                     <div class="card" data-aos="zoom-in">
+                        <a href="{{route('course',$courseinfo->slug)}}">
                         <img src="{{ asset('course_banner/' . $courseinfo->course_banner) }}" alt="" class="p-3">
+                        </a>
                     </div>
                     <div class="widget widget_info  ">
                         <!-- <div class="th-video">

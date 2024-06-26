@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jun 25, 2024 at 08:59 PM
--- Server version: 5.7.23-23
--- PHP Version: 8.1.28
+-- Host: 127.0.0.1
+-- Generation Time: Jun 26, 2024 at 09:28 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `codecwsq_codecruise`
+-- Database: `codecruise`
 --
 
 -- --------------------------------------------------------
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cache` (
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) NOT NULL,
+  `value` mediumtext NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -40,8 +40,8 @@ CREATE TABLE `cache` (
 --
 
 CREATE TABLE `cache_locks` (
-  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `owner` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) NOT NULL,
+  `owner` varchar(255) NOT NULL,
   `expiration` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -59,9 +59,9 @@ CREATE TABLE `country` (
   `iso3` char(3) DEFAULT NULL,
   `numcode` smallint(6) DEFAULT NULL,
   `phonecode` int(5) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `country`
@@ -319,7 +319,7 @@ CREATE TABLE `courses` (
   `name` varchar(255) DEFAULT NULL,
   `slug` varchar(300) NOT NULL,
   `course_type_id` bigint(20) DEFAULT NULL,
-  `description` text,
+  `description` text DEFAULT NULL,
   `course_duration` varchar(255) DEFAULT NULL,
   `class_schedule` varchar(255) DEFAULT NULL,
   `delivery_mode` varchar(255) DEFAULT NULL,
@@ -329,9 +329,9 @@ CREATE TABLE `courses` (
   `apply_discount` tinyint(1) NOT NULL,
   `course_banner` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `courses`
@@ -390,11 +390,11 @@ CREATE TABLE `course_modules` (
   `id` bigint(20) NOT NULL,
   `course_id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `description` longtext,
+  `description` longtext DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_modules`
@@ -475,11 +475,11 @@ CREATE TABLE `course_module_topics` (
   `name` varchar(255) DEFAULT NULL,
   `no_of_leactures` int(11) DEFAULT NULL,
   `no_of_hours` decimal(10,2) DEFAULT NULL,
-  `description` text,
+  `description` text DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -491,11 +491,11 @@ CREATE TABLE `course_schedule` (
   `id` bigint(20) NOT NULL,
   `course_id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `description` longtext,
+  `description` longtext DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -508,9 +508,9 @@ CREATE TABLE `course_tech_stack` (
   `course_id` bigint(20) DEFAULT NULL,
   `tech_stack_id` bigint(20) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_tech_stack`
@@ -656,9 +656,9 @@ CREATE TABLE `course_type` (
   `name` varchar(255) DEFAULT NULL,
   `slug` varchar(300) NOT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `course_type`
@@ -677,12 +677,12 @@ INSERT INTO `course_type` (`id`, `name`, `slug`, `is_active`, `created_at`, `upd
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `uuid` varchar(255) NOT NULL,
+  `connection` text NOT NULL,
+  `queue` text NOT NULL,
+  `payload` longtext NOT NULL,
+  `exception` longtext NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -693,8 +693,8 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `queue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` varchar(255) NOT NULL,
+  `payload` longtext NOT NULL,
   `attempts` tinyint(3) UNSIGNED NOT NULL,
   `reserved_at` int(10) UNSIGNED DEFAULT NULL,
   `available_at` int(10) UNSIGNED NOT NULL,
@@ -708,13 +708,13 @@ CREATE TABLE `jobs` (
 --
 
 CREATE TABLE `job_batches` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `total_jobs` int(11) NOT NULL,
   `pending_jobs` int(11) NOT NULL,
   `failed_jobs` int(11) NOT NULL,
-  `failed_job_ids` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `options` mediumtext COLLATE utf8mb4_unicode_ci,
+  `failed_job_ids` longtext NOT NULL,
+  `options` mediumtext DEFAULT NULL,
   `cancelled_at` int(11) DEFAULT NULL,
   `created_at` int(11) NOT NULL,
   `finished_at` int(11) DEFAULT NULL
@@ -728,7 +728,7 @@ CREATE TABLE `job_batches` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -751,9 +751,9 @@ CREATE TABLE `modules` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -762,8 +762,8 @@ CREATE TABLE `modules` (
 --
 
 CREATE TABLE `password_reset_tokens` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -775,27 +775,27 @@ CREATE TABLE `password_reset_tokens` (
 
 CREATE TABLE `promo_sessions` (
   `id` bigint(20) NOT NULL,
-  `promo_type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `session_alias` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `about_session` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `promo_type` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL,
+  `session_alias` varchar(255) DEFAULT NULL,
+  `about_session` varchar(255) DEFAULT NULL,
   `session_date` date DEFAULT NULL,
-  `session_time` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `session_mode` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Online',
-  `session_venue` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Mumbai',
-  `description` longtext COLLATE utf8_unicode_ci,
-  `speaker` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `about_speaker` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `promo_banner` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `session_time` varchar(255) DEFAULT NULL,
+  `session_mode` varchar(255) NOT NULL DEFAULT 'Online',
+  `session_venue` varchar(255) NOT NULL DEFAULT 'Mumbai',
+  `description` longtext DEFAULT NULL,
+  `speaker` varchar(255) DEFAULT NULL,
+  `about_speaker` varchar(255) DEFAULT NULL,
+  `promo_banner` varchar(255) DEFAULT NULL,
   `apply_message` tinyint(1) NOT NULL,
   `stop_feedback` tinyint(1) NOT NULL,
-  `stop_registration` tinyint(1) NOT NULL DEFAULT '0',
-  `co_founder` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `stop_registration` tinyint(1) NOT NULL DEFAULT 0,
+  `co_founder` varchar(255) DEFAULT NULL,
   `issue_date` date DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -826,16 +826,16 @@ INSERT INTO `promo_sessions` (`id`, `promo_type`, `name`, `slug`, `session_alias
 
 CREATE TABLE `promo_session_registration` (
   `id` bigint(20) NOT NULL,
-  `reg_code` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contact` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `company_college_name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `reg_code` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `company_college_name` varchar(255) DEFAULT NULL,
   `promo_session_id` bigint(20) DEFAULT NULL,
-  `message` text COLLATE utf8_unicode_ci NOT NULL,
-  `completion_certificate` tinyint(1) NOT NULL DEFAULT '0',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `message` text NOT NULL,
+  `completion_certificate` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1833,15 +1833,15 @@ CREATE TABLE `seo_detail` (
   `id` int(11) NOT NULL,
   `subject_type` enum('course_type','course','home','promo_session') NOT NULL,
   `subject_id` int(11) DEFAULT NULL,
-  `seo_title` text,
-  `seo_description` text,
-  `seo_keyword` text,
+  `seo_title` text DEFAULT NULL,
+  `seo_description` text DEFAULT NULL,
+  `seo_keyword` text DEFAULT NULL,
   `is_index` int(1) DEFAULT NULL,
   `is_follow` int(1) DEFAULT NULL,
-  `canonical` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `canonical` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `seo_detail`
@@ -1909,11 +1909,11 @@ INSERT INTO `seo_detail` (`id`, `subject_type`, `subject_id`, `seo_title`, `seo_
 --
 
 CREATE TABLE `sessions` (
-  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(255) NOT NULL,
   `user_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` varchar(45) DEFAULT NULL,
+  `user_agent` text DEFAULT NULL,
+  `payload` longtext NOT NULL,
   `last_activity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1922,11 +1922,7 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('97Zr0Oyc7E7PjOr8ZJuGAJiyde02Ow54llVIGftd', NULL, '66.249.77.32', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.175 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiYjVwYlpQQzNNTlJxYUUzeDJtdzVlUTFkMENqam52VHBCQ3ZlYXIwcCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzY6Imh0dHBzOi8vY29kZWNydWlzZS5pbi9jb3Vyc2UtY2F0YWxvZyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719325134),
-('g1hoAuhDibIm2JiMhVwS6k8RDfSAfKr9Bbzy4RIY', NULL, '66.249.77.12', 'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.175 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiekNVZ1hBc0kzd3Y5b0E5QjRpbUlYWWNSaGFMaFJwMTE3Y01YUE9ueCI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTc6Imh0dHBzOi8vd3d3LmNvZGVjcnVpc2UuaW4vY291cnNlLWJ5LXR5cGUvc3BlY2lmaWMtY291cnNlcyI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719326393),
-('gNRShwnds16QVavidM1jVz14PKAZ79LRIBz3YPL1', NULL, '66.249.77.33', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiOGhOMkE1ZEpaU2Noamh2YzVTbGxMVEhHSHhabUZ6Z3dHNUFuc1lpdyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vY29kZWNydWlzZS5pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719318272),
-('icqnxyorhx7NKYsNHdNZ0t7mURIQYaVAqgWBLAI6', 1, '49.36.113.165', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoicm9wbXlvQXVwdEFMMTNMclVFQWgzcDBCeUcxTTZxNEozOUlUTlFhQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTQ6Imh0dHBzOi8vY29kZWNydWlzZS5pbi9lbnJvbGwtY291cnNlL2FuZ3VsYXItZXNzZW50aWFscyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1719329241),
-('oaefEiSCkoMnxp00n9CDZxwWSo7rFXwvBooPozpb', NULL, '110.224.113.8', 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Mobile Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiS3YzQThFQ1pLajB4TEYzSjdSb3hJbW9yVVVLcXBaSU1NcGFwNzdJRyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MjE6Imh0dHBzOi8vY29kZWNydWlzZS5pbiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1719325390);
+('yPDhE4BaH5LvuQZDVlWTWjuJQtKGD9CXPHAOmwEN', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36', 'YTo1OntzOjY6Il90b2tlbiI7czo0MDoiQVRwcnlnbndXSmQwdzdVSWJuMVJ0d2x4aEl4THBMT3hNT3o1eG9PQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NTQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9kb3dubG9hZC1pbnF1aXJ5LWNhbmRpZGF0ZSI7fXM6MzoidXJsIjthOjE6e3M6ODoiaW50ZW5kZWQiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9hZG1pbi9jb3Vyc2UiO31zOjUwOiJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI7aToxO30=', 1719386055);
 
 -- --------------------------------------------------------
 
@@ -1939,9 +1935,9 @@ CREATE TABLE `tech_stacks` (
   `name` varchar(255) DEFAULT NULL,
   `tech_stack_logo` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tech_stacks`
@@ -2035,9 +2031,9 @@ CREATE TABLE `topics` (
   `id` bigint(20) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `is_active` tinyint(1) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -2047,13 +2043,13 @@ CREATE TABLE `topics` (
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'open',
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `role` varchar(255) NOT NULL DEFAULT 'open',
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2082,20 +2078,20 @@ INSERT INTO `users` (`id`, `name`, `email`, `contact`, `role`, `email_verified_a
 
 CREATE TABLE `user_feedback` (
   `id` bigint(20) NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `alternate_email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `contact` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `user_type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `alternate_email` varchar(255) DEFAULT NULL,
+  `contact` varchar(255) DEFAULT NULL,
+  `user_type` varchar(255) DEFAULT NULL,
   `promo_session_id` bigint(20) DEFAULT NULL,
   `session_rating` int(11) DEFAULT NULL,
   `presentation_rating` int(11) DEFAULT NULL,
-  `favorite_part` text COLLATE utf8_unicode_ci,
-  `recommended_topic` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `favorite_part` text DEFAULT NULL,
+  `recommended_topic` varchar(255) DEFAULT NULL,
   `recommend_other` tinyint(1) DEFAULT NULL,
-  `suggestion` text COLLATE utf8_unicode_ci,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `suggestion` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -2162,164 +2158,169 @@ INSERT INTO `user_feedback` (`id`, `name`, `email`, `alternate_email`, `contact`
 
 CREATE TABLE `user_query` (
   `id` bigint(20) NOT NULL,
+  `query_for` varchar(255) DEFAULT 'open',
+  `reg_code` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `contact` varchar(255) DEFAULT NULL,
   `company_college_name` varchar(255) DEFAULT NULL,
-  `course_ids` text,
+  `course_ids` text DEFAULT NULL,
   `other_course` varchar(255) DEFAULT NULL,
-  `message` text,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user_query`
 --
 
-INSERT INTO `user_query` (`id`, `name`, `email`, `contact`, `company_college_name`, `course_ids`, `other_course`, `message`, `created_at`, `updated_at`) VALUES
-(1, 'Pranav Borchate', 'pranavborchate@gmail.com', '+91 9130973812', 'College', '[\"6\"]', NULL, 'No', '2024-04-17 23:45:51', '2024-04-17 23:45:51'),
-(2, 'Vidya  Santosh Bhagat', 'vidyabhagat@gmail.com', '+91 9309394997', 'SRM kudal', '[\"6\"]', NULL, 'Enroll me', '2024-04-18 01:43:28', '2024-04-18 01:43:28'),
-(3, 'Snehal Sanjay Naik', 'ssnaik32@gmail.com', '+91 9404778447', 'Shri Pancham Khemraj Mahavidyalaya, sawantwadi', '[\"4\"]', NULL, 'Enroll me', '2024-04-18 03:04:24', '2024-04-18 03:04:24'),
-(10, 'Minal', 'minal.penta@icloud.com', '+91 9601290262', 'Edu', '[\"6\"]', NULL, 'Enroll me', '2024-04-23 00:44:59', '2024-04-23 00:44:59'),
-(15, 'Samiksha Sanjay Desai', 'desaisamiksha03@gmail.com', '+91 9421094049', 'Shri Pancham Khemraj Mahavidyalaya, Sawantwadi', '[null,\"2\",\"4\",\"6\",\"5\",\"7\",\"8\"]', NULL, 'I am excited for this session', '2024-05-01 00:13:01', '2024-05-01 00:13:01'),
-(16, 'Afreen Ashrafalli Khan', 'afreen2382005@gmail.com', '+91 7038405786', 'Shri  Pancham Khemraj Mahavidyalaya Sawantwadi', '[null,\"2\",\"6\",\"5\",\"7\",\"8\"]', NULL, 'I want to learn programming languages', '2024-05-01 00:17:23', '2024-05-01 00:17:23'),
-(17, 'Ranjit Gupta', 'ranjitrkg6@gmail.com', '+91 7860408310', 'Lala Lajpat Rai College', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 00:34:05', '2024-05-01 00:34:05'),
-(18, 'Nikita', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"1\"]', NULL, 'Php', '2024-05-01 00:47:25', '2024-05-01 00:47:25'),
-(19, 'Shruti Mukadam', 'mukadamshruti@gmail.com', '+91 8591528567', 'Lala lajpat rai college of commerce and economics', '[null,\"1\",\"2\",\"5\"]', NULL, 'N/A', '2024-05-01 00:48:27', '2024-05-01 00:48:27'),
-(20, 'Neha Shukla', 'nehashukla97667@gmail.com', '+91 8187934259', 'Tilak junior college of science and commerce', '[null,\"1\",\"2\"]', NULL, '\"Thank you for providing this course on OOP with Java. It\'s been incredibly helpful in expanding my knowledge and skills in programming. I appreciate the opportunity to learn from such a valuable resource.\"', '2024-05-01 00:59:51', '2024-05-01 00:59:51'),
-(21, 'Usmani saad', 'usmanisaad07@gmail.com', '+91 7208341213', 'Akbar peerbhoy', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 01:02:21', '2024-05-01 01:02:21'),
-(22, 'Mubsara', 'mubsarashaikh38@gmail.com', '+91 8652625068', 'SK tilak nehrul', '[null,\"1\",\"2\"]', NULL, 'Needed', '2024-05-01 01:04:05', '2024-05-01 01:04:05'),
-(23, 'Mrs. Rajshree Nilesh Pisal', 'rajashree.karnekar@jnanvikasmandal.com', '+91 9029785498', 'Jvm\'s Degree College', '[null,\"1\",\"2\",\"6\",\"5\"]', NULL, 'Looking for better platform to learn new things', '2024-05-01 01:08:42', '2024-05-01 01:08:42'),
-(24, 'Gunja', 'gunjashahgps06@gmail.com', '+91 7304342711', 'S.k college of science and commerce', '[null,\"2\"]', NULL, 'I\'m excited to learn OOPs with Java', '2024-05-01 01:11:45', '2024-05-01 01:11:45'),
-(26, 'Naziya chaudary', 'naziyachaudhary951@gmail.com', '+91 7459086107', 'S.k college of science and arts', '[null,\"2\"]', NULL, 'I want to learn new skills', '2024-05-01 01:15:57', '2024-05-01 01:15:57'),
-(27, 'Janhavi Shirish Kudalkar', 'kudalkarjanhavi4@gmail.com', '+91 9769034530', 'S.K.College of Science and Commerce, Nerul', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 01:32:21', '2024-05-01 01:32:21'),
-(28, 'Khan abdulrehman', 'khanabdulrehman653@gmail.com', '+91 8108672538', 'Akbar peerbhoy college', '[null,\"2\",\"5\"]', NULL, NULL, '2024-05-01 01:46:56', '2024-05-01 01:46:56'),
-(29, 'Vedant', 'vedantatugade@gmail.com', '+91 9324152596', 'S. K College', '[null,\"other\"]', NULL, 'To improve programing skiils', '2024-05-01 01:50:40', '2024-05-01 01:50:40'),
-(30, 'Trisha murugan', 'trisha.murugan06@gmail.com', '+91 9137364493', 'Collage', '[null,\"1\",\"2\"]', NULL, 'I want course of oops and java', '2024-05-01 02:14:19', '2024-05-01 02:14:19'),
-(31, 'Kanishka gavande', 'kanishk.g@gemail.com', '+91 9076180711', 'S.k college', '[null,\"2\"]', NULL, 'Interested to learn opp with java', '2024-05-01 02:36:31', '2024-05-01 02:36:31'),
-(34, 'Vamshi kori', 'korivamshi6@gmail.com', '+91 8097055945', 'Sk college of science and commerce', '[\"1\",\"2\"]', NULL, 'I want to become full stack developer', '2024-05-01 02:52:18', '2024-05-01 02:52:18'),
-(35, 'Vamshi kori', 'korivamshi6@gmail.com', '+91 8097055945', 'Sk college of science and commerce', '[\"5\"]', NULL, 'Enroll me', '2024-05-01 02:53:36', '2024-05-01 02:53:36'),
-(36, 'Sakshi Chandrakant Wadekar', 'sakshiwadekar39@gmail.com', '+91 9372689542', 'Patkar Varde College', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 02:56:26', '2024-05-01 02:56:26'),
-(37, 'vinay raju chivilkar', 'vinaychivilkar2@gmail.com', '+91 8928360839', 'Patkar Varde College', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 03:04:51', '2024-05-01 03:04:51'),
-(38, 'Sujal Yadav', '52g2021yadavsv@gmail.com', '+91 9820841944', 'J.m.patel college', '[null,\"2\",\"7\",\"8\"]', NULL, 'I\'m Interested in learning new things', '2024-05-01 03:16:53', '2024-05-01 03:16:53'),
-(39, 'Ahsan Shaikh', 'ahsanshaikh0808@gmail.com', '+91 9320584154', 'Akbar peerbhoy college grand road', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 03:31:58', '2024-05-01 03:31:58'),
-(40, 'Purushottam Bhikaji Kandalgaokar', 'purushottamkandalagaunker@gmail.vom', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[null,\"2\"]', NULL, 'I am interested in our java course definite.', '2024-05-01 03:59:15', '2024-05-01 03:59:15'),
-(41, 'Purushottam Bhikaji Kandalgaokar', 'purushottamkandalagaunker@gmail.vom', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[null,\"2\"]', NULL, 'I am interested in our java course definite.', '2024-05-01 03:59:19', '2024-05-01 03:59:19'),
-(42, 'Ritu Gupta', 'ritu.gupta1st@gmail.com', '+91 9867013111', 'S.K college of science and commerce', '[null,\"1\",\"2\"]', NULL, NULL, '2024-05-01 04:08:44', '2024-05-01 04:08:44'),
-(43, 'Anjali Mahendra Prasad gupta', 'pinkig49470@gmail.com', '+91 9152049470', 'Jashbhai maganbhai Patel college of commerce', '[null,\"1\",\"2\",\"6\",\"5\",\"7\",\"other\"]', NULL, 'Done.', '2024-05-01 04:42:21', '2024-05-01 04:42:21'),
-(44, 'Suyash patil', 'patilsuyash410@gmail.com', '+91 9372031621', 'SK College seawood', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 05:21:54', '2024-05-01 05:21:54'),
-(45, 'Ridhesh Palkar', 'beaconboss573@gmail.com', '+91 9082272243', 'Elphistone College', '[null,\"other\"]', NULL, 'I have interest in cybersecurity can I get any information regarding it.', '2024-05-01 05:38:38', '2024-05-01 05:38:38'),
-(46, 'Vishal', 'shortvnap@gmail.com', '+91 7769935689', NULL, '[null,\"other\"]', NULL, 'Your website having bug \r\nThat is it\'s crash wen it opened in crome and when we switched to the desktop view in crome', '2024-05-01 06:58:23', '2024-05-01 06:58:23'),
-(47, 'Vishal', 'vishalsaroj5849@gmail.com', '+91 7769935689', 'Satish Pradhan DnyaSadhna college', '[\"other\"]', NULL, 'Your website doesn\'t support ipv6 compatible. When we switched to desktop view in crome the website get crash and showing the all elements of code and header and also the og ip adress, information etc .', '2024-05-01 07:34:49', '2024-05-01 07:34:49'),
-(48, 'Vh', 'gh@gmail.com', '+91 8556808569', 'Gthccbn', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 07:36:19', '2024-05-01 07:36:19'),
-(49, 'Komal', 'komal1164501@gmail.com', '+91 8928370159', NULL, '[\"6\"]', NULL, 'Enroll me', '2024-05-01 07:49:35', '2024-05-01 07:49:35'),
-(50, 'Komal', 'komal1164501@gmail.com', '+91 8928370159', NULL, '[\"6\"]', NULL, 'Enroll me', '2024-05-01 07:49:36', '2024-05-01 07:49:36'),
-(51, 'Sumit Mishra', '2005sumitmishra@gmail.com', '+91 7397870704', 'Reena Mehta college', '[null,\"2\",\"6\"]', NULL, 'I won\'t to gain knowledge and abilities about Full stack development.', '2024-05-01 08:09:08', '2024-05-01 08:09:08'),
-(52, 'Sumit Mishra', '2005sumitmishra@gmail.com', '+91 7397870704', 'Reena Mehta college', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 08:13:57', '2024-05-01 08:13:57'),
-(53, 'Diksha patil', 'dikshuu83@gmail.com', '+91 8329586856', 'MATRUSHRI KASHIBEN MOTILAL PATEL SENIOR COLLEGE OF COMMERCE & SCIENCE', '[null,\"4\",\"6\"]', NULL, 'I want begin career in JAVA as a Full Stack Developer', '2024-05-01 08:43:08', '2024-05-01 08:43:08'),
-(54, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[\"1\"]', NULL, 'I want to teach full stack php', '2024-05-01 09:36:24', '2024-05-01 09:36:24'),
-(55, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"1\"]', NULL, 'Full stack php', '2024-05-01 09:37:04', '2024-05-01 09:37:04'),
-(56, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[\"7\"]', NULL, 'Enroll me', '2024-05-01 09:38:11', '2024-05-01 09:38:11'),
-(57, 'Mardhekar Shivani Shankar', 'shivanimardhekar2510@gmail.com', '+91 9518734711', 'F g naik college Koperkhairane', '[null,\"2\",\"5\"]', NULL, NULL, '2024-05-01 10:01:11', '2024-05-01 10:01:11'),
-(58, 'Harshada  Dattaram Khandare', 'khandareh501@gmail.com', '+91 8308037919', 'S h kelkar college devgad', '[\"1\"]', NULL, 'Enroll me', '2024-05-01 10:23:48', '2024-05-01 10:23:48'),
-(59, 'Harshada  Dattaram Khandare', 'khandareh501@gmail.com', '+91 8308037919', 'S h kelkar college devgad', '[null,\"1\",\"2\"]', NULL, 'Thank u', '2024-05-01 10:24:34', '2024-05-01 10:24:34'),
-(60, 'Rutuja Rajesh Popkar', 'rutupopkar@gmail.com', '+91 8483903794', 'Sant Rawool Maharaj Mahavidyalaya, Kudal', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 10:25:39', '2024-05-01 10:25:39'),
-(61, 'Rutuja Rajesh Popkar', 'rutupopkar@gmail.com', '+91 8483903794', 'Sant Rawool Maharaj Mahavidyalaya, Kudal', '[null]', NULL, NULL, '2024-05-01 10:26:27', '2024-05-01 10:26:27'),
-(62, 'Rahul Rajendra lot', 'lotrahul20@gmail.com', '+91 9322679329', 'Sant Rawool maharaj college Kudal', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 10:28:44', '2024-05-01 10:28:44'),
-(63, 'Geeta gawade', 'geetagawade312@gmail.com', '+91 8805691961', 'Srm college kudal', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 10:35:55', '2024-05-01 10:35:55'),
-(64, 'Namrata shantaram Parab', 'namrataparab312@gmail.com', '+91 9322720379', 'Sant Rawool Maharaj Mahavidyalaya, Kudal', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 10:43:17', '2024-05-01 10:43:17'),
-(65, 'Sujal Yadav', '52g2021yadavsv@gmail.com', '+91 9820841944', 'J.m.patel college', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 10:51:41', '2024-05-01 10:51:41'),
-(66, 'Shraddha Manoj Bandekar', 'shraddhabandekar4743@gmail.com', '+91 7385711524', 'SRM college in kudal', '[\"2\"]', NULL, 'I like coding in java language and I also interested to work on java developer', '2024-05-01 11:27:00', '2024-05-01 11:27:00'),
-(67, 'Diksha prabhukeluskar', 'dikshaprabhukeluskar@gmail.com', '+91 8087890559', 'Sant Rawool Maharaj college, kudal', '[null]', NULL, 'I am interested in this', '2024-05-01 11:32:03', '2024-05-01 11:32:03'),
-(68, 'Pragya Vishwakarma', 'mepragyavishwakarma@gmail.com', '+91 8097608381', 'JM Patel college', '[null,\"2\"]', NULL, 'Interested', '2024-05-01 11:37:36', '2024-05-01 11:37:36'),
-(69, 'Sushila', 'existence204@gmail.com', '+91 9920551991', 'Satish Pradhan Dnyanasadhana College', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 22:09:11', '2024-05-01 22:09:11'),
-(70, 'Harshada Dhumal', 'harshadadhumal12@gmail.com', '+91 9137217575', 'Sk college of science and commerce Nerul', '[\"6\"]', NULL, 'Enroll me', '2024-05-02 01:31:11', '2024-05-02 01:31:11'),
-(71, 'Harshada Dhumal', 'harshadadhumal12@gmail.com', '+91 9137217575', 'Sk college of science and commerce Nerul', '[\"7\"]', NULL, 'Enroll me', '2024-05-02 01:35:28', '2024-05-02 01:35:28'),
-(72, 'Shubham', 'sj3470245@gmail.com', '+91 9930943265', 'Patkar-Varde college', '[null,\"2\"]', NULL, 'Interested in Java programming', '2024-05-02 05:40:37', '2024-05-02 05:40:37'),
-(73, 'Prashant Basveshwar Machigar', 'prashantmachigar1010@gmail.com', '+91 9356317995', 'Dr. Ambedkar college, wadala', '[null,\"1\",\"2\",\"4\",\"6\"]', NULL, 'New learning code java', '2024-05-02 09:20:37', '2024-05-02 09:20:37'),
-(74, 'Shivani Chavan', 'shivanichavan827@gmail.com', '+91 9768165775', 'F G Naik College', '[null,\"2\",\"6\"]', NULL, 'Register are be confirmed', '2024-05-02 10:09:13', '2024-05-02 10:09:13'),
-(75, 'Manasi Ravi Pawar', 'manasi3059@gmail.com', '+91 9136644498', 'JES College', '[null,\"2\"]', NULL, NULL, '2024-05-02 10:25:06', '2024-05-02 10:25:06'),
-(76, 'Disha parab', 'dishaparabo6@gmail.com', '+91 8459579229', 'Shri panchm khemraj sawntwadi', '[null,\"2\"]', NULL, 'I want to register this course', '2024-05-02 23:59:12', '2024-05-02 23:59:12'),
-(77, 'Pranav Nidhalkar', 'pranavnidhalkar6941@gmail.com', '+91 8793934154', 'Singhad College Of Science', '[null,\"1\",\"2\",\"6\"]', NULL, 'Thank You', '2024-05-03 07:39:25', '2024-05-03 07:39:25'),
-(78, 'Sujal Yadav', '52g2021yadavsv@gmail.com', '+91 9820841944', 'J.m.patel college', '[null,\"2\"]', NULL, 'How to attend session', '2024-05-03 12:05:18', '2024-05-03 12:05:18'),
-(79, 'sakshi pawar', 'sakshipawar1704@gmail.com', '+91 7208499228', 'Patkar varde college', '[\"2\"]', NULL, 'Enroll me', '2024-05-04 08:33:58', '2024-05-04 08:33:58'),
-(80, 'Shaikh anam', 'shaikhanam9873@gmail.com', '+91 8390758517', 'GM', '[null,\"2\",\"8\"]', NULL, 'Java', '2024-05-04 08:38:17', '2024-05-04 08:38:17'),
-(81, 'Tejal walavalkar', 'tejalwalavalkar25@gmail.com', '+91 9404442508', 'S.R.M. College kudal', '[null]', NULL, 'What is cloud computing?\r\nAnd what are the use in java?', '2024-05-04 08:39:35', '2024-05-04 08:39:35'),
-(82, 'Tejal walavalkar', 'tejalwalavalkar25@gmail.com', '+91 9404442508', 'S.R.M. College kudal', '[null]', NULL, 'What is cloud computing?\r\nAnd what are the use in java?', '2024-05-04 08:45:01', '2024-05-04 08:45:01'),
-(83, 'Momin Fatima Altaf', 'mominfatima26@gmail.com', '+91 8446849456', 'G.M. Momim Women\'s College', '[\"6\"]', NULL, 'Enroll me', '2024-05-04 08:54:10', '2024-05-04 08:54:10'),
-(84, 'Mariyam Mubeen Ansari', 'ansarimariyam.7422@gmail.com', '+91 7276660490', 'GM MOMIN WOMEN\'S DEGREE COLLEGE', '[\"6\"]', NULL, 'Enroll me', '2024-05-04 08:54:23', '2024-05-04 08:54:23'),
-(85, 'Abhishek Gautam', 'chamain2614@gmail.com', '+91 7379762017', 'Student', '[null,\"2\"]', NULL, 'I want to be become full stak developer', '2024-05-04 09:30:46', '2024-05-04 09:30:46'),
-(86, 'Abhishek Gautam', 'chamain2614@gmail.com', '+91 7379762017', 'Student', '[null,\"2\"]', NULL, 'Full stack developer', '2024-05-04 09:32:02', '2024-05-04 09:32:02'),
-(87, 'Momin saniya shakeeb Ahmad', 'mominsaniya870@gmail.com', '+91 8767158668', 'G.M.Momin Women\'s College', '[null,\"2\",\"6\"]', NULL, NULL, '2024-05-04 12:09:06', '2024-05-04 12:09:06'),
-(88, 'Abdul Mobin Samani', 'mobinsamani7045@gmail.com', '+91 7039171650', 'J m Patel college of commerce', '[null,\"2\"]', NULL, NULL, '2024-05-04 19:05:29', '2024-05-04 19:05:29'),
-(89, 'Darshan Vijay Patankar', 'darshanpatankar74@gmail.com', '+91 9321637433', 'S.S.S. night college Ghatkopar', '[null,\"2\",\"6\",\"7\",\"8\",\"other\"]', NULL, 'I am cs student.i want understand all concepts clearly.', '2024-05-05 01:00:58', '2024-05-05 01:00:58'),
-(90, 'Shumama Sajid Nachan', 'shumamanachan14@gmail.com', '+91 7400095027', 'G.M Momin Women\'s College, bhiwandi', '[null]', NULL, NULL, '2024-05-05 04:29:51', '2024-05-05 04:29:51'),
-(91, 'Ansh dubey', 'dubeyansh706@gmail.com', '+91 9137774081', 'Sk college of science and commerce', '[\"2\"]', NULL, 'Enroll me', '2024-05-05 14:44:35', '2024-05-05 14:44:35'),
-(92, 'Divya Sunil Wankhede', 'divyawankhede231@gmail.com', '+91 9321056687', 'SK college of science and commerce', '[null,\"1\",\"2\",\"6\",\"5\",\"8\"]', NULL, 'Exited to get learned new things from you. Will I get certificate of this course??', '2024-05-06 00:54:42', '2024-05-06 00:54:42'),
-(93, 'Asmita Sandesh Ghadge', 'asmitaghadge116@gmail.com', '+91 9152962004', 'Kle college of science and commerce', '[null,\"1\",\"6\",\"other\"]', NULL, NULL, '2024-05-06 01:52:05', '2024-05-06 01:52:05'),
-(94, 'Diksha prabhukeluskar', 'dikshaprabhukeluskar@gmail.com', '+91 8087890559', 'Sant Rawool Maharaj college, kudal', '[\"1\",\"2\",\"3\",\"4\",\"6\",\"5\",\"7\",\"8\",\"other\"]', NULL, 'Good course', '2024-05-07 06:41:07', '2024-05-07 06:41:07'),
-(96, 'suman kanti', 'kantisuman1204@gmail.com', '+91 9016051216', 'student', '[null,\"1\",\"2\"]', NULL, 'Thank you', '2024-05-09 09:56:33', '2024-05-09 09:56:33'),
-(97, 'Preeti Rajpurohit', 'preeti220405@gmail.com', '+91 8591521870', 'F. G naik college', '[\"6\"]', NULL, 'Enroll me', '2024-05-09 10:50:34', '2024-05-09 10:50:34'),
-(98, 'Mahajancy', 'mahajancychelladurai1704@gmail.com', '+91 7718014415', 'SIES COLLEGE OF COMMERCE AND ECONOMICS', '[\"2\"]', NULL, 'Enroll me', '2024-05-09 11:06:17', '2024-05-09 11:06:17'),
-(99, 'Pooja Ramishwar yadav', 'py886540@gmail.com', '+91 7304006143', 'Fresher', '[\"1\",\"2\"]', NULL, 'Enroll me', '2024-05-09 11:55:21', '2024-05-09 11:55:21'),
-(101, 'Surajkumar Kevat', 'surajkewat73047@gmail.com', '+91 7304726987', 'Guru Nanak College of Arts,Science and Commerce', '[\"1\",\"3\"]', NULL, NULL, '2024-05-09 13:07:54', '2024-05-09 13:07:54'),
-(103, 'Tanay Uday Khamkar', 'tanaykhamkar@gmail.com', '+91 9136610950', 'Achivers College', '[\"1\"]', NULL, 'Enroll me', '2024-05-09 22:12:06', '2024-05-09 22:12:06'),
-(104, 'SUJAL GUPTA', 'guptasujal274@gmail.com', '+91 8591622461', 'Shree Jaya Anand degree college', '[null,\"6\",\"5\",\"other\"]', NULL, 'Excited', '2024-05-10 00:58:18', '2024-05-10 00:58:18'),
-(106, 'Shamin momin', 'ibrahimgamingyt786144@gmail.com', '+91 9662786144', 'College', '[\"6\",\"other\"]', NULL, 'Hello', '2024-05-10 04:56:06', '2024-05-10 04:56:06'),
-(107, 'Shubham', 'sj3470245@gmail.com', '+91 9930943265', 'Patkar-Varde college', '[\"6\"]', NULL, 'Enroll me', '2024-05-10 05:08:12', '2024-05-10 05:08:12'),
-(108, 'Arbiya maheen', 'arbiyashaikh9860@gmail.com', '+91 7276218144', 'College', '[null,\"6\"]', NULL, 'Hi', '2024-05-12 02:46:16', '2024-05-12 02:46:16'),
-(109, 'Rohit Hambirrao Hujare', 'rohithujare742@gmail.com', '+91 9730397046', 'College', '[null,\"1\",\"2\",\"6\"]', NULL, 'Full Stack Developer', '2024-05-12 04:45:37', '2024-05-12 04:45:37'),
-(112, 'Pradnya Anand Yelkar', 'pradnyayelkar17@gmail.com', '+91 9021364809', 'G.v.acharya institute of engineering and technology', '[null,\"2\"]', NULL, 'Exited to learn full stack java programming', '2024-05-16 19:04:09', '2024-05-16 19:04:09'),
-(113, 'Prem Pawar', 'ppawar6053@gmail.com', '+91 8767590638', 'V.B.D.B.A Model Degree College Ambadave', '[null]', NULL, 'Yes', '2024-05-17 00:00:36', '2024-05-17 00:00:36'),
-(114, 'Taniya Rathod', 'Trathod019@gmail.com', '+91 9325757031', 'Viva college,virar (west)', '[null,\"1\",\"2\",\"11\",\"14\",\"21\"]', NULL, NULL, '2024-05-17 00:42:37', '2024-05-17 00:42:37'),
-(115, 'Vaishnavi Mahindra Pisal', 'vaishnavipisal434@gmail.com', '+91 9579731601', 'F.G.Naik', '[null,\"1\",\"2\",\"3\",\"4\",\"6\",\"5\",\"7\",\"19\"]', NULL, 'I am interested to learn this course', '2024-05-18 04:22:13', '2024-05-18 04:22:13'),
-(116, 'Akanksha Vilas ambulkar', 'akankshaambulkar98@gmail.com', '+91 9004640509', 'Patkar varde college', '[null,\"2\"]', NULL, 'No', '2024-05-18 09:42:03', '2024-05-18 09:42:03'),
-(117, 'Arnav shankar magar', 'arnavmagar8@gmail.com', '+91 9321504643', 'SSS multi purpose technical college Computer science night college', '[\"19\"]', NULL, 'Enroll me', '2024-05-19 09:42:52', '2024-05-19 09:42:52'),
-(118, 'Fatemeh Naghavi', 'fnaghavi@terpmail.umd.edu', '+1 3015496395', 'University of Maryland College Park', '[\"6\"]', NULL, 'Enroll me', '2024-05-20 21:06:18', '2024-05-20 21:06:18'),
-(120, 'Shaikh Sufiyan', 'sufiyaanshaikh0001@gmail.com', '+91 7738798538', 'SIES', '[null,\"5\",\"13\",\"20\",\"21\"]', NULL, 'Eager to know more about the selected course', '2024-05-24 08:31:06', '2024-05-24 08:31:06'),
-(121, 'Anita Nilesh Mhatre', 'anitamohanrajput@mes.ac.in', '+91 7276760442', 'PHCASC', '[null,\"6\"]', NULL, NULL, '2024-05-31 00:03:21', '2024-05-31 00:03:21'),
-(122, 'Khan Rimsha Fatima Mohammed Naim', 'rimshaishere@gmail.com', '+91 9768379969', 'Rizvi college', '[null]', NULL, 'I\'m bsc-it student at rizvi college', '2024-05-31 00:48:23', '2024-05-31 00:48:23'),
-(123, 'Taskeen', 'tasqrrr315@gmail.com', '+91 9987617886', 'Rizvi college of arts science and commerce', '[null,\"6\",\"5\"]', NULL, 'I m extremely excited to learn these courses', '2024-05-31 01:04:50', '2024-05-31 01:04:50'),
-(124, 'Rohan Navghane', 'rohannavghane683@gmail.com', '+91 9322052582', 'Sidharth college Mumbai', '[null,\"6\"]', NULL, 'I have learnt python because python is very tough language', '2024-05-31 01:05:44', '2024-05-31 01:05:44'),
-(125, 'Ayush Panjari', 'panjariayush32@gmail.com', '+91 9152792993', 'Wilson College', '[null,\"6\",\"18\",\"19\"]', NULL, 'Data Analytics', '2024-05-31 01:14:18', '2024-05-31 01:14:18'),
-(126, 'Sameer Ahmed', 'sameerahmed444000@gmail.com', '+91 8077091745', 'Rizvi college', '[\"2\"]', NULL, 'Enroll me', '2024-05-31 04:24:55', '2024-05-31 04:24:55'),
-(127, 'Ravindra', 'panadaravindra2005@gmail.com', '+91 8097014715', 'J M Patel college of commerce', '[null,\"1\",\"2\"]', NULL, 'Thank you', '2024-05-31 09:17:32', '2024-05-31 09:17:32'),
-(128, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 10:13:10', '2024-05-31 10:13:10'),
-(129, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:00:52', '2024-05-31 11:00:52'),
-(130, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:07:52', '2024-05-31 11:07:52'),
-(131, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:11:59', '2024-05-31 11:11:59'),
-(132, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:14:40', '2024-05-31 11:14:40'),
-(133, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"6\",\"5\"]', NULL, 'No', '2024-05-31 11:16:21', '2024-05-31 11:16:21'),
-(134, 'Hitesh Yadav', 'yadavhitesh688@gmail.com', '+91 9167977106', 'Jmpc', '[null,\"6\",\"5\",\"22\"]', NULL, 'Python', '2024-06-01 12:14:58', '2024-06-01 12:14:58'),
-(135, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"30\"]', NULL, 'Learn', '2024-06-01 21:27:03', '2024-06-01 21:27:03'),
-(136, 'Anjali Mahendra Prasad gupta', 'pinkig49470@gmail.com', '+91 9152049470', 'Jashbhai maganbhai Patel college of commerce', '[null,\"1\",\"2\",\"6\",\"10\",\"11\"]', NULL, NULL, '2024-06-01 22:29:21', '2024-06-01 22:29:21'),
-(137, 'Gunja Shah', 'gunjashahgps06@gmail.com', '+91 7304342711', 'Sk college of science and commerce', '[null,\"other\"]', NULL, 'I m excited to learn fundamental and python', '2024-06-01 23:25:33', '2024-06-01 23:25:33'),
-(138, 'Devesh Ghadigaonkar', 'deveshghadigaonkar@gmail.com', '+91 7208380991', 'Patkar-Varde College, goregaon', '[\"2\"]', NULL, 'Enroll me', '2024-06-02 00:08:36', '2024-06-02 00:08:36'),
-(139, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"6\",\"8\",\"10\"]', NULL, 'Learn', '2024-06-02 06:03:27', '2024-06-02 06:03:27'),
-(140, 'Anisha Liladhar Talgaonkar', 'anishatalgaonkar2004@gmail.com', '+91 8010940478', 'Shri Pancham khemraj college sawantwadi', '[null,\"2\",\"6\"]', NULL, '..', '2024-06-02 06:28:48', '2024-06-02 06:28:48'),
-(141, 'Mohammed Hashim Kazi', 'hashimkazi060@gmail.com', '+91 9892895211', 'TY,Rizvi college of arts,science and commerce', '[null,\"6\",\"19\"]', NULL, NULL, '2024-06-03 07:40:22', '2024-06-03 07:40:22'),
-(142, 'Mohammed Hashim Kazi', 'hashimkazi060@gmail.com', '+91 9892895211', 'TY,Rizvi college of arts,science and commerce', '[\"6\"]', NULL, 'Enroll me', '2024-06-03 07:52:47', '2024-06-03 07:52:47'),
-(143, 'Purushottam kandalgaokar', 'purushottamkandalagaunker@gmail.com', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[\"2\",\"19\"]', NULL, 'I am also interested for this course.', '2024-06-03 09:03:37', '2024-06-03 09:03:37'),
-(144, 'Samiksha harmalkar', 'Samikshaharmalkar21@gmail.com', '+91 8275708534', 'SPK college Sawantwadi', '[null,\"1\",\"2\",\"10\",\"11\"]', NULL, 'I like to learn different things regarding Computer language and IT sector', '2024-06-04 03:24:55', '2024-06-04 03:24:55'),
-(145, 'Rashmi Suresh Mohite', 'rashmimohite2004@gmail.com', '+91 9405622340', 'SPK College Sawantwadi', '[\"2\"]', NULL, 'Learning for my best future.', '2024-06-04 03:29:59', '2024-06-04 03:29:59'),
-(146, 'Manisha Raghoba Agarwadekar', 'agarwadekarmanisha@gmail.com', '+91 7875253506', 'M.Sc.I.T.   University of Mumbai', '[\"6\"]', NULL, 'Enroll me', '2024-06-05 09:55:08', '2024-06-05 09:55:08'),
-(147, 'Samiksha Sanjay Desai', 'desaisamiksha03@gmail.com', '+91 9421094049', NULL, '[null,\"2\",\"9\",\"10\",\"11\",\"19\"]', NULL, NULL, '2024-06-06 02:51:13', '2024-06-06 02:51:13'),
-(148, 'Gunja Shah', 'gunjashahgps06@gmail.com', '+91 7304342711', 'Sk college of science and commerce', '[null]', NULL, 'I\'m excited to learn', '2024-06-06 06:32:56', '2024-06-06 06:32:56'),
-(149, 'Purushottam Bhikaji Kandalgaunker', 'purushottamkandalagaunker@gmail.com', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[null]', NULL, 'I am interested for python course', '2024-06-06 08:36:45', '2024-06-06 08:36:45'),
-(150, 'Afsana Abdul latif khan', 'afsana6969786@gmail.com', '+91 9769973632', 'Asmita college', '[null,\"1\",\"2\"]', NULL, 'To learn', '2024-06-12 01:49:12', '2024-06-12 01:49:12'),
-(151, 'Afzal Modak', 'modakafzal@gmail.com', '+91 9930983020', 'GSF Managent', '[null,\"6\",\"other\"]', NULL, 'Looking to see how to apply capabilities to startups', '2024-06-14 08:42:41', '2024-06-14 08:42:41'),
-(152, 'Ankit', 'sanjayverma051974@gmail.com', '+91 7208172559', 'Westan clg', '[null,\"2\"]', NULL, 'Kn', '2024-06-15 10:06:41', '2024-06-15 10:06:41'),
-(153, 'Prerana Bharat Patil', 'prerana1625@gmail.com', '+91 9321751687', 'Veer wajekar arts science commerce college phunde', '[null]', NULL, 'Thanks the workshop', '2024-06-15 11:04:08', '2024-06-15 11:04:08'),
-(154, 'Vedanti Mugade', 'vedantimugade555@gmail.com', '+91 8591665110', 'Western College of Commerce and Business Management', '[null,\"6\",\"5\",\"7\",\"13\",\"18\",\"19\",\"20\",\"22\",\"23\"]', NULL, 'Eagerly waiting to start my carrer', '2024-06-15 11:53:46', '2024-06-15 11:53:46'),
-(155, 'Rashmi Suresh Mohite', 'rashmimohite2004@gmail.com', '+91 9405622340', 'SPK College Sawantwadi', '[\"2\"]', NULL, 'Best Learning', '2024-06-15 21:21:20', '2024-06-15 21:21:20'),
-(156, 'Akanksha Santosh Patil', 'akankshasp2804@gmail.com', '+91 9920571851', 'Veer Wajekar asc college Phunde Maharashtra', '[null,\"2\"]', NULL, NULL, '2024-06-16 06:31:26', '2024-06-16 06:31:26'),
-(157, 'Sunakshi Dhruva patil', 'sunakshi15105@gmail.com', '+91 9594457036', 'Ty v.w asc collage funde', '[null,\"2\"]', NULL, NULL, '2024-06-16 08:31:41', '2024-06-16 08:31:41'),
-(158, 'Vipul Divekar', 'vipuldivekar7@gmail.com', '+91 9579971366', 'SYIT', '[null,\"1\",\"2\",\"6\"]', NULL, 'Good', '2024-06-16 08:36:32', '2024-06-16 08:36:32'),
-(159, 'Roshani Chauhan', 'roshanichauhan567@gmail.com', '+91 7208195236', 'Satish pradhan dnyansadhana college, thane', '[null]', NULL, NULL, '2024-06-17 23:55:20', '2024-06-17 23:55:20'),
-(160, 'Jahid kannur', 'jahidkannur778@gamil.com', '+91 6360584347', 'Satish pardhan dyansadhana college', '[null,\"31\"]', NULL, 'Thank you for the opportunity', '2024-06-18 03:40:24', '2024-06-18 03:40:24'),
-(161, 'Bhumi Mahesh Mirgal', 'bhumimirgal19115@gmail.com', '+91 9404710470', 'Satish Pradhan dhyansadhna college Thane', '[null,\"2\",\"6\",\"31\"]', NULL, NULL, '2024-06-18 07:55:36', '2024-06-18 07:55:36'),
-(162, 'Ambrish pandey', 'pandeypriyanshu4631@gmail.com', '+91 9152046501', 'Satish Pradhan dyansadna college', '[null,\"1\",\"2\"]', NULL, 'Yes', '2024-06-21 06:13:46', '2024-06-21 06:13:46');
+INSERT INTO `user_query` (`id`, `query_for`, `reg_code`, `name`, `email`, `contact`, `company_college_name`, `course_ids`, `other_course`, `message`, `created_at`, `updated_at`) VALUES
+(1, 'open', NULL, 'Pranav Borchate', 'pranavborchate@gmail.com', '+91 9130973812', 'College', '[\"6\"]', NULL, 'No', '2024-04-17 23:45:51', '2024-04-17 23:45:51'),
+(2, 'open', NULL, 'Vidya  Santosh Bhagat', 'vidyabhagat@gmail.com', '+91 9309394997', 'SRM kudal', '[\"6\"]', NULL, 'Enroll me', '2024-04-18 01:43:28', '2024-04-18 01:43:28'),
+(3, 'open', NULL, 'Snehal Sanjay Naik', 'ssnaik32@gmail.com', '+91 9404778447', 'Shri Pancham Khemraj Mahavidyalaya, sawantwadi', '[\"4\"]', NULL, 'Enroll me', '2024-04-18 03:04:24', '2024-04-18 03:04:24'),
+(10, 'open', NULL, 'Minal', 'minal.penta@icloud.com', '+91 9601290262', 'Edu', '[\"6\"]', NULL, 'Enroll me', '2024-04-23 00:44:59', '2024-04-23 00:44:59'),
+(15, 'open', NULL, 'Samiksha Sanjay Desai', 'desaisamiksha03@gmail.com', '+91 9421094049', 'Shri Pancham Khemraj Mahavidyalaya, Sawantwadi', '[null,\"2\",\"4\",\"6\",\"5\",\"7\",\"8\"]', NULL, 'I am excited for this session', '2024-05-01 00:13:01', '2024-05-01 00:13:01'),
+(16, 'open', NULL, 'Afreen Ashrafalli Khan', 'afreen2382005@gmail.com', '+91 7038405786', 'Shri  Pancham Khemraj Mahavidyalaya Sawantwadi', '[null,\"2\",\"6\",\"5\",\"7\",\"8\"]', NULL, 'I want to learn programming languages', '2024-05-01 00:17:23', '2024-05-01 00:17:23'),
+(17, 'open', NULL, 'Ranjit Gupta', 'ranjitrkg6@gmail.com', '+91 7860408310', 'Lala Lajpat Rai College', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 00:34:05', '2024-05-01 00:34:05'),
+(18, 'open', NULL, 'Nikita', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"1\"]', NULL, 'Php', '2024-05-01 00:47:25', '2024-05-01 00:47:25'),
+(19, 'open', NULL, 'Shruti Mukadam', 'mukadamshruti@gmail.com', '+91 8591528567', 'Lala lajpat rai college of commerce and economics', '[null,\"1\",\"2\",\"5\"]', NULL, 'N/A', '2024-05-01 00:48:27', '2024-05-01 00:48:27'),
+(20, 'open', NULL, 'Neha Shukla', 'nehashukla97667@gmail.com', '+91 8187934259', 'Tilak junior college of science and commerce', '[null,\"1\",\"2\"]', NULL, '\"Thank you for providing this course on OOP with Java. It\'s been incredibly helpful in expanding my knowledge and skills in programming. I appreciate the opportunity to learn from such a valuable resource.\"', '2024-05-01 00:59:51', '2024-05-01 00:59:51'),
+(21, 'open', NULL, 'Usmani saad', 'usmanisaad07@gmail.com', '+91 7208341213', 'Akbar peerbhoy', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 01:02:21', '2024-05-01 01:02:21'),
+(22, 'open', NULL, 'Mubsara', 'mubsarashaikh38@gmail.com', '+91 8652625068', 'SK tilak nehrul', '[null,\"1\",\"2\"]', NULL, 'Needed', '2024-05-01 01:04:05', '2024-05-01 01:04:05'),
+(23, 'open', NULL, 'Mrs. Rajshree Nilesh Pisal', 'rajashree.karnekar@jnanvikasmandal.com', '+91 9029785498', 'Jvm\'s Degree College', '[null,\"1\",\"2\",\"6\",\"5\"]', NULL, 'Looking for better platform to learn new things', '2024-05-01 01:08:42', '2024-05-01 01:08:42'),
+(24, 'open', NULL, 'Gunja', 'gunjashahgps06@gmail.com', '+91 7304342711', 'S.k college of science and commerce', '[null,\"2\"]', NULL, 'I\'m excited to learn OOPs with Java', '2024-05-01 01:11:45', '2024-05-01 01:11:45'),
+(26, 'open', NULL, 'Naziya chaudary', 'naziyachaudhary951@gmail.com', '+91 7459086107', 'S.k college of science and arts', '[null,\"2\"]', NULL, 'I want to learn new skills', '2024-05-01 01:15:57', '2024-05-01 01:15:57'),
+(27, 'open', NULL, 'Janhavi Shirish Kudalkar', 'kudalkarjanhavi4@gmail.com', '+91 9769034530', 'S.K.College of Science and Commerce, Nerul', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 01:32:21', '2024-05-01 01:32:21'),
+(28, 'open', NULL, 'Khan abdulrehman', 'khanabdulrehman653@gmail.com', '+91 8108672538', 'Akbar peerbhoy college', '[null,\"2\",\"5\"]', NULL, NULL, '2024-05-01 01:46:56', '2024-05-01 01:46:56'),
+(29, 'open', NULL, 'Vedant', 'vedantatugade@gmail.com', '+91 9324152596', 'S. K College', '[null,\"other\"]', NULL, 'To improve programing skiils', '2024-05-01 01:50:40', '2024-05-01 01:50:40'),
+(30, 'open', NULL, 'Trisha murugan', 'trisha.murugan06@gmail.com', '+91 9137364493', 'Collage', '[null,\"1\",\"2\"]', NULL, 'I want course of oops and java', '2024-05-01 02:14:19', '2024-05-01 02:14:19'),
+(31, 'open', NULL, 'Kanishka gavande', 'kanishk.g@gemail.com', '+91 9076180711', 'S.k college', '[null,\"2\"]', NULL, 'Interested to learn opp with java', '2024-05-01 02:36:31', '2024-05-01 02:36:31'),
+(34, 'open', NULL, 'Vamshi kori', 'korivamshi6@gmail.com', '+91 8097055945', 'Sk college of science and commerce', '[\"1\",\"2\"]', NULL, 'I want to become full stack developer', '2024-05-01 02:52:18', '2024-05-01 02:52:18'),
+(35, 'open', NULL, 'Vamshi kori', 'korivamshi6@gmail.com', '+91 8097055945', 'Sk college of science and commerce', '[\"5\"]', NULL, 'Enroll me', '2024-05-01 02:53:36', '2024-05-01 02:53:36'),
+(36, 'open', NULL, 'Sakshi Chandrakant Wadekar', 'sakshiwadekar39@gmail.com', '+91 9372689542', 'Patkar Varde College', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 02:56:26', '2024-05-01 02:56:26'),
+(37, 'open', NULL, 'vinay raju chivilkar', 'vinaychivilkar2@gmail.com', '+91 8928360839', 'Patkar Varde College', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 03:04:51', '2024-05-01 03:04:51'),
+(38, 'open', NULL, 'Sujal Yadav', '52g2021yadavsv@gmail.com', '+91 9820841944', 'J.m.patel college', '[null,\"2\",\"7\",\"8\"]', NULL, 'I\'m Interested in learning new things', '2024-05-01 03:16:53', '2024-05-01 03:16:53'),
+(39, 'open', NULL, 'Ahsan Shaikh', 'ahsanshaikh0808@gmail.com', '+91 9320584154', 'Akbar peerbhoy college grand road', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 03:31:58', '2024-05-01 03:31:58'),
+(40, 'open', NULL, 'Purushottam Bhikaji Kandalgaokar', 'purushottamkandalagaunker@gmail.vom', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[null,\"2\"]', NULL, 'I am interested in our java course definite.', '2024-05-01 03:59:15', '2024-05-01 03:59:15'),
+(41, 'open', NULL, 'Purushottam Bhikaji Kandalgaokar', 'purushottamkandalagaunker@gmail.vom', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[null,\"2\"]', NULL, 'I am interested in our java course definite.', '2024-05-01 03:59:19', '2024-05-01 03:59:19'),
+(42, 'open', NULL, 'Ritu Gupta', 'ritu.gupta1st@gmail.com', '+91 9867013111', 'S.K college of science and commerce', '[null,\"1\",\"2\"]', NULL, NULL, '2024-05-01 04:08:44', '2024-05-01 04:08:44'),
+(43, 'open', NULL, 'Anjali Mahendra Prasad gupta', 'pinkig49470@gmail.com', '+91 9152049470', 'Jashbhai maganbhai Patel college of commerce', '[null,\"1\",\"2\",\"6\",\"5\",\"7\",\"other\"]', NULL, 'Done.', '2024-05-01 04:42:21', '2024-05-01 04:42:21'),
+(44, 'open', NULL, 'Suyash patil', 'patilsuyash410@gmail.com', '+91 9372031621', 'SK College seawood', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 05:21:54', '2024-05-01 05:21:54'),
+(45, 'open', NULL, 'Ridhesh Palkar', 'beaconboss573@gmail.com', '+91 9082272243', 'Elphistone College', '[null,\"other\"]', NULL, 'I have interest in cybersecurity can I get any information regarding it.', '2024-05-01 05:38:38', '2024-05-01 05:38:38'),
+(46, 'open', NULL, 'Vishal', 'shortvnap@gmail.com', '+91 7769935689', NULL, '[null,\"other\"]', NULL, 'Your website having bug \r\nThat is it\'s crash wen it opened in crome and when we switched to the desktop view in crome', '2024-05-01 06:58:23', '2024-05-01 06:58:23'),
+(47, 'open', NULL, 'Vishal', 'vishalsaroj5849@gmail.com', '+91 7769935689', 'Satish Pradhan DnyaSadhna college', '[\"other\"]', NULL, 'Your website doesn\'t support ipv6 compatible. When we switched to desktop view in crome the website get crash and showing the all elements of code and header and also the og ip adress, information etc .', '2024-05-01 07:34:49', '2024-05-01 07:34:49'),
+(48, 'open', NULL, 'Vh', 'gh@gmail.com', '+91 8556808569', 'Gthccbn', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 07:36:19', '2024-05-01 07:36:19'),
+(49, 'open', NULL, 'Komal', 'komal1164501@gmail.com', '+91 8928370159', NULL, '[\"6\"]', NULL, 'Enroll me', '2024-05-01 07:49:35', '2024-05-01 07:49:35'),
+(50, 'open', NULL, 'Komal', 'komal1164501@gmail.com', '+91 8928370159', NULL, '[\"6\"]', NULL, 'Enroll me', '2024-05-01 07:49:36', '2024-05-01 07:49:36'),
+(51, 'open', NULL, 'Sumit Mishra', '2005sumitmishra@gmail.com', '+91 7397870704', 'Reena Mehta college', '[null,\"2\",\"6\"]', NULL, 'I won\'t to gain knowledge and abilities about Full stack development.', '2024-05-01 08:09:08', '2024-05-01 08:09:08'),
+(52, 'open', NULL, 'Sumit Mishra', '2005sumitmishra@gmail.com', '+91 7397870704', 'Reena Mehta college', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 08:13:57', '2024-05-01 08:13:57'),
+(53, 'open', NULL, 'Diksha patil', 'dikshuu83@gmail.com', '+91 8329586856', 'MATRUSHRI KASHIBEN MOTILAL PATEL SENIOR COLLEGE OF COMMERCE & SCIENCE', '[null,\"4\",\"6\"]', NULL, 'I want begin career in JAVA as a Full Stack Developer', '2024-05-01 08:43:08', '2024-05-01 08:43:08'),
+(54, 'open', NULL, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[\"1\"]', NULL, 'I want to teach full stack php', '2024-05-01 09:36:24', '2024-05-01 09:36:24'),
+(55, 'open', NULL, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"1\"]', NULL, 'Full stack php', '2024-05-01 09:37:04', '2024-05-01 09:37:04'),
+(56, 'open', NULL, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[\"7\"]', NULL, 'Enroll me', '2024-05-01 09:38:11', '2024-05-01 09:38:11'),
+(57, 'open', NULL, 'Mardhekar Shivani Shankar', 'shivanimardhekar2510@gmail.com', '+91 9518734711', 'F g naik college Koperkhairane', '[null,\"2\",\"5\"]', NULL, NULL, '2024-05-01 10:01:11', '2024-05-01 10:01:11'),
+(58, 'open', NULL, 'Harshada  Dattaram Khandare', 'khandareh501@gmail.com', '+91 8308037919', 'S h kelkar college devgad', '[\"1\"]', NULL, 'Enroll me', '2024-05-01 10:23:48', '2024-05-01 10:23:48'),
+(59, 'open', NULL, 'Harshada  Dattaram Khandare', 'khandareh501@gmail.com', '+91 8308037919', 'S h kelkar college devgad', '[null,\"1\",\"2\"]', NULL, 'Thank u', '2024-05-01 10:24:34', '2024-05-01 10:24:34'),
+(60, 'open', NULL, 'Rutuja Rajesh Popkar', 'rutupopkar@gmail.com', '+91 8483903794', 'Sant Rawool Maharaj Mahavidyalaya, Kudal', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 10:25:39', '2024-05-01 10:25:39'),
+(61, 'open', NULL, 'Rutuja Rajesh Popkar', 'rutupopkar@gmail.com', '+91 8483903794', 'Sant Rawool Maharaj Mahavidyalaya, Kudal', '[null]', NULL, NULL, '2024-05-01 10:26:27', '2024-05-01 10:26:27'),
+(62, 'open', NULL, 'Rahul Rajendra lot', 'lotrahul20@gmail.com', '+91 9322679329', 'Sant Rawool maharaj college Kudal', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 10:28:44', '2024-05-01 10:28:44'),
+(63, 'open', NULL, 'Geeta gawade', 'geetagawade312@gmail.com', '+91 8805691961', 'Srm college kudal', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 10:35:55', '2024-05-01 10:35:55'),
+(64, 'open', NULL, 'Namrata shantaram Parab', 'namrataparab312@gmail.com', '+91 9322720379', 'Sant Rawool Maharaj Mahavidyalaya, Kudal', '[\"6\"]', NULL, 'Enroll me', '2024-05-01 10:43:17', '2024-05-01 10:43:17'),
+(65, 'open', NULL, 'Sujal Yadav', '52g2021yadavsv@gmail.com', '+91 9820841944', 'J.m.patel college', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 10:51:41', '2024-05-01 10:51:41'),
+(66, 'open', NULL, 'Shraddha Manoj Bandekar', 'shraddhabandekar4743@gmail.com', '+91 7385711524', 'SRM college in kudal', '[\"2\"]', NULL, 'I like coding in java language and I also interested to work on java developer', '2024-05-01 11:27:00', '2024-05-01 11:27:00'),
+(67, 'open', NULL, 'Diksha prabhukeluskar', 'dikshaprabhukeluskar@gmail.com', '+91 8087890559', 'Sant Rawool Maharaj college, kudal', '[null]', NULL, 'I am interested in this', '2024-05-01 11:32:03', '2024-05-01 11:32:03'),
+(68, 'open', NULL, 'Pragya Vishwakarma', 'mepragyavishwakarma@gmail.com', '+91 8097608381', 'JM Patel college', '[null,\"2\"]', NULL, 'Interested', '2024-05-01 11:37:36', '2024-05-01 11:37:36'),
+(69, 'open', NULL, 'Sushila', 'existence204@gmail.com', '+91 9920551991', 'Satish Pradhan Dnyanasadhana College', '[\"2\"]', NULL, 'Enroll me', '2024-05-01 22:09:11', '2024-05-01 22:09:11'),
+(70, 'open', NULL, 'Harshada Dhumal', 'harshadadhumal12@gmail.com', '+91 9137217575', 'Sk college of science and commerce Nerul', '[\"6\"]', NULL, 'Enroll me', '2024-05-02 01:31:11', '2024-05-02 01:31:11'),
+(71, 'open', NULL, 'Harshada Dhumal', 'harshadadhumal12@gmail.com', '+91 9137217575', 'Sk college of science and commerce Nerul', '[\"7\"]', NULL, 'Enroll me', '2024-05-02 01:35:28', '2024-05-02 01:35:28'),
+(72, 'open', NULL, 'Shubham', 'sj3470245@gmail.com', '+91 9930943265', 'Patkar-Varde college', '[null,\"2\"]', NULL, 'Interested in Java programming', '2024-05-02 05:40:37', '2024-05-02 05:40:37'),
+(73, 'open', NULL, 'Prashant Basveshwar Machigar', 'prashantmachigar1010@gmail.com', '+91 9356317995', 'Dr. Ambedkar college, wadala', '[null,\"1\",\"2\",\"4\",\"6\"]', NULL, 'New learning code java', '2024-05-02 09:20:37', '2024-05-02 09:20:37'),
+(74, 'open', NULL, 'Shivani Chavan', 'shivanichavan827@gmail.com', '+91 9768165775', 'F G Naik College', '[null,\"2\",\"6\"]', NULL, 'Register are be confirmed', '2024-05-02 10:09:13', '2024-05-02 10:09:13'),
+(75, 'open', NULL, 'Manasi Ravi Pawar', 'manasi3059@gmail.com', '+91 9136644498', 'JES College', '[null,\"2\"]', NULL, NULL, '2024-05-02 10:25:06', '2024-05-02 10:25:06'),
+(76, 'open', NULL, 'Disha parab', 'dishaparabo6@gmail.com', '+91 8459579229', 'Shri panchm khemraj sawntwadi', '[null,\"2\"]', NULL, 'I want to register this course', '2024-05-02 23:59:12', '2024-05-02 23:59:12'),
+(77, 'open', NULL, 'Pranav Nidhalkar', 'pranavnidhalkar6941@gmail.com', '+91 8793934154', 'Singhad College Of Science', '[null,\"1\",\"2\",\"6\"]', NULL, 'Thank You', '2024-05-03 07:39:25', '2024-05-03 07:39:25'),
+(78, 'open', NULL, 'Sujal Yadav', '52g2021yadavsv@gmail.com', '+91 9820841944', 'J.m.patel college', '[null,\"2\"]', NULL, 'How to attend session', '2024-05-03 12:05:18', '2024-05-03 12:05:18'),
+(79, 'open', NULL, 'sakshi pawar', 'sakshipawar1704@gmail.com', '+91 7208499228', 'Patkar varde college', '[\"2\"]', NULL, 'Enroll me', '2024-05-04 08:33:58', '2024-05-04 08:33:58'),
+(80, 'open', NULL, 'Shaikh anam', 'shaikhanam9873@gmail.com', '+91 8390758517', 'GM', '[null,\"2\",\"8\"]', NULL, 'Java', '2024-05-04 08:38:17', '2024-05-04 08:38:17'),
+(81, 'open', NULL, 'Tejal walavalkar', 'tejalwalavalkar25@gmail.com', '+91 9404442508', 'S.R.M. College kudal', '[null]', NULL, 'What is cloud computing?\r\nAnd what are the use in java?', '2024-05-04 08:39:35', '2024-05-04 08:39:35'),
+(82, 'open', NULL, 'Tejal walavalkar', 'tejalwalavalkar25@gmail.com', '+91 9404442508', 'S.R.M. College kudal', '[null]', NULL, 'What is cloud computing?\r\nAnd what are the use in java?', '2024-05-04 08:45:01', '2024-05-04 08:45:01'),
+(83, 'open', NULL, 'Momin Fatima Altaf', 'mominfatima26@gmail.com', '+91 8446849456', 'G.M. Momim Women\'s College', '[\"6\"]', NULL, 'Enroll me', '2024-05-04 08:54:10', '2024-05-04 08:54:10'),
+(84, 'open', NULL, 'Mariyam Mubeen Ansari', 'ansarimariyam.7422@gmail.com', '+91 7276660490', 'GM MOMIN WOMEN\'S DEGREE COLLEGE', '[\"6\"]', NULL, 'Enroll me', '2024-05-04 08:54:23', '2024-05-04 08:54:23'),
+(85, 'open', NULL, 'Abhishek Gautam', 'chamain2614@gmail.com', '+91 7379762017', 'Student', '[null,\"2\"]', NULL, 'I want to be become full stak developer', '2024-05-04 09:30:46', '2024-05-04 09:30:46'),
+(86, 'open', NULL, 'Abhishek Gautam', 'chamain2614@gmail.com', '+91 7379762017', 'Student', '[null,\"2\"]', NULL, 'Full stack developer', '2024-05-04 09:32:02', '2024-05-04 09:32:02'),
+(87, 'open', NULL, 'Momin saniya shakeeb Ahmad', 'mominsaniya870@gmail.com', '+91 8767158668', 'G.M.Momin Women\'s College', '[null,\"2\",\"6\"]', NULL, NULL, '2024-05-04 12:09:06', '2024-05-04 12:09:06'),
+(88, 'open', NULL, 'Abdul Mobin Samani', 'mobinsamani7045@gmail.com', '+91 7039171650', 'J m Patel college of commerce', '[null,\"2\"]', NULL, NULL, '2024-05-04 19:05:29', '2024-05-04 19:05:29'),
+(89, 'open', NULL, 'Darshan Vijay Patankar', 'darshanpatankar74@gmail.com', '+91 9321637433', 'S.S.S. night college Ghatkopar', '[null,\"2\",\"6\",\"7\",\"8\",\"other\"]', NULL, 'I am cs student.i want understand all concepts clearly.', '2024-05-05 01:00:58', '2024-05-05 01:00:58'),
+(90, 'open', NULL, 'Shumama Sajid Nachan', 'shumamanachan14@gmail.com', '+91 7400095027', 'G.M Momin Women\'s College, bhiwandi', '[null]', NULL, NULL, '2024-05-05 04:29:51', '2024-05-05 04:29:51'),
+(91, 'open', NULL, 'Ansh dubey', 'dubeyansh706@gmail.com', '+91 9137774081', 'Sk college of science and commerce', '[\"2\"]', NULL, 'Enroll me', '2024-05-05 14:44:35', '2024-05-05 14:44:35'),
+(92, 'open', NULL, 'Divya Sunil Wankhede', 'divyawankhede231@gmail.com', '+91 9321056687', 'SK college of science and commerce', '[null,\"1\",\"2\",\"6\",\"5\",\"8\"]', NULL, 'Exited to get learned new things from you. Will I get certificate of this course??', '2024-05-06 00:54:42', '2024-05-06 00:54:42'),
+(93, 'open', NULL, 'Asmita Sandesh Ghadge', 'asmitaghadge116@gmail.com', '+91 9152962004', 'Kle college of science and commerce', '[null,\"1\",\"6\",\"other\"]', NULL, NULL, '2024-05-06 01:52:05', '2024-05-06 01:52:05'),
+(94, 'open', NULL, 'Diksha prabhukeluskar', 'dikshaprabhukeluskar@gmail.com', '+91 8087890559', 'Sant Rawool Maharaj college, kudal', '[\"1\",\"2\",\"3\",\"4\",\"6\",\"5\",\"7\",\"8\",\"other\"]', NULL, 'Good course', '2024-05-07 06:41:07', '2024-05-07 06:41:07'),
+(96, 'open', NULL, 'suman kanti', 'kantisuman1204@gmail.com', '+91 9016051216', 'student', '[null,\"1\",\"2\"]', NULL, 'Thank you', '2024-05-09 09:56:33', '2024-05-09 09:56:33'),
+(97, 'open', NULL, 'Preeti Rajpurohit', 'preeti220405@gmail.com', '+91 8591521870', 'F. G naik college', '[\"6\"]', NULL, 'Enroll me', '2024-05-09 10:50:34', '2024-05-09 10:50:34'),
+(98, 'open', NULL, 'Mahajancy', 'mahajancychelladurai1704@gmail.com', '+91 7718014415', 'SIES COLLEGE OF COMMERCE AND ECONOMICS', '[\"2\"]', NULL, 'Enroll me', '2024-05-09 11:06:17', '2024-05-09 11:06:17'),
+(99, 'open', NULL, 'Pooja Ramishwar yadav', 'py886540@gmail.com', '+91 7304006143', 'Fresher', '[\"1\",\"2\"]', NULL, 'Enroll me', '2024-05-09 11:55:21', '2024-05-09 11:55:21'),
+(101, 'open', NULL, 'Surajkumar Kevat', 'surajkewat73047@gmail.com', '+91 7304726987', 'Guru Nanak College of Arts,Science and Commerce', '[\"1\",\"3\"]', NULL, NULL, '2024-05-09 13:07:54', '2024-05-09 13:07:54'),
+(103, 'open', NULL, 'Tanay Uday Khamkar', 'tanaykhamkar@gmail.com', '+91 9136610950', 'Achivers College', '[\"1\"]', NULL, 'Enroll me', '2024-05-09 22:12:06', '2024-05-09 22:12:06'),
+(104, 'open', NULL, 'SUJAL GUPTA', 'guptasujal274@gmail.com', '+91 8591622461', 'Shree Jaya Anand degree college', '[null,\"6\",\"5\",\"other\"]', NULL, 'Excited', '2024-05-10 00:58:18', '2024-05-10 00:58:18'),
+(106, 'open', NULL, 'Shamin momin', 'ibrahimgamingyt786144@gmail.com', '+91 9662786144', 'College', '[\"6\",\"other\"]', NULL, 'Hello', '2024-05-10 04:56:06', '2024-05-10 04:56:06'),
+(107, 'open', NULL, 'Shubham', 'sj3470245@gmail.com', '+91 9930943265', 'Patkar-Varde college', '[\"6\"]', NULL, 'Enroll me', '2024-05-10 05:08:12', '2024-05-10 05:08:12'),
+(108, 'open', NULL, 'Arbiya maheen', 'arbiyashaikh9860@gmail.com', '+91 7276218144', 'College', '[null,\"6\"]', NULL, 'Hi', '2024-05-12 02:46:16', '2024-05-12 02:46:16'),
+(109, 'open', NULL, 'Rohit Hambirrao Hujare', 'rohithujare742@gmail.com', '+91 9730397046', 'College', '[null,\"1\",\"2\",\"6\"]', NULL, 'Full Stack Developer', '2024-05-12 04:45:37', '2024-05-12 04:45:37'),
+(112, 'open', NULL, 'Pradnya Anand Yelkar', 'pradnyayelkar17@gmail.com', '+91 9021364809', 'G.v.acharya institute of engineering and technology', '[null,\"2\"]', NULL, 'Exited to learn full stack java programming', '2024-05-16 19:04:09', '2024-05-16 19:04:09'),
+(113, 'open', NULL, 'Prem Pawar', 'ppawar6053@gmail.com', '+91 8767590638', 'V.B.D.B.A Model Degree College Ambadave', '[null]', NULL, 'Yes', '2024-05-17 00:00:36', '2024-05-17 00:00:36'),
+(114, 'open', NULL, 'Taniya Rathod', 'Trathod019@gmail.com', '+91 9325757031', 'Viva college,virar (west)', '[null,\"1\",\"2\",\"11\",\"14\",\"21\"]', NULL, NULL, '2024-05-17 00:42:37', '2024-05-17 00:42:37'),
+(115, 'open', NULL, 'Vaishnavi Mahindra Pisal', 'vaishnavipisal434@gmail.com', '+91 9579731601', 'F.G.Naik', '[null,\"1\",\"2\",\"3\",\"4\",\"6\",\"5\",\"7\",\"19\"]', NULL, 'I am interested to learn this course', '2024-05-18 04:22:13', '2024-05-18 04:22:13'),
+(116, 'open', NULL, 'Akanksha Vilas ambulkar', 'akankshaambulkar98@gmail.com', '+91 9004640509', 'Patkar varde college', '[null,\"2\"]', NULL, 'No', '2024-05-18 09:42:03', '2024-05-18 09:42:03'),
+(117, 'open', NULL, 'Arnav shankar magar', 'arnavmagar8@gmail.com', '+91 9321504643', 'SSS multi purpose technical college Computer science night college', '[\"19\"]', NULL, 'Enroll me', '2024-05-19 09:42:52', '2024-05-19 09:42:52'),
+(118, 'open', NULL, 'Fatemeh Naghavi', 'fnaghavi@terpmail.umd.edu', '+1 3015496395', 'University of Maryland College Park', '[\"6\"]', NULL, 'Enroll me', '2024-05-20 21:06:18', '2024-05-20 21:06:18'),
+(120, 'open', NULL, 'Shaikh Sufiyan', 'sufiyaanshaikh0001@gmail.com', '+91 7738798538', 'SIES', '[null,\"5\",\"13\",\"20\",\"21\"]', NULL, 'Eager to know more about the selected course', '2024-05-24 08:31:06', '2024-05-24 08:31:06'),
+(121, 'open', NULL, 'Anita Nilesh Mhatre', 'anitamohanrajput@mes.ac.in', '+91 7276760442', 'PHCASC', '[null,\"6\"]', NULL, NULL, '2024-05-31 00:03:21', '2024-05-31 00:03:21'),
+(122, 'open', NULL, 'Khan Rimsha Fatima Mohammed Naim', 'rimshaishere@gmail.com', '+91 9768379969', 'Rizvi college', '[null]', NULL, 'I\'m bsc-it student at rizvi college', '2024-05-31 00:48:23', '2024-05-31 00:48:23'),
+(123, 'open', NULL, 'Taskeen', 'tasqrrr315@gmail.com', '+91 9987617886', 'Rizvi college of arts science and commerce', '[null,\"6\",\"5\"]', NULL, 'I m extremely excited to learn these courses', '2024-05-31 01:04:50', '2024-05-31 01:04:50'),
+(124, 'open', NULL, 'Rohan Navghane', 'rohannavghane683@gmail.com', '+91 9322052582', 'Sidharth college Mumbai', '[null,\"6\"]', NULL, 'I have learnt python because python is very tough language', '2024-05-31 01:05:44', '2024-05-31 01:05:44'),
+(125, 'open', NULL, 'Ayush Panjari', 'panjariayush32@gmail.com', '+91 9152792993', 'Wilson College', '[null,\"6\",\"18\",\"19\"]', NULL, 'Data Analytics', '2024-05-31 01:14:18', '2024-05-31 01:14:18'),
+(126, 'open', NULL, 'Sameer Ahmed', 'sameerahmed444000@gmail.com', '+91 8077091745', 'Rizvi college', '[\"2\"]', NULL, 'Enroll me', '2024-05-31 04:24:55', '2024-05-31 04:24:55'),
+(127, 'open', NULL, 'Ravindra', 'panadaravindra2005@gmail.com', '+91 8097014715', 'J M Patel college of commerce', '[null,\"1\",\"2\"]', NULL, 'Thank you', '2024-05-31 09:17:32', '2024-05-31 09:17:32'),
+(128, 'open', NULL, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 10:13:10', '2024-05-31 10:13:10'),
+(129, 'open', NULL, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:00:52', '2024-05-31 11:00:52'),
+(130, 'open', NULL, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:07:52', '2024-05-31 11:07:52'),
+(131, 'open', NULL, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:11:59', '2024-05-31 11:11:59'),
+(132, 'open', NULL, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"5\"]', NULL, 'Enroll me', '2024-05-31 11:14:40', '2024-05-31 11:14:40'),
+(133, 'open', NULL, 'Shivram Dilip Sawant', 'chinmaysawant873@gmail.com', '+91 7588065582', 'S. P. K. M College Sawantwadi', '[\"6\",\"5\"]', NULL, 'No', '2024-05-31 11:16:21', '2024-05-31 11:16:21'),
+(134, 'open', NULL, 'Hitesh Yadav', 'yadavhitesh688@gmail.com', '+91 9167977106', 'Jmpc', '[null,\"6\",\"5\",\"22\"]', NULL, 'Python', '2024-06-01 12:14:58', '2024-06-01 12:14:58'),
+(135, 'open', NULL, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"30\"]', NULL, 'Learn', '2024-06-01 21:27:03', '2024-06-01 21:27:03'),
+(136, 'open', NULL, 'Anjali Mahendra Prasad gupta', 'pinkig49470@gmail.com', '+91 9152049470', 'Jashbhai maganbhai Patel college of commerce', '[null,\"1\",\"2\",\"6\",\"10\",\"11\"]', NULL, NULL, '2024-06-01 22:29:21', '2024-06-01 22:29:21'),
+(137, 'open', NULL, 'Gunja Shah', 'gunjashahgps06@gmail.com', '+91 7304342711', 'Sk college of science and commerce', '[null,\"other\"]', NULL, 'I m excited to learn fundamental and python', '2024-06-01 23:25:33', '2024-06-01 23:25:33'),
+(138, 'open', NULL, 'Devesh Ghadigaonkar', 'deveshghadigaonkar@gmail.com', '+91 7208380991', 'Patkar-Varde College, goregaon', '[\"2\"]', NULL, 'Enroll me', '2024-06-02 00:08:36', '2024-06-02 00:08:36'),
+(139, 'open', NULL, 'Nikita hanpade', 'nikitahanpade@gmail.com', '+91 8668749563', 'S.P.K.college sawantwadi', '[null,\"6\",\"8\",\"10\"]', NULL, 'Learn', '2024-06-02 06:03:27', '2024-06-02 06:03:27'),
+(140, 'open', NULL, 'Anisha Liladhar Talgaonkar', 'anishatalgaonkar2004@gmail.com', '+91 8010940478', 'Shri Pancham khemraj college sawantwadi', '[null,\"2\",\"6\"]', NULL, '..', '2024-06-02 06:28:48', '2024-06-02 06:28:48'),
+(141, 'open', NULL, 'Mohammed Hashim Kazi', 'hashimkazi060@gmail.com', '+91 9892895211', 'TY,Rizvi college of arts,science and commerce', '[null,\"6\",\"19\"]', NULL, NULL, '2024-06-03 07:40:22', '2024-06-03 07:40:22'),
+(142, 'open', NULL, 'Mohammed Hashim Kazi', 'hashimkazi060@gmail.com', '+91 9892895211', 'TY,Rizvi college of arts,science and commerce', '[\"6\"]', NULL, 'Enroll me', '2024-06-03 07:52:47', '2024-06-03 07:52:47'),
+(143, 'open', NULL, 'Purushottam kandalgaokar', 'purushottamkandalagaunker@gmail.com', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[\"2\",\"19\"]', NULL, 'I am also interested for this course.', '2024-06-03 09:03:37', '2024-06-03 09:03:37'),
+(144, 'open', NULL, 'Samiksha harmalkar', 'Samikshaharmalkar21@gmail.com', '+91 8275708534', 'SPK college Sawantwadi', '[null,\"1\",\"2\",\"10\",\"11\"]', NULL, 'I like to learn different things regarding Computer language and IT sector', '2024-06-04 03:24:55', '2024-06-04 03:24:55'),
+(145, 'open', NULL, 'Rashmi Suresh Mohite', 'rashmimohite2004@gmail.com', '+91 9405622340', 'SPK College Sawantwadi', '[\"2\"]', NULL, 'Learning for my best future.', '2024-06-04 03:29:59', '2024-06-04 03:29:59'),
+(146, 'open', NULL, 'Manisha Raghoba Agarwadekar', 'agarwadekarmanisha@gmail.com', '+91 7875253506', 'M.Sc.I.T.   University of Mumbai', '[\"6\"]', NULL, 'Enroll me', '2024-06-05 09:55:08', '2024-06-05 09:55:08'),
+(147, 'open', NULL, 'Samiksha Sanjay Desai', 'desaisamiksha03@gmail.com', '+91 9421094049', NULL, '[null,\"2\",\"9\",\"10\",\"11\",\"19\"]', NULL, NULL, '2024-06-06 02:51:13', '2024-06-06 02:51:13'),
+(148, 'open', NULL, 'Gunja Shah', 'gunjashahgps06@gmail.com', '+91 7304342711', 'Sk college of science and commerce', '[null]', NULL, 'I\'m excited to learn', '2024-06-06 06:32:56', '2024-06-06 06:32:56'),
+(149, 'open', NULL, 'Purushottam Bhikaji Kandalgaunker', 'purushottamkandalagaunker@gmail.com', '+91 8275409746', 'Shri pancham khemraj university, sawantwaadi', '[null]', NULL, 'I am interested for python course', '2024-06-06 08:36:45', '2024-06-06 08:36:45'),
+(150, 'open', NULL, 'Afsana Abdul latif khan', 'afsana6969786@gmail.com', '+91 9769973632', 'Asmita college', '[null,\"1\",\"2\"]', NULL, 'To learn', '2024-06-12 01:49:12', '2024-06-12 01:49:12'),
+(151, 'open', NULL, 'Afzal Modak', 'modakafzal@gmail.com', '+91 9930983020', 'GSF Managent', '[null,\"6\",\"other\"]', NULL, 'Looking to see how to apply capabilities to startups', '2024-06-14 08:42:41', '2024-06-14 08:42:41'),
+(152, 'open', NULL, 'Ankit', 'sanjayverma051974@gmail.com', '+91 7208172559', 'Westan clg', '[null,\"2\"]', NULL, 'Kn', '2024-06-15 10:06:41', '2024-06-15 10:06:41'),
+(153, 'open', NULL, 'Prerana Bharat Patil', 'prerana1625@gmail.com', '+91 9321751687', 'Veer wajekar arts science commerce college phunde', '[null]', NULL, 'Thanks the workshop', '2024-06-15 11:04:08', '2024-06-15 11:04:08'),
+(154, 'open', NULL, 'Vedanti Mugade', 'vedantimugade555@gmail.com', '+91 8591665110', 'Western College of Commerce and Business Management', '[null,\"6\",\"5\",\"7\",\"13\",\"18\",\"19\",\"20\",\"22\",\"23\"]', NULL, 'Eagerly waiting to start my carrer', '2024-06-15 11:53:46', '2024-06-15 11:53:46'),
+(155, 'open', NULL, 'Rashmi Suresh Mohite', 'rashmimohite2004@gmail.com', '+91 9405622340', 'SPK College Sawantwadi', '[\"2\"]', NULL, 'Best Learning', '2024-06-15 21:21:20', '2024-06-15 21:21:20'),
+(156, 'open', NULL, 'Akanksha Santosh Patil', 'akankshasp2804@gmail.com', '+91 9920571851', 'Veer Wajekar asc college Phunde Maharashtra', '[null,\"2\"]', NULL, NULL, '2024-06-16 06:31:26', '2024-06-16 06:31:26'),
+(157, 'open', NULL, 'Sunakshi Dhruva patil', 'sunakshi15105@gmail.com', '+91 9594457036', 'Ty v.w asc collage funde', '[null,\"2\"]', NULL, NULL, '2024-06-16 08:31:41', '2024-06-16 08:31:41'),
+(158, 'open', NULL, 'Vipul Divekar', 'vipuldivekar7@gmail.com', '+91 9579971366', 'SYIT', '[null,\"1\",\"2\",\"6\"]', NULL, 'Good', '2024-06-16 08:36:32', '2024-06-16 08:36:32'),
+(159, 'open', NULL, 'Roshani Chauhan', 'roshanichauhan567@gmail.com', '+91 7208195236', 'Satish pradhan dnyansadhana college, thane', '[null]', NULL, NULL, '2024-06-17 23:55:20', '2024-06-17 23:55:20'),
+(160, 'open', NULL, 'Jahid kannur', 'jahidkannur778@gamil.com', '+91 6360584347', 'Satish pardhan dyansadhana college', '[null,\"31\"]', NULL, 'Thank you for the opportunity', '2024-06-18 03:40:24', '2024-06-18 03:40:24'),
+(161, 'open', NULL, 'Bhumi Mahesh Mirgal', 'bhumimirgal19115@gmail.com', '+91 9404710470', 'Satish Pradhan dhyansadhna college Thane', '[null,\"2\",\"6\",\"31\"]', NULL, NULL, '2024-06-18 07:55:36', '2024-06-18 07:55:36'),
+(162, 'open', NULL, 'Ambrish pandey', 'pandeypriyanshu4631@gmail.com', '+91 9152046501', 'Satish Pradhan dyansadna college', '[null,\"1\",\"2\"]', NULL, 'Yes', '2024-06-21 06:13:46', '2024-06-21 06:13:46'),
+(165, 'enrollment', 'CCQ6105FC33ABCDF2', 'Sanjay Jaiswar', 'sanjaiswar@gmail.com', '+91 9967806575', 'TY SIWS', '[\"5\"]', NULL, 'Enroll me', '2024-06-26 00:02:56', '2024-06-26 00:02:56'),
+(168, 'open', 'CCQ7306AFD7D20A1B', 'Sanjay Jaiswar', 'sanjaiswar@gmail.com', '+91 9967806575', 'TY SIWS', '[\"0\",\"1\",\"5\"]', NULL, 'PHP AWS', '2024-06-26 00:19:57', '2024-06-26 00:19:57'),
+(171, 'enrollment', 'CCQB58C0BF3FA6894', 'Sanjay Jaiswar', 'sanjaiswar@gmail.com', '+91 9967806575', 'TY SIWS', '[\"11\"]', NULL, 'Enroll me', '2024-06-26 00:30:34', '2024-06-26 00:30:34');
 
 --
 -- Indexes for dumped tables
@@ -2600,7 +2601,7 @@ ALTER TABLE `user_feedback`
 -- AUTO_INCREMENT for table `user_query`
 --
 ALTER TABLE `user_query`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
 --
 -- Constraints for dumped tables

@@ -83,7 +83,7 @@
             <div class="col-xl-8">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
                     <span class="sub-title">Payment Options</span>
-                    <h2 class="border-title"> Course: {{$courseinfo->name}}</h2>
+                    <h3 class="border-title"> Course: {{$courseinfo->name}}</h3>
                     <img src="{{asset('payment_option/payment_options.webp')}}" alt="">
                     <h3 class="widget_title mt-4">CodeCruise Powered By WhizzAct</h3>
                     <div class="info-list">

@@ -22,7 +22,7 @@ class UserQuery extends Model
      * @var array
      */
     protected $fillable = [
-        'query_for','reg_code', 'name', 'email', 'contact', 'company_college_name', 'course_ids', 'other_course', 'message', 'created_at', 'updated_at'
+        'query_for', 'reg_code', 'name', 'email', 'contact', 'company_college_name', 'course_ids', 'other_course', 'message', 'payment_proofs', 'admin_comment', 'status', 'created_at', 'updated_at'
     ];
 
     /**
@@ -31,6 +31,7 @@ class UserQuery extends Model
      * @var array
      */
     protected $casts = [
-        'course_ids' => 'array', // Cast 'course_ids' column to array
+        'course_ids' => 'array',
+        'payment_proofs' => 'array',
     ];
 }

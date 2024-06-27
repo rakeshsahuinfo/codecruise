@@ -44,6 +44,9 @@
                                     <th>Contact</th>
                                     <th>Background</th>
                                     <th>Message</th>
+                                    <th>Status</th>
+                                    <th>AdminComment</th>
+                                    <th>DocProofs</th>
                                     <th>RegCode</th>
                                     <th>RegisterDate</th>
                                 </tr>
@@ -56,6 +59,9 @@
                                     <th>Contact</th>
                                     <th>Background</th>
                                     <th>Message</th>
+                                    <th>Status</th>
+                                    <th>AdminComment</th>
+                                    <th>DocProofs</th>
                                     <th>RegCode</th>
                                     <th>RegisterDate</th>
                                 </tr>
@@ -66,8 +72,8 @@
                                 <tr>
                                     <td>
                                         <div class='d-flex'>
-                                            <a href="{{route('edit-promo-session-registration',$uq->id)}}"
-                                                title="Edit Participation Details" class='text-dark'><i
+                                            <a href="{{route('edit-course-enrollment',$uq->id)}}"
+                                                title="Edit Enrollment Details" class='text-dark'><i
                                                     class='fas fa-edit'></i></a>
                                         </div>
                                     </td>
@@ -76,6 +82,22 @@
                                     <td>{{$uq->contact}}</td>
                                     <td>{{$uq->company_college_name}}</td>
                                     <td>{{$uq->message}}</td>
+                                    <td>{{$uq->status}}</td>
+                                    <td>{{$uq->admin_comment}}</td>
+                                    <td>
+                                        @if($uq->payment_proofs)
+                                        @foreach($uq->payment_proofs as $pf)
+                                        <div class="mt-1">
+                                            <a href="{{asset('payment_proof/'.$pf)}}" target="_new"><img
+                                                    class="img-fluid" src="{{asset('payment_proof/'.$pf)}}"
+                                                    style="width: 150px;height: 100px;"></a>
+                                            <a href="{{route('delete-document-proof',['user_query_id' => $uq->id, 'filename' => $pf])}}"
+                                                onclick="return confirmDelete(event)" class="text-danger float-end"
+                                                title="Delete file"><i class='fas fa-trash'></i></a>
+                                        </div>
+                                        @endforeach
+                                        @endif
+                                    </td>
                                     <td>{{$uq->reg_code}}</td>
                                     <td>{{
                                         \Carbon\Carbon::parse($uq->created_at)->timezone('Asia/Kolkata')->format('d-M-y
@@ -125,6 +147,13 @@
         });
     }
 
+    function confirmDelete(event) {
+        var confirmation = confirm("Are you sure you want to delete this file?");
+        if (!confirmation) {
+            event.preventDefault();
+        }
+        return confirmation;
+    }
 </script>
 
 @stop

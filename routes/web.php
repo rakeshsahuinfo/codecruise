@@ -66,6 +66,9 @@ Route::group(['middleware' => ['auth', CheckRole::class, PreventBackHistory::cla
     Route::post('/update-course', [AdminCourseController::class, 'update'])->name('update-course');
     Route::get('/show-course/{id}', [AdminCourseController::class, 'index'])->name('show-course');
     Route::get('/show-course-enrollment/{id}', [AdminCourseController::class, 'showCourseEnrollment'])->name('show-course-enrollment');
+    Route::get('/edit-course-enrollment/{id}', [AdminCourseController::class, 'editCourseenrollment'])->name('edit-course-enrollment');
+    Route::post('/update-course-enrollment', [AdminCourseController::class, 'updateCourseEnrollment'])->name('update-course-enrollment');
+    Route::get('/delete-document-proof/{user_query_id}/{filename}', [AdminCourseController::class, 'deleteDocumentProof'])->name('delete-document-proof');
 
     Route::get('/tech-stack', [AdminTechStackController::class, 'index'])->name('admin-tech-stack');
     Route::get('/new-tech-stack', [AdminTechStackController::class, 'new'])->name('new-tech-stack');

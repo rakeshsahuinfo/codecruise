@@ -214,4 +214,64 @@ class CourseController extends Controller
             Log::info("Something went wrong");
         }
     }
+
+    public function editCourseenrollment($id)
+    {
+        try {
+            $userquery = UserQuery::find($id);
+            $course=Course::find($userquery->course_ids[0]);
+            $status=["NA","Payment Pending","Partial Payment","Payment Complete","Payment Failed","Admission Confirm","Not Interested"];
+            return view('admin.course.edit-course-enrollment', ['userquery' => $userquery,'course'=>$course,'status'=>$status]);
+        } catch (Exception $ex) {
+            Log::info("Something went wrong");
+        }
+    }
+
+    public function updateCourseEnrollment(Request $request)
+    {
+        try {
+            $request->validate([
+                'payment_proofs.*' => 'nullable|file|mimes:jpg,jpeg,png,webp,pdf,doc,docx',
+            ]);
+            $userquery = UserQuery::find($request->user_query_id);
+            $userquery->name = $request->name;
+            $userquery->email = $request->email;
+            $userquery->contact = $request->contact;
+            $userquery->company_college_name = $request->company_college_name;
+            if ($request->hasFile('payment_proofs')) {
+                $paths = [];
+                foreach ($request->file('payment_proofs') as $file) {
+                    $filename = uniqid().time().'_'.$file->getClientOriginalName();
+                    $file->move(public_path('payment_proof'), $filename);
+                    $paths[] = $filename;
+                }
+                $existingPaths = $userquery->payment_proofs ?? [];
+                $allPaths = array_merge($existingPaths, $paths);
+                $userquery->payment_proofs = $allPaths;
+            }
+            $userquery->admin_comment=$request->admin_comment;
+            $userquery->status=$request->status;
+            $userquery->update();
+            return redirect('/admin/show-course-enrollment/' . $userquery->course_ids[0])->with(['msg' => 'Enrollment Detail Updated', 'status' => 'success']);
+        } catch (Exception $ex) {
+            Log::info($ex);
+            Log::info("Something went wrong");
+        }
+    }
+
+    public function deleteDocumentProof($user_query_id,$filename)
+    {
+        $filePath = public_path('payment_proof') . '/' . $filename;
+        if (File::exists($filePath)) {
+            File::delete($filePath);
+            $userquery = UserQuery::where('id',$user_query_id)->where('payment_proofs', 'LIKE', '%'.$filename.'%')->first();
+            if ($userquery) {
+                $userquery->update([
+                    'payment_proofs' => array_diff($userquery->payment_proofs, [$filename])
+                ]);
+            }
+            return redirect()->back()->with(['msg' => 'Document Deleted', 'status' => 'success']);
+        }
+        return redirect()->back()->with(['msg' => 'Something went wrong', 'status' => 'danger']);
+    }
 }

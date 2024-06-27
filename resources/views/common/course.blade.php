@@ -375,7 +375,7 @@ Event Area
                         </div>
                         @endif
 
-                        <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">Enquire Now</a>
+                        <a href="{{route('enroll-course',$courseinfo->slug)}}" class="th-btn">proceed to enroll</a>
                         <!-- <a href="cart.html" class="th-btn style4">Buy Now</a> -->
                         <h3 class="widget_title">Course Information</h3>
                         <div class="info-list">

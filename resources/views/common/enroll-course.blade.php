@@ -156,13 +156,13 @@
                                 </li> -->
                             </ul>
                         </div>
-
+                        <a href="{{route('course',$courseinfo->slug)}}" class="th-btn mt-5">VIEW MORE INFORMATION</a>
                     </div>
                 </div>
             </div>
             <div class="col-xl-7">
                 <div class="contact-form-wrap" data-bg-src="assets/img/bg/contact_bg_1.png">
-                    <span class="sub-title">SEND YOUR INTEREST FOR</span>
+                    <span class="sub-title">YOUR ARE INTEREST FOR</span>
                     <h2 class="border-title"> {{$courseinfo->name}}</h2>
                     <form id="contact-form" method="post" action="{{route('save-query')}}" class="contact-form">
                         @csrf

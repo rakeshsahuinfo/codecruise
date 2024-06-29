@@ -143,7 +143,7 @@ Event Area
                         <div class="tab-content" id="productTabContent">
                             <div class="tab-pane fade show active" id="Coursedescription" role="tabpanel"
                                 aria-labelledby="description-tab">
-                                <div class="course-description">
+                                <div class="course-description text-justify">
                                     <h5 class="h5">Description</h5>
                                     {!! $courseinfo->description !!}
                                 </div>

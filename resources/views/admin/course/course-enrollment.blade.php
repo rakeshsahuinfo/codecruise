@@ -83,7 +83,7 @@
                                     <td>{{$uq->company_college_name}}</td>
                                     <td>{{$uq->message}}</td>
                                     <td>{{$uq->status}}</td>
-                                    <td>{{$uq->admin_comment}}</td>
+                                    <td>{!! nl2br($uq->admin_comment) !!}</td>
                                     <td>
                                         @if($uq->payment_proofs)
                                         @foreach($uq->payment_proofs as $pf)

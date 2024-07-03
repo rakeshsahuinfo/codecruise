@@ -74,7 +74,7 @@
                                         <div class="form-group w-100  my-4">
                                             <label for="admin_comment">Admin Comment</label>
                                             <textarea type="text" class="form-control" name="admin_comment"
-                                                id="admin_comment"> {{$userquery->admin_comment}}</textarea>
+                                                id="admin_comment">{{$userquery->admin_comment}}</textarea>
                                         </div>
                                         <div class="form-group w-100 my-4">
                                             <label for="status">Status</label>

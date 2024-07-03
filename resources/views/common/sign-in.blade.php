@@ -45,7 +45,7 @@
     <div class="container">
         <div class="login-wrapper text-center card">
             <div class="login-content">
-              <div class="login-logo"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="" class="img-fluid" style="width: 200px;height: auto;"></div>
+              {{--<div class="login-logo"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="" class="img-fluid" style="width: 200px;height: auto;"></div>--}}
               <div class="login-form">
                 <form method="post" action="javascript:void(0)">
                   <div>

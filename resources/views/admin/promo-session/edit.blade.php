@@ -24,7 +24,7 @@
                         Promo Sessions</a>
                 </div>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard','open')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('admin-promo-session')}}">Promo Session</a></li>
                     <li class="breadcrumb-item active"><a href="#">{{$proses->name}}</a></li>
                     <li class="breadcrumb-item active">Edit</li>

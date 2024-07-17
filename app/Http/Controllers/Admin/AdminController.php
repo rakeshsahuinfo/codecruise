@@ -31,7 +31,7 @@ class AdminController extends Controller
         } else {
 
             if (auth()->attempt($credentials)) {
-                return redirect('/admin/dashboard')->with(['msg' => 'Logged in', 'status' => 'success']);
+                return redirect()->route('admin-dashboard', ['query_for' => 'open'])->with(['msg' => 'Logged in', 'status' => 'success']);
             } else {
                 return redirect()->back()->withInput()->with(['msg' => 'Login Failed', 'status' => 'danger']);
             }
@@ -44,11 +44,11 @@ class AdminController extends Controller
         return redirect('/admin-login')->with(['msg' => 'Logged out', 'status' => 'success']);
     }
 
-    public function dashboard()
+    public function dashboard($query_for)
     {
         try {
-            $uq = UserQuery::where('query_for','open')->orderBy('created_at', 'desc')->get();
-            return view('admin.dashboard', ['user_query' => $uq]);
+            $uq = UserQuery::where('query_for', $query_for)->orderBy('created_at', 'desc')->get();
+            return view('admin.dashboard', ['user_query' => $uq, 'query_for' => $query_for]);
         } catch (Exception $ex) {
             Log::info("Something went wrong");
         }
@@ -125,11 +125,11 @@ class AdminController extends Controller
             echo $csv->toString();
         }, 'promo_reg_details_' . Carbon::now()->format('Ymd_His') . '.csv');
     }
-    
+
     public function downloadEnrolledCandidate($id)
     {
 
-        $data = DB::select("SELECT name, email, contact, company_college_name FROM user_query where query_for='enrollment' and course_ids='".json_encode([$id])."'");
+        $data = DB::select("SELECT name, email, contact, company_college_name FROM user_query where query_for='enrollment' and course_ids='" . json_encode([$id]) . "'");
 
         $csv = Writer::createFromString('');
         $csv->insertOne(['name', 'email', 'contact', 'background']);

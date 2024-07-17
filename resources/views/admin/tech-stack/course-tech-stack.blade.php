@@ -17,7 +17,7 @@
                     <a href="{{route('new-tech-stack')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-plus mx-1'></i> New Tech Stack</a>
                 </div>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{route('admin-tech-stack')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard','open')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active">Tech Stack</li>
                 </ol>
                 <div class="card mb-4 {{session('msg')?'':'d-none'}}">

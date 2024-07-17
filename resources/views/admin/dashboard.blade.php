@@ -12,13 +12,13 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h3 class="mt-4 text-uppercase">User Query</h3>
+                <h3 class="mt-4 text-uppercase">{{$query_for}} Query</h3>
                 <div class="action-container">
                     <a href="{{route('download-inquiry-candidate')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-download mx-1'></i> Download</a>
                 </div>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active">All Queries</li>
+                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard','open')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item active">All {{ucwords($query_for)}} Queries</li>
                 </ol>
                 <div class="card mb-4 {{session('msg')?'':'d-none'}}">
                     <div class="alert {{session('status')?'alert-'.session('status'):''}} alert-dismissible">
@@ -27,9 +27,9 @@
                     </div>
                 </div>
                 <div class="card mb-4">
-                    <div class="card-header">
+                    <div class="card-header text-uppercase">
                         <i class="fas fa-table me-1"></i>
-                        ALL QUERIES
+                        ALL {{ucwords($query_for)}} Queries
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">

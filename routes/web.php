@@ -53,7 +53,7 @@ Route::get('/verify-completion-certificate/{code}', [AdminPromoSessionController
 
 Route::group(['middleware' => ['auth', CheckRole::class, PreventBackHistory::class], 'prefix' => 'admin'], function () {
     Route::get('/admin-sign-out', [AdminController::class, 'signOut'])->name('admin-sign-out');
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
+    Route::get('/dashboard/{query_for}', [AdminController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('/course-type', [AdminCourseTypeController::class, 'index'])->name('admin-course-type');
     Route::get('/new-course-type', [AdminCourseTypeController::class, 'new'])->name('new-course-type');
     Route::post('/create-course-type', [AdminCourseTypeController::class, 'create'])->name('create-course-type');

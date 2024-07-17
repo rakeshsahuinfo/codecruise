@@ -24,7 +24,7 @@
                         COURSE ENROLLMENT</a>
                 </div>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard','open')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('admin-course')}}">Course</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('show-course-enrollment',$userquery->course_ids[0])}}">Course Enrollment</a></li>
                     <li class="breadcrumb-item active">Edit</li>

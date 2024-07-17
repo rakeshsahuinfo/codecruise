@@ -18,7 +18,7 @@
                     <a href="{{route('admin-course-type')}}" class="btn btn-dark btn-sm text-uppercase my-1 action-btn"><i class='fas fa-eye mx-1'></i> All Course Types</a>
                 </div>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard','open')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('admin-course-type')}}">Course Type</a></li>
                     <li class="breadcrumb-item active">New</li>
                 </ol>

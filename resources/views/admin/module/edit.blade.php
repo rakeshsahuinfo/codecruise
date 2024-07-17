@@ -23,7 +23,7 @@
                             class='fas fa-eye mx-1'></i> All Courses</a>
                 </div>
                 <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard')}}">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin-dashboard','open')}}">Dashboard</a></li>
                     <li class="breadcrumb-item active"><a href="{{route('admin-course')}}">Courses</a></li>
                     <li class="breadcrumb-item active">Edit Module</li>
                 </ol>

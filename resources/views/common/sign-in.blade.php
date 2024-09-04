@@ -49,7 +49,7 @@
               <div class="login-form">
                 <form method="post" action="javascript:void(0)">
                   <div>
-                    <h4>PLEASE LOG IN TO VIEW THE LATEST UPDATES & JOB POSTINGS</h4>
+                    <h4>PLEASE SIGN IN TO VIEW THE LATEST UPDATES & JOB POSTINGS</h4>
                     <a  class="btn btn-google w100 mt-4" href="{{ url('login/google') }}"><img src="{{asset('/common/assets/img/google-signin.png')}}" alt=""></a>
                   </div>
                 </form>

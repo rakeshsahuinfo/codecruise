@@ -80,6 +80,9 @@ $ctype=App\Models\CourseType::where('is_active',1)->orderBy('name','asc')->get()
                                     <li>
                                         <a href="{{route('contact')}}">Contact</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('jobs')}}">Jobs <span class="new-label bg-warning">New</span></a>
+                                    </li>
                                     @if(Auth::user())
                                     <li>
                                         <a href="{{route('user-desk')}}"> Welcome {{auth()->user()->name}}</a>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PromoSessionController as AdminPromoSessionContro
 use App\Http\Controllers\Admin\TechStackController as AdminTechStackController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\FeedbackAuthController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\PromoSessionRegistrationController;
 use App\Http\Controllers\QueryController;
@@ -119,3 +120,6 @@ Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => '
     Route::get('/user-desk', [UserController::class, 'userDesk'])->name('user-desk');
     Route::get('/sign-out', [UserController::class, 'signOut'])->name('sign-out');
 });
+
+//JOBS
+Route::get('/jobs', [JobController::class, 'jobs'])->name('jobs');

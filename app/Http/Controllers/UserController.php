@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
@@ -61,5 +62,28 @@ class UserController extends Controller
     public function userDesk()
     {
         return view('common.home.user-desk');
+    }
+
+    public function userProfile()
+    {
+        $country = Country::all();
+        return view('common.home.user-profile', ['country' => $country]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        // return $request;
+        try {
+            $user = User::find(Auth::user()->id);
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->phone_code = $request->phone_code;
+            $user->contact = $request->contact;
+            $user->update();
+            return redirect('/user/user-profile')->with(['msg' => 'Profile Updated', 'status' => 'success']);
+        } catch (Exception $e) {
+            Log::info($e);
+            return redirect('/user/user-profile')->with(['msg' => 'Profile Not Updated', 'status' => 'danger']);
+        }
     }
 }

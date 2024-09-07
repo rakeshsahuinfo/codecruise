@@ -87,7 +87,7 @@ $ctype=App\Models\CourseType::where('is_active',1)->orderBy('name','asc')->get()
                                     <li class="menu-item-has-children">
                                         <a href="{{route('user-desk')}}"> Welcome {{auth()->user()->name}}</a>
                                         <ul class="sub-menu">
-                                             {!!(Auth::user()->contact==null || Auth::user()->contact=="")?'<li><a href="#">Contact<span class="new-label bg-danger">Update</span></a></li>':''!!}
+                                             {!!(Auth::user()->contact==null || Auth::user()->contact=="")?'<li><a href="'.route('user-profile').'">Contact<span class="new-label bg-danger">Update</span></a></li>':'<li><a href="'.route('user-profile').'">Profile</a></li>'!!}
                                             <li><a href="{{route('sign-out')}}">Sign-out</a></li>
                                         </ul>
                                     </li>

@@ -32,7 +32,7 @@ Route::get('/course-catalog', [CourseController::class, 'courseCatalog'])->name(
 Route::get('/download-course-info/{id}', [CourseController::class, 'downloadCourseinfo'])->name('download-course-info');
 Route::get('/search-course', [CourseController::class, 'searchCourse'])->name('search-course');
 Route::post('/save-query', [QueryController::class, 'saveQuery'])->name('save-query');
-Route::get('/payment-option/{slug}',[QueryController::class, 'paymentOption'])->name('payment-option');
+Route::get('/payment-option/{slug}', [QueryController::class, 'paymentOption'])->name('payment-option');
 Route::get('/enroll-course/{course_id}', [QueryController::class, 'enrollCourse'])->name('enroll-course');
 Route::get('promo/{promo_type}/{slug}', [PromoSessionRegistrationController::class, 'promoSession'])->name('promo-session');
 Route::post('/register-promo-session', [PromoSessionRegistrationController::class, 'registerPromoSession'])->name('register-promo-session');
@@ -119,6 +119,8 @@ Route::get('/login/google/callback', [UserController::class, 'callback'])->name(
 Route::group(['middleware' => ['auth', PreventBackHistory::class], 'prefix' => 'user'], function () {
     Route::get('/user-desk', [UserController::class, 'userDesk'])->name('user-desk');
     Route::get('/sign-out', [UserController::class, 'signOut'])->name('sign-out');
+    Route::get('/user-profile', [UserController::class, 'userProfile'])->name('user-profile');
+    Route::post('update-profile', [UserController::class, 'updateProfile'])->name('update-profile');
 });
 
 //JOBS

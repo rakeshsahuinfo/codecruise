@@ -42,8 +42,10 @@
     Contact Area  
     ==============================-->
 <div class="space" id="contact-sec" style="width: 80%;margin: 0px auto;">
-    <div class="container" style="text-align: justify;">
-        <h4 class="text-uppercase">Welcome</h4>
+    <div class="container" style="text-align: justify;margin-top: -50px;">
+        <h5 class="text-uppercase text-center">CodeCruise Official Hiring Partner With Optimhire</h5>
+
+		<iframe src="https://optimhire.com/d/Search-job-iframe?ref_code=code-cruise&skill=&positions=&dark_color=007072&light_color=0F2239" width="100%" height="1200"></iframe>
     </div>
 </div>
 <!--==============================

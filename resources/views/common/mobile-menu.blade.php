@@ -52,11 +52,13 @@ $ctype=App\Models\CourseType::where('is_active',1)->get();
                     <a href="{{route('jobs')}}">Jobs <span class="new-label bg-warning">New</span></a>
                 </li>
                 @if(Auth::user())
-                <li>
+                <li class="menu-item-has-children">
                     <a href="{{route('user-desk')}}"> Welcome {{auth()->user()->name}}</a>
-                </li>
-                <li>
-                    <a href="{{route('sign-out')}}">Sign-out</a>
+                    <ul class="sub-menu">
+                        {!!(Auth::user()->contact==null || Auth::user()->contact=="")?'<li><a href="#">Contact<span
+                                    class="new-label bg-danger">Update</span></a></li>':''!!}
+                        <li><a href="{{route('sign-out')}}">Sign-out</a></li>
+                    </ul>
                 </li>
                 @else
                 <li>

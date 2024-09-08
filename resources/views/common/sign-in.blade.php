@@ -1,6 +1,35 @@
 @extends('layouts.common.master')
 @section('title','Sign-In')
 @section('headasset')
+<style>
+    /* Style to make the iframe act as the background */
+    .iframe-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%; /* Keep the full width as before */
+        height: 1200px; /* Adjust height to match original iframe height */
+        opacity: 0.3; /* Reducing transparency of the iframe */
+        z-index: 1; /* Lower z-index to make it appear in the background */
+        pointer-events: none; /* Disabling interaction */
+    }
+
+    /* Style to keep the form on top */
+    .login-content {
+        position: relative;
+        z-index: 2; /* Higher z-index to appear above the iframe */
+        background-color: #ffffff; /* Solid white background */
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
+    }
+
+    /* Ensure the container has position relative to contain the absolute iframe */
+    #contact-sec {
+        position: relative;
+        min-height: 100vh; /* Ensure the section height accommodates the iframe */
+    }
+</style>
 @stop
 @section('content')
 <!--[if lte IE 9]>
@@ -33,36 +62,36 @@
     @include('common.top-bar')
     @include('common.nav')
 </header>
-<!--==============================
-	Hero Area
-	==============================-->
-
 
 <!--==============================
     Contact Area  
     ==============================-->
 <div class="space" id="contact-sec">
     <div class="container">
-        <div class="login-wrapper text-center card">
+        <div class="login-wrapper text-center">
             <div class="login-content">
-              {{--<div class="login-logo"><img src="{{asset('common/assets/img/logo-white.png')}}" alt="" class="img-fluid" style="width: 200px;height: auto;"></div>--}}
-              <div class="login-form">
+                <!-- Sign-in Form -->
                 <form method="post" action="javascript:void(0)">
-                  <div>
-                    <h5>PLEASE SIGN IN TO VIEW THE LATEST UPDATES & JOB POSTINGS</h5>
-                    <a  class="btn btn-google w100 mt-4" href="{{ url('login/google') }}"><img src="{{asset('/common/assets/img/google-signin.png')}}" alt=""></a>
-                  </div>
+                    <div>
+                        <h6>PLEASE SIGN IN TO VIEW THE LATEST UPDATES & JOB POSTINGS</h6>
+                        <a  class="btn btn-google w100 my-4" href="{{ url('login/google') }}">
+                            <img src="{{asset('/common/assets/img/google-signin.png')}}" alt="">
+                        </a>
+                    </div>
                 </form>
-              </div>
+                <!-- End of Sign-in Form -->
             </div>
         </div>
     </div>
+
+    <!-- Job Iframe (in the background) -->
+    <iframe src="https://optimhire.com/d/Search-job-iframe?ref_code=code-cruise&skill=&positions=&dark_color=007072&light_color=0F2239" class="iframe-background" width="100%" height="1200"></iframe>
 </div>
+
 <!--==============================
 	Footer Area
 	==============================-->
 @include('common.footer')
-
 
 <!--********************************
 			Code End  Here 
@@ -77,8 +106,6 @@
     </svg>
 </div>
 <!-- End #main -->
-<!-- ======= Footer ======= -->
-<!-- End Footer -->
 @stop
 @section('jsscript')
 @include('layouts.common.jsscript')

@@ -150,7 +150,7 @@
                                         @if($country)
                                         @foreach($country as $con)
                                         <option value="{{$con->phonecode}}" {{($con->
-                                            phonecode==Auth::user()->phone_code)?"selected":""}}>{{$con->nicename}}
+                                            phonecode==Auth::user()->phone_code)?"selected":"91"}}>{{$con->nicename}}
                                         </option>
                                         @endforeach
                                         @endif

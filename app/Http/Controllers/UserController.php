@@ -32,7 +32,7 @@ class UserController extends Controller
             $u = User::where('email', $user->email)->first();
             if ($u) {
                 Auth::login($u);
-                return redirect('/user/user-desk')->with(['msg' => 'Logged in', 'status' => 'success']);
+                return redirect('/user/user-desk')->with(['mssg' => 'Logged in', 'status' => 'success']);
             } else {
                 $new_user = new User();
                 $new_user->email = $user->email;
@@ -41,7 +41,7 @@ class UserController extends Controller
                 $new_user->role = "open";
                 if ($new_user->save()) {
                     Auth::login($new_user);
-                    return redirect('/user/user-desk')->with(['msg' => 'Logged in', 'status' => 'success']);
+                    return redirect('/user/user-desk')->with(['mssg' => 'Logged in', 'status' => 'success']);
                 } else {
                     return back()->with(['msg' => 'Login Failed', 'status' => 'error']);
                 }

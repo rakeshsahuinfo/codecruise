@@ -18,7 +18,7 @@
     .login-content {
         position: relative;
         z-index: 2; /* Higher z-index to appear above the iframe */
-        background-color: #ffffff; /* Solid white background */
+        background-color: #f0f9fa; /* Solid white background */
         padding: 15px;
         border-radius: 8px;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Optional shadow for better separation */
@@ -67,7 +67,7 @@
     Contact Area  
     ==============================-->
 <div class="space" id="contact-sec">
-    <div class="container">
+    <div class="container mt-4">
         <div class="login-wrapper text-center">
             <div class="login-content">
                 <!-- Sign-in Form -->
